@@ -14,7 +14,7 @@ Please ensure your code follows the language's naming conventions, here's a list
 - [C#'s Conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 - [C++'s Conventions](https://google.github.io/styleguide/cppguide.html)
 
-Make sure your Pull Request describes exactly what the code does and why you're PRing it!
+Make sure your pull request describes exactly what the code does and explains why you're making the pull request!
 
 
 
