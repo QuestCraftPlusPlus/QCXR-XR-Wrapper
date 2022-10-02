@@ -20,8 +20,6 @@ public class ActivityLoader : MonoBehaviour
     public RayInteractor interactor;
     private bool isSelecting = false;
     private TouchScreenKeyboard keyboard;
-    public static string inputText = "";
-    private bool shouldKeyboardOpen = false;
 
     private void Start()
     {
@@ -72,6 +70,14 @@ public class ActivityLoader : MonoBehaviour
         {
             SurfaceHit hit = interactableRef.Value;
             float y = Math.Abs(GetComponent<Transform>().parent.position.y - hit.Point.y) * 1890;
+            if(y > 500)
+            {
+                y += 1000;
+            } else if(y < 500)
+            {
+                y -= 1000;
+            }
+            y = Math.Abs(y);
             float x = Math.Abs(GetComponent<Transform>().parent.position.x - hit.Point.x) * 1890;
             if (m_AppContainer != null && isSelecting)
             {
