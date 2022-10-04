@@ -5,13 +5,18 @@ using UnityEngine.XR;
 
 public class OpenXRKiller : MonoBehaviour
 {
+    private bool hasKilled = false;
     public void KillOpenXR()
     {
-        var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
-        SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
-        foreach (var xrDisplay in xrDisplaySubsystems)
+        if (!hasKilled)
         {
-            xrDisplay.Destroy();
+            var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
+            SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
+            foreach (var xrDisplay in xrDisplaySubsystems)
+            {
+                xrDisplay.Destroy();
+            }
+            hasKilled = true;
         }
     }
 }
