@@ -5,7 +5,7 @@ using UnityEngine.XR;
 
 public class OpenXRKiller : MonoBehaviour
 {
-    private bool hasKilled = false;
+    private static bool hasKilled = false;
     public void KillOpenXR()
     {
         if (!hasKilled)
@@ -17,6 +17,7 @@ public class OpenXRKiller : MonoBehaviour
                 xrDisplay.Destroy();
             }
             hasKilled = true;
+            Application.Unload();
         }
     }
 }
