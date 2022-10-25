@@ -14,6 +14,7 @@ public class LoginHandler : MonoBehaviour
     {
         unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         unityActivity = unityClass.GetStatic<AndroidJavaObject>("currentActivity");
-        PluginInit._pluginInstance.CallStatic("activity", unityActivity);
+        Debug.Log("SwitchTask actiavted.");
+        PluginInit._pluginInstance.CallStatic("testFunction2");
     }
 }

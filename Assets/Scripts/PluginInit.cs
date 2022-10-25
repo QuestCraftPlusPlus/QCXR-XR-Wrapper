@@ -2,34 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PluginInit : MonoBehaviour
 {
     AndroidJavaClass unityClass;
-    private AndroidJavaObject unityActivity;
-    public static AndroidJavaObject _pluginInstance;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        InitializePlugin("quartz.pojlib.api.API_V1");
-    }
+    static private AndroidJavaObject unityActivity;
 
-    void InitializePlugin(string pluginName)
+    private static AndroidJavaObject m_PluginInstance = null;
+    public static AndroidJavaObject _pluginInstance
     {
-        _pluginInstance = new AndroidJavaObject(pluginName);
-        if (_pluginInstance == null)
+        get
+        {
+            if(m_PluginInstance==null)
+            {
+                InitializePlugin("pojlib.api.API_V1");
+            }
+            return m_PluginInstance;
+        }
+    }
+    
+    // // Start is called before the first frame update
+    // void Start()
+    // {
+    //     InitializePlugin("pojlib.api.API_V1");
+    // }
+
+    static void InitializePlugin(string pluginName)
+    {
+        Debug.Log("Try to initialize plugin");
+        m_PluginInstance = new AndroidJavaObject(pluginName);
+        if (m_PluginInstance == null)
         {
             Debug.Log("Plugin Instance Error!");
         }
 
-        _pluginInstance.CallStatic("recieveUnityActivity", unityActivity);
+        m_PluginInstance.CallStatic("recieveUnityActivity", unityActivity);
     }
 
     public void Add()
     {
-        if (_pluginInstance != null)
+        if (m_PluginInstance != null)
         {
-            var result = _pluginInstance.Call<int>("Add", 5, 6);
+            var result = m_PluginInstance.Call<int>("Add", 5, 6);
             Debug.Log("Add Result from Unity: " +result);
         }
     }
