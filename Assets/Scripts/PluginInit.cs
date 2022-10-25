@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class PluginInit : MonoBehaviour
 {
-    AndroidJavaClass unityClass;
     static private AndroidJavaObject unityActivity;
-
     private static AndroidJavaObject m_PluginInstance = null;
+    
     public static AndroidJavaObject _pluginInstance
     {
+        
         get
         {
             if(m_PluginInstance==null)
             {
-                InitializePlugin("pojlib.api.API_V1");
+                InitializePlugin("pojlib.api.PluginInstance");
             }
             return m_PluginInstance;
         }
@@ -36,7 +36,7 @@ public class PluginInit : MonoBehaviour
             Debug.Log("Plugin Instance Error!");
         }
 
-        m_PluginInstance.CallStatic("recieveUnityActivity", unityActivity);
+        m_PluginInstance.CallStatic("receiveUnityActivity", unityActivity);
     }
 
     public void Add()
