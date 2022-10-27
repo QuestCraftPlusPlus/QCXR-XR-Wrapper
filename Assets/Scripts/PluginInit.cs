@@ -7,25 +7,18 @@ public class PluginInit : MonoBehaviour
 {
     static private AndroidJavaObject unityActivity;
     private static AndroidJavaObject m_PluginInstance = null;
-    
+
     public static AndroidJavaObject _pluginInstance
     {
-        
         get
         {
             if(m_PluginInstance==null)
             {
-                InitializePlugin("pojlib.api.PluginInstance");
+                InitializePlugin("pojlib/api/PluginInstance");
             }
             return m_PluginInstance;
         }
     }
-    
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-    //     InitializePlugin("pojlib.api.API_V1");
-    // }
 
     static void InitializePlugin(string pluginName)
     {
