@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class JNIStorage : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class JNIStorage : MonoBehaviour
 
     private void Start()
     {
+        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
+            Permission.RequestUserPermission(Permission.Microphone);
         apiClass = new AndroidJavaClass("pojlib.api.API_V1");
         AndroidJavaClass constants = new AndroidJavaClass("pojlib.util.Constants");
         home = constants.GetStatic<string>("MC_DIR");

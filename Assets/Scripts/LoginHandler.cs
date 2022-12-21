@@ -37,4 +37,13 @@ public class LoginHandler : MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        if (JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
+        {
+            JNIStorage.apiClass.SetStatic("msaMessage", "You can start the game now.");
+            return;
+        }
+    }
 }
