@@ -16,7 +16,7 @@ public class WindowHandler : MonoBehaviour
 
     public void LogoutButton()
         {
-            startPanel.SetActive(false);
-            mainPanel.SetActive(true);
+            startPanel.SetActive(true);
+            mainPanel.SetActive(false);
         } 
 }
