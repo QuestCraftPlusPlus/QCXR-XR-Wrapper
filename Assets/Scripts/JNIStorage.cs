@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class JNIStorage : MonoBehaviour
 {
-    public AndroidJavaClass apiClass;
-    public AndroidJavaObject accountObj;
-    public AndroidJavaObject activity;
-    public AndroidJavaObject instance1193;
-    public AndroidJavaObject instance1182;
-    public string home;
+    public static AndroidJavaClass apiClass;
+    public static AndroidJavaObject accountObj;
+    public static AndroidJavaObject activity;
+    public static AndroidJavaObject instance1193;
+    public static AndroidJavaObject instance1182;
+    public static string home;
 
     private void Start()
     {

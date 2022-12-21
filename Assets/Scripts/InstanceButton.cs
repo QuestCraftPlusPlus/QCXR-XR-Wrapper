@@ -8,14 +8,13 @@ using UnityEngine.XR;
 public class InstanceButton : MonoBehaviour
 {
     public AndroidJavaObject currentInstance;
-    public JNIStorage storage;
     bool hasDefaulted = false;
 
     public void Update()
     {
-        if(storage.instance1193 != null && !hasDefaulted)
+        if(JNIStorage.instance1193 != null && !hasDefaulted)
         {
-            currentInstance = storage.instance1193;
+            currentInstance = JNIStorage.instance1193;
             GetComponentInChildren<TextMeshProUGUI>().text = "1.19.3-fabric";
             hasDefaulted = true;
         }
@@ -23,13 +22,13 @@ public class InstanceButton : MonoBehaviour
 
     public void SwitchInstance()
     {
-        if(currentInstance == storage.instance1193)
+        if(currentInstance == JNIStorage.instance1193)
         {
-            currentInstance = storage.instance1182;
+            currentInstance = JNIStorage.instance1182;
             GetComponentInChildren<TextMeshProUGUI>().text = "1.18.2-fabric";
         } else
         {
-            currentInstance = storage.instance1193;
+            currentInstance = JNIStorage.instance1193;
             GetComponentInChildren<TextMeshProUGUI>().text = "1.19.3-fabric";
         }
     }
@@ -43,6 +42,6 @@ public class InstanceButton : MonoBehaviour
             xrDisplay.Destroy();
         }
         Application.Unload();
-        storage.apiClass.CallStatic("launchInstance", storage.activity, storage.accountObj, currentInstance);
+        JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, currentInstance);
     }
 }
