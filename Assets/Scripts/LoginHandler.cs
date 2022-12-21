@@ -13,6 +13,11 @@ public class LoginHandler : MonoBehaviour
         storage.accountObj = storage.apiClass.CallStatic<AndroidJavaObject>("login", "d17a73a2-707c-40f5-8c90-d3eda0956f10");
         if (storage.accountObj != null)
         {
+            if(!storage.apiClass.GetStatic<bool>("finishedDownloading"))
+            {
+                storage.apiClass.SetStatic("msaMessage", "Please wait before pressing again, instances are still downloading.");
+                return;
+            }
             storage.instance1182 = storage.apiClass.CallStatic<AndroidJavaObject>("load", "1.18.2-fabric", storage.home);
             storage.instance1193 = storage.apiClass.CallStatic<AndroidJavaObject>("load", "1.19.3-fabric", storage.home);
             handler.MainPanelSwitch();
