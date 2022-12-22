@@ -9,6 +9,7 @@ public class InstanceButton : MonoBehaviour
 {
     public AndroidJavaObject currentInstance;
     bool hasDefaulted = false;
+    public AudioSource source;
 
     public void Update()
     {
@@ -35,6 +36,7 @@ public class InstanceButton : MonoBehaviour
 
     public void LaunchCurrentInsance()
     {
+        source.Stop();
         var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
         SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
         foreach (var xrDisplay in xrDisplaySubsystems)
