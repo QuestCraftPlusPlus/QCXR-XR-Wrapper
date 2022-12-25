@@ -10,7 +10,7 @@ public class ImageHandler : MonoBehaviour
     public GameObject pfpHolder;
     public string pfpUrl = JNIStorage.apiClass.GetStatic<string>("profileImage");
 
-    public void GetPfp()
+    public void Update()
     {
         if (JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
         {
