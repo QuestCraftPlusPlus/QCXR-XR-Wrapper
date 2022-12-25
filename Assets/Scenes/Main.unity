@@ -1908,7 +1908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &668226022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2552,6 +2552,7 @@ GameObject:
   - component: {fileID: 930495381}
   - component: {fileID: 930495383}
   - component: {fileID: 930495382}
+  - component: {fileID: 930495384}
   m_Layer: 5
   m_Name: Pfp
   m_TagString: Untagged
@@ -2614,6 +2615,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930495380}
   m_CullTransparentMesh: 1
+--- !u!114 &930495384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930495380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e7a29e3ab5c744e82a63be81d57cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pfpUrl: 
 --- !u!1 &938799072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,7 +2874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1033016412
 RectTransform:
   m_ObjectHideFlags: 0
