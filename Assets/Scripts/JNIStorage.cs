@@ -11,7 +11,7 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaObject instance1193;
     public static AndroidJavaObject instance1182;
     public static string home;
-
+    
     private void Start()
     {
         if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))

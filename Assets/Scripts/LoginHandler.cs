@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
+using Image = UnityEngine.UIElements.Image;
 
 public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
-
+    public GameObject pfpHolder;
+    
     public void Login()
     {
         JNIStorage.accountObj = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("login", "d17a73a2-707c-40f5-8c90-d3eda0956f10");
@@ -15,6 +19,7 @@ public class LoginHandler : MonoBehaviour
             if(!JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
             {
                 JNIStorage.apiClass.SetStatic("msaMessage", "Please wait before pressing again, instances are still downloading.");
+                
                 return;
             }
             JNIStorage.instance1182 = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", "1.18.2-fabric", JNIStorage.home);

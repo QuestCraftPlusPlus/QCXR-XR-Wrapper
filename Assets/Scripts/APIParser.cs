@@ -15,5 +15,4 @@ public class APIParser
     public string sources;
     public string headers;
     public string version;
-
 }
