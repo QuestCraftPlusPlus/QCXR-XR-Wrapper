@@ -45,7 +45,7 @@ public class LoginHandler : MonoBehaviour
 
     private void Update()
     {
-        if (JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
+        if (JNIStorage.apiClass.GetStatic<bool>("finishedDownloading") && JNIStorage.accountObj != null)
         {
             JNIStorage.apiClass.SetStatic("msaMessage", "You can start the game now.");
             return;
