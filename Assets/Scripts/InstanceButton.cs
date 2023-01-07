@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using Unity.XR;
 using UnityEngine.XR;
 
 public class InstanceButton : MonoBehaviour

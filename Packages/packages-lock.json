@@ -196,14 +196,28 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.oculus": {
-      "version": "3.2.2",
+    "com.yvr.core": {
+      "version": "file:C:/Users/Darien Johnson/Downloads/UnitySDK_1_0_15/com.yvr.core",
       "depth": 0,
-      "source": "registry",
+      "source": "local",
       "dependencies": {
-        "com.unity.xr.management": "4.2.0"
-      },
-      "url": "https://packages.unity.com"
+        "com.yvr.utilities": "0.2.0",
+        "com.unity.xr.management": "3.0.4"
+      }
+    },
+    "com.yvr.platform": {
+      "version": "file:C:/Users/Darien Johnson/Downloads/UnitySDK_1_0_15/com.yvr.platform",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.yvr.utilities": "0.1.18"
+      }
+    },
+    "com.yvr.utilities": {
+      "version": "file:C:/Users/Darien Johnson/Downloads/UnitySDK_1_0_15/com.yvr.utilities",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
