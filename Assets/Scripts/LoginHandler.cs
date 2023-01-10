@@ -22,6 +22,7 @@ public class LoginHandler : MonoBehaviour
                 
                 return;
             }
+            
             JNIStorage.instance1182 = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", "1.18.2-fabric", JNIStorage.home);
             JNIStorage.instance1193 = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", "1.19.3-fabric", JNIStorage.home);
             handler.MainPanelSwitch();

@@ -32,6 +32,10 @@ android {
         abortOnError false
     }
 
+    packagingOptions {
+        pickFirst '**/*.so'
+    }
+    
     aaptOptions {
         noCompress = **BUILTIN_NOCOMPRESS** + unityStreamingAssets.tokenize(', ')
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
