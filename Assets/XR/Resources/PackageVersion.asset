@@ -19,3 +19,6 @@ MonoBehaviour:
   - Name: com.yvr.platform
     AssemblyName: YVR.Platform.Runtime
     Version: 0.2.2
+  - Name: com.yvr.core
+    AssemblyName: YVR.Core.Runtime
+    Version: 0.8.0

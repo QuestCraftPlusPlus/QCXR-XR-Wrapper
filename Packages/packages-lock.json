@@ -197,7 +197,7 @@
       "url": "https://packages.unity.com"
     },
     "com.yvr.core": {
-      "version": "file:C:/Users/Darien Johnson/Downloads/UnitySDK_1_0_15/com.yvr.core",
+      "version": "file:C:/Users/fourr/Downloads/com.yvr.core",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -206,7 +206,7 @@
       }
     },
     "com.yvr.platform": {
-      "version": "file:C:/Users/Darien Johnson/Downloads/UnitySDK_1_0_15/com.yvr.platform",
+      "version": "file:C:/Users/fourr/Downloads/com.yvr.platform",
       "depth": 0,
       "source": "local",
       "dependencies": {
@@ -214,7 +214,7 @@
       }
     },
     "com.yvr.utilities": {
-      "version": "file:C:/Users/Darien Johnson/Downloads/UnitySDK_1_0_15/com.yvr.utilities",
+      "version": "file:C:/Users/fourr/Downloads/com.yvr.utilities",
       "depth": 0,
       "source": "local",
       "dependencies": {}
