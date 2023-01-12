@@ -7,13 +7,16 @@ using UnityEngine.UIElements;
 
 public class ImageHandler : MonoBehaviour
 {
-    public GameObject pfpHolder;
-    public string pfpUrl = JNIStorage.apiClass.GetStatic<string>("profileImage");
-
-    public void GetPfp()
+    string pfpUrl;
+    
+    public void Update()
     {
-        if (JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
+        if (JNIStorage.accountObj != null)
         {
+            if (pfpUrl == null)
+            {
+                pfpUrl = JNIStorage.apiClass.GetStatic<string>("profileImage");
+            }
             StartCoroutine(GetTexture());
         }
     }
@@ -32,7 +35,7 @@ public class ImageHandler : MonoBehaviour
             {
                 // Get downloaded asset bundle
                 var pfpTexture = DownloadHandlerTexture.GetContent(pfp);
-                pfpHolder.GetComponent<RawImage>().texture = pfpTexture;
+                gameObject.GetComponent<RawImage>().texture = pfpTexture;
             }
         }
     }
