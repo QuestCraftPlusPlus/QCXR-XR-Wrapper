@@ -1,0 +1,17 @@
+{
+    "name": "Unity.com.yvr.core.demo",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5c087f2e14bd3fd47a91ac4199ddef86",
+        "GUID:27398fb0594bba74fafa811bc0710732"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

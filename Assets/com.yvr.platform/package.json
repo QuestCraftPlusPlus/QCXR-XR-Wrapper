@@ -1,0 +1,10 @@
+{
+  "name": "com.yvr.platform",
+  "version": "0.2.2",
+  "displayName": "YVR Platform",
+  "description": "This is the YVR VR Platform.",
+  "unity": "2019.1",
+  "dependencies": {
+    "com.yvr.utilities": "0.1.18"
+  }
+}

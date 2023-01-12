@@ -1,0 +1,22 @@
+{
+    "name": "YVR XR SDK",
+    "version": "1.0.0",
+    "libraryName": "yvrplugin",
+    "displays": [
+        {
+            "id": "Display",
+            "disablesLegacyVr": true,
+            "supportedMirrorBlitReservedModes": [
+                "leftEye",
+                "rightEye",
+                "sideBySide",
+                "occlusionMesh"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "Tracking"
+        }
+    ]
+}
