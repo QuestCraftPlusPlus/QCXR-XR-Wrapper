@@ -111,6 +111,8 @@ struct RichTextTagAttributeU5BU5D_t5816316EFD8F59DBC30B9F88E15828C564E47B6D;
 struct SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C;
 // System.Diagnostics.StackTrace[]
 struct StackTraceU5BU5D_t32FBCB20930EAF5BAE3F450FF75228E5450DA0DF;
+// System.String[]
+struct StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248;
 // TMPro.TMP_CharacterInfo[]
 struct TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99;
 // TMPro.TMP_ColorGradient[]
@@ -157,6 +159,8 @@ struct Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B;
 struct DelegateData_t9B286B493293CD2D23A5B2B5EF0E5B1324C2B77E;
 // UnityEngine.Networking.DownloadHandler
 struct DownloadHandler_t1B56C7D3F65D97A1E4B566A14A1E783EA8AE4EBB;
+// DownloadTextManager
+struct DownloadTextManager_t6DF15711D5D4F9A56A3FACFB85D410C5460A9A7B;
 // UnityEngine.GameObject
 struct GameObject_t76FEDD663AB33C991A9C9A23129337651094216F;
 // UnityEngine.GlobalJavaObjectRef
@@ -263,8 +267,8 @@ struct WindowHandler_t84707B63AAD9C4C5D1343D23851D57FA13D2B1E7;
 struct XRDisplaySubsystem_t4B00B0BF1894A039ACFA8DDC2C2EB9301118C1F1;
 // OVRTouchSample.Hand/<>c
 struct U3CU3Ec_tADB0E95203F0A090B7A367EF6CE374F2A78D832F;
-// ImageHandler/<GetTexture>d__3
-struct U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5;
+// ImageHandler/<GetTexture>d__2
+struct U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1;
 // UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
 struct CullStateChangedEvent_t6073CD0D951EC1256BF74B8F9107D68FC89B99B8;
 
@@ -276,15 +280,20 @@ IL2CPP_EXTERN_C RuntimeClass* IDisposable_t030E0496B4E0E4E4F086825007979AF51F724
 IL2CPP_EXTERN_C RuntimeClass* JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* List_1_tA7666C6690CE2AEE97571615AD3AFCE2BB020597_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* List_1_tD435DCC2A88E36DFC551EA5392CE0182F0C50E93_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Math_tEB65DE7CA8B083C412C969C92981C030865486CE_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Mathf_tE284D016E3B297B72311AAD9EB8F0E643F6A4682_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* OVRManager_t21429E69CA88C5E9C6EE3AAB75EAFBE6E1B129D4_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SubsystemManager_t9A7261E4D0B53B996F04B8707D8E1C33AB65E824_il2cpp_TypeInfo_var;
-IL2CPP_EXTERN_C RuntimeClass* U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CU3Ec_tADB0E95203F0A090B7A367EF6CE374F2A78D832F_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C String_t* _stringLiteral0A4F4DBFEBD84E375AD7063ABDC8E43F0EC6F72E;
+IL2CPP_EXTERN_C String_t* _stringLiteral1106C579F5B90BE4F25A87DCA50B945E9077A759;
+IL2CPP_EXTERN_C String_t* _stringLiteral1168E92C164109D6220480DEDA987085B2A21155;
 IL2CPP_EXTERN_C String_t* _stringLiteral149967D8B0B4FF60C95B519437C63F4F13C1E258;
 IL2CPP_EXTERN_C String_t* _stringLiteral249892D4C631E9CCECC177D54CE3CA161761803B;
 IL2CPP_EXTERN_C String_t* _stringLiteral2522B200396EDFABB4603B843C243BA25007C97E;
@@ -299,27 +308,30 @@ IL2CPP_EXTERN_C String_t* _stringLiteral6D2C56060B3F7353031AD314517C27945CC39748
 IL2CPP_EXTERN_C String_t* _stringLiteral6F6EDA7F146F65D72B4809F9E8F843CC687A82AE;
 IL2CPP_EXTERN_C String_t* _stringLiteral70BEDB671BC32EEDB43C580F74524B2DA1E9F528;
 IL2CPP_EXTERN_C String_t* _stringLiteral761CAF2881EC72215DE6C3BFBC1BEEEC0E195109;
+IL2CPP_EXTERN_C String_t* _stringLiteral78C6F8A19543069E5C2176B2A411732552490CCB;
 IL2CPP_EXTERN_C String_t* _stringLiteral7C04A407FE215D295E25E3D30FD585ED38C7AA05;
 IL2CPP_EXTERN_C String_t* _stringLiteral7E85ECCB7093F5018C9F13499309750C0A65403D;
 IL2CPP_EXTERN_C String_t* _stringLiteral80AE21D6F6EA69075D8B12BF7910E748000B6451;
+IL2CPP_EXTERN_C String_t* _stringLiteral83391CD9522A04D07E3F5A73D4FB8901A4C4CB86;
 IL2CPP_EXTERN_C String_t* _stringLiteral84599DCBF1902CF3C8992EEF5CBD559B720562FB;
 IL2CPP_EXTERN_C String_t* _stringLiteral8867DE87D58476E6310B70DCF3AA995174F3298A;
 IL2CPP_EXTERN_C String_t* _stringLiteral91116FFD49EFF85F333F1A0AAC154AC26C7861AD;
 IL2CPP_EXTERN_C String_t* _stringLiteral996E5360F80E16B2189CC1E536C91CE68083F694;
 IL2CPP_EXTERN_C String_t* _stringLiteralAA133C4517AAFBA77CDC316A30CB0FB4FC5784BB;
 IL2CPP_EXTERN_C String_t* _stringLiteralAEBDF9C3C14D61CC8CC8553CE64DA4ACE33BE168;
-IL2CPP_EXTERN_C String_t* _stringLiteralB2C996DD8A0D7255DDA57C9624B4E454F185C906;
 IL2CPP_EXTERN_C String_t* _stringLiteralB8DBDDCEFC296AEA9CB5774FA5E9C6935128DFC7;
 IL2CPP_EXTERN_C String_t* _stringLiteralBC09616FC7A1F15CD91C601854596281EF11A6AC;
 IL2CPP_EXTERN_C String_t* _stringLiteralC1C50954FA625CC400C6A2F896634ADF73F01F1E;
 IL2CPP_EXTERN_C String_t* _stringLiteralC7D7659DBC375CFC0FE26AA46C35C6A6794BF269;
 IL2CPP_EXTERN_C String_t* _stringLiteralCDADABA6431BEC5559FFA52104512DEEA38D6149;
 IL2CPP_EXTERN_C String_t* _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709;
+IL2CPP_EXTERN_C String_t* _stringLiteralE75127C4BCBDBEBB0B80DD3AE05C08C939128002;
 IL2CPP_EXTERN_C String_t* _stringLiteralE9DCE08A032B59AEC576FF7D80BA24B22EF507F8;
 IL2CPP_EXTERN_C const RuntimeMethod* AndroidJavaObject_CallStatic_TisAndroidJavaObjectU5BU5D_tBCEB142050F282B940177011644246618E002001_m68B564BA7BA261A8D25B7CBEB3D483B4653EC61E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AndroidJavaObject_CallStatic_TisAndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0_m398EA96C1DE1BB885F2B1DD0E00E8BBA86B49E63_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AndroidJavaObject_GetStatic_TisAndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0_mD7D192A35EB2B2DA3775FAB081958B72088251DD_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* AndroidJavaObject_GetStatic_TisDouble_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_m841270343E2C45A1B3C18AAA063283B18C7D62AE_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AndroidJavaObject_Get_TisString_t_m1E165541E71E1CDCF224FC55CBD0955147BB9030_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AndroidJavaObject_SetStatic_TisString_t_mF36199C6E2644074AEA20D39F2AEECAB1BAE3F38_RuntimeMethod_var;
@@ -346,7 +358,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* List_1__ctor_mBE7647ECE0B8ABB952EDC379472F9
 IL2CPP_EXTERN_C const RuntimeMethod* List_1_get_Count_mEDD6D3CBA7B18AB7F0E8E301BF83BF3C114E5C70_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* List_1_get_Item_m2A866E5FF9CD642C76D27133D3FCEC2F15033DA2_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SubsystemManager_GetInstances_TisXRDisplaySubsystem_t4B00B0BF1894A039ACFA8DDC2C2EB9301118C1F1_mCDFAF63EF2A2778CA3677E75360BC7961FCB3370_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* U3CGetTextureU3Ed__3_System_Collections_IEnumerator_Reset_m7E72C410F4D6E57B33C2C83216B54C67F64533C2_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CGetTextureU3Ed__2_System_Collections_IEnumerator_Reset_m59C8AD3326800434B9AA6764BB90CC7A97BB59A4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CU3Ec_U3CStartU3Eb__28_0_m69657F26B241AA6A749CAFAF9534605A3FAC3480_RuntimeMethod_var;
 struct CertificateHandler_t148B524FA5DB39F3ABADB181CD420FC505C33804_marshaled_com;
 struct Delegate_t_marshaled_com;
@@ -362,6 +374,7 @@ struct AndroidJavaObjectU5BU5D_tBCEB142050F282B940177011644246618E002001;
 struct ColliderU5BU5D_t94A9D70F63D095AFF2A9B4613012A5F7F3141787;
 struct ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918;
 struct RendererU5BU5D_t32FDD782F67917B2291EA4FF242719877440A02A;
+struct StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248;
 
 IL2CPP_EXTERN_C_BEGIN
 IL2CPP_EXTERN_C_END
@@ -493,18 +506,18 @@ struct U3CU3Ec_tADB0E95203F0A090B7A367EF6CE374F2A78D832F  : public RuntimeObject
 {
 };
 
-// ImageHandler/<GetTexture>d__3
-struct U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5  : public RuntimeObject
+// ImageHandler/<GetTexture>d__2
+struct U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1  : public RuntimeObject
 {
-	// System.Int32 ImageHandler/<GetTexture>d__3::<>1__state
+	// System.Int32 ImageHandler/<GetTexture>d__2::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object ImageHandler/<GetTexture>d__3::<>2__current
+	// System.Object ImageHandler/<GetTexture>d__2::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// ImageHandler ImageHandler/<GetTexture>d__3::<>4__this
+	// ImageHandler ImageHandler/<GetTexture>d__2::<>4__this
 	ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* ___U3CU3E4__this_2;
-	// UnityEngine.Networking.UnityWebRequest ImageHandler/<GetTexture>d__3::<pfp>5__1
+	// UnityEngine.Networking.UnityWebRequest ImageHandler/<GetTexture>d__2::<pfp>5__1
 	UnityWebRequest_t6233B8E22992FC2364A831C1ACB033EF3260C39F* ___U3CpfpU3E5__1_3;
-	// UnityEngine.Texture2D ImageHandler/<GetTexture>d__3::<pfpTexture>5__2
+	// UnityEngine.Texture2D ImageHandler/<GetTexture>d__2::<pfpTexture>5__2
 	Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* ___U3CpfpTextureU3E5__2_4;
 };
 
@@ -711,6 +724,13 @@ struct Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B
 			uint8_t ___a_4_forAlignmentOnly;
 		};
 	};
+};
+
+// System.Double
+struct Double_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F 
+{
+	// System.Double System.Double::m_value
+	double ___m_value_0;
 };
 
 // System.Int32
@@ -1855,6 +1875,11 @@ struct AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299  : public AudioBeha
 {
 };
 
+// DownloadTextManager
+struct DownloadTextManager_t6DF15711D5D4F9A56A3FACFB85D410C5460A9A7B  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+};
+
 // OVRTouchSample.Hand
 struct Hand_t0A62347EF4DB551FDA3B99B5637AD55098FE07A8  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -1908,10 +1933,8 @@ struct HandPose_t07CBF9E66547E7ADC0D785A41DCCD8150DBCB5C8  : public MonoBehaviou
 // ImageHandler
 struct ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	// UnityEngine.GameObject ImageHandler::pfpHolder
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___pfpHolder_4;
 	// System.String ImageHandler::pfpUrl
-	String_t* ___pfpUrl_5;
+	String_t* ___pfpUrl_4;
 };
 
 // InstanceButton
@@ -2651,9 +2674,9 @@ struct U3CU3Ec_tADB0E95203F0A090B7A367EF6CE374F2A78D832F_StaticFields
 
 // OVRTouchSample.Hand/<>c
 
-// ImageHandler/<GetTexture>d__3
+// ImageHandler/<GetTexture>d__2
 
-// ImageHandler/<GetTexture>d__3
+// ImageHandler/<GetTexture>d__2
 
 // System.Collections.Generic.List`1/Enumerator<System.Object>
 
@@ -2705,6 +2728,10 @@ struct Boolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_StaticFields
 // UnityEngine.Color32
 
 // UnityEngine.Color32
+
+// System.Double
+
+// System.Double
 
 // System.Int32
 
@@ -3032,6 +3059,10 @@ struct Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700_StaticFields
 
 // UnityEngine.AudioSource
 
+// DownloadTextManager
+
+// DownloadTextManager
+
 // OVRTouchSample.Hand
 
 // OVRTouchSample.Hand
@@ -3220,6 +3251,41 @@ struct TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_StaticFields
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
+// System.String[]
+struct StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248  : public RuntimeArray
+{
+	ALIGN_FIELD (8) String_t* m_Items[1];
+
+	inline String_t* GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline String_t** GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, String_t* value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+	inline String_t* GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline String_t** GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, String_t* value)
+	{
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+};
 // System.Object[]
 struct ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918  : public RuntimeArray
 {
@@ -3362,10 +3428,12 @@ struct RendererU5BU5D_t32FDD782F67917B2291EA4FF242719877440A02A  : public Runtim
 };
 
 
-// FieldType UnityEngine.AndroidJavaObject::GetStatic<System.Boolean>(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663_gshared (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method) ;
 // FieldType UnityEngine.AndroidJavaObject::GetStatic<System.Object>(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AndroidJavaObject_GetStatic_TisRuntimeObject_m4EF4E4761A0A6E99E0A298F653E8129B1494E4C9_gshared (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method) ;
+// FieldType UnityEngine.AndroidJavaObject::GetStatic<System.Double>(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double AndroidJavaObject_GetStatic_TisDouble_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_m841270343E2C45A1B3C18AAA063283B18C7D62AE_gshared (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method) ;
+// T UnityEngine.Component::GetComponent<System.Object>()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 // T UnityEngine.GameObject::GetComponent<System.Object>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameObject_GetComponent_TisRuntimeObject_m6EAED4AA356F0F48288F67899E5958792395563B_gshared (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method) ;
 // T UnityEngine.Component::GetComponentInChildren<System.Object>()
@@ -3384,14 +3452,14 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* Enumerator_get_Cur
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Enumerator_MoveNext_mE921CC8F29FBBDE7CC3209A0ED0D921D58D00BCB_gshared (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) ;
 // ReturnType UnityEngine.AndroidJavaObject::CallStatic<System.Object>(System.String,System.Object[])
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AndroidJavaObject_CallStatic_TisRuntimeObject_mCAFE27630F6092C4910E14592B050DACFCBE146F_gshared (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_methodName, ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* ___1_args, const RuntimeMethod* method) ;
+// FieldType UnityEngine.AndroidJavaObject::GetStatic<System.Boolean>(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663_gshared (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method) ;
 // System.Void UnityEngine.AndroidJavaObject::SetStatic<System.Object>(System.String,FieldType)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AndroidJavaObject_SetStatic_TisRuntimeObject_mB8836B4AC2D6DE9BDA3DFDA81D68B483301D3A37_gshared (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, RuntimeObject* ___1_val, const RuntimeMethod* method) ;
 // T[] System.Array::Empty<System.Object>()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_gshared_inline (const RuntimeMethod* method) ;
 // FieldType UnityEngine.AndroidJavaObject::Get<System.Object>(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AndroidJavaObject_Get_TisRuntimeObject_mF7C8EFCB16140AB7116DAA3FCB1B585FC7A203F2_gshared (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method) ;
-// T UnityEngine.Component::GetComponent<System.Object>()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 // T[] UnityEngine.Component::GetComponentsInChildren<System.Object>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* Component_GetComponentsInChildren_TisRuntimeObject_m1F5B6FC0689B07D4FAAC0C605D9B2933A9B32543_gshared (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 // System.Void System.Func`2<System.Object,System.Boolean>::.ctor(System.Object,System.IntPtr)
@@ -3411,28 +3479,45 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4407E4C
 
 // System.Void System.Object::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2 (RuntimeObject* __this, const RuntimeMethod* method) ;
-// FieldType UnityEngine.AndroidJavaObject::GetStatic<System.Boolean>(System.String)
-inline bool AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663 (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method)
-{
-	return ((  bool (*) (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0*, String_t*, const RuntimeMethod*))AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663_gshared)(__this, ___0_fieldName, method);
-}
-// System.Collections.IEnumerator ImageHandler::GetTexture()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ImageHandler_GetTexture_m5CC37D1D34F4369424288E908960BA61D010E9A9 (ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* __this, const RuntimeMethod* method) ;
-// UnityEngine.Coroutine UnityEngine.MonoBehaviour::StartCoroutine(System.Collections.IEnumerator)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812 (MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71* __this, RuntimeObject* ___0_routine, const RuntimeMethod* method) ;
-// System.Void ImageHandler/<GetTexture>d__3::.ctor(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__3__ctor_m9738B68C89ED78DC30CD22B1FF2C6343F7AC29EE (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
 // FieldType UnityEngine.AndroidJavaObject::GetStatic<System.String>(System.String)
 inline String_t* AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method)
 {
 	return ((  String_t* (*) (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0*, String_t*, const RuntimeMethod*))AndroidJavaObject_GetStatic_TisRuntimeObject_m4EF4E4761A0A6E99E0A298F653E8129B1494E4C9_gshared)(__this, ___0_fieldName, method);
 }
+// FieldType UnityEngine.AndroidJavaObject::GetStatic<System.Double>(System.String)
+inline double AndroidJavaObject_GetStatic_TisDouble_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_m841270343E2C45A1B3C18AAA063283B18C7D62AE (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method)
+{
+	return ((  double (*) (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0*, String_t*, const RuntimeMethod*))AndroidJavaObject_GetStatic_TisDouble_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_m841270343E2C45A1B3C18AAA063283B18C7D62AE_gshared)(__this, ___0_fieldName, method);
+}
+// System.Double DownloadTextManager::TruncateDouble(System.Double,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double DownloadTextManager_TruncateDouble_mEB5F69C25EC0AEDC1839BA6512F54183649D13DC (DownloadTextManager_t6DF15711D5D4F9A56A3FACFB85D410C5460A9A7B* __this, double ___0_value, int32_t ___1_precision, const RuntimeMethod* method) ;
+// System.Boolean System.String::IsNullOrWhiteSpace(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_IsNullOrWhiteSpace_m42E1F3B2C358068D645E46F01CF1834DC77A5A10 (String_t* ___0_value, const RuntimeMethod* method) ;
+// T UnityEngine.Component::GetComponent<TMPro.TextMeshProUGUI>()
+inline TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method)
+{
+	return ((  TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared)(__this, method);
+}
+// System.String System.Double::ToString()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Double_ToString_m7499A5D792419537DCB9470A3675CEF5117DE339 (double* __this, const RuntimeMethod* method) ;
+// System.String System.String::Concat(System.String[])
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m647EBF831F54B6DF7D5AFA5FD012CF4EE7571B6A (StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* ___0_values, const RuntimeMethod* method) ;
+// System.Double System.Math::Pow(System.Double,System.Double)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double Math_Pow_mEAE651F0858203FBE12B72B6A53951BBD0FB5265 (double ___0_x, double ___1_y, const RuntimeMethod* method) ;
+// System.Double System.Math::Truncate(System.Double)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double Math_Truncate_mE66B1AD68C17D27675DE0CB74643374F9EDB649C (double ___0_d, const RuntimeMethod* method) ;
 // System.Void UnityEngine.MonoBehaviour::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E (MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71* __this, const RuntimeMethod* method) ;
-// System.Void ImageHandler/<GetTexture>d__3::<>m__Finally1()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__3_U3CU3Em__Finally1_m58359D55916C8540B15509A463A0AB7DF0A367A0 (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, const RuntimeMethod* method) ;
-// System.Void ImageHandler/<GetTexture>d__3::System.IDisposable.Dispose()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__3_System_IDisposable_Dispose_m560B4A57E9F010E4B82414BF7FEE4B972EB74F39 (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, const RuntimeMethod* method) ;
+// System.Collections.IEnumerator ImageHandler::GetTexture()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ImageHandler_GetTexture_m5CC37D1D34F4369424288E908960BA61D010E9A9 (ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* __this, const RuntimeMethod* method) ;
+// UnityEngine.Coroutine UnityEngine.MonoBehaviour::StartCoroutine(System.Collections.IEnumerator)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812 (MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71* __this, RuntimeObject* ___0_routine, const RuntimeMethod* method) ;
+// System.Void ImageHandler/<GetTexture>d__2::.ctor(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__2__ctor_mCB15E48A97D74C0D5EE077A376A07C0F8C33B80E (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
+// System.Void ImageHandler/<GetTexture>d__2::<>m__Finally1()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__2_U3CU3Em__Finally1_m19E42DE4A540A29E535E619EA806BF42C61C9AE8 (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, const RuntimeMethod* method) ;
+// System.Void ImageHandler/<GetTexture>d__2::System.IDisposable.Dispose()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__2_System_IDisposable_Dispose_m43061A286E8D6A5DC4A8378210874B538AD91F7B (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, const RuntimeMethod* method) ;
 // UnityEngine.Networking.UnityWebRequest UnityEngine.Networking.UnityWebRequestTexture::GetTexture(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR UnityWebRequest_t6233B8E22992FC2364A831C1ACB033EF3260C39F* UnityWebRequestTexture_GetTexture_mEEC74BBC5190D4012A0B87C5D439AF59E22EF2EF (String_t* ___0_uri, const RuntimeMethod* method) ;
 // UnityEngine.Networking.UnityWebRequestAsyncOperation UnityEngine.Networking.UnityWebRequest::SendWebRequest()
@@ -3445,6 +3530,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* UnityWebRequest_get_error_m20A5D813
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB (RuntimeObject* ___0_message, const RuntimeMethod* method) ;
 // UnityEngine.Texture2D UnityEngine.Networking.DownloadHandlerTexture::GetContent(UnityEngine.Networking.UnityWebRequest)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* DownloadHandlerTexture_GetContent_m86BC88F58305A1B21C21CE7D82658197932EFB18 (UnityWebRequest_t6233B8E22992FC2364A831C1ACB033EF3260C39F* ___0_www, const RuntimeMethod* method) ;
+// UnityEngine.GameObject UnityEngine.Component::get_gameObject()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 // T UnityEngine.GameObject::GetComponent<UnityEngine.UI.RawImage>()
 inline RawImage_tFF12F7DB574FBDC1863CF607C7A12A5D9F8D6179* GameObject_GetComponent_TisRawImage_tFF12F7DB574FBDC1863CF607C7A12A5D9F8D6179_m51636C7F3481A344AA96C18C0C1471F72CEE7A3E (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
@@ -3513,6 +3600,11 @@ inline AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* AndroidJavaO
 {
 	return ((  AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* (*) (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0*, String_t*, ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918*, const RuntimeMethod*))AndroidJavaObject_CallStatic_TisRuntimeObject_mCAFE27630F6092C4910E14592B050DACFCBE146F_gshared)(__this, ___0_methodName, ___1_args, method);
 }
+// FieldType UnityEngine.AndroidJavaObject::GetStatic<System.Boolean>(System.String)
+inline bool AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663 (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, const RuntimeMethod* method)
+{
+	return ((  bool (*) (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0*, String_t*, const RuntimeMethod*))AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663_gshared)(__this, ___0_fieldName, method);
+}
 // System.Void UnityEngine.AndroidJavaObject::SetStatic<System.String>(System.String,FieldType)
 inline void AndroidJavaObject_SetStatic_TisString_t_mF36199C6E2644074AEA20D39F2AEECAB1BAE3F38 (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* __this, String_t* ___0_fieldName, String_t* ___1_val, const RuntimeMethod* method)
 {
@@ -3537,11 +3629,6 @@ inline String_t* AndroidJavaObject_Get_TisString_t_m1E165541E71E1CDCF224FC55CBD0
 }
 // System.Boolean System.String::op_Equality(System.String,System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1 (String_t* ___0_a, String_t* ___1_b, const RuntimeMethod* method) ;
-// T UnityEngine.Component::GetComponent<TMPro.TextMeshProUGUI>()
-inline TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method)
-{
-	return ((  TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared)(__this, method);
-}
 // System.Boolean System.String::op_Inequality(System.String,System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_op_Inequality_m8C940F3CFC42866709D7CA931B3D77B4BE94BCB6 (String_t* ___0_a, String_t* ___1_b, const RuntimeMethod* method) ;
 // System.String System.String::Concat(System.String,System.String)
@@ -3618,8 +3705,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* __this, float ___0_x, float ___1_y, float ___2_z, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Transform::set_localScale(UnityEngine.Vector3)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_localScale_mBA79E811BAF6C47B80FF76414C12B47B3CD03633 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_value, const RuntimeMethod* method) ;
-// UnityEngine.GameObject UnityEngine.Component::get_gameObject()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 // System.Boolean UnityEngine.GameObject::get_activeInHierarchy()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool GameObject_get_activeInHierarchy_m49250F4F168DCC5388D5BE4F6A5681386907B109 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.List`1<UnityEngine.Renderer>::Clear()
@@ -3713,84 +3798,147 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void APIParser__ctor_mACC9612FCDB390303173184
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Void ImageHandler::GetPfp()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ImageHandler_GetPfp_m6FDB8471F5C70E662014399FC54B0AE727D2D3F6 (ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* __this, const RuntimeMethod* method) 
+// System.Void DownloadTextManager::Update()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DownloadTextManager_Update_m1C8D867819C965B18B9674D7592D2342FE6416B5 (DownloadTextManager_t6DF15711D5D4F9A56A3FACFB85D410C5460A9A7B* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&AndroidJavaObject_GetStatic_TisDouble_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_m841270343E2C45A1B3C18AAA063283B18C7D62AE_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral91116FFD49EFF85F333F1A0AAC154AC26C7861AD);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral0A4F4DBFEBD84E375AD7063ABDC8E43F0EC6F72E);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1106C579F5B90BE4F25A87DCA50B945E9077A759);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1168E92C164109D6220480DEDA987085B2A21155);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral78C6F8A19543069E5C2176B2A411732552490CCB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE75127C4BCBDBEBB0B80DD3AE05C08C939128002);
 		s_Il2CppMethodInitialized = true;
 	}
-	bool V_0 = false;
+	String_t* V_0 = NULL;
+	double V_1 = 0.0;
+	bool V_2 = false;
 	{
-		// if (JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
+		// string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
 		AndroidJavaClass_tE6296B30CC4BF84434A9B765267F3FD0DD8DDB03* L_0 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___apiClass_4;
 		NullCheck(L_0);
-		bool L_1;
-		L_1 = AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663(L_0, _stringLiteral91116FFD49EFF85F333F1A0AAC154AC26C7861AD, AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663_RuntimeMethod_var);
+		String_t* L_1;
+		L_1 = AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE(L_0, _stringLiteral0A4F4DBFEBD84E375AD7063ABDC8E43F0EC6F72E, AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE_RuntimeMethod_var);
 		V_0 = L_1;
-		bool L_2 = V_0;
-		if (!L_2)
+		// double mbDowbloaded = TruncateDouble(JNIStorage.apiClass.GetStatic<double>("downloadStatus"), 3);
+		AndroidJavaClass_tE6296B30CC4BF84434A9B765267F3FD0DD8DDB03* L_2 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___apiClass_4;
+		NullCheck(L_2);
+		double L_3;
+		L_3 = AndroidJavaObject_GetStatic_TisDouble_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_m841270343E2C45A1B3C18AAA063283B18C7D62AE(L_2, _stringLiteral78C6F8A19543069E5C2176B2A411732552490CCB, AndroidJavaObject_GetStatic_TisDouble_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_m841270343E2C45A1B3C18AAA063283B18C7D62AE_RuntimeMethod_var);
+		double L_4;
+		L_4 = DownloadTextManager_TruncateDouble_mEB5F69C25EC0AEDC1839BA6512F54183649D13DC(__this, L_3, 3, NULL);
+		V_1 = L_4;
+		// if (!string.IsNullOrWhiteSpace(currentFile))
+		String_t* L_5 = V_0;
+		bool L_6;
+		L_6 = String_IsNullOrWhiteSpace_m42E1F3B2C358068D645E46F01CF1834DC77A5A10(L_5, NULL);
+		V_2 = (bool)((((int32_t)L_6) == ((int32_t)0))? 1 : 0);
+		bool L_7 = V_2;
+		if (!L_7)
 		{
-			goto IL_0023;
+			goto IL_0074;
 		}
 	}
 	{
-		// StartCoroutine(GetTexture());
-		RuntimeObject* L_3;
-		L_3 = ImageHandler_GetTexture_m5CC37D1D34F4369424288E908960BA61D010E9A9(__this, NULL);
-		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_4;
-		L_4 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_3, NULL);
+		// GetComponent<TextMeshProUGUI>().text = "Downloading " + currentFile + ": " + mbDowbloaded + " MB";
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_8;
+		L_8 = Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA(__this, Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA_RuntimeMethod_var);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_9 = (StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*)(StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248*)SZArrayNew(StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var, (uint32_t)5);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_10 = L_9;
+		NullCheck(L_10);
+		ArrayElementTypeCheck (L_10, _stringLiteralE75127C4BCBDBEBB0B80DD3AE05C08C939128002);
+		(L_10)->SetAt(static_cast<il2cpp_array_size_t>(0), (String_t*)_stringLiteralE75127C4BCBDBEBB0B80DD3AE05C08C939128002);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_11 = L_10;
+		String_t* L_12 = V_0;
+		NullCheck(L_11);
+		ArrayElementTypeCheck (L_11, L_12);
+		(L_11)->SetAt(static_cast<il2cpp_array_size_t>(1), (String_t*)L_12);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_13 = L_11;
+		NullCheck(L_13);
+		ArrayElementTypeCheck (L_13, _stringLiteral1168E92C164109D6220480DEDA987085B2A21155);
+		(L_13)->SetAt(static_cast<il2cpp_array_size_t>(2), (String_t*)_stringLiteral1168E92C164109D6220480DEDA987085B2A21155);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_14 = L_13;
+		String_t* L_15;
+		L_15 = Double_ToString_m7499A5D792419537DCB9470A3675CEF5117DE339((&V_1), NULL);
+		NullCheck(L_14);
+		ArrayElementTypeCheck (L_14, L_15);
+		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(3), (String_t*)L_15);
+		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_16 = L_14;
+		NullCheck(L_16);
+		ArrayElementTypeCheck (L_16, _stringLiteral1106C579F5B90BE4F25A87DCA50B945E9077A759);
+		(L_16)->SetAt(static_cast<il2cpp_array_size_t>(4), (String_t*)_stringLiteral1106C579F5B90BE4F25A87DCA50B945E9077A759);
+		String_t* L_17;
+		L_17 = String_Concat_m647EBF831F54B6DF7D5AFA5FD012CF4EE7571B6A(L_16, NULL);
+		NullCheck(L_8);
+		VirtualActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_8, L_17);
+		goto IL_0085;
 	}
 
-IL_0023:
+IL_0074:
+	{
+		// GetComponent<TextMeshProUGUI>().text = "";
+		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_18;
+		L_18 = Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA(__this, Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA_RuntimeMethod_var);
+		NullCheck(L_18);
+		VirtualActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_18, _stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
+	}
+
+IL_0085:
 	{
 		// }
 		return;
 	}
 }
-// System.Collections.IEnumerator ImageHandler::GetTexture()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ImageHandler_GetTexture_m5CC37D1D34F4369424288E908960BA61D010E9A9 (ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* __this, const RuntimeMethod* method) 
+// System.Double DownloadTextManager::TruncateDouble(System.Double,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double DownloadTextManager_TruncateDouble_mEB5F69C25EC0AEDC1839BA6512F54183649D13DC (DownloadTextManager_t6DF15711D5D4F9A56A3FACFB85D410C5460A9A7B* __this, double ___0_value, int32_t ___1_precision, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Math_tEB65DE7CA8B083C412C969C92981C030865486CE_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
+	double V_0 = 0.0;
+	double V_1 = 0.0;
+	double V_2 = 0.0;
 	{
-		U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* L_0 = (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5*)il2cpp_codegen_object_new(U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5_il2cpp_TypeInfo_var);
-		NullCheck(L_0);
-		U3CGetTextureU3Ed__3__ctor_m9738B68C89ED78DC30CD22B1FF2C6343F7AC29EE(L_0, 0, NULL);
-		U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* L_1 = L_0;
-		NullCheck(L_1);
-		L_1->___U3CU3E4__this_2 = __this;
-		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E4__this_2), (void*)__this);
-		return L_1;
+		// double step = (double)Math.Pow(10, precision);
+		int32_t L_0 = ___1_precision;
+		il2cpp_codegen_runtime_class_init_inline(Math_tEB65DE7CA8B083C412C969C92981C030865486CE_il2cpp_TypeInfo_var);
+		double L_1;
+		L_1 = Math_Pow_mEAE651F0858203FBE12B72B6A53951BBD0FB5265((10.0), ((double)L_0), NULL);
+		V_0 = ((double)L_1);
+		// double tmp = Math.Truncate(step * value);
+		double L_2 = V_0;
+		double L_3 = ___0_value;
+		double L_4;
+		L_4 = Math_Truncate_mE66B1AD68C17D27675DE0CB74643374F9EDB649C(((double)il2cpp_codegen_multiply(L_2, L_3)), NULL);
+		V_1 = L_4;
+		// return tmp / step;
+		double L_5 = V_1;
+		double L_6 = V_0;
+		V_2 = ((double)(L_5/L_6));
+		goto IL_0022;
+	}
+
+IL_0022:
+	{
+		// }
+		double L_7 = V_2;
+		return L_7;
 	}
 }
-// System.Void ImageHandler::.ctor()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ImageHandler__ctor_m269EF91B3C78E1E79699E2DC97DD07439CA17F13 (ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* __this, const RuntimeMethod* method) 
+// System.Void DownloadTextManager::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DownloadTextManager__ctor_m0D080A48A67016B8220FEE8084F5D0CA5272263E (DownloadTextManager_t6DF15711D5D4F9A56A3FACFB85D410C5460A9A7B* __this, const RuntimeMethod* method) 
 {
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE9DCE08A032B59AEC576FF7D80BA24B22EF507F8);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		// public string pfpUrl = JNIStorage.apiClass.GetStatic<string>("profileImage");
-		AndroidJavaClass_tE6296B30CC4BF84434A9B765267F3FD0DD8DDB03* L_0 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___apiClass_4;
-		NullCheck(L_0);
-		String_t* L_1;
-		L_1 = AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE(L_0, _stringLiteralE9DCE08A032B59AEC576FF7D80BA24B22EF507F8, AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE_RuntimeMethod_var);
-		__this->___pfpUrl_5 = L_1;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___pfpUrl_5), (void*)L_1);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
@@ -3803,8 +3951,102 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ImageHandler__ctor_m269EF91B3C78E1E79699
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Void ImageHandler/<GetTexture>d__3::.ctor(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__3__ctor_m9738B68C89ED78DC30CD22B1FF2C6343F7AC29EE (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
+// System.Void ImageHandler::Update()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ImageHandler_Update_m4D840893047E07F27DA3F5EBB3160474B198AF02 (ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE9DCE08A032B59AEC576FF7D80BA24B22EF507F8);
+		s_Il2CppMethodInitialized = true;
+	}
+	bool V_0 = false;
+	bool V_1 = false;
+	{
+		// if (JNIStorage.accountObj != null)
+		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_0 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___accountObj_5;
+		V_0 = (bool)((!(((RuntimeObject*)(AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0*)L_0) <= ((RuntimeObject*)(RuntimeObject*)NULL)))? 1 : 0);
+		bool L_1 = V_0;
+		if (!L_1)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// if (pfpUrl == null)
+		String_t* L_2 = __this->___pfpUrl_4;
+		V_1 = (bool)((((RuntimeObject*)(String_t*)L_2) == ((RuntimeObject*)(RuntimeObject*)NULL))? 1 : 0);
+		bool L_3 = V_1;
+		if (!L_3)
+		{
+			goto IL_0032;
+		}
+	}
+	{
+		// pfpUrl = JNIStorage.apiClass.GetStatic<string>("profileImage");
+		AndroidJavaClass_tE6296B30CC4BF84434A9B765267F3FD0DD8DDB03* L_4 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___apiClass_4;
+		NullCheck(L_4);
+		String_t* L_5;
+		L_5 = AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE(L_4, _stringLiteralE9DCE08A032B59AEC576FF7D80BA24B22EF507F8, AndroidJavaObject_GetStatic_TisString_t_mF408A1C0C6E5BF8154F00A450A97A51B2ABFCBDE_RuntimeMethod_var);
+		__this->___pfpUrl_4 = L_5;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___pfpUrl_4), (void*)L_5);
+	}
+
+IL_0032:
+	{
+		// StartCoroutine(GetTexture());
+		RuntimeObject* L_6;
+		L_6 = ImageHandler_GetTexture_m5CC37D1D34F4369424288E908960BA61D010E9A9(__this, NULL);
+		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_7;
+		L_7 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_6, NULL);
+	}
+
+IL_0040:
+	{
+		// }
+		return;
+	}
+}
+// System.Collections.IEnumerator ImageHandler::GetTexture()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ImageHandler_GetTexture_m5CC37D1D34F4369424288E908960BA61D010E9A9 (ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* L_0 = (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1*)il2cpp_codegen_object_new(U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		U3CGetTextureU3Ed__2__ctor_mCB15E48A97D74C0D5EE077A376A07C0F8C33B80E(L_0, 0, NULL);
+		U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* L_1 = L_0;
+		NullCheck(L_1);
+		L_1->___U3CU3E4__this_2 = __this;
+		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E4__this_2), (void*)__this);
+		return L_1;
+	}
+}
+// System.Void ImageHandler::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ImageHandler__ctor_m269EF91B3C78E1E79699E2DC97DD07439CA17F13 (ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* __this, const RuntimeMethod* method) 
+{
+	{
+		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void ImageHandler/<GetTexture>d__2::.ctor(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__2__ctor_mCB15E48A97D74C0D5EE077A376A07C0F8C33B80E (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
@@ -3813,8 +4055,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__3__ctor_m9738B68C89ED
 		return;
 	}
 }
-// System.Void ImageHandler/<GetTexture>d__3::System.IDisposable.Dispose()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__3_System_IDisposable_Dispose_m560B4A57E9F010E4B82414BF7FEE4B972EB74F39 (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, const RuntimeMethod* method) 
+// System.Void ImageHandler/<GetTexture>d__2::System.IDisposable.Dispose()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__2_System_IDisposable_Dispose_m43061A286E8D6A5DC4A8378210874B538AD91F7B (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, const RuntimeMethod* method) 
 {
 	int32_t V_0 = 0;
 	{
@@ -3851,7 +4093,7 @@ IL_0014:
 
 FINALLY_0017:
 			{// begin finally (depth: 1)
-				U3CGetTextureU3Ed__3_U3CU3Em__Finally1_m58359D55916C8540B15509A463A0AB7DF0A367A0(__this, NULL);
+				U3CGetTextureU3Ed__2_U3CU3Em__Finally1_m19E42DE4A540A29E535E619EA806BF42C61C9AE8(__this, NULL);
 				return;
 			}// end finally (depth: 1)
 		});
@@ -3875,8 +4117,8 @@ IL_0020:
 		return;
 	}
 }
-// System.Boolean ImageHandler/<GetTexture>d__3::MoveNext()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CGetTextureU3Ed__3_MoveNext_m065221EFF7CB96EA3556B4AD15FF73FBA080CA9A (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, const RuntimeMethod* method) 
+// System.Boolean ImageHandler/<GetTexture>d__2::MoveNext()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CGetTextureU3Ed__2_MoveNext_mBCBFFBBEF5C1A02948606DA8F3FA5E6166181B24 (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -3894,7 +4136,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CGetTextureU3Ed__3_MoveNext_m065221EFF
 
 FAULT_00de:
 			{// begin fault (depth: 1)
-				U3CGetTextureU3Ed__3_System_IDisposable_Dispose_m560B4A57E9F010E4B82414BF7FEE4B972EB74F39(__this, NULL);
+				U3CGetTextureU3Ed__2_System_IDisposable_Dispose_m43061A286E8D6A5DC4A8378210874B538AD91F7B(__this, NULL);
 				return;
 			}// end fault
 		});
@@ -3947,7 +4189,7 @@ IL_001d_1:
 				// using (UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl))
 				ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* L_3 = __this->___U3CU3E4__this_2;
 				NullCheck(L_3);
-				String_t* L_4 = L_3->___pfpUrl_5;
+				String_t* L_4 = L_3->___pfpUrl_4;
 				UnityWebRequest_t6233B8E22992FC2364A831C1ACB033EF3260C39F* L_5;
 				L_5 = UnityWebRequestTexture_GetTexture_mEEC74BBC5190D4012A0B87C5D439AF59E22EF2EF(L_4, NULL);
 				__this->___U3CpfpU3E5__1_3 = L_5;
@@ -3999,10 +4241,11 @@ IL_0095_1:
 				L_14 = DownloadHandlerTexture_GetContent_m86BC88F58305A1B21C21CE7D82658197932EFB18(L_13, NULL);
 				__this->___U3CpfpTextureU3E5__2_4 = L_14;
 				Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CpfpTextureU3E5__2_4), (void*)L_14);
-				// pfpHolder.GetComponent<RawImage>().texture = pfpTexture;
+				// gameObject.GetComponent<RawImage>().texture = pfpTexture;
 				ImageHandler_t41331CB73C053C2A90376EC70337635DCB10D7A5* L_15 = __this->___U3CU3E4__this_2;
 				NullCheck(L_15);
-				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_16 = L_15->___pfpHolder_4;
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_16;
+				L_16 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_15, NULL);
 				NullCheck(L_16);
 				RawImage_tFF12F7DB574FBDC1863CF607C7A12A5D9F8D6179* L_17;
 				L_17 = GameObject_GetComponent_TisRawImage_tFF12F7DB574FBDC1863CF607C7A12A5D9F8D6179_m51636C7F3481A344AA96C18C0C1471F72CEE7A3E(L_16, GameObject_GetComponent_TisRawImage_tFF12F7DB574FBDC1863CF607C7A12A5D9F8D6179_m51636C7F3481A344AA96C18C0C1471F72CEE7A3E_RuntimeMethod_var);
@@ -4015,7 +4258,7 @@ IL_0095_1:
 
 IL_00cb_1:
 			{
-				U3CGetTextureU3Ed__3_U3CU3Em__Finally1_m58359D55916C8540B15509A463A0AB7DF0A367A0(__this, NULL);
+				U3CGetTextureU3Ed__2_U3CU3Em__Finally1_m19E42DE4A540A29E535E619EA806BF42C61C9AE8(__this, NULL);
 				__this->___U3CpfpU3E5__1_3 = (UnityWebRequest_t6233B8E22992FC2364A831C1ACB033EF3260C39F*)NULL;
 				Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CpfpU3E5__1_3), (void*)(UnityWebRequest_t6233B8E22992FC2364A831C1ACB033EF3260C39F*)NULL);
 				// }
@@ -4035,8 +4278,8 @@ IL_00e6:
 		return L_19;
 	}
 }
-// System.Void ImageHandler/<GetTexture>d__3::<>m__Finally1()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__3_U3CU3Em__Finally1_m58359D55916C8540B15509A463A0AB7DF0A367A0 (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, const RuntimeMethod* method) 
+// System.Void ImageHandler/<GetTexture>d__2::<>m__Finally1()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__2_U3CU3Em__Finally1_m19E42DE4A540A29E535E619EA806BF42C61C9AE8 (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -4063,26 +4306,26 @@ IL_001b:
 		return;
 	}
 }
-// System.Object ImageHandler/<GetTexture>d__3::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGetTextureU3Ed__3_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m2CAB7C23B6CC109C3A5162496469DD95069B568B (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, const RuntimeMethod* method) 
+// System.Object ImageHandler/<GetTexture>d__2::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGetTextureU3Ed__2_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mA285DE306503351693CFC8F0840DFAAEC345F3DF (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current_1;
 		return L_0;
 	}
 }
-// System.Void ImageHandler/<GetTexture>d__3::System.Collections.IEnumerator.Reset()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__3_System_Collections_IEnumerator_Reset_m7E72C410F4D6E57B33C2C83216B54C67F64533C2 (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, const RuntimeMethod* method) 
+// System.Void ImageHandler/<GetTexture>d__2::System.Collections.IEnumerator.Reset()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGetTextureU3Ed__2_System_Collections_IEnumerator_Reset_m59C8AD3326800434B9AA6764BB90CC7A97BB59A4 (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, const RuntimeMethod* method) 
 {
 	{
 		NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* L_0 = (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A_il2cpp_TypeInfo_var)));
 		NullCheck(L_0);
 		NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF(L_0, NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CGetTextureU3Ed__3_System_Collections_IEnumerator_Reset_m7E72C410F4D6E57B33C2C83216B54C67F64533C2_RuntimeMethod_var)));
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CGetTextureU3Ed__2_System_Collections_IEnumerator_Reset_m59C8AD3326800434B9AA6764BB90CC7A97BB59A4_RuntimeMethod_var)));
 	}
 }
-// System.Object ImageHandler/<GetTexture>d__3::System.Collections.IEnumerator.get_Current()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGetTextureU3Ed__3_System_Collections_IEnumerator_get_Current_m3B2E294C238D36C8F50DE2B8485678FDF3643F55 (U3CGetTextureU3Ed__3_t26E9FB506A2D876463EFF1212E6C8491794D88C5* __this, const RuntimeMethod* method) 
+// System.Object ImageHandler/<GetTexture>d__2::System.Collections.IEnumerator.get_Current()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CGetTextureU3Ed__2_System_Collections_IEnumerator_get_Current_m6D6BED689EFD284EB7C7050DD770148C0F6A703F (U3CGetTextureU3Ed__2_tDEE8FAA6F73231D4362E373B670EDC847912A1B1* __this, const RuntimeMethod* method) 
 {
 	{
 		RuntimeObject* L_0 = __this->___U3CU3E2__current_1;
@@ -4745,29 +4988,48 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LoginHandler_Update_mA272DD3BE8E71064500
 		s_Il2CppMethodInitialized = true;
 	}
 	bool V_0 = false;
+	int32_t G_B3_0 = 0;
 	{
-		// if (JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
+		// if (JNIStorage.apiClass.GetStatic<bool>("finishedDownloading") && JNIStorage.accountObj != null)
 		AndroidJavaClass_tE6296B30CC4BF84434A9B765267F3FD0DD8DDB03* L_0 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___apiClass_4;
 		NullCheck(L_0);
 		bool L_1;
 		L_1 = AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663(L_0, _stringLiteral91116FFD49EFF85F333F1A0AAC154AC26C7861AD, AndroidJavaObject_GetStatic_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m5FF0E2B3DB133E9B140F1CB80BE61726D5ECC663_RuntimeMethod_var);
-		V_0 = L_1;
-		bool L_2 = V_0;
-		if (!L_2)
+		if (!L_1)
 		{
-			goto IL_002c;
+			goto IL_001c;
+		}
+	}
+	{
+		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_2 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___accountObj_5;
+		G_B3_0 = ((!(((RuntimeObject*)(AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0*)L_2) <= ((RuntimeObject*)(RuntimeObject*)NULL)))? 1 : 0);
+		goto IL_001d;
+	}
+
+IL_001c:
+	{
+		G_B3_0 = 0;
+	}
+
+IL_001d:
+	{
+		V_0 = (bool)G_B3_0;
+		bool L_3 = V_0;
+		if (!L_3)
+		{
+			goto IL_0039;
 		}
 	}
 	{
 		// JNIStorage.apiClass.SetStatic("msaMessage", "You can start the game now.");
-		AndroidJavaClass_tE6296B30CC4BF84434A9B765267F3FD0DD8DDB03* L_3 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___apiClass_4;
-		NullCheck(L_3);
-		AndroidJavaObject_SetStatic_TisString_t_mF36199C6E2644074AEA20D39F2AEECAB1BAE3F38(L_3, _stringLiteral3646441F13E8E3EA50730E8838C681F112813318, _stringLiteralCDADABA6431BEC5559FFA52104512DEEA38D6149, AndroidJavaObject_SetStatic_TisString_t_mF36199C6E2644074AEA20D39F2AEECAB1BAE3F38_RuntimeMethod_var);
+		AndroidJavaClass_tE6296B30CC4BF84434A9B765267F3FD0DD8DDB03* L_4 = ((JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_StaticFields*)il2cpp_codegen_static_fields_for(JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var))->___apiClass_4;
+		NullCheck(L_4);
+		AndroidJavaObject_SetStatic_TisString_t_mF36199C6E2644074AEA20D39F2AEECAB1BAE3F38(L_4, _stringLiteral3646441F13E8E3EA50730E8838C681F112813318, _stringLiteralCDADABA6431BEC5559FFA52104512DEEA38D6149, AndroidJavaObject_SetStatic_TisString_t_mF36199C6E2644074AEA20D39F2AEECAB1BAE3F38_RuntimeMethod_var);
 		// return;
-		goto IL_002c;
+		goto IL_0039;
 	}
 
-IL_002c:
+IL_0039:
 	{
 		// }
 		return;
@@ -4799,7 +5061,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LoginText_Update_m73BF6CE37E73065AD38457
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JNIStorage_t375A1F8724CA5D597A2FE2AD654C0A9059F8851D_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral3646441F13E8E3EA50730E8838C681F112813318);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB2C996DD8A0D7255DDA57C9624B4E454F185C906);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral83391CD9522A04D07E3F5A73D4FB8901A4C4CB86);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDA39A3EE5E6B4B0D3255BFEF95601890AFD80709);
 		s_Il2CppMethodInitialized = true;
 	}
@@ -4830,7 +5092,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LoginText_Update_m73BF6CE37E73065AD38457
 		}
 	}
 	{
-		// GetComponent<TextMeshProUGUI>().text  = GetComponent<TextMeshProUGUI>().text + " Click Microsoft Login button once done.";
+		// GetComponent<TextMeshProUGUI>().text  = GetComponent<TextMeshProUGUI>().text + "Click Microsoft Login button once this says its done.";
 		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_7;
 		L_7 = Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA(__this, Component_GetComponent_TisTextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957_m23F8F2F9DD5A54329CEB47D53B4CAA8BC4A562AA_RuntimeMethod_var);
 		TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* L_8;
@@ -4839,7 +5101,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LoginText_Update_m73BF6CE37E73065AD38457
 		String_t* L_9;
 		L_9 = VirtualFuncInvoker0< String_t* >::Invoke(65 /* System.String TMPro.TMP_Text::get_text() */, L_8);
 		String_t* L_10;
-		L_10 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(L_9, _stringLiteralB2C996DD8A0D7255DDA57C9624B4E454F185C906, NULL);
+		L_10 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(L_9, _stringLiteral83391CD9522A04D07E3F5A73D4FB8901A4C4CB86, NULL);
 		NullCheck(L_7);
 		VirtualActionInvoker1< String_t* >::Invoke(66 /* System.Void TMPro.TMP_Text::set_text(System.String) */, L_7, L_10);
 	}
