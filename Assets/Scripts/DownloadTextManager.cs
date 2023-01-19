@@ -13,7 +13,7 @@ public class DownloadTextManager : MonoBehaviour
         double mbDowbloaded = TruncateDouble(JNIStorage.apiClass.GetStatic<double>("downloadStatus"), 3);
 
         if (!string.IsNullOrWhiteSpace(currentFile))
-            GetComponent<TextMeshProUGUI>().text = "Downloading " + currentFile + ": " + mbDowbloaded + " MB";
+            GetComponent<TextMeshProUGUI>().text = "下载中 " + currentFile + ": " + mbDowbloaded + " MB";
         else 
             GetComponent<TextMeshProUGUI>().text = "";
 
