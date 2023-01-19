@@ -5840,7 +5840,7 @@ IL_000e:
 		DataTable_t9240A0D6726299C55832BF4EE085C864A1CCBB07* L_3 = ___0_table;
 		NullCheck(L_2);
 		RuntimeObject* L_4;
-		L_4 = VirtualFuncInvoker1< RuntimeObject*, RuntimeObject* >::Invoke(29 /* System.Object System.Collections.Hashtable::get_Item(System.Object) */, L_2, L_3);
+		L_4 = VirtualFuncInvoker1< RuntimeObject*, RuntimeObject* >::Invoke(30 /* System.Object System.Collections.Hashtable::get_Item(System.Object) */, L_2, L_3);
 		V_0 = ((DataViewSetting_tB99FD9B965F9FD3E9BDB703E1A0B851FC8357601*)CastclassClass((RuntimeObject*)L_4, DataViewSetting_tB99FD9B965F9FD3E9BDB703E1A0B851FC8357601_il2cpp_TypeInfo_var));
 		DataViewSetting_tB99FD9B965F9FD3E9BDB703E1A0B851FC8357601* L_5 = V_0;
 		if (L_5)
@@ -5894,7 +5894,7 @@ IL_000e:
 		DataTable_t9240A0D6726299C55832BF4EE085C864A1CCBB07* L_7 = ___0_table;
 		DataViewSetting_tB99FD9B965F9FD3E9BDB703E1A0B851FC8357601* L_8 = ___1_value;
 		NullCheck(L_6);
-		VirtualActionInvoker2< RuntimeObject*, RuntimeObject* >::Invoke(30 /* System.Void System.Collections.Hashtable::set_Item(System.Object,System.Object) */, L_6, L_7, L_8);
+		VirtualActionInvoker2< RuntimeObject*, RuntimeObject* >::Invoke(31 /* System.Void System.Collections.Hashtable::set_Item(System.Object,System.Object) */, L_6, L_7, L_8);
 		return;
 	}
 }
@@ -5905,7 +5905,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DataViewSettingCollection_Remove_m0544BA
 		Hashtable_tEFC3B6496E6747787D8BB761B51F2AE3A8CFFE2D* L_0 = __this->____list_1;
 		DataTable_t9240A0D6726299C55832BF4EE085C864A1CCBB07* L_1 = ___0_table;
 		NullCheck(L_0);
-		VirtualActionInvoker1< RuntimeObject* >::Invoke(39 /* System.Void System.Collections.Hashtable::Remove(System.Object) */, L_0, L_1);
+		VirtualActionInvoker1< RuntimeObject* >::Invoke(40 /* System.Void System.Collections.Hashtable::Remove(System.Object) */, L_0, L_1);
 		return;
 	}
 }

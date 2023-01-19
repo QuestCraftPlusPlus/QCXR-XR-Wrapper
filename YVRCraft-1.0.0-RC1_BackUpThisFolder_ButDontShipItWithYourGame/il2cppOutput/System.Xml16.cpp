@@ -751,6 +751,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral7C014955313A7D33D5D04696B884B25325E6393C
 IL2CPP_EXTERN_C String_t* _stringLiteral804AD0583883EA822F254A6C57F7E555DD4D5AC8;
 IL2CPP_EXTERN_C String_t* _stringLiteral816AC250ED1A01784CA5BFF5B463DE22A63B3CCA;
 IL2CPP_EXTERN_C String_t* _stringLiteral8243BA18D267E0E612210F4920079D9700A5DEEF;
+IL2CPP_EXTERN_C String_t* _stringLiteral876C4B39B6E4D0187090400768899C71D99DE90D;
 IL2CPP_EXTERN_C String_t* _stringLiteral878AE10D03D16A069554617545B8533ED09E594F;
 IL2CPP_EXTERN_C String_t* _stringLiteral88BDF3D0791A560245652E772545C49897854443;
 IL2CPP_EXTERN_C String_t* _stringLiteral8BF4D6820BD8495CC3D356CD80F5C8185A39DCEA;
@@ -6190,6 +6191,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t XPathNode_get_NodeType_mF01B7F501A4D2
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XPathNode_get_LocalName_m4C7DCD240996EDE990F6924B176B80008141A367 (XPathNode_t4A9DCD8092B3B7DBA0A6DA09C03DB5274D43C3CA* __this, const RuntimeMethod* method) ;
 // System.String MS.Internal.Xml.Cache.XPathNode::get_NamespaceUri()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XPathNode_get_NamespaceUri_mA7E5CA21E8BCF798FC16E64F94158F54B1C95FC2 (XPathNode_t4A9DCD8092B3B7DBA0A6DA09C03DB5274D43C3CA* __this, const RuntimeMethod* method) ;
+// System.String MS.Internal.Xml.Cache.XPathNode::get_Name()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XPathNode_get_Name_mD3398BB31437F47F5AA3256018D478A1C12BA865 (XPathNode_t4A9DCD8092B3B7DBA0A6DA09C03DB5274D43C3CA* __this, const RuntimeMethod* method) ;
 // System.String MS.Internal.Xml.Cache.XPathNode::get_Prefix()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XPathNode_get_Prefix_m499096BCD31E503FF89FDADD69F1C916686BDFA7 (XPathNode_t4A9DCD8092B3B7DBA0A6DA09C03DB5274D43C3CA* __this, const RuntimeMethod* method) ;
 // System.Xml.XPath.XPathDocument MS.Internal.Xml.Cache.XPathNode::get_Document()
@@ -6220,6 +6223,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t XPathNode_get_LinePosition_mF7AEBF275
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR String_t* XPathNodeInfoAtom_get_Prefix_m288E1BED13375EFD17014F55730E1EE85CE6ACA1_inline (XPathNodeInfoAtom_t4E1898849C241487219F72C0B61B5D474E1059FE* __this, const RuntimeMethod* method) ;
 // System.String MS.Internal.Xml.Cache.XPathNodeInfoAtom::get_LocalName()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR String_t* XPathNodeInfoAtom_get_LocalName_m717A834A1CF042C3AEFCFA4EA2C20D2CD3F53430_inline (XPathNodeInfoAtom_t4E1898849C241487219F72C0B61B5D474E1059FE* __this, const RuntimeMethod* method) ;
+// System.String System.String::Concat(System.String,System.String,System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B (String_t* ___0_str0, String_t* ___1_str1, String_t* ___2_str2, const RuntimeMethod* method) ;
 // System.String MS.Internal.Xml.Cache.XPathNodeInfoAtom::get_NamespaceUri()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR String_t* XPathNodeInfoAtom_get_NamespaceUri_m4E325FC93F28603B48BEE521FA1A93C426D8C78D_inline (XPathNodeInfoAtom_t4E1898849C241487219F72C0B61B5D474E1059FE* __this, const RuntimeMethod* method) ;
 // System.Xml.XPath.XPathDocument MS.Internal.Xml.Cache.XPathNodeInfoAtom::get_Document()
@@ -15655,7 +15660,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* XsdValidator_FindId_m00BE7A29F
 		String_t* L_2 = ___0_name;
 		NullCheck(L_1);
 		RuntimeObject* L_3;
-		L_3 = VirtualFuncInvoker1< RuntimeObject*, RuntimeObject* >::Invoke(29 /* System.Object System.Collections.Hashtable::get_Item(System.Object) */, L_1, L_2);
+		L_3 = VirtualFuncInvoker1< RuntimeObject*, RuntimeObject* >::Invoke(30 /* System.Object System.Collections.Hashtable::get_Item(System.Object) */, L_1, L_2);
 		return L_3;
 	}
 
@@ -17436,7 +17441,7 @@ IL_036f:
 		Hashtable_tEFC3B6496E6747787D8BB761B51F2AE3A8CFFE2D* L_215 = L_214->___keyrefTable_4;
 		NullCheck(L_215);
 		RuntimeObject* L_216;
-		L_216 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(37 /* System.Collections.ICollection System.Collections.Hashtable::get_Keys() */, L_215);
+		L_216 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(38 /* System.Collections.ICollection System.Collections.Hashtable::get_Keys() */, L_215);
 		NullCheck(L_216);
 		RuntimeObject* L_217;
 		L_217 = InterfaceFuncInvoker0< RuntimeObject* >::Invoke(0 /* System.Collections.IEnumerator System.Collections.IEnumerable::GetEnumerator() */, IEnumerable_t6331596D5DD37C462B1B8D49CF6B319B00AB7131_il2cpp_TypeInfo_var, L_216);
@@ -22181,6 +22186,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XPathDocumentNavigator_get_Namespac
 		return L_2;
 	}
 }
+// System.String MS.Internal.Xml.Cache.XPathDocumentNavigator::get_Name()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XPathDocumentNavigator_get_Name_m04869FA8C02F6DE6DF33F3A4BC25EE5C0FFFB3F1 (XPathDocumentNavigator_t612FCDCBA3A6C710B47D126B50DB88AD0C66DD81* __this, const RuntimeMethod* method) 
+{
+	{
+		XPathNodeU5BU5D_tABD91BA95C61EF982E9FB7D2386FCE4C39F8B90C* L_0 = __this->____pageCurrent_4;
+		int32_t L_1 = __this->____idxCurrent_6;
+		NullCheck(L_0);
+		String_t* L_2;
+		L_2 = XPathNode_get_Name_mD3398BB31437F47F5AA3256018D478A1C12BA865(((L_0)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_1))), NULL);
+		return L_2;
+	}
+}
 // System.String MS.Internal.Xml.Cache.XPathDocumentNavigator::get_Prefix()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XPathDocumentNavigator_get_Prefix_mA7F9D844ADDD32B82819A4E63B7071E8590420D6 (XPathDocumentNavigator_t612FCDCBA3A6C710B47D126B50DB88AD0C66DD81* __this, const RuntimeMethod* method) 
 {
@@ -22701,6 +22718,52 @@ IL2CPP_EXTERN_C  String_t* XPathNode_get_LocalName_m4C7DCD240996EDE990F6924B176B
 	_thisAdjusted = reinterpret_cast<XPathNode_t4A9DCD8092B3B7DBA0A6DA09C03DB5274D43C3CA*>(__this + _offset);
 	String_t* _returnValue;
 	_returnValue = XPathNode_get_LocalName_m4C7DCD240996EDE990F6924B176B80008141A367(_thisAdjusted, method);
+	return _returnValue;
+}
+// System.String MS.Internal.Xml.Cache.XPathNode::get_Name()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* XPathNode_get_Name_mD3398BB31437F47F5AA3256018D478A1C12BA865 (XPathNode_t4A9DCD8092B3B7DBA0A6DA09C03DB5274D43C3CA* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral876C4B39B6E4D0187090400768899C71D99DE90D);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		String_t* L_0;
+		L_0 = XPathNode_get_Prefix_m499096BCD31E503FF89FDADD69F1C916686BDFA7(__this, NULL);
+		NullCheck(L_0);
+		int32_t L_1;
+		L_1 = String_get_Length_m42625D67623FA5CC7A44D47425CE86FB946542D2_inline(L_0, NULL);
+		if (L_1)
+		{
+			goto IL_0014;
+		}
+	}
+	{
+		String_t* L_2;
+		L_2 = XPathNode_get_LocalName_m4C7DCD240996EDE990F6924B176B80008141A367(__this, NULL);
+		return L_2;
+	}
+
+IL_0014:
+	{
+		String_t* L_3;
+		L_3 = XPathNode_get_Prefix_m499096BCD31E503FF89FDADD69F1C916686BDFA7(__this, NULL);
+		String_t* L_4;
+		L_4 = XPathNode_get_LocalName_m4C7DCD240996EDE990F6924B176B80008141A367(__this, NULL);
+		String_t* L_5;
+		L_5 = String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B(L_3, _stringLiteral876C4B39B6E4D0187090400768899C71D99DE90D, L_4, NULL);
+		return L_5;
+	}
+}
+IL2CPP_EXTERN_C  String_t* XPathNode_get_Name_mD3398BB31437F47F5AA3256018D478A1C12BA865_AdjustorThunk (RuntimeObject* __this, const RuntimeMethod* method)
+{
+	XPathNode_t4A9DCD8092B3B7DBA0A6DA09C03DB5274D43C3CA* _thisAdjusted;
+	int32_t _offset = 1;
+	_thisAdjusted = reinterpret_cast<XPathNode_t4A9DCD8092B3B7DBA0A6DA09C03DB5274D43C3CA*>(__this + _offset);
+	String_t* _returnValue;
+	_returnValue = XPathNode_get_Name_mD3398BB31437F47F5AA3256018D478A1C12BA865(_thisAdjusted, method);
 	return _returnValue;
 }
 // System.String MS.Internal.Xml.Cache.XPathNode::get_NamespaceUri()

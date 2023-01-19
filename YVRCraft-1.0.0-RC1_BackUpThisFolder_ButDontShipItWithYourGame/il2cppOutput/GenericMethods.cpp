@@ -624,10 +624,12 @@ struct U3CGetRangeU3Ed__7_1_tF49799ED03EDDF6053229F627FB55B7B0003A5AF  : public 
 	int32_t ___end_7;
 	// System.Int32 Oculus.Interaction.InteractableRegistry`2/<GetRange>d__7`1::<>3__end
 	int32_t ___U3CU3E3__end_8;
-	// System.Collections.Generic.IEnumerator`1<T> Oculus.Interaction.InteractableRegistry`2/<GetRange>d__7`1::<e>5__2
-	RuntimeObject* ___U3CeU3E5__2_9;
-	// System.Int32 Oculus.Interaction.InteractableRegistry`2/<GetRange>d__7`1::<i>5__3
-	int32_t ___U3CiU3E5__3_10;
+	// Oculus.Interaction.InteractableRegistry`2<TInteractor,TInteractable> Oculus.Interaction.InteractableRegistry`2/<GetRange>d__7`1::<>4__this
+	InteractableRegistry_2_t8EFC4239DE1EFD29A8A89A869EE7B5A824303B7D* ___U3CU3E4__this_9;
+	// System.Collections.Generic.IEnumerator`1<T> Oculus.Interaction.InteractableRegistry`2/<GetRange>d__7`1::<e>5__1
+	RuntimeObject* ___U3CeU3E5__1_10;
+	// System.Int32 Oculus.Interaction.InteractableRegistry`2/<GetRange>d__7`1::<i>5__2
+	int32_t ___U3CiU3E5__2_11;
 };
 
 // System.Linq.Lookup`2/Grouping<System.Int32Enum,System.ValueTuple`2<System.Int32Enum,System.Object>>
@@ -667,6 +669,17 @@ struct Grouping_tA77BA10F6914B0E3DE1904821D54E559FC104F44  : public RuntimeObjec
 // Oculus.Interaction.InteractableRegistry`2<System.Object,System.Object>
 struct InteractableRegistry_2_t8EFC4239DE1EFD29A8A89A869EE7B5A824303B7D  : public RuntimeObject
 {
+};
+
+// System.Linq.Enumerable/Iterator`1<System.Int32Enum>
+struct Iterator_1_tEEF82AE11FFC6DF9B283B2D5E4A87B3E3BFD805E  : public RuntimeObject
+{
+	// System.Int32 System.Linq.Enumerable/Iterator`1::threadId
+	int32_t ___threadId_0;
+	// System.Int32 System.Linq.Enumerable/Iterator`1::state
+	int32_t ___state_1;
+	// TSource System.Linq.Enumerable/Iterator`1::current
+	int32_t ___current_2;
 };
 
 // System.Linq.Enumerable/Iterator`1<System.Object>
@@ -5574,6 +5587,10 @@ struct InteractableRegistry_2_t8EFC4239DE1EFD29A8A89A869EE7B5A824303B7D_StaticFi
 };
 
 // Oculus.Interaction.InteractableRegistry`2<System.Object,System.Object>
+
+// System.Linq.Enumerable/Iterator`1<System.Int32Enum>
+
+// System.Linq.Enumerable/Iterator`1<System.Int32Enum>
 
 // System.Linq.Enumerable/Iterator`1<System.Object>
 
@@ -33918,19 +33935,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* InteractableRegistry_2_GetRang
 		NullCheck(L_0);
 		((  void (*) (U3CGetRangeU3Ed__7_1_tF49799ED03EDDF6053229F627FB55B7B0003A5AF*, int32_t, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 1)))(L_0, ((int32_t)-2), il2cpp_rgctx_method(method->rgctx_data, 1));
 		U3CGetRangeU3Ed__7_1_tF49799ED03EDDF6053229F627FB55B7B0003A5AF* L_1 = L_0;
-		RuntimeObject* L_2 = ___0_source;
 		NullCheck(L_1);
-		L_1->___U3CU3E3__source_4 = L_2;
-		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E3__source_4), (void*)L_2);
-		U3CGetRangeU3Ed__7_1_tF49799ED03EDDF6053229F627FB55B7B0003A5AF* L_3 = L_1;
-		int32_t L_4 = ___1_start;
-		NullCheck(L_3);
-		L_3->___U3CU3E3__start_6 = L_4;
-		U3CGetRangeU3Ed__7_1_tF49799ED03EDDF6053229F627FB55B7B0003A5AF* L_5 = L_3;
-		int32_t L_6 = ___2_end;
-		NullCheck(L_5);
-		L_5->___U3CU3E3__end_8 = L_6;
-		return (RuntimeObject*)L_5;
+		L_1->___U3CU3E4__this_9 = __this;
+		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E4__this_9), (void*)__this);
+		U3CGetRangeU3Ed__7_1_tF49799ED03EDDF6053229F627FB55B7B0003A5AF* L_2 = L_1;
+		RuntimeObject* L_3 = ___0_source;
+		NullCheck(L_2);
+		L_2->___U3CU3E3__source_4 = L_3;
+		Il2CppCodeGenWriteBarrier((void**)(&L_2->___U3CU3E3__source_4), (void*)L_3);
+		U3CGetRangeU3Ed__7_1_tF49799ED03EDDF6053229F627FB55B7B0003A5AF* L_4 = L_2;
+		int32_t L_5 = ___1_start;
+		NullCheck(L_4);
+		L_4->___U3CU3E3__start_6 = L_5;
+		U3CGetRangeU3Ed__7_1_tF49799ED03EDDF6053229F627FB55B7B0003A5AF* L_6 = L_4;
+		int32_t L_7 = ___2_end;
+		NullCheck(L_6);
+		L_6->___U3CU3E3__end_8 = L_7;
+		return (RuntimeObject*)L_6;
 	}
 }
 // System.Collections.Generic.List`1<TOutput> System.Collections.Generic.List`1<System.Object>::ConvertAll<System.Object>(System.Converter`2<T,TOutput>)
