@@ -1,0 +1,1283 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1101 &-9217122254246144979
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsTouchIndexTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1388888009685914069}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!206 &-9072949166385816140
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blend Tree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 3791136598936134613, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 10
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: HandTrigger
+  m_BlendParameterY: JoyX
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
+--- !u!1102 &-8862281292160263275
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MiddlePress
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -9072949166385816140}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!206 &-8571269820247156231
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TwoButton
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 6228846835862233554, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: -2
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 9169000659417261212, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: -1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1179473073566082975, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4854180139978558704, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: TwoButton
+  m_BlendParameterY: Blend
+  m_MinThreshold: -2
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 0
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
+--- !u!206 &-8520708976221786540
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blend Tree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 7019201145884847054, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 3342931783434726717, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: IndexTrigger
+  m_BlendParameterY: JoyX
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
+--- !u!1107 &-7814547561693056429
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Thumb
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 4850335168401974016}
+    m_Position: {x: 340, y: 110, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 60, y: 240, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 4850335168401974016}
+--- !u!206 &-7756890379392474070
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlendTree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 1389121407789637250, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0.5}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1179473073566082975, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.33333334
+    m_Position: {x: 0.5, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4353825163953427278, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.6666667
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4854180139978558704, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: x
+  m_BlendParameterY: y
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 1
+--- !u!1107 &-6692448004696510374
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Index
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 1388888009685914069}
+    m_Position: {x: 240, y: 100, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 3865388870492347650}
+    m_Position: {x: 240, y: 0, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 60, y: 210, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 1388888009685914069}
+--- !u!206 &-5667227092770144683
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blend Tree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: DefaultBlendButton
+  m_BlendParameterY: JoyX
+  m_MinThreshold: 1
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 0
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
+--- !u!206 &-4736324667747458201
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: OptimizeBlendTree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 959858521368225738, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 2261922035908365847, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.09090909
+    m_Position: {x: 0.5, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 2261922035908365847, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.18181819
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -3932050637960198728, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.27272728
+    m_Position: {x: 1.5, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -3932050637960198728, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.36363637
+    m_Position: {x: 2, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -6110149404935805391, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.45454547
+    m_Position: {x: 0, y: 0.5}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -6110149404935805391, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.54545456
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 2381848387131064163, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.6363636
+    m_Position: {x: 0, y: 1.5}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 2381848387131064163, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.72727275
+    m_Position: {x: 0, y: 2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 8699535172855062939, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.8181818
+    m_Position: {x: 1, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1554478094955903781, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.90909094
+    m_Position: {x: 2, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1554478094955903781, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 2, y: 2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: OneButton
+  m_BlendParameterY: TwoButton
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 2
+--- !u!1107 &-4586233329056181342
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BasePos
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: 2414726394340169113}
+    m_Position: {x: 290, y: 110, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 2414726394340169113}
+--- !u!206 &-3753947778923155461
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: OneButton
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 6228846835862233554, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: -2
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 9169000659417261212, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: -1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1389121407789637250, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4353825163953427278, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: OneButton
+  m_BlendParameterY: Blend
+  m_MinThreshold: -2
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 0
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
+--- !u!206 &-3327018269748941547
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blend Tree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 1827226128182048838, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1389121407789637250, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.060606062
+    m_Position: {x: 0.5, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1389121407789637250, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.121212125
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4353825163953427278, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.18181819
+    m_Position: {x: 1.5, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4353825163953427278, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.24242425
+    m_Position: {x: 2, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1179473073566082975, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.3030303
+    m_Position: {x: 0, y: 0.5}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1179473073566082975, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.36363637
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4854180139978558704, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.42424244
+    m_Position: {x: 0, y: 1.5}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4854180139978558704, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.4848485
+    m_Position: {x: 0, y: 2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 9169000659417261212, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.54545456
+    m_Position: {x: 1, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 6228846835862233554, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.6060606
+    m_Position: {x: 2, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 6228846835862233554, guid: 5a22a870ea52e30418a399a677b57fae,
+      type: 3}
+    m_Threshold: 0.6666667
+    m_Position: {x: 2, y: 2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: OneButton
+  m_BlendParameterY: TwoButton
+  m_MinThreshold: 0
+  m_MaxThreshold: 0.6666667
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 2
+--- !u!91 &9100000
+AnimatorController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: YVR_RightHandAnimatorController
+  serializedVersion: 5
+  m_AnimatorParameters:
+  - m_Name: JoyX
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: JoyY
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: DefaultBlendButton
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: OneTouch
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: OneButton
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: TwoTouch
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: TwoButton
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: IndexTrigger
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: IsTouchIndexTrigger
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: ThumbstickTouch
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: HandTrigger
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: TouchStickBlendButton
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  m_AnimatorLayers:
+  - serializedVersion: 5
+    m_Name: BasePos
+    m_StateMachine: {fileID: -4586233329056181342}
+    m_Mask: {fileID: 0}
+    m_Motions: []
+    m_Behaviours: []
+    m_BlendingMode: 0
+    m_SyncedLayerIndex: -1
+    m_DefaultWeight: 1
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Thumb
+    m_StateMachine: {fileID: -7814547561693056429}
+    m_Mask: {fileID: 0}
+    m_Motions: []
+    m_Behaviours: []
+    m_BlendingMode: 1
+    m_SyncedLayerIndex: -1
+    m_DefaultWeight: 1
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Index
+    m_StateMachine: {fileID: -6692448004696510374}
+    m_Mask: {fileID: 0}
+    m_Motions: []
+    m_Behaviours: []
+    m_BlendingMode: 1
+    m_SyncedLayerIndex: -1
+    m_DefaultWeight: 1
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Middle
+    m_StateMachine: {fileID: 4346994021365795391}
+    m_Mask: {fileID: 0}
+    m_Motions: []
+    m_Behaviours: []
+    m_BlendingMode: 1
+    m_SyncedLayerIndex: -1
+    m_DefaultWeight: 1
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+--- !u!206 &91733581277270226
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlendTree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 959858521368225738, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: DefaultBlendButton
+  m_BlendParameterY: DefaultBlendButton
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 1
+--- !u!1101 &1076438007608647285
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1102 &1388888009685914069
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: l_YVR_hand_All_default_anim
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 1566479580514770763}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+    type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1101 &1566479580514770763
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsTouchIndexTrigger
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 3865388870492347650}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.05
+  m_TransitionOffset: 0.9642506
+  m_ExitTime: 0
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!206 &1934600339770718683
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlendTree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 959858521368225738, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: HandTrigger
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.25
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.5
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.75
+    m_Position: {x: 0, y: 0.5}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0.5, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: OneButton
+  m_BlendParameterY: TwoButton
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 2
+--- !u!1102 &2414726394340169113
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BasePose
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -5667227092770144683}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!206 &2621068791271845494
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Thumbstick
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 959858521368225738, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.125
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 445617424779481341, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.234375
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -5664003146371482781, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.34375
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -2175611700349243213, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.453125
+    m_Position: {x: 0, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -5145050908819962770, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.5625
+    m_Position: {x: -1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7067477714968632701, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.671875
+    m_Position: {x: 0.707106, y: 0.707106}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 991392800072460134, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.78125
+    m_Position: {x: -0.707106, y: 0.707106}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 3272025453220080617, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.890625
+    m_Position: {x: 0.707106, y: -0.707106}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -1233230849861480347, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 1
+    m_Position: {x: -0.707106, y: -0.707106}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: JoyX
+  m_BlendParameterY: JoyY
+  m_MinThreshold: 0.125
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 3
+--- !u!1102 &3865388870492347650
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blend Tree
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -9217122254246144979}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -8520708976221786540}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1107 &4346994021365795391
+AnimatorStateMachine:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Middle
+  m_ChildStates:
+  - serializedVersion: 1
+    m_State: {fileID: -8862281292160263275}
+    m_Position: {x: 280, y: 110, z: 0}
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: -8862281292160263275}
+--- !u!1102 &4850335168401974016
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ThumbState
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 6611738845980588355}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!206 &5885129053699213150
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlendTree
+  m_Childs: []
+  m_BlendParameter: JoyX
+  m_BlendParameterY: JoyX
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
+--- !u!206 &6611738845980588355
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blend Tree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 2621068791271845494}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: ThumbstickTouch
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7949712438478673717}
+    m_Threshold: 0.33333334
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: DefaultBlendButton
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -4736324667747458201}
+    m_Threshold: 0.6666667
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: TouchStickBlendButton
+    m_Mirror: 0
+  m_BlendParameter: JoyX
+  m_BlendParameterY: JoyX
+  m_MinThreshold: 0
+  m_MaxThreshold: 0.6666667
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 4
+--- !u!206 &7949712438478673717
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: OneTwoButton
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: -2023857942495286839, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 2261922035908365847, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.082644634
+    m_Position: {x: 0.5, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 2261922035908365847, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.16528927
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -3932050637960198728, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.2479339
+    m_Position: {x: 1.5, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -3932050637960198728, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.33057854
+    m_Position: {x: 2, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -6110149404935805391, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.41322318
+    m_Position: {x: 0, y: 0.5}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -6110149404935805391, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.4958678
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 2381848387131064163, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.57851243
+    m_Position: {x: 0, y: 1.5}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 2381848387131064163, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.6611571
+    m_Position: {x: 0, y: 2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 8699535172855062939, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.74380165
+    m_Position: {x: 1, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1554478094955903781, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.82644635
+    m_Position: {x: 2, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1554478094955903781, guid: 677d24b5e1d70a44a888f01fc1d88f52,
+      type: 3}
+    m_Threshold: 0.90909094
+    m_Position: {x: 2, y: 2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: JoyX
+    m_Mirror: 0
+  m_BlendParameter: OneButton
+  m_BlendParameterY: TwoButton
+  m_MinThreshold: 0
+  m_MaxThreshold: 0.90909094
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 2
