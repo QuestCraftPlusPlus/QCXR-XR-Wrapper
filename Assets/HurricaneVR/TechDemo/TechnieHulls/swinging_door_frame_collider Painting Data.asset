@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de965f2e710c1c489ead8e62cd25da0, type: 3}
+  m_Name: swinging_door_frame_collider Painting Data
+  m_EditorClassIdentifier: 
+  hullData: {fileID: 11400000, guid: 04cccc94351a48044bd9ff5a07d0c85b, type: 2}
+  sourceMesh: {fileID: -2169260647705751032, guid: 6dfcade0071336d478d528bf09ede877,
+    type: 3}
+  activeHull: 3
+  faceThickness: 0.1
+  hulls:
+  - name: Hull 1
+    isVisible: 1
+    type: 0
+    colour: {r: 0, g: 1, b: 1, a: 0.7}
+    material: {fileID: 0}
+    enableInflation: 0
+    inflationAmount: 0.01
+    boxFitMethod: 1
+    isTrigger: 0
+    isChildCollider: 0
+    selectedFaces: 030000000200000008000000090000000f0000000e000000
+    collisionMesh: {fileID: 0}
+    collisionBox:
+      m_Center: {x: 0.6369904, y: 1.1498868, z: 0.012101721}
+      m_Extent: {x: 0.079648614, y: 1.1500151, z: 0.11285937}
+    boxPosition: {x: 0, y: 0, z: 0}
+    boxRotation: {x: 0, y: 0, z: 0, w: 1}
+    faceCollisionMesh: {fileID: 0}
+    faceBoxCenter: {x: 0, y: 0, z: 0}
+    faceBoxSize: {x: 0, y: 0, z: 0}
+    faceAsBoxRotation: {x: 0, y: 0, z: 0, w: 0}
+    autoMeshes: []
+    hasColliderError: 0
+    numColliderFaces: 0
+  - name: Hull 2
+    isVisible: 1
+    type: 0
+    colour: {r: 1, g: 0, b: 1, a: 0.7}
+    material: {fileID: 0}
+    enableInflation: 0
+    inflationAmount: 0.01
+    boxFitMethod: 1
+    isTrigger: 0
+    isChildCollider: 0
+    selectedFaces: 0b0000000a0000001700000016000000
+    collisionMesh: {fileID: 0}
+    collisionBox:
+      m_Center: {x: 0.0046150684, y: 2.2274501, z: 0.012101546}
+      m_Extent: {x: 0.712024, y: 0.07245183, z: 0.11285919}
+    boxPosition: {x: 0, y: 0, z: 0}
+    boxRotation: {x: 0, y: 0, z: 0, w: 1}
+    faceCollisionMesh: {fileID: 0}
+    faceBoxCenter: {x: 0, y: 0, z: 0}
+    faceBoxSize: {x: 0, y: 0, z: 0}
+    faceAsBoxRotation: {x: 0, y: 0, z: 0, w: 0}
+    autoMeshes: []
+    hasColliderError: 0
+    numColliderFaces: 0
+  - name: Hull 3
+    isVisible: 1
+    type: 0
+    colour: {r: 1, g: 1, b: 0, a: 0.7}
+    material: {fileID: 0}
+    enableInflation: 0
+    inflationAmount: 0.01
+    boxFitMethod: 1
+    isTrigger: 0
+    isChildCollider: 0
+    selectedFaces: 1c00000010000000
+    collisionMesh: {fileID: 0}
+    collisionBox:
+      m_Center: {x: -0.62998575, y: 1.1498868, z: 0.012101721}
+      m_Extent: {x: 0.077423155, y: 1.1500151, z: 0.11285937}
+    boxPosition: {x: 0, y: 0, z: 0}
+    boxRotation: {x: 0, y: 0, z: 0, w: 1}
+    faceCollisionMesh: {fileID: 0}
+    faceBoxCenter: {x: 0, y: 0, z: 0}
+    faceBoxSize: {x: 0, y: 0, z: 0}
+    faceAsBoxRotation: {x: 0, y: 0, z: 0, w: 0}
+    autoMeshes: []
+    hasColliderError: 0
+    numColliderFaces: 0
+  - name: Hull 4
+    isVisible: 1
+    type: 0
+    colour: {r: 1, g: 0, b: 0, a: 0.7}
+    material: {fileID: 0}
+    enableInflation: 0
+    inflationAmount: 0.01
+    boxFitMethod: 1
+    isTrigger: 0
+    isChildCollider: 0
+    selectedFaces: 180000000c000000
+    collisionMesh: {fileID: 0}
+    collisionBox:
+      m_Center: {x: 0.0046150684, y: 0.029154621, z: 0.012101904}
+      m_Extent: {x: 0.712024, y: 0.029282983, z: 0.11285918}
+    boxPosition: {x: 0, y: 0, z: 0}
+    boxRotation: {x: 0, y: 0, z: 0, w: 1}
+    faceCollisionMesh: {fileID: 0}
+    faceBoxCenter: {x: 0, y: 0, z: 0}
+    faceBoxSize: {x: 0, y: 0, z: 0}
+    faceAsBoxRotation: {x: 0, y: 0, z: 0, w: 0}
+    autoMeshes: []
+    hasColliderError: 0
+    numColliderFaces: 0
+  autoHullPreset: 1
+  vhacdParams:
+    concavity: 0.01
+    alpha: 0.05
+    beta: 0.05
+    minVolumePerCH: 0.004
+    resolution: 10000
+    maxNumVerticesPerCH: 64
+    planeDownsampling: 4
+    convexhullDownsampling: 4
+    pca: 0
+    mode: 0
+    convexhullApproximation: 1
+    oclAcceleration: 0
+    maxConvexHulls: 5
+    projectHullVertices: 1
+  hasLastVhacdTimings: 0
+  lastVhacdPreset: 1
+  lastVhacdDurationSecs: 0

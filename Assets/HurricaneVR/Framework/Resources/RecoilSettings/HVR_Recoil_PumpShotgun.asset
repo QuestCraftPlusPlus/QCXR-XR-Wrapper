@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd81e9e4d5c74d6e99fd2fadd5e6c0f0, type: 3}
+  m_Name: HVR_Recoil_PumpShotgun
+  m_EditorClassIdentifier: 
+  UpForce: 4
+  BackwardsForce: 15
+  TwoHandUpForce: 2
+  TwoHandBackwardsForce: 0
+  UseTwoHandRecoilForce: 1
+  ImpulseForce: 1
+  RandomSideToSideRecoil: 1
+  SideToSideMin: -1
+  SideToSideMax: 1
+  TwoHandSideToSideMin: 0
+  TwoHandSideToSideMax: 0
+  LimitRecoilForce: 1
+  MaxUpForce: 5
+  UseTwoHandMaxUpforce: 0
+  UseTwoHandMaxSideForce: 0
+  MaxBackForce: 2000
+  TwoHandMaxUpForce: 200
+  MaxSideForce: 200
+  TwoHandMaxSideForce: 0
+  RecoveryDelay: 0
+  TwoHandedRecoveryDelay: 0.15
+  RecoveryTime: 0.1
+  TwoHandedRecoveryTime: 0.15

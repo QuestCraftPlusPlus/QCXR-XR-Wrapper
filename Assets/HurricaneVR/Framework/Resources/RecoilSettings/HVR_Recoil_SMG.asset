@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd81e9e4d5c74d6e99fd2fadd5e6c0f0, type: 3}
+  m_Name: HVR_Recoil_SMG
+  m_EditorClassIdentifier: 
+  UpForce: 1
+  BackwardsForce: 10
+  TwoHandUpForce: 0.1
+  TwoHandBackwardsForce: 2.5
+  UseTwoHandRecoilForce: 1
+  ImpulseForce: 1
+  RandomSideToSideRecoil: 1
+  SideToSideMin: -0.5
+  SideToSideMax: 0.5
+  TwoHandSideToSideMin: -0.1
+  TwoHandSideToSideMax: 0.1
+  LimitRecoilForce: 1
+  MaxUpForce: 10
+  UseTwoHandMaxUpforce: 1
+  UseTwoHandMaxSideForce: 1
+  MaxBackForce: 0
+  TwoHandMaxUpForce: 0
+  MaxSideForce: 20
+  TwoHandMaxSideForce: 0
+  RecoveryDelay: 0
+  TwoHandedRecoveryDelay: 0.1
+  RecoveryTime: 0
+  TwoHandedRecoveryTime: 0.01

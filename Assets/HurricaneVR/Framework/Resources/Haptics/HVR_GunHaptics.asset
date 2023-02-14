@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226cce0b7ab93444c9da83b531f6aa9a, type: 3}
+  m_Name: HVR_GunHaptics
+  m_EditorClassIdentifier: 
+  DryFire:
+    Duration: 0.04
+    Amplitude: 0.5
+    Frequency: 50
+  Fire:
+    Duration: 0.2
+    Amplitude: 0.7
+    Frequency: 150
+  TriggeredReleased:
+    Duration: 0.025
+    Amplitude: 0.2
+    Frequency: 45
+  TriggerSqueezed:
+    Duration: 0.1
+    Amplitude: 0.01
+    Frequency: 60
+  CockingHandleEject:
+    Duration: 0.04
+    Amplitude: 0.25
+    Frequency: 225
+  CockingHandleChamberedRound:
+    Duration: 0.04
+    Amplitude: 0.25
+    Frequency: 225
+  CockingHandleReleased:
+    Duration: 0.04
+    Amplitude: 0.25
+    Frequency: 225
+  AmmoSocketed:
+    Duration: 0.04
+    Amplitude: 0.25
+    Frequency: 225
+  AmmoSocketReleased:
+    Duration: 0.04
+    Amplitude: 0.25
+    Frequency: 225
+  TriggerSqueezeStop: 0.7
+  TriggerSqueezeStart: 0.1

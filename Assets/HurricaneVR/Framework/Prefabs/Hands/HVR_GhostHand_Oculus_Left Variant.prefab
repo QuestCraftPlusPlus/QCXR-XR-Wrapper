@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1481051882093435769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4166322654767381647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db95619e91bf4fb981b3b0352fed7dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Threshold: 0.07
+  GhostHand: {fileID: 4166322653361916109}
+  ActualHand: {fileID: 0}
+  DisplayGhostHand: 0
+--- !u!1001 &278922563901544862
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4183614225931664495, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 411603e247a5c244f8d2140955eda0a9, type: 2}
+    - target: {fileID: 4183614227780674833, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_Name
+      value: HVR_GhostHand_Oculus_Left Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.14097446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.018509882
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6929115
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7068644
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183614227780674834, guid: 38bf26828eab9cc46ad2f78054d5594f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1794001305696452778, guid: 38bf26828eab9cc46ad2f78054d5594f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 38bf26828eab9cc46ad2f78054d5594f, type: 3}
+--- !u!1 &4166322654767381647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4183614227780674833, guid: 38bf26828eab9cc46ad2f78054d5594f,
+    type: 3}
+  m_PrefabInstance: {fileID: 278922563901544862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4166322653361916109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4183614226243096915, guid: 38bf26828eab9cc46ad2f78054d5594f,
+    type: 3}
+  m_PrefabInstance: {fileID: 278922563901544862}
+  m_PrefabAsset: {fileID: 0}

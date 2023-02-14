@@ -1,0 +1,61 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:ScrollView name="ScrollView">
+        <ui:Foldout text="Grabbable" name="GrabbableFoldout" class="unity-box">
+            <ui:VisualElement name="Grabbable" class="unity-box" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;">
+                <uie:Toolbar class="unity-box">
+                    <uie:ToolbarButton text="Set Selected" name="SetGrabbable" />
+                    <uie:ToolbarButton text="Focus" name="FocusGrabbable" />
+                    <uie:ToolbarButton text="Setup" name="SetupGrabbable" />
+                    <uie:ToolbarButton text="Populate GrabPoints" name="SetupGrabPoints" />
+                    <uie:ToolbarButton text="Expand" name="ExpandGrabbable" />
+                    <uie:ToolbarButton text="Collapse" name="CollapseGrabbable" />
+                </uie:Toolbar>
+                <ui:VisualElement class="unity-box" style="flex-direction: row;">
+                    <uie:ObjectField label="Grabbable" name="Grabbable" style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:Foldout>
+        <ui:Foldout text="GrabPoints" name="GrabPoints" class="unity-box">
+            <uie:Toolbar class="unity-box" style="flex-basis: 20px;">
+                <uie:ToolbarButton text="Set Selected" name="SetGrabPoints" />
+                <uie:ToolbarButton text="Focus" name="FocusGrabPoints" />
+                <uie:ToolbarButton text="Setup" name="AddGrabPoints" />
+                <uie:ToolbarButton text="Add" name="AddGrabPointButton" />
+                <uie:ToolbarButton text="Expand" name="ExpandGrabPoints" />
+                <uie:ToolbarButton text="Collapse" name="CollapseGrabPoints" />
+            </uie:Toolbar>
+            <ui:VisualElement class="unity-box">
+                <ui:TextField picking-mode="Ignore" label="Recorded Pose Prefix:" name="RecordedPrefixTextBox" />
+                <ui:VisualElement style="flex-direction: row;">
+                    <uie:ObjectField label="GrabPoints" name="GrabPointsObject" style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:Foldout>
+        <ui:Foldout text="Poser" name="PoserFoldout" class="unity-box">
+            <ui:VisualElement>
+                <uie:Toolbar class="unity-box" style="flex-basis: 20px;">
+                    <uie:ToolbarButton text="Set Selected" name="SetPoser" />
+                    <uie:ToolbarButton text="Focus" name="FocusPoser" />
+                    <uie:ToolbarButton text="Setup" name="AddPoser" />
+                </uie:Toolbar>
+                <ui:VisualElement class="unity-box" style="flex-direction: row;">
+                    <uie:ObjectField label="HandPoser" name="VRHandPoser" style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:Foldout>
+        <ui:Foldout text="Recorded Poses" name="RecordedPosesFoldout" class="unity-box" style="flex-direction: column; flex-grow: 1;">
+            <ui:VisualElement style="flex-direction: column; flex-grow: 1;">
+                <uie:Toolbar class="unity-box" style="flex-basis: 20px;">
+                    <uie:ToolbarButton text="Load Poses" name="LoadPoses" />
+                    <uie:ToolbarButton text="Setup" name="AddPoser" />
+                </uie:Toolbar>
+                <ui:VisualElement class="unity-box" style="flex-direction: column; flex-grow: 1;">
+                    <ui:VisualElement name="RecordedPosesContainer" class="recorded-poses">
+                        <ui:Label text="Poses:" style="font-size: 19px; border-bottom-width: 3px; border-bottom-color: rgb(173, 173, 173);" />
+                        <ui:ScrollView name="RecordedPoses" style="flex-grow: 5;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:Foldout>
+    </ui:ScrollView>
+</ui:UXML>

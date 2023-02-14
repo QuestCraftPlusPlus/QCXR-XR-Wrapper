@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Foldout text="Tools">
+        <Style src="HVRHandPoserEditor.uss" />
+        <uie:Toolbar style="flex-direction: row;">
+            <uie:ToolbarButton text="Setup" name="SetupButton" style="padding-left: 6px; padding-right: 6px;" />
+            <uie:ToolbarButton text="Open" name="ResetButton" style="padding-left: 6px; padding-right: 6px;" />
+            <uie:ToolbarButton text="Close" name="SimulateButton" />
+            <uie:ToolbarButton text="Next Finger" name="NextFingerButton" />
+            <uie:ToolbarButton text="+" name="StepButton" />
+            <uie:ToolbarButton text="-" name="StepBackButton" />
+        </uie:Toolbar>
+    </ui:Foldout>
+</ui:UXML>

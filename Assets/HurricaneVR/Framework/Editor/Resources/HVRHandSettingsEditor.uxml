@@ -1,0 +1,40 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement>
+        <Style src="HVRHandPoserEditor.uss" />
+        <ui:VisualElement name="lblAutoPoseWarning">
+            <ui:Label text="Rigidbody detected, if dynamic posing doesn&apos;t work, remove it temporarily." style="font-size: 18px; color: rgb(250, 235, 20); flex-wrap: nowrap; margin-bottom: 10px; height: 50px; white-space: normal;" />
+        </ui:VisualElement>
+        <ui:VisualElement class="HandsContainer">
+            <ui:VisualElement name="LeftHandContainer" class="unity-box HandContainer">
+                <ui:Label text="Left Hand:" class="HandLabel" />
+                <ui:Toggle label="Preview" name="PreviewLeft" class="HandPreviewToggle" />
+                <ui:Toggle label="Auto Pose" name="LeftAutoPose" class="HandPreviewToggle" />
+                <ui:VisualElement style="flex-direction: row; flex-basis: 28px;">
+                    <ui:Button name="ButtonOpenLeft" text="Open" class="HandMirrorButton" style="flex-basis: auto; flex-grow: 1;" />
+                    <ui:Button name="ButtonCloseLeft" text="Close" class="HandMirrorButton" style="flex-grow: 1; flex-basis: auto;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; flex-basis: 28px;">
+                    <ui:Button name="ButtonMirrorRight" text="Mirror" class="HandMirrorButton" style="flex-basis: auto; flex-grow: 1;" />
+                    <ui:Button name="ButtonFocusLeft" text="Focus" class="HandMirrorButton" style="flex-grow: 1; flex-basis: auto;" />
+                    <ui:Button name="LeftExpand" text="+" class="HandMirrorButton" style="flex-grow: 1; flex-basis: auto;" />
+                    <ui:Button name="LeftCollapse" text="-" class="HandMirrorButton" style="flex-grow: 1; flex-basis: auto;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="RightHandContainer" class="unity-box HandContainer">
+                <ui:Label text="Right Hand:" class="HandLabel" />
+                <ui:Toggle label="Preview" name="PreviewRight" class="HandPreviewToggle" />
+                <ui:Toggle label="Auto Pose" name="RightAutoPose" class="HandPreviewToggle" />
+                <ui:VisualElement style="flex-direction: row; flex-basis: 28px;">
+                    <ui:Button name="ButtonOpenRight" text="Open" class="HandMirrorButton" style="flex-basis: auto; flex-grow: 1;" />
+                    <ui:Button name="ButtonCloseRight" text="Close" class="HandMirrorButton" style="flex-grow: 1; flex-basis: auto;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; flex-basis: 28px; flex-wrap: wrap;">
+                    <ui:Button name="ButtonMirrorLeft" text="Mirror" class="HandMirrorButton" style="flex-basis: auto; flex-grow: 1;" />
+                    <ui:Button name="ButtonFocusRight" text="Focus" class="HandMirrorButton" style="flex-grow: 1; flex-basis: auto;" />
+                    <ui:Button name="RightExpand" text="+" class="HandMirrorButton" style="flex-grow: 1; flex-basis: auto;" />
+                    <ui:Button name="RightCollapse" text="-" class="HandMirrorButton" style="flex-grow: 1; flex-basis: auto;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

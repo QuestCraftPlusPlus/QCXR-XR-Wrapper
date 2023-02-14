@@ -1,0 +1,66 @@
+2.9.1e            
+
+New:
+
+HVRGrabbable: new overridable function CanHandGrab for grab filtering.
+HVRHandGrabFilter - abstract base class for modular hand grab filtering
+HVRGrabHandFilter - new component for hvrgrabbable to limit which hand can grab
+Example scene updated for grab hand filter
+
+2.9.1d
+
+Fix Oculus and WMR menu button bindings for OpenXR
+Fix HVRCockingHandle to handle initial grab offset better
+
+2.9.1c - Fixed two hand strength overrides not resetting on release.
+2.9.1b - Small bug fix in new editor script.
+
+2.91
+
+Fixed bug where the grab joint might end up on the wrong game object if the grabbable was a child of the rigidbody.
+Fixed player controller to take into account the angle of the surface the player is standing on.
+Fixed bug where child grabbables could be grabbed if their MasterGrabbable was socketed.
+Added backpack rigs to hexabody integration.
+
+Hand Strength Updates:
+	JointSettings on the hand and grabbable components are now deprecated, they will continue to work but will be removed in a future update. 
+	PDStrength scriptable object is the replacement containing only the fields that are pertinent to the PD Controlled hands. 
+	Fields that reference an existing PDStrength asset will display the editor in place for quick editing.
+	The following fields are added to replace the old ones:
+		HVRJointHand.Strength
+		HVRHexaBodyHands.Strength|OneHandedClimbStrength|TwoHandedClimbStrength
+		HVRGrabbable.OneHandStrength|TwoHandStrength
+	Included rig and hand prefabs are updated.
+
+Teleporter: Momentum is now maintained for the hands and held objects when teleporting.
+			Physics hands now account for teleporter jumping large distances.
+
+HVRSocketLink:
+	Permanently links a grabbable to a socket with optional return time lerping.
+	Replaces the now deprecated grabbable fields StartingSocket/LinkStartingSocket.
+	Filter setup is not required as the socket will only accept the linked object.
+	Example scene updated with socket example. Backpack on rig prefab updated.
+	
+HVRSocket: all rb properties restored when RemoveRigidbody mode is used.
+HVRPlayerInputs: ForceGrabber activated options updated with GripAndTrigger, Trigger, GripOrTrigger.
+HVRHandImpactHaptics: MaxForce used in haptic amplitude calculation will default to the hand's max force value.
+HVRGunBase: added hit collider, rigidbody, and distance to the arguments passed to the Hit event.
+HVRStringSocketFilter and HVRStringSocketable updated to hash it's string value for performance.
+HVRPlayerController: 
+	- Added GroundedRadiusFactor which will multiply with the player capsules radius for the grounded sphere cast check.
+	- Horizontal ground movement will take into consideration the angle of the ground the player is on.	
+	
+2.9
+
+Fixed grab indicators showing up even if they were marked disabled on the HVRGrabbable.
+Fixed issue where CockingHandle would not lock forward if the controller was too far forward of the grab point.
+
+Added HVRPoseZone: Uses a provided HVRHandPoser to pose the hand when the hand enters the overlap zone.
+	Demo KeyPad updated with a pose zone example.
+HVRSocket: New 'PoseTag' field which links with HVRSocketable Poses field for saving orientation when socketed.
+HVRSocketable: New Poses field with inspector interface to help save orientations for different socket types.
+HVRGunBase: Added Hit event which passes the gun, hitpoint, normal, and direction variables.
+HVRHandAnimator: Added 'HandOverride' transform field, allows HVRPosableHand component to be on a different component. VRIK IK targets is one example.
+Bow: Fixed hand collision being re-enabled to early with the arrow.
+Hand Prefabs: Added trigger collider with HVRHandTrigger component for easy hand detection by other components (HVRPoseZone).
+Example Shotgun: modified two hand hold strengths to prevent forehand from moving the shotgun backward to easily.

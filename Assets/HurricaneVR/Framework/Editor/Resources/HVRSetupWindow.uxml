@@ -1,0 +1,69 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement style="flex-direction: row; flex-grow: 1;">
+        <Style src="HVRSetupWindow.uss" />
+        <ui:VisualElement style="width: 200px; min-width: 200px;">
+            <ui:Label text="Documentation" />
+            <ui:Button text="Manual" name="btnDocs" class="docs-button" />
+            <ui:Button text="Project Setup" name="btnSetup" class="docs-button" />
+            <ui:Button text="Hand Grabber" name="btnHandGrabber" class="docs-button" />
+            <ui:Button text="Grabbable w/ Pose" name="BtnTutBasicGrabbable" class="tutorial-button docs-button" />
+            <ui:Button text="Sockets" name="btnSockets" class="docs-button" />
+            <ui:Button text="FinalIK (VRIK)" name="BtnVRIKSetup" class="docs-button" />
+            <ui:Button text="Custom Hand Setup" name="btnCustomHand" class="docs-button" />
+            <ui:Button text="Door Setup" name="btnDoorSetup" class="docs-button" />
+            <ui:Label text="Other" style="padding-top: 12px;" />
+            <ui:Button text="Discord Server" name="btnDiscord" class="docs-button" />
+        </ui:VisualElement>
+        <ui:ScrollView style="width: 600px; min-width: 600px;">
+            <ui:VisualElement>
+                <uie:Toolbar style="flex-direction: row; flex-basis: 31px; flex-grow: 0; -unity-text-align: middle-center;">
+                    <uie:ToolbarButton text="Release Notes" name="BtnReleaseNotes" />
+                    <uie:ToolbarButton text="Project Setup" name="BtnProjectSetup" />
+                    <uie:ToolbarButton text="About" name="BtnAbout" />
+                </uie:Toolbar>
+                <ui:VisualElement name="AboutPanel">
+                    <ui:VisualElement class="unity-box">
+                        <ui:Label text="HurricaneVR is developed by a single developer. If you &#10;would like to support the ongoing development&#10;of this asset, please consider showing your&#10;support below." class="buttonHeader" />
+                        <ui:Button text="Leave A Review" name="BtnReview" class="button" />
+                        <ui:Button text="Kofi" name="BtnKofi" class="button" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="ReleaseNotesPanel">
+                    <ui:TextElement picking-mode="Ignore" label="Text Field" value="filler text" name="TxtReleaseNotes" multiline="true" readonly="true" />
+                </ui:VisualElement>
+                <ui:VisualElement name="ProjectSetupPanel">
+                    <ui:VisualElement class="unity-box">
+                        <ui:Label text="If this is a new project or you need your layers setup.&#10;Information about the outcome is visible in the console window." class="buttonHeader" />
+                        <ui:Button text="Setup Layers" name="BtnSetupLayers" class="button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="unity-box">
+                        <ui:Label text="Applies Suggested Physics Settings" class="buttonHeader" />
+                        <ui:Button text="Setup Physics Settings" name="BtnSetupPhysics" class="button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="unity-box">
+                        <ui:Label class="buttonHeader" />
+                        <ui:Button text="Setup Collision Matrix" name="BtnSetupMatrix" class="button" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="unity-box">
+                        <ui:Label text="SteamVR Integration&#10;For PCVR Devices If Not Using OpenXR" class="buttonHeader" />
+                        <ui:VisualElement style="flex-direction: row;">
+                            <ui:Button text="Extract" name="BtnExtractSteamVR" style="flex-grow: 1;" />
+                            <ui:Button text="Enable" name="BtnEnableSteamVR" style="flex-grow: 1;" />
+                            <ui:Button text="Disable" name="BtnDisableSteamVR" style="flex-grow: 1;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:Label text="Optional (only for OVRInputs) &#10;Requires Oculus Store Asset&#10;Oculus Integration Define Symbol" class="buttonHeader" />
+                    <ui:VisualElement class="unity-box">
+                        <ui:VisualElement style="flex-direction: row;">
+                            <ui:Button text="Extract" name="BtnExtractOculus" style="flex-grow: 1;" />
+                            <ui:Button text="Enable" name="BtnEnableOculus" style="flex-grow: 1;" />
+                            <ui:Button text="Disable" name="BtnDisableOculus" style="flex-grow: 1;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="DebugPanel" />
+                <ui:VisualElement name="btnRig" text="Setup" />
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>

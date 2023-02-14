@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2242baed513f2a04793dd67910504d3a, type: 3}
+  m_Name: HVR_GrabHaptics
+  m_EditorClassIdentifier: HurricaneVR.Framework:HurricaneVR.Framework.Core.Grabbers:HVRHaptics
+  HandGrab:
+    Duration: 0.04
+    Amplitude: 0.5
+    Frequency: 50
+  HandRelease:
+    Duration: 0.025
+    Amplitude: 0.2
+    Frequency: 45
+  HandHover:
+    Duration: 0.02
+    Amplitude: 0.05
+    Frequency: 50
+  ForceGrab:
+    Duration: 0.04
+    Amplitude: 0.6
+    Frequency: 60
+  ForceHover:
+    Duration: 0.02
+    Amplitude: 0.05
+    Frequency: 50

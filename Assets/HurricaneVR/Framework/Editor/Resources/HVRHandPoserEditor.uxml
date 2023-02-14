@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Template name="HandSettingsTemplate" src="HVRHandSettingsEditor.uxml" />
+    <ui:Template name="BlendEditorTemplate" src="HVRBlendEditor.uxml" />
+    <ui:Box>
+        <Style src="HVRHandPoserEditor.uss" />
+        <ui:VisualElement style="flex-direction: row; flex-shrink: 0;">
+            <ui:VisualElement name="Buttons" style="flex-direction: column; flex-grow: 1; width: 83px; flex-basis: 41px;">
+                <ui:Button name="AddBlendPose" text="Add" />
+                <ui:Button name="DeleteBlendPose" text="Remove" />
+                <ui:Button name="NewPose" text="New" />
+                <ui:Button name="SaveAsPose" text="Save As" />
+                <ui:Button name="SavePose" text="Save" />
+            </ui:VisualElement>
+            <ui:VisualElement name="PosesContainer" class="unity-box" style="flex-grow: 5;">
+                <ui:Label text="Poses:" style="font-size: 19px; border-bottom-width: 3px; border-bottom-color: rgb(173, 173, 173);" />
+                <ui:ListView name="Poses" style="flex-grow: 5;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="warning">
+            <ui:Label text="Posing is not available while in Prefab Mode." style="height: 46px; color: rgb(217, 183, 9); -unity-font-style: bold; font-size: 20px; white-space: normal; margin-bottom: 10px;" />
+        </ui:VisualElement>
+        <uie:EnumField label="MirrorAxis" value="X" name="MirrorAxis" binding-path="MirrorAxis" />
+        <ui:Instance template="HandSettingsTemplate" name="boxPreview" />
+        <ui:Instance template="BlendEditorTemplate" />
+    </ui:Box>
+</ui:UXML>

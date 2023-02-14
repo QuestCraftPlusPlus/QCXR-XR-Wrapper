@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b171784bbbe1f24784deef229788af8, type: 3}
+  m_Name: HVR_FingerSettings
+  m_EditorClassIdentifier: 
+  OverrideThumb: 1
+  OverrideIndex: 1
+  OverrideTriggerGrab: 1
+  KnucklesOverrideThumb: 1
+  KnucklesOverrideIndex: 1
+  KnucklesOverrideGripFingers: 0
+  JoystickTouchWeight:
+    Thumb: 0.291
+    Index: 0
+    Middle: 0
+    Ring: 0
+    Pinky: 0
+  TrackpadTouchWeight:
+    Thumb: 0.734
+    Index: 0
+    Middle: 0
+    Ring: 0
+    Pinky: 0
+  PrimaryTouchWeight:
+    Thumb: 0.603
+    Index: 0
+    Middle: 0
+    Ring: 0
+    Pinky: 0
+  SecondaryTouchWeight:
+    Thumb: 0.418
+    Index: 0
+    Middle: 0
+    Ring: 0
+    Pinky: 0
+  TriggerTouchWeight:
+    Thumb: 0
+    Index: 0.304
+    Middle: 0
+    Ring: 0
+    Pinky: 0
+  GripWeight:
+    Thumb: 0
+    Index: 0
+    Middle: 1
+    Ring: 1
+    Pinky: 1
+  TriggerWeight:
+    Thumb: 0
+    Index: 1
+    Middle: 0
+    Ring: 0
+    Pinky: 0

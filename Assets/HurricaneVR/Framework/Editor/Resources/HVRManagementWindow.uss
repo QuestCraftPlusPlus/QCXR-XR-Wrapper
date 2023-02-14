@@ -1,0 +1,29 @@
+.field-select-button {
+    flex-basis: auto;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 20px;
+}
+
+.poserow {
+    flex-direction: row;
+    min-height:20px;
+}
+
+.poserow-button {
+flex-grow: 1;
+}
+
+.poserow-field {
+flex-grow: 5;
+}
+
+.pose-field {
+    height : 20px
+}
+
+.recorded-poses{
+flex-grow: 5; flex-basis: 300px
+}

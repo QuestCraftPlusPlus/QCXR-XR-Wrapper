@@ -1,0 +1,59 @@
+{
+    "name": "HurricaneVR.Framework",
+    "references": [
+        "Hurricane.Shared",
+        "UnityEngine.SpatialTracking",
+        "Unity.InputSystem",
+        "SteamVR",
+        "Unity.XR.Management",
+        "Unity.XR.OpenVR",
+        "Unity.XR.OpenXR",
+        "Oculus.VR",
+        "SteamVR_Actions"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.management",
+            "expression": "",
+            "define": "USING_XR_MANAGEMENT"
+        },
+        {
+            "name": "com.valvesoftware.unity.openvr",
+            "expression": "",
+            "define": "OPENVR_XR"
+        },
+        {
+            "name": "com.unity.xr.openvr.standalone",
+            "expression": "",
+            "define": "OPENVR_DESKTOP"
+        },
+        {
+            "name": "com.unity.xr.oculus.standalone",
+            "expression": "",
+            "define": "OCULUS_DESKTOP"
+        },
+        {
+            "name": "com.unity.xr.management",
+            "expression": "4.0.0",
+            "define": "USING_XR_MANAGEMENT_V4"
+        },
+        {
+            "name": "com.unity.xr.openxr",
+            "expression": "",
+            "define": "USING_OPENXR"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "",
+            "define": "HVR_INPUT_SYSTEM"
+        }
+    ],
+    "noEngineReferences": false
+}

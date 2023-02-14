@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Template name="HandSettingsTemplate" src="HVRHandSettingsEditor.uxml" />
+    <ui:Box>
+        <Style src="HVRHandPoserEditor.uss" />
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:VisualElement name="Buttons" style="flex-direction: row; flex-grow: 1; width: 83px; flex-basis: 41px;">
+                <ui:Button name="NewPose" text="New" />
+                <ui:Button name="SaveAsPose" text="Save As" />
+                <ui:Button name="SavePose" text="Save" />
+                <ui:Button name="Preview" text="Preview Selected" style="width : 125px"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <uie:ObjectField label="Selected Pose" binding-path="SelectedPose" name="SelectedPose" style="flex-direction: row;" />
+        <uie:EnumField label="MirrorAxis" value="X" name="MirrorAxis" binding-path="MirrorAxis" />
+      <ui:VisualElement name="HandContainer" class="unity-box HandContainer">
+        <ui:Toggle label="Preview Mirror" name="Preview" class="HandPreviewToggle" />
+      </ui:VisualElement>
+    </ui:Box>
+</ui:UXML>

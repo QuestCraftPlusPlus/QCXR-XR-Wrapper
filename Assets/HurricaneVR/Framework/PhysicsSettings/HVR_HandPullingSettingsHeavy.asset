@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e581938f8c0341839ae0a0294479b8d3, type: 3}
+  m_Name: HVR_HandPullingSettingsHeavy
+  m_EditorClassIdentifier: 
+  XMaster: 1
+  XDrive:
+    Spring: 10000
+    Damper: 2000
+    MaxForce: 5000
+  SlerpDrive:
+    Spring: 40000
+    Damper: 1000
+    MaxForce: 500
+  ApplyMode: 0
+  EnableCollision: 0
+  EnablePreprocessing: 1
+  BreakForce: Infinity
+  BreakTorque: Infinity
+  MassScale: 1
+  ConnectedMassScale: 1
+  ProjectionMode: 0
+  ProjectionDistance: 0.1
+  ProjectionAngle: 180
+  CriticalDampPosition: 0
+  DampConnectedBody: 0
+  RotationDriveMode: 1
+  YDrive:
+    Spring: 360000
+    Damper: 120000
+    MaxForce: 1200
+  ZDrive:
+    Spring: 360000
+    Damper: 120000
+    MaxForce: 1200
+  AngularXDrive:
+    Spring: 40000
+    Damper: 1000
+    MaxForce: 1000
+  AngularYZDrive:
+    Spring: 40000
+    Damper: 1000
+    MaxForce: 1000
+  LinearLimit:
+    Limit: 0
+    Bounciness: 0
+    ContactDistance: 0
+  LinearLimitSpring:
+    Spring: 0
+    Damper: 0
+  XMotion: 2
+  YMotion: 2
+  ZMotion: 2
+  AngularXMotion: 2
+  AngularYMotion: 2
+  AngularZMotion: 2
+  LowAngularXLimit:
+    Limit: 0
+    Bounciness: 0
+    ContactDistance: 0
+  HighAngularXLimit:
+    Limit: 0
+    Bounciness: 0
+    ContactDistance: 0
+  AngularXLimitSpring:
+    Spring: 0
+    Damper: 0
+  AngularYLimit:
+    Limit: 0
+    Bounciness: 0
+    ContactDistance: 0
+  AngularZLimit:
+    Limit: 0
+    Bounciness: 0
+    ContactDistance: 0
+  AngularYZLimitSpring:
+    Spring: 0
+    Damper: 0

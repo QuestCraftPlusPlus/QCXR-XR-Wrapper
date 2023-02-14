@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9d00baedc13ac4c8dd0471f8368b59, type: 3}
+  m_Name: mjolnir_forcepull
+  m_EditorClassIdentifier: 
+  DistanceThreshold: 0.1
+  DynamicGrabThreshold: 0.2
+  Speed: 3
+  MaxMissSpeed: 1
+  MaxMissAngularSpeed: 1
+  RotationTrigger: 2
+  RotateTriggerDistance: 1.5
+  RotateTriggerTime: 0.4
+  RotateTriggerPercent: 30
+  RotationStyle: 1
+  RotateOverDistance: 0.5
+  Spring: 30000
+  Damper: 3000
+  MaxForce: 1000
+  SlerpSpring: 10000
+  SlerpDamper: 1000
+  SlerpMaxForce: 1000

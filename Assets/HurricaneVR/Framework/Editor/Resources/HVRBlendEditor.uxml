@@ -1,0 +1,55 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:BindableElement name="BlendEditorRoot" class="unity-box" style="height: auto; flex-grow: 1;">
+        <Style src="HVRBlendEditor.uss" />
+        <ui:VisualElement style="margin-top: 4px;">
+            <ui:Label text="Label" name="lblSelectedPose" style="font-size: 20px; -unity-font-style: bold; margin-left: 8px;" />
+        </ui:VisualElement>
+        <ui:VisualElement class="HandsContainer">
+            <ui:VisualElement name="CurlContainer" class="unity-box CurlContainer" style="flex-grow: 1;">
+                <ui:Label text="Finger Curls:" class="HandLabel" />
+                <uie:EnumField label="Thumb" value="Static" name="ThumbType" binding-path="ThumbType" type="HurricaneVR.Framework.Core.HandPoser.HVRFingerType, HurricaneVR.Framework" style="flex-basis: 20px; max-width: 150px;" />
+                <uie:EnumField label="Index" value="Close" name="IndexType" binding-path="IndexType" type="HurricaneVR.Framework.Core.HandPoser.HVRFingerType, HurricaneVR.Framework" />
+                <uie:EnumField label="Middle" value="Close" name="MiddleType" binding-path="MiddleType" type="HurricaneVR.Framework.Core.HandPoser.HVRFingerType, HurricaneVR.Framework" />
+                <uie:EnumField label="Ring" value="Close" name="RingType" binding-path="RingType" type="HurricaneVR.Framework.Core.HandPoser.HVRFingerType, HurricaneVR.Framework" />
+                <uie:EnumField label="Pinky" value="Close" name="PinkyType" binding-path="PinkyType" type="HurricaneVR.Framework.Core.HandPoser.HVRFingerType, HurricaneVR.Framework" />
+            </ui:VisualElement>
+            <ui:VisualElement name="FingerStartContainer" class="unity-box FingerStartContainer" style="flex-grow: 4;">
+                <ui:Label text="Finger Start" class="HandLabel" />
+                <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-basis: auto; height: auto;">
+                    <ui:Slider label="Thumb" value=".80" name="ThumbStart" binding-path="ThumbStart" high-value="1" style="flex-grow: 1; flex-basis: auto; flex-shrink: 0;" />
+                    <uie:FloatField binding-path="ThumbStart" readonly="true" style="flex-grow: 0; flex-basis: 40px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-basis: auto; height: auto;">
+                    <ui:Slider label="Index" value="0" name="IndexStart" binding-path="IndexStart" high-value="1" style="flex-grow: 1;" />
+                    <uie:FloatField binding-path="IndexStart" readonly="true" style="flex-grow: 0; flex-basis: 40px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-basis: auto; height: auto;">
+                    <ui:Slider label="Middle" value="0" name="MiddleStart" binding-path="MiddleStart" high-value="1" style="flex-grow: 1;" />
+                    <uie:FloatField binding-path="MiddleStart" readonly="true" style="flex-grow: 0; flex-basis: 40px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-basis: auto; height: auto;">
+                    <ui:Slider label="Ring" value="0" name="RingStart" binding-path="RingStart" high-value="1" style="flex-grow: 1;" />
+                    <uie:FloatField binding-path="RingStart" readonly="true" style="flex-grow: 0; flex-basis: 40px;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-basis: auto; height: auto;">
+                    <ui:Slider label="Pinky" value="0" name="PinkyStart" binding-path="PinkyStart" high-value="1" style="flex-grow: 1;" />
+                    <uie:FloatField binding-path="PinkyStart" readonly="true" style="flex-grow: 0; flex-basis: 40px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <uie:ObjectField label="Pose" binding-path="Pose" name="Pose" />
+        <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-basis: auto; height: auto;">
+            <ui:Slider name="Weight" label="Weight" binding-path="Weight" high-value="1" style="flex-grow: 1; flex-basis: auto; flex-shrink: 1;" />
+            <uie:FloatField binding-path="Weight" readonly="true" style="flex-grow: 0; flex-basis: 80px;" />
+        </ui:VisualElement>
+        <uie:FloatField label="Speed" value="1" binding-path="Speed" tooltip="Speed by deltaTime" name="Speed" />
+        <uie:EnumFlagsField label="Mask" value="All" binding-path="Mask" />
+        <uie:EnumField label="Type" binding-path="Type" name="Type" />
+        <ui:VisualElement style="flex-direction: row; flex-grow: 0; flex-basis: auto;">
+            <ui:TextField picking-mode="Ignore" label="Animation Parameter" binding-path="AnimationParameter" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:Toggle label="Disabled" binding-path="Disabled" name="Disabled" />
+        <ui:Toggle label="Button Parameter?" name="ButtonParameter" binding-path="ButtonParameter" />
+        <uie:EnumField label="Button" value="Center" name="Button" binding-path="Button" />
+    </ui:BindableElement>
+</ui:UXML>

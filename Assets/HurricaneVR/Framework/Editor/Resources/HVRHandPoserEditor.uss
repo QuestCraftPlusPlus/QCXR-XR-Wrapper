@@ -1,0 +1,71 @@
+#Buttons {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#EditButtons {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#SelectedPose {
+    display: flex;
+    flex-direction: column;
+}
+
+#PreviewButtons {
+    display: flex;
+    flex-direction: row;
+}
+
+Button {
+    width: 75px;
+}
+
+.primarypose {
+}
+
+#SelectedPoseRow {
+    display: flex;
+    flex-direction: column;
+}
+
+#ActivePose {
+    flex-grow: 2;
+}
+
+.HandContainer {
+    height: auto;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.HandLabel {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-basis: 20px;
+}
+
+.HandMirrorButton {
+    flex-grow: 0;
+    flex-basis: 26px;
+    width: -5px;
+}
+
+.HandPreviewToggle {
+    margin-top: 3px;
+    flex-grow: 0;
+    flex-basis: 15px;
+    align-items: center;
+}
+
+.HandsContainer {
+    flex-direction: row;
+    flex-grow: 1;
+}
