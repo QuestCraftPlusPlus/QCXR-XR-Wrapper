@@ -5099,43 +5099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableView: {fileID: 1773741004}
-  _whenHover:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenUnhover:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenSelect:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 2090878024}, m_TargetAssemblyTypeName: InstanceButton, Assembly-CSharp, m_MethodName: LaunchCurrentInsance, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
-          m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
-  _whenUnselect:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenInteractorViewAdded:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenInteractorViewRemoved:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenSelectingInteractorViewAdded:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenSelectingInteractorViewRemoved:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _started: 0
 --- !u!114 &1773741004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5148,15 +5111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb86ba9d4c5126e48bfef9b0c9550e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactorFilters: []
-  _maxInteractors: -1
-  _maxSelectingInteractors: -1
-  _state: 3
-  _pointableElement: {fileID: 0}
-  _started: 0
-  _collider: {fileID: 1773741005}
-  _surface: {fileID: 0}
-  _movementProvider: {fileID: 0}
 --- !u!65 &1773741005
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5735,15 +5689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb86ba9d4c5126e48bfef9b0c9550e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactorFilters: []
-  _maxInteractors: -1
-  _maxSelectingInteractors: -1
-  _state: 3
-  _pointableElement: {fileID: 0}
-  _started: 0
-  _collider: {fileID: 1895559471}
-  _surface: {fileID: 0}
-  _movementProvider: {fileID: 0}
 --- !u!114 &1895559473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6149,43 +6094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableView: {fileID: 2090878018}
-  _whenHover:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenUnhover:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenSelect:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 2090878024}, m_TargetAssemblyTypeName: InstanceButton, Assembly-CSharp, m_MethodName: SwitchInstance, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
-          m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
-  _whenUnselect:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenInteractorViewAdded:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenInteractorViewRemoved:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenSelectingInteractorViewAdded:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _whenSelectingInteractorViewRemoved:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _started: 0
 --- !u!114 &2090878018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6198,15 +6106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb86ba9d4c5126e48bfef9b0c9550e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactorFilters: []
-  _maxInteractors: -1
-  _maxSelectingInteractors: -1
-  _state: 3
-  _pointableElement: {fileID: 0}
-  _started: 0
-  _collider: {fileID: 2090878019}
-  _surface: {fileID: 0}
-  _movementProvider: {fileID: 0}
 --- !u!65 &2090878019
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6431,7 +6330,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7042,7 +6941,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7084,7 +6983,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7142,7 +7041,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7202,7 +7101,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7280,7 +7179,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7554,7 +7453,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7720,7 +7619,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7861,7 +7760,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7903,7 +7802,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7968,7 +7867,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8010,7 +7909,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8093,7 +7992,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8135,7 +8034,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8177,7 +8076,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8250,7 +8149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 45a9d5cb53bc7cf49a57697bd489d506, type: 2}
+  - {fileID: 2100000, guid: 01ac879f6ce09924e9c26663f798beaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

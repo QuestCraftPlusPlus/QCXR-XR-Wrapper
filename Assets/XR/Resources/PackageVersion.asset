@@ -15,10 +15,10 @@ MonoBehaviour:
   packages:
   - Name: com.yvr.utilities
     AssemblyName: YVR.Utilities.Runtime
-    Version: 0.5.3
+    Version: 0.6.4
   - Name: com.yvr.platform
     AssemblyName: YVR.Platform.Runtime
     Version: 0.2.2
   - Name: com.yvr.core
     AssemblyName: YVR.Core.Runtime
-    Version: 0.8.0
+    Version: 1.1.11
