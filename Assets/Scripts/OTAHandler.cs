@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using Newtonsoft.Json;
-using OVRSimpleJSON;
 using UnityEngine;
 using UnityEngine.Networking;
 
