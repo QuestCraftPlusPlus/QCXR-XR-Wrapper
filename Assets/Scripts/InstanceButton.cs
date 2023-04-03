@@ -7,35 +7,52 @@ using UnityEngine.XR;
 
 public class InstanceButton : MonoBehaviour
 {
-    public AndroidJavaObject currentInstance;
+    public AndroidJavaObject currentVersion;
     bool hasDefaulted = false;
     public AudioSource source;
+    int index = 0;
 
     public void Update()
     {
-        if(JNIStorage.instance1193 != null && !hasDefaulted)
+        if(JNIStorage.instances != null && !hasDefaulted)
         {
-            currentInstance = JNIStorage.instance1193;
-            GetComponentInChildren<TextMeshProUGUI>().text = "1.19.3-fabric";
+            currentVersion = JNIStorage.instances[0];
+            string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+            GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
             hasDefaulted = true;
         }
     }
 
     public void SwitchInstance()
     {
-        if(currentInstance == JNIStorage.instance1193)
+        index++;
+        if (index > JNIStorage.instances.Length - 1)
         {
-            currentInstance = JNIStorage.instance1182;
-            GetComponentInChildren<TextMeshProUGUI>().text = "1.18.2-fabric";
-        } else
-        {
-            currentInstance = JNIStorage.instance1193;
-            GetComponentInChildren<TextMeshProUGUI>().text = "1.19.3-fabric";
+            index = 0;
         }
+
+        currentVersion = JNIStorage.instances[index];
+        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+        GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
     }
 
     public void LaunchCurrentInsance()
     {
+        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+        AndroidJavaObject instance;
+        instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+        if(instance == null)
+        {
+            instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion);
+            return;
+        }
+
+        string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
+        if(currentFile != null)
+        {
+            return;
+        }
+
         source.Stop();
         var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
         SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
@@ -44,6 +61,6 @@ public class InstanceButton : MonoBehaviour
             xrDisplay.Destroy();
         }
         Application.Unload();
-        JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, currentInstance);
+        JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance);
     }
 }
