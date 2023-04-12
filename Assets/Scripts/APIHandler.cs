@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class APIHandler : MonoBehaviour
 {
@@ -27,5 +26,4 @@ public class APIHandler : MonoBehaviour
         string json = reader.ReadToEnd();
         return JsonUtility.FromJson<APIParser.SearchParser>(json);
     }
-    
 }

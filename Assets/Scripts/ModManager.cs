@@ -37,7 +37,6 @@ public class ModManager : MonoBehaviour
                     Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
                     GameObject modObject = Instantiate(ModPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
                     modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
-                    modObject.transform.SetParent(ModArray.transform, false);
                 }
             }
         }
