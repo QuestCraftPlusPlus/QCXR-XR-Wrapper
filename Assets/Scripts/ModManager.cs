@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -11,6 +12,9 @@ public class ModManager : MonoBehaviour
     [SerializeReference] public GameObject ModPrefab;
     [SerializeReference] public GameObject ModArray;
     [SerializeReference] public APIHandler APIHandler;
+    public TextMeshPro ModDescription;
+    public TextMeshPro ModTitle;
+    public RawImage ModImage;
     
 
     public async void CreateMod()
@@ -65,7 +69,9 @@ public class ModManager : MonoBehaviour
                 else
                 {
                     Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-                    
+                    ModDescription.text = searchResults.description;
+                    ModTitle.text = searchResults.title;
+                    ModImage.texture = modImageTexture;
                 }
             }
         }
