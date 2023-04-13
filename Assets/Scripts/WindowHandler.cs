@@ -12,12 +12,23 @@ public class WindowHandler : MonoBehaviour
     public GameObject modSearchMenu;
     public GameObject instanceMenu;
     public GameObject modInfoMenu;
+    public GameObject devOptionsMenu;
 
     public void MainPanelSwitch()
         {
             startPanel.SetActive(false);
             mainPanel.SetActive(true);
         }
+
+    public void DevMenuSetter()
+    {
+        devOptionsMenu.SetActive(true);
+    }
+    
+    public void DevMenuUnsetter()
+    {
+        devOptionsMenu.SetActive(false);
+    }
 
     public void LogoutButton()
         {

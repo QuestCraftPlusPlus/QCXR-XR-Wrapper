@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.UI;
 
 public class JNIStorage : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaObject activity;
     public static AndroidJavaObject[] instances;
     public static string home;
-    
+    public GameObject RAMSetterField;
+
     private void Start()
     {
         if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
@@ -21,5 +23,10 @@ public class JNIStorage : MonoBehaviour
         AndroidJavaClass instance = new AndroidJavaClass("pojlib.instance.MinecraftInstance");
         activity = instance.GetStatic<AndroidJavaObject>("context");
         instances = apiClass.CallStatic<AndroidJavaObject[]>("getQCSupportedVersions");
+    }
+
+    public void SetMemoryValue()
+    {
+        apiClass.SetStatic<int>("memoryValue", int.Parse(RAMSetterField.GetComponent<InputField>().text));
     }
 }
