@@ -21,11 +21,19 @@ public class APIHandler : MonoBehaviour
 
     public APIParser.SearchParser GetModInfo()
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID + "/version");
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID);
         using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         using StreamReader reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
         return JsonUtility.FromJson<APIParser.SearchParser>(json);
     }
     
+    public APIParser.SearchParser GetModDownloads()
+    {
+        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID + "/version");
+        using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        using StreamReader reader = new StreamReader(response.GetResponseStream());
+        string json = reader.ReadToEnd();
+        return JsonUtility.FromJson<APIParser.SearchParser>(json);
+    }   
 }

@@ -42,4 +42,32 @@ public class ModManager : MonoBehaviour
             }
         }
     }
+    
+    public async void CreateModPage()
+    {
+        APIParser.SearchParser sq = APIHandler.GetSearchedMods();
+        
+        foreach (APIParser.SearchResults searchResults in sq.hits)
+        {
+            async Task GetSetTexture()
+            {
+                UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
+
+                while (!modImageLink.isDone)
+                {
+                    await Task.Delay(50);
+                }
+
+                if (modImageLink.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.Log(modImageLink.error);
+                }
+                else
+                {
+                    Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+                    
+                }
+            }
+        }
+    }
 }
