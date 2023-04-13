@@ -9,17 +9,17 @@ using UnityEngine.UI;
 
 public class ModManager : MonoBehaviour
 {
-    [SerializeReference] public GameObject ModPrefab;
-    [SerializeReference] public GameObject ModArray;
-    [SerializeReference] public APIHandler APIHandler;
-    public TextMeshPro ModDescription;
-    public TextMeshPro ModTitle;
-    public RawImage ModImage;
+    [SerializeReference] public GameObject modPrefab;
+    [SerializeReference] public GameObject modArray;
+    [SerializeReference] public APIHandler apiHandler;
+    public TextMeshPro modDescription;
+    public TextMeshPro modTitle;
+    public RawImage modImage;
     
 
     public async void CreateMod()
     {
-        APIParser.SearchParser sq = APIHandler.GetSearchedMods();
+        APIParser.SearchParser sq = apiHandler.GetSearchedMods();
         
         foreach (APIParser.SearchResults searchResults in sq.hits)
         {
@@ -39,9 +39,9 @@ public class ModManager : MonoBehaviour
                 else
                 {
                     Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-                    GameObject modObject = Instantiate(ModPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+                    GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
                     modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
-                    modObject.transform.SetParent(ModArray.transform, false);
+                    modObject.transform.SetParent(modArray.transform, false);
                 }
             }
         }
@@ -49,7 +49,7 @@ public class ModManager : MonoBehaviour
     
     public async void CreateModPage()
     {
-        APIParser.SearchParser sq = APIHandler.GetSearchedMods();
+        APIParser.SearchParser sq = apiHandler.GetSearchedMods();
         
         foreach (APIParser.SearchResults searchResults in sq.hits)
         {
@@ -69,9 +69,9 @@ public class ModManager : MonoBehaviour
                 else
                 {
                     Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-                    ModDescription.text = searchResults.description;
-                    ModTitle.text = searchResults.title;
-                    ModImage.texture = modImageTexture;
+                    modDescription.text = searchResults.description;
+                    modTitle.text = searchResults.title;
+                    modImage.texture = modImageTexture;
                 }
             }
         }
