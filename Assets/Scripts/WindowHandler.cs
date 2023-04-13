@@ -13,10 +13,12 @@ public class WindowHandler : MonoBehaviour
     public GameObject instanceMenu;
     public GameObject modInfoMenu;
     public GameObject devOptionsMenu;
+    public GameObject modManagerMainpage;
 
     public void MainPanelSwitch()
         {
             startPanel.SetActive(false);
+            modManagerPanel.SetActive(false);
             mainPanel.SetActive(true);
         }
 
@@ -40,12 +42,14 @@ public class WindowHandler : MonoBehaviour
     {
         mainPanel.SetActive(false);
         modManagerPanel.SetActive(true);
+        modManagerMainpage.SetActive(true);
     }
 
     public void ModSearchButton()
     {
         instanceMenu.SetActive(false);
         modInfoMenu.SetActive(false);
+        modManagerMainpage.SetActive(false);
         modSearchMenu.SetActive(true);
     }
 
@@ -53,6 +57,7 @@ public class WindowHandler : MonoBehaviour
     {
         modInfoMenu.SetActive(false);
         modSearchMenu.SetActive(false);
+        modManagerMainpage.SetActive(false);
         instanceMenu.SetActive(true);
     }
 
@@ -60,6 +65,7 @@ public class WindowHandler : MonoBehaviour
     {
         instanceMenu.SetActive(false);
         modSearchMenu.SetActive(false);
+        modManagerMainpage.SetActive(false);
         modInfoMenu.SetActive(true);
     }
     

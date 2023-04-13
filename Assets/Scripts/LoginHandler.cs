@@ -9,7 +9,6 @@ using Image = UnityEngine.UIElements.Image;
 public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
-    public GameObject pfpHolder;
     bool hasAttemptedLogin = false;
     
     public void Login()
