@@ -14,6 +14,8 @@ public class WindowHandler : MonoBehaviour
     public GameObject modInfoMenu;
     public GameObject devOptionsMenu;
     public GameObject modManagerMainpage;
+    public GameObject startButton;
+    public GameObject devButton;
 
     public void MainPanelSwitch()
         {
@@ -24,11 +26,15 @@ public class WindowHandler : MonoBehaviour
 
     public void DevMenuSetter()
     {
+        startButton.SetActive(false);
         devOptionsMenu.SetActive(true);
+        devButton.SetActive(false);
     }
     
     public void DevMenuUnsetter()
     {
+        startButton.SetActive(true);
+        devButton.SetActive(true);
         devOptionsMenu.SetActive(false);
     }
 
