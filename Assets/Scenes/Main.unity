@@ -3760,7 +3760,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'A dynamic lights mod for Fabric.
 
-        
+
 
 '
       objectReference: {fileID: 0}
@@ -9911,8 +9911,8 @@ MonoBehaviour:
   modInfoMenu: {fileID: 1147369739}
   devOptionsMenu: {fileID: 474986767}
   modManagerMainpage: {fileID: 1706876831}
-  startButton: {fileID: 0}
-  devButton: {fileID: 0}
+  startButton: {fileID: 432457115}
+  devButton: {fileID: 1703774662}
 --- !u!114 &1460469782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10159,7 +10159,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'A dynamic lights mod for Fabric.
 
-        
+
 
 '
       objectReference: {fileID: 0}
@@ -10513,7 +10513,6 @@ GameObject:
   - component: {fileID: 1703774670}
   - component: {fileID: 1703774669}
   - component: {fileID: 1703774668}
-  - component: {fileID: 1703774667}
   - component: {fileID: 1703774666}
   - component: {fileID: 1703774665}
   - component: {fileID: 1703774664}
@@ -10626,19 +10625,6 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1703774667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703774662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea87d112f0ba8ad439f17cb8309ff273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handler: {fileID: 0}
 --- !u!114 &1703774668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10683,9 +10669,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1460469781}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WindowHandler, Assembly-CSharp
-        m_MethodName: DevMenuSetter
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10888,7 +10874,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'A dynamic lights mod for Fabric.
 
-        
+
 
 '
       objectReference: {fileID: 0}

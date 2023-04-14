@@ -44,12 +44,12 @@ public class DevHandler : MonoBehaviour
     {
         if (RAMSetterToggle.isOn)
         {
-            JNIStorage.apiClass.SetStatic<bool>("customRAMSetter", true);
+            JNIStorage.apiClass.SetStatic<bool>("customRAMValue", true);
             RAMSetterField.SetActive(true);
         }
         else
         {
-            JNIStorage.apiClass.SetStatic<bool>("customRAMSetter", false);
+            JNIStorage.apiClass.SetStatic<bool>("customRAMValue", false);
             RAMSetterField.SetActive(false);
         }
     }    
