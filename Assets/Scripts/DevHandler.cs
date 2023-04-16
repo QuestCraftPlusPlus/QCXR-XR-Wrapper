@@ -33,10 +33,12 @@ public class DevHandler : MonoBehaviour
         if (DevToggle.isOn)
         {
             JNIStorage.apiClass.SetStatic<bool>("developerMods", true);
+            JNIStorage.UpdateInstances();
         }
         else
         {
             JNIStorage.apiClass.SetStatic<bool>("developerMods", false);
+            JNIStorage.UpdateInstances();
         }
     }    
     

@@ -20,9 +20,14 @@ public class JNIStorage : MonoBehaviour
         apiClass = new AndroidJavaClass("pojlib.api.API_V1");
         AndroidJavaClass constants = new AndroidJavaClass("pojlib.util.Constants");
         home = constants.GetStatic<string>("MC_DIR");
+        UpdateInstances();
+    }
+
+    public static void UpdateInstances()
+    {
         AndroidJavaClass instance = new AndroidJavaClass("pojlib.instance.MinecraftInstance");
-        activity = instance.GetStatic<AndroidJavaObject>("context");
         instances = apiClass.CallStatic<AndroidJavaObject[]>("getQCSupportedVersions");
+        activity = instance.GetStatic<AndroidJavaObject>("context");
     }
 
     public void SetMemoryValue()

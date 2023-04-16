@@ -80,7 +80,7 @@ QualitySettings:
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Medium
-    pixelLightCount: 1
+    pixelLightCount: 15
     shadows: 1
     shadowResolution: 0
     shadowProjection: 1
@@ -101,7 +101,7 @@ QualitySettings:
     vSyncCount: 0
     lodBias: 0.7
     maximumLODLevel: 0
-    streamingMipmapsActive: 0
+    streamingMipmapsActive: 1
     streamingMipmapsAddAllCameras: 1
     streamingMipmapsMemoryBudget: 512
     streamingMipmapsRenderersPerFrame: 512

@@ -135,7 +135,9 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 3
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 6154349898728414384, guid: d659781fbeb3ee24a850529d00b6529e, type: 2}
+  - {fileID: 11400000, guid: 4e124bb0e8fb02443a6b9990c306530f, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -556,7 +558,7 @@ PlayerSettings:
     m_EncodingQuality: 1
   m_BuildTargetGroupLightmapSettings:
   - m_BuildTarget: Android
-    m_TextureStreamingEnabled: 0
+    m_TextureStreamingEnabled: 1
     m_TextureStreamingPriority: 0
   m_BuildTargetNormalMapEncoding:
   - m_BuildTarget: Android
