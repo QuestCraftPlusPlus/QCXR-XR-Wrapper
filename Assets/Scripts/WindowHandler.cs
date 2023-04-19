@@ -5,17 +5,16 @@ using UnityEngine.UI;
 
 public class WindowHandler : MonoBehaviour
 {
-
+    public GameObject devOptionsMenu;
+    public GameObject startButton;
+    public GameObject devButton;
     public GameObject mainPanel;
     public GameObject startPanel;
     public GameObject modManagerPanel;
     public GameObject modSearchMenu;
     public GameObject instanceMenu;
     public GameObject modInfoMenu;
-    public GameObject devOptionsMenu;
     public GameObject modManagerMainpage;
-    public GameObject startButton;
-    public GameObject devButton;
 
     public void MainPanelSwitch()
         {
@@ -46,7 +45,9 @@ public class WindowHandler : MonoBehaviour
 
     public void ModManagerButton()
     {
+        modSearchMenu.SetActive(false);
         mainPanel.SetActive(false);
+        modInfoMenu.SetActive(false);
         modManagerPanel.SetActive(true);
         modManagerMainpage.SetActive(true);
     }
@@ -74,5 +75,5 @@ public class WindowHandler : MonoBehaviour
         modManagerMainpage.SetActive(false);
         modInfoMenu.SetActive(true);
     }
-    
+
 }
