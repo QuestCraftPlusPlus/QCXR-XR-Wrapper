@@ -4,8 +4,8 @@ using UnityEngine.EventSystems;
 
 public class KeyboardHandler : MonoBehaviour
 {
-    public static TMP_InputField searchbox;
-    public static TMP_InputField ramSetter;
+    public TMP_InputField searchbox;
+    public TMP_InputField ramSetter;
     public GameObject keyboard;
     public static bool isShift;
 
@@ -24,15 +24,29 @@ public class KeyboardHandler : MonoBehaviour
         }
     }
     
-    public static void KeyPress(string key)
+    public void KeyPress(string key)
     {
-        if (isShift)
+        if (searchbox.IsActive())
         {
-            searchbox.text += key;
+            if (isShift)
+            {
+                searchbox.text += key.ToUpper();
+            }
+            else
+            {
+                searchbox.text += key.ToLower();
+            }
         }
-        else
+        else if (ramSetter.IsActive())
         {
-            ramSetter.text += key;
+            if (isShift)
+            {
+                ramSetter.text += key.ToUpper();
+            }
+            else
+            {
+                ramSetter.text += key.ToLower();
+            }
         }
     }
 

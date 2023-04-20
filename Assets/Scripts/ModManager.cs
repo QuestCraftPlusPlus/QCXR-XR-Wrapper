@@ -24,6 +24,7 @@ public class ModManager : MonoBehaviour
 
     public async void CreateMods()
     {
+        ResetArray();
         SearchParser sq = apiHandler.GetSearchedMods();
         
         foreach (SearchResults searchResults in sq.hits)
@@ -100,5 +101,15 @@ public class ModManager : MonoBehaviour
     {
         apiHandler.searchQuery = searchQuery.text;
         CreateMods();
+    }
+    
+    public void ResetArray()
+    {
+        int childCount = modArray.transform.childCount;
+        for (int i = childCount - 1; i >= 0; i--) {
+            Transform child = modArray.transform.GetChild(i);
+            Destroy(child.gameObject);
+        }
+        
     }
 }

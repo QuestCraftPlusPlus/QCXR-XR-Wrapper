@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class KeyParser : MonoBehaviour
 {
+    public KeyboardHandler keyboardHandler;
+    
     public void GetKey()
     {
         string key = gameObject.name;
-        KeyboardHandler.KeyPress(key);
+        keyboardHandler.KeyPress(key);
     }
 }

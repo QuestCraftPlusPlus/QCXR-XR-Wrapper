@@ -9,8 +9,18 @@ using Image = UnityEngine.UIElements.Image;
 public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
+    public GameObject loginButton;
     bool hasAttemptedLogin = false;
-    
+
+    void Start()
+    {
+        JNIStorage.accountObj = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("login", "d17a73a2-707c-40f5-8c90-d3eda0956f10");
+        if (JNIStorage.accountObj != null)
+        {
+            loginButton.name = "Continue";
+        }
+    }
+
     public void Login()
     {
         JNIStorage.accountObj = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("login", "d17a73a2-707c-40f5-8c90-d3eda0956f10");
@@ -23,7 +33,7 @@ public class LoginHandler : MonoBehaviour
         hasAttemptedLogin = true;
     }
 
-    private void Update()
+    void Update()
     {
         if (JNIStorage.accountObj != null)
         {
