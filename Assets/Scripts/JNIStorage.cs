@@ -11,6 +11,7 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaObject activity;
     public static AndroidJavaObject[] instances;
     public static string home;
+    public int index = 0;
     public GameObject RAMSetterField;
 
     private void Start()

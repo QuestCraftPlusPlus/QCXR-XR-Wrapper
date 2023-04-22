@@ -10,7 +10,7 @@ public class InstanceButton : MonoBehaviour
     public AndroidJavaObject currentVersion;
     bool hasDefaulted = false;
     public AudioSource source;
-    int index = 0;
+    public JNIStorage jniStorage;
 
     public void Update()
     {
@@ -25,13 +25,13 @@ public class InstanceButton : MonoBehaviour
 
     public void SwitchInstance()
     {
-        index++;
-        if (index > JNIStorage.instances.Length - 1)
+        jniStorage.index++;
+        if (jniStorage.index > JNIStorage.instances.Length - 1)
         {
-            index = 0;
+            jniStorage.index = 0;
         }
 
-        currentVersion = JNIStorage.instances[index];
+        currentVersion = JNIStorage.instances[jniStorage.index];
         string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
         GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
     }

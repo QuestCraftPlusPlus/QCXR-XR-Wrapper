@@ -24,6 +24,10 @@ public class SearchResults
 
 public class MetaParser
 {
+    public string title;
+    public string icon_url;
+    public string description;
+    public string slug;
     public List<MetaInfo> results;
 
 }
@@ -34,9 +38,8 @@ public class MetaInfo
 {
     public string id;
     public string project_id;
-    public string name;
     public string version;
-    public List<FileInfo> fileInfo;
+    public List<FileInfo> files;
 }
 
 [System.Serializable]
@@ -44,6 +47,7 @@ public class MetaInfo
 public class FileInfo
 {
     public string filename;
-    public int size;
+    public string version;
     public string url;
+    public int size;
 }

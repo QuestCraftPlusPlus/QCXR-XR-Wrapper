@@ -11,10 +11,12 @@ public class UIHandler : MonoBehaviour
 {
     public RawImage pfpHolder;
     public TextMeshProUGUI profileNameHolder;
+    public TextMeshProUGUI minuteHourText;
+    public TextMeshProUGUI secondText;
     string pfpUrl;
     string profileName;
 
-    public void Update()
+    void Update()
     {
         if (JNIStorage.accountObj != null)
         {
@@ -30,6 +32,12 @@ public class UIHandler : MonoBehaviour
 
             GetTexturePlusName();
         }
+        
+        string hour = System.DateTime.Now.Hour.ToString();
+        string minute = System.DateTime.Now.Minute.ToString();
+        string second = System.DateTime.Now.Second.ToString();
+        minuteHourText.text = hour + ":" + minute;
+        secondText.text = second;
     }
 
     async Task GetTexturePlusName()

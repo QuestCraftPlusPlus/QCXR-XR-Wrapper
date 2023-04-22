@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Oculus.Interaction;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
@@ -15,12 +17,14 @@ public class ModManager : MonoBehaviour
     [SerializeReference] public APIHandler apiHandler;
     public TextMeshProUGUI modDescription;
     public TextMeshProUGUI modTitle;
+    public TextMeshProUGUI modIDObject;
     public TMP_InputField searchQuery;
     public RawImage modImage;
     public GameObject modManagerMainpage;
     public GameObject modSearchMenu;
     public GameObject instanceMenu;
-    
+    public GameObject DLDImage;
+    public GameObject DLImage;
 
     public async void CreateMods()
     {
@@ -51,7 +55,14 @@ public class ModManager : MonoBehaviour
                     modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
                     modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
                     modObject.transform.SetParent(modArray.transform, false);
-                    modObject.GetComponent<Button>().onClick.AddListener(CreateModPage);
+                    modObject.name = searchResults.project_id;
+                    modObject.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
+                    {
+                        EventSystem.current.SetSelectedGameObject(modObject);
+                        GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
+                        apiHandler.modID = mod.ToString().Replace("(UnityEngine.GameObject)", "");
+                        CreateModPage();
+                    });
                 }
             }
 
@@ -61,40 +72,67 @@ public class ModManager : MonoBehaviour
     
     public async void CreateModPage()
     {
-        SearchParser sq = apiHandler.GetSearchedMods();
+        MetaParser mp = apiHandler.GetModInfo();
         instanceMenu.SetActive(false);
         modSearchMenu.SetActive(false);
         modManagerMainpage.SetActive(false);
         modPage.SetActive(true);
-        Debug.Log("In method");
 
-        foreach (SearchResults searchResults in sq.hits)
+        async Task GetSetTexture()
         {
-            Debug.Log("In Loop");
-            async Task GetSetTexture()
+            UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(mp.icon_url);
+            modImageLink.SendWebRequest();
+
+            while (!modImageLink.isDone)
             {
-                UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
-
-                while (!modImageLink.isDone)
-                {
-                    await Task.Delay(50);
-                }
-
-                if (modImageLink.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.Log(modImageLink.error);
-                }
-                else
-                {
-                    Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-                    modDescription.text = searchResults.description;
-                    modTitle.text = searchResults.title;
-                    modImage.texture = modImageTexture;
-                }
+                await Task.Delay(50);
             }
 
-            await GetSetTexture();
+            Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+            modDescription.text = mp.description;
+            modTitle.text = mp.title;
+            modImage.texture = modImageTexture;
+            modIDObject.text = mp.slug;
+
+            if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", instance, mp.title))
+            {
+                DLDImage.SetActive(false);
+                DLImage.SetActive(true);
+            }
+            else
+            {
+                DLImage.SetActive(false);
+                DLDImage.SetActive(true);
+            }
         }
+
+        await GetSetTexture();
+    }
+    
+    public void addMod()
+    {
+        apiHandler.modID = modIDObject.text;
+        MetaParser mp = apiHandler.GetModInfo();
+        MetaInfo mi = apiHandler.GetModDownloads();
+
+        foreach (FileInfo fileInfo in mi.files)
+        {
+            string name = mp.title;
+            string url = fileInfo.url;
+            string version = fileInfo.version;
+            JNIStorage.apiClass.CallStatic("addCustomMod", instance, name, url, version);
+        }
+        
+        DLImage.SetActive(false);
+        DLDImage.SetActive(true);
+    }
+    
+    public void removeMod()
+    {
+        string name = modIDObject.text;
+        JNIStorage.apiClass.CallStatic("removeMod", instance, name);
+        DLDImage.SetActive(false);
+        DLImage.SetActive(true);
     }
 
     public void SearchMods()
@@ -102,7 +140,7 @@ public class ModManager : MonoBehaviour
         apiHandler.searchQuery = searchQuery.text;
         CreateMods();
     }
-    
+
     public void ResetArray()
     {
         int childCount = modArray.transform.childCount;
@@ -110,6 +148,5 @@ public class ModManager : MonoBehaviour
             Transform child = modArray.transform.GetChild(i);
             Destroy(child.gameObject);
         }
-        
     }
 }
