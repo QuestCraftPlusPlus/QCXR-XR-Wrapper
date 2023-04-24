@@ -73,10 +73,9 @@ public class InstanceButton : MonoBehaviour
         return instance;
     }
 
-    public void LaunchCurrentInsance()
+    public void LaunchCurrentInstance()
     {
-        CreateInstance();
-        AndroidJavaObject instance = GetInstance();
+        AndroidJavaObject instance = CreateInstance();
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
         if(currentFile != null)
         {
