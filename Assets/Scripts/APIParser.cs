@@ -1,26 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class SearchParser
 {
     public List<SearchResults> hits;
 }
 
-[System.Serializable]
+[Serializable]
 
 public class SearchResults
 {
     public string project_id;
-    public string slug;
-    public string author;
     public string title;
     public string description;
     public string icon_url;
 }
 
-[System.Serializable]
+[Serializable]
 
 public class MetaParser
 {
@@ -28,25 +28,20 @@ public class MetaParser
     public string icon_url;
     public string description;
     public string slug;
-    public List<MetaInfo> results;
-
 }
 
-[System.Serializable]
+[Serializable]
 
 public class MetaInfo
 {
-    public string id;
-    public string project_id;
-    public List<FileInfo> files;
+    public List<string> game_versions { get; set; }
+    public List<FileInfo> files { get; set; }
 }
 
-[System.Serializable]
+[Serializable]
 
 public class FileInfo
 {
-    public string filename;
     public string version;
     public string url;
-    public int size;
 }

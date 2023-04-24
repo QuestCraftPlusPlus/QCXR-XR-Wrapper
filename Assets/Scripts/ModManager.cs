@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Oculus.Interaction;
 using TMPro;
@@ -25,6 +23,7 @@ public class ModManager : MonoBehaviour
     public GameObject instanceMenu;
     public GameObject DLDImage;
     public GameObject DLImage;
+    public GameObject errorMenu;
 
     public async void CreateMods()
     {
@@ -56,19 +55,21 @@ public class ModManager : MonoBehaviour
                     modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
                     modObject.transform.SetParent(modArray.transform, false);
                     modObject.name = searchResults.project_id;
+                    string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+                    AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
 
-                    if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.CreateOrGetInstance(), searchResults.title))
-                    {
-                        modObject.GetComponentInChildren<Button>().interactable = false;
-                    }
-                    else
-                    {
-                        modObject.GetComponentInChildren<Button>().interactable = true;
-                        modObject.GetComponentInChildren<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
-                        {
-                            RemoveMod();
-                        });
-                    }
+                    // if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.GetInstance(), searchResults.title))
+                    // {
+                    //     modObject.GetComponentInChildren<Button>().interactable = false;
+                    // }
+                    // else
+                    // {
+                    //     modObject.GetComponentInChildren<Button>().interactable = true;
+                    //     modObject.GetComponentInChildren<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
+                    //     {
+                    //         RemoveMod();
+                    //     });
+                    // }
                     
                     modObject.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
                     {
@@ -107,17 +108,19 @@ public class ModManager : MonoBehaviour
             modTitle.text = mp.title;
             modImage.texture = modImageTexture;
             modIDObject.text = mp.slug;
+            string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+            AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
 
-            if (!JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.CreateOrGetInstance(), mp.title))
-            {
-                DLDImage.SetActive(false);
-                DLImage.SetActive(true);
-            }
-            else
-            {
-                DLImage.SetActive(false);
-                DLDImage.SetActive(true);
-            }
+            // if (!JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title))
+            // {
+            //     DLDImage.SetActive(false);
+            //     DLImage.SetActive(true);
+            // }
+            // else
+            // {
+            //     DLImage.SetActive(false);
+            //     DLDImage.SetActive(true);
+            // }
         }
 
         await GetSetTexture();
@@ -127,24 +130,52 @@ public class ModManager : MonoBehaviour
     {
         apiHandler.modID = modIDObject.text;
         MetaParser mp = apiHandler.GetModInfo();
-        MetaInfo mi = apiHandler.GetModDownloads();
+        MetaInfo[] mi = apiHandler.GetModDownloads();
 
-        foreach (FileInfo fileInfo in mi.files)
+        string currentInstanceName = InstanceButton.currInstName;
+        foreach (MetaInfo metaInfo in mi)
         {
-            string name = mp.title;
-            string url = fileInfo.url;
-            string version = fileInfo.version;
-            JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.CreateOrGetInstance(), name, url, version);
+            foreach (FileInfo file in metaInfo.files)
+            {
+                Debug.Log("In loop");
+                if (metaInfo.game_versions.Contains(currentInstanceName))
+                {
+                    Debug.Log("Version found!");
+                    string modName = mp.title;
+                    string modUrl = file.url;
+                    string modVersion = file.version;
+                    string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+                    Debug.Log("Line 148");
+                    AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+                    Debug.Log("Line 150");
+                    
+                    if (instance == null)
+                    {
+                        Debug.Log("Line 154");
+                        errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "You must run this version of the game at least once before adding mods to the instance with ModManger!";
+                        errorMenu.SetActive(true);
+                    }
+                    else
+                    {
+                        Debug.Log("Line 160");
+                        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), modName, modUrl, modVersion);
+                        Debug.Log("Line 160");
+                        DLImage.SetActive(false);
+                        DLDImage.SetActive(true);
+                    }
+                    
+                    return;
+                }
+            }
         }
-        
-        DLImage.SetActive(false);
-        DLDImage.SetActive(true);
     }
     
     public void RemoveMod()
     {
         string name = modIDObject.text;
-        JNIStorage.apiClass.CallStatic("removeMod", InstanceButton.CreateOrGetInstance(), name);
+        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+        JNIStorage.apiClass.CallStatic("removeMod", InstanceButton.GetInstance(), name);
         DLDImage.SetActive(false);
         DLImage.SetActive(true);
     }
