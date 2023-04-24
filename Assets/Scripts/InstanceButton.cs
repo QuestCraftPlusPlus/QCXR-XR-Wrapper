@@ -36,7 +36,7 @@ public class InstanceButton : MonoBehaviour
         GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
     }
 
-    public void LaunchCurrentInsance()
+    public static AndroidJavaObject CreateOrGetInstance()
     {
         string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
         AndroidJavaObject instance;
@@ -44,9 +44,14 @@ public class InstanceButton : MonoBehaviour
         if(instance == null)
         {
             instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion);
-            return;
         }
 
+        return instance;
+    }
+
+    public void LaunchCurrentInsance()
+    {
+        AndroidJavaObject instance = CreateOrGetInstance();
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
         if(currentFile != null)
         {

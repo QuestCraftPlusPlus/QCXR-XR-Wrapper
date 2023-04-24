@@ -38,7 +38,6 @@ public class MetaInfo
 {
     public string id;
     public string project_id;
-    public string version;
     public List<FileInfo> files;
 }
 

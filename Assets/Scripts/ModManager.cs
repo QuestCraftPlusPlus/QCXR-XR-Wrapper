@@ -57,7 +57,7 @@ public class ModManager : MonoBehaviour
                     modObject.transform.SetParent(modArray.transform, false);
                     modObject.name = searchResults.project_id;
 
-                    if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.currentVersion, searchResults.title))
+                    if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.CreateOrGetInstance(), searchResults.title))
                     {
                         modObject.GetComponentInChildren<Button>().interactable = false;
                     }
@@ -108,7 +108,7 @@ public class ModManager : MonoBehaviour
             modImage.texture = modImageTexture;
             modIDObject.text = mp.slug;
 
-            if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.currentVersion, mp.title))
+            if (!JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.CreateOrGetInstance(), mp.title))
             {
                 DLDImage.SetActive(false);
                 DLImage.SetActive(true);
@@ -134,7 +134,7 @@ public class ModManager : MonoBehaviour
             string name = mp.title;
             string url = fileInfo.url;
             string version = fileInfo.version;
-            JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.currentVersion, name, url, version);
+            JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.CreateOrGetInstance(), name, url, version);
         }
         
         DLImage.SetActive(false);
@@ -144,7 +144,7 @@ public class ModManager : MonoBehaviour
     public void RemoveMod()
     {
         string name = modIDObject.text;
-        JNIStorage.apiClass.CallStatic("removeMod", InstanceButton.currentVersion, name);
+        JNIStorage.apiClass.CallStatic("removeMod", InstanceButton.CreateOrGetInstance(), name);
         DLDImage.SetActive(false);
         DLImage.SetActive(true);
     }
