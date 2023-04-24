@@ -56,6 +56,20 @@ public class ModManager : MonoBehaviour
                     modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
                     modObject.transform.SetParent(modArray.transform, false);
                     modObject.name = searchResults.project_id;
+
+                    if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.currentVersion, searchResults.title))
+                    {
+                        modObject.GetComponentInChildren<Button>().interactable = false;
+                    }
+                    else
+                    {
+                        modObject.GetComponentInChildren<Button>().interactable = true;
+                        modObject.GetComponentInChildren<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
+                        {
+                            RemoveMod();
+                        });
+                    }
+                    
                     modObject.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
                     {
                         EventSystem.current.SetSelectedGameObject(modObject);
@@ -94,7 +108,7 @@ public class ModManager : MonoBehaviour
             modImage.texture = modImageTexture;
             modIDObject.text = mp.slug;
 
-            if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", instance, mp.title))
+            if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.currentVersion, mp.title))
             {
                 DLDImage.SetActive(false);
                 DLImage.SetActive(true);
@@ -109,7 +123,7 @@ public class ModManager : MonoBehaviour
         await GetSetTexture();
     }
     
-    public void addMod()
+    public void AddMod()
     {
         apiHandler.modID = modIDObject.text;
         MetaParser mp = apiHandler.GetModInfo();
@@ -120,17 +134,17 @@ public class ModManager : MonoBehaviour
             string name = mp.title;
             string url = fileInfo.url;
             string version = fileInfo.version;
-            JNIStorage.apiClass.CallStatic("addCustomMod", instance, name, url, version);
+            JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.currentVersion, name, url, version);
         }
         
         DLImage.SetActive(false);
         DLDImage.SetActive(true);
     }
     
-    public void removeMod()
+    public void RemoveMod()
     {
         string name = modIDObject.text;
-        JNIStorage.apiClass.CallStatic("removeMod", instance, name);
+        JNIStorage.apiClass.CallStatic("removeMod", InstanceButton.currentVersion, name);
         DLDImage.SetActive(false);
         DLImage.SetActive(true);
     }

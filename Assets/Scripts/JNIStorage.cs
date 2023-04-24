@@ -11,11 +11,11 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaObject activity;
     public static AndroidJavaObject[] instances;
     public static string home;
-    public int index = 0;
     public GameObject RAMSetterField;
 
     private void Start()
     {
+        OVRPlugin.systemDisplayFrequency = 90.0f;
         if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
             Permission.RequestUserPermission(Permission.Microphone);
         apiClass = new AndroidJavaClass("pojlib.api.API_V1");

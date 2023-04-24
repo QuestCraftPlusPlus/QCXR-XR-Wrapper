@@ -33,11 +33,18 @@ public class UIHandler : MonoBehaviour
             GetTexturePlusName();
         }
         
-        string hour = System.DateTime.Now.Hour.ToString();
-        string minute = System.DateTime.Now.Minute.ToString();
-        string second = System.DateTime.Now.Second.ToString();
-        minuteHourText.text = hour + ":" + minute;
-        secondText.text = second;
+        if (System.DateTime.Now.Minute.ToString().Length == 1)
+        {
+            string hour = System.DateTime.Now.Hour.ToString();
+            string minute = System.DateTime.Now.Minute.ToString().Insert(0, "0");
+            minuteHourText.text = hour + ":" + minute;
+        }
+        else
+        {
+            string hour = System.DateTime.Now.Hour.ToString();
+            string minute = System.DateTime.Now.Minute.ToString();
+            minuteHourText.text = hour + ":" + minute;
+        }
     }
 
     async Task GetTexturePlusName()

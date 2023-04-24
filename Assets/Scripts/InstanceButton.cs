@@ -7,10 +7,10 @@ using UnityEngine.XR;
 
 public class InstanceButton : MonoBehaviour
 {
-    public AndroidJavaObject currentVersion;
+    public static AndroidJavaObject currentVersion;
     bool hasDefaulted = false;
     public AudioSource source;
-    public JNIStorage jniStorage;
+    public int index = 0;
 
     public void Update()
     {
@@ -25,13 +25,13 @@ public class InstanceButton : MonoBehaviour
 
     public void SwitchInstance()
     {
-        jniStorage.index++;
-        if (jniStorage.index > JNIStorage.instances.Length - 1)
+        index++;
+        if (index > JNIStorage.instances.Length - 1)
         {
-            jniStorage.index = 0;
+            index = 0;
         }
 
-        currentVersion = JNIStorage.instances[jniStorage.index];
+        currentVersion = JNIStorage.instances[index];
         string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
         GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
     }
