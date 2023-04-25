@@ -153,7 +153,7 @@ public class ModManager : MonoBehaviour
                     }
                     else
                     {
-                        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), modName, modUrl, modVersion);
+                        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), modName, modVersion, modUrl);
                         DLImage.SetActive(false);
                         DLDImage.SetActive(true);
                     }
