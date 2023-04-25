@@ -137,29 +137,23 @@ public class ModManager : MonoBehaviour
         {
             foreach (FileInfo file in metaInfo.files)
             {
-                Debug.Log("In loop");
                 if (metaInfo.game_versions.Contains(currentInstanceName))
                 {
-                    Debug.Log("Version found!");
                     string modName = mp.title;
                     string modUrl = file.url;
-                    string modVersion = file.version;
+                    string modVersion = currentInstanceName;
+                    Debug.Log("modName: " + modName + " | modUrl: " + modUrl + " | modVersion: " + modVersion);
                     string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-                    Debug.Log("Line 148");
                     AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-                    Debug.Log("Line 150");
                     
                     if (instance == null)
                     {
-                        Debug.Log("Line 154");
                         errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "You must run this version of the game at least once before adding mods to the instance with ModManger!";
                         errorMenu.SetActive(true);
                     }
                     else
                     {
-                        Debug.Log("Line 160");
                         JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), modName, modUrl, modVersion);
-                        Debug.Log("Line 160");
                         DLImage.SetActive(false);
                         DLDImage.SetActive(true);
                     }

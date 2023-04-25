@@ -42,6 +42,5 @@ public class MetaInfo
 
 public class FileInfo
 {
-    public string version;
     public string url;
 }
