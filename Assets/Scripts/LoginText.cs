@@ -11,7 +11,7 @@ public class LoginText : MonoBehaviour
         GetComponent<TextMeshProUGUI>().text = JNIStorage.apiClass.GetStatic<string>("msaMessage");
         if(GetComponent<TextMeshProUGUI>().text != "")
         {
-            GetComponent<TextMeshProUGUI>().text  = GetComponent<TextMeshProUGUI>().text + "Please wait until you see no more files downloading. Click the Microsoft button again once its done.";
+            GetComponent<TextMeshProUGUI>().text  = GetComponent<TextMeshProUGUI>().text + "Click the Microsoft button again once done.";
         }
     }
 }
