@@ -15,7 +15,8 @@ public class WindowHandler : MonoBehaviour
     public GameObject instanceMenu;
     public GameObject modInfoMenu;
     public GameObject modManagerMainpage;
-
+    public GameObject errorWindow;
+    
     public void MainPanelSwitch()
         {
             startPanel.SetActive(false);
@@ -74,6 +75,16 @@ public class WindowHandler : MonoBehaviour
         modSearchMenu.SetActive(false);
         modManagerMainpage.SetActive(false);
         modInfoMenu.SetActive(true);
+    }
+    
+    public void ErrorWindowSetter()
+    {
+        errorWindow.SetActive(true);
+    }    
+    
+    public void ErrorWindowUnsetter()
+    {
+        errorWindow.SetActive(false);
     }
 
 }

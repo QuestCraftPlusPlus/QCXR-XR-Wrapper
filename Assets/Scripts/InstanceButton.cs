@@ -11,6 +11,9 @@ public class InstanceButton : MonoBehaviour
     bool hasDefaulted = false;
     public AudioSource source;
     public int index = 0;
+    public static string currInstName;
+    public GameObject modManagerButton;
+    public GameObject mainMenuButton;
 
     public void Update()
     {
@@ -18,8 +21,18 @@ public class InstanceButton : MonoBehaviour
         {
             currentVersion = JNIStorage.instances[0];
             string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-            GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
             hasDefaulted = true;
+            
+            if (modManagerButton.activeSelf)
+            {
+                modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+                mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+            }
+            else if (mainMenuButton.activeSelf)
+            {
+                mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+                modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+            }
         }
     }
 
@@ -32,26 +45,37 @@ public class InstanceButton : MonoBehaviour
         }
 
         currentVersion = JNIStorage.instances[index];
-        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+        currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+        modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+        mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+
     }
 
-    public static AndroidJavaObject CreateOrGetInstance()
+    public static AndroidJavaObject GetInstance()
     {
-        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+        currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
         AndroidJavaObject instance;
         instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+        return instance;
+    }
+
+    public static AndroidJavaObject CreateInstance()
+    {
+        currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+        AndroidJavaObject instance;
+        instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+        
         if(instance == null)
         {
             instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion);
         }
-
+        
         return instance;
     }
 
-    public void LaunchCurrentInsance()
+    public void LaunchCurrentInstance()
     {
-        AndroidJavaObject instance = CreateOrGetInstance();
+        AndroidJavaObject instance = CreateInstance();
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
         if(currentFile != null)
         {

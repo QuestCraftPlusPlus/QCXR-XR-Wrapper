@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using Oculus.Interaction;
-using Unity.VisualScripting;
+using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Networking;
+
 
 public class APIHandler : MonoBehaviour
 {
@@ -15,29 +11,28 @@ public class APIHandler : MonoBehaviour
 
     public SearchParser GetSearchedMods()
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/search?query=" + searchQuery);
-        using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        using StreamReader reader = new StreamReader(response.GetResponseStream());
+        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/search?query=" + searchQuery);
+        using var response = (HttpWebResponse)request.GetResponse();
+        using var reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
-        return JsonUtility.FromJson<SearchParser>(json);
+        return JsonConvert.DeserializeObject<SearchParser>(json);
     }
 
     public MetaParser GetModInfo()
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID);
-        using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        using StreamReader reader = new StreamReader(response.GetResponseStream());
+        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID);
+        using var response = (HttpWebResponse)request.GetResponse();
+        using var reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
-        Debug.Log(json);
-        return JsonUtility.FromJson<MetaParser>(json);
+        return JsonConvert.DeserializeObject<MetaParser>(json);
     }
     
-    public MetaInfo GetModDownloads()
+    public MetaInfo[] GetModDownloads()
     {
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID + "/version");
-        using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        using StreamReader reader = new StreamReader(response.GetResponseStream());
+        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID + "/version");
+        using var response = (HttpWebResponse)request.GetResponse();
+        using var reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
-        return JsonUtility.FromJson<MetaInfo>(json);
+        return JsonConvert.DeserializeObject<MetaInfo[]>(json);
     }
 }
