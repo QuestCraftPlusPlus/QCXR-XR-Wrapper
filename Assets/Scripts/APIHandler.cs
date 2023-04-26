@@ -11,7 +11,7 @@ public class APIHandler : MonoBehaviour
 
     public SearchParser GetSearchedMods()
     {
-        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/search?query=" + searchQuery);
+        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/search?query=" + searchQuery + "=fabric");
         using var response = (HttpWebResponse)request.GetResponse();
         using var reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();

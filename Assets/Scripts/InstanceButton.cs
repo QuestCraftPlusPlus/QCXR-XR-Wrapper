@@ -14,6 +14,7 @@ public class InstanceButton : MonoBehaviour
     public static string currInstName;
     public GameObject modManagerButton;
     public GameObject mainMenuButton;
+    public GameObject searchMenuButton;
 
     public void Update()
     {
@@ -27,11 +28,19 @@ public class InstanceButton : MonoBehaviour
             {
                 modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
                 mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+                searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
             }
             else if (mainMenuButton.activeSelf)
             {
                 mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
                 modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+                searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+            }
+            else if (searchMenuButton.activeSelf)
+            {
+                mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+                modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+                searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
             }
         }
     }
@@ -48,6 +57,7 @@ public class InstanceButton : MonoBehaviour
         currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
         modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
         mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
+        searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
 
     }
 

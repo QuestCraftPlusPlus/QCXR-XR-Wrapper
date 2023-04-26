@@ -58,19 +58,25 @@ public class ModManager : MonoBehaviour
                     string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
                     AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
 
-                    // if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.GetInstance(), searchResults.title))
-                    // {
-                    //     modObject.GetComponentInChildren<Button>().interactable = false;
-                    // }
-                    // else
-                    // {
-                    //     modObject.GetComponentInChildren<Button>().interactable = true;
-                    //     modObject.GetComponentInChildren<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
-                    //     {
-                    //         RemoveMod();
-                    //     });
-                    // }
-                    
+                    try
+                    {
+                        if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.GetInstance(), searchResults.title))
+                        {
+                            modObject.GetComponentInChildren<Image>().enabled = false;
+                        }
+                        else
+                        {
+                            Debug.Log("Child Count is: " + modObject.transform.childCount);
+                            modObject.transform.GetChild(4).gameObject.SetActive(true);
+                            modObject.GetComponentInChildren<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate { RemoveMod(); });
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"An error occurred: {ex}");
+                        modObject.transform.gameObject.transform.GetChild(4).gameObject.SetActive(false);
+                    }
+
                     modObject.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
                     {
                         EventSystem.current.SetSelectedGameObject(modObject);
@@ -111,16 +117,27 @@ public class ModManager : MonoBehaviour
             string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
             AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
 
-            // if (!JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title))
-            // {
-            //     DLDImage.SetActive(false);
-            //     DLImage.SetActive(true);
-            // }
-            // else
-            // {
-            //     DLImage.SetActive(false);
-            //     DLDImage.SetActive(true);
-            // }
+
+            try
+            {
+                if (!JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title))
+                {
+                    DLDImage.SetActive(false);
+                    DLImage.SetActive(true);
+                }
+                else
+                {
+                    DLImage.SetActive(false);
+                    DLDImage.SetActive(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"An error occurred: {ex}");
+                DLDImage.SetActive(false);
+                DLImage.SetActive(true);
+            }
+
         }
 
         await GetSetTexture();
