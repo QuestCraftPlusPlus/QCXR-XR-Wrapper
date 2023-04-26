@@ -36,6 +36,7 @@ public class MetaInfo
 {
     public List<string> game_versions { get; set; }
     public List<FileInfo> files { get; set; }
+    public List<string> loaders { get; set; }
 }
 
 [Serializable]

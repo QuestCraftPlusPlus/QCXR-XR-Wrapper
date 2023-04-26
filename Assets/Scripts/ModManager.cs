@@ -24,6 +24,7 @@ public class ModManager : MonoBehaviour
     public GameObject DLDImage;
     public GameObject DLImage;
     public GameObject errorMenu;
+    public GameObject downloadButton;
 
     public async void CreateMods()
     {
@@ -67,7 +68,7 @@ public class ModManager : MonoBehaviour
                         else 
                         {
                             modObject.transform.GetChild(3).gameObject.SetActive(true);
-                            modObject.transform.GetChild(3).GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate { RemoveMod(searchResults.title); });
+                            modObject.transform.GetChild(3).GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate { RemoveMod(searchResults.title); gameObject.SetActive(false); });
                         }
                     }
                     catch (Exception ex)
@@ -126,6 +127,7 @@ public class ModManager : MonoBehaviour
                 }
                 else
                 {
+                    downloadButton.GetComponent<InteractableUnityEventWrapper>().enabled = false;
                     DLImage.SetActive(false);
                     DLDImage.SetActive(true);
                 }
@@ -153,7 +155,7 @@ public class ModManager : MonoBehaviour
         {
             foreach (FileInfo file in metaInfo.files)
             {
-                if (metaInfo.game_versions.Contains(currentInstanceName))
+                if (metaInfo.game_versions.Contains(currentInstanceName) && metaInfo.loaders.Contains("fabric"))
                 {
                     string modName = mp.title;
                     string modUrl = file.url;

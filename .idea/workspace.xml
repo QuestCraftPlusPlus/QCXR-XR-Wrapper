@@ -330,7 +330,11 @@
       <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__9.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/lib-release.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/lib-release.aar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ModPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ModPrefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/APIHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/APIHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ModManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ModManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__48.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__48.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__7.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__7.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Platform__3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Platform__3.cpp" afterDir="false" />
