@@ -62,19 +62,18 @@ public class ModManager : MonoBehaviour
                     {
                         if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.GetInstance(), searchResults.title))
                         {
-                            modObject.GetComponentInChildren<Image>().enabled = false;
+                            modObject.transform.GetChild(3).gameObject.SetActive(false);
                         }
-                        else
+                        else 
                         {
-                            Debug.Log("Child Count is: " + modObject.transform.childCount);
-                            modObject.transform.GetChild(4).gameObject.SetActive(true);
-                            modObject.GetComponentInChildren<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate { RemoveMod(); });
+                            modObject.transform.GetChild(3).gameObject.SetActive(true);
+                            modObject.transform.GetChild(3).GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate { RemoveMod(searchResults.title); });
                         }
                     }
                     catch (Exception ex)
                     {
                         Debug.LogError($"An error occurred: {ex}");
-                        modObject.transform.gameObject.transform.GetChild(4).gameObject.SetActive(false);
+                        modObject.transform.gameObject.transform.GetChild(3).gameObject.SetActive(false);
                     }
 
                     modObject.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
@@ -181,12 +180,11 @@ public class ModManager : MonoBehaviour
         }
     }
     
-    public void RemoveMod()
+    public void RemoveMod(string name)
     {
-        string name = modIDObject.text;
         string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
         AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-        JNIStorage.apiClass.CallStatic("removeMod", InstanceButton.GetInstance(), name);
+        JNIStorage.apiClass.CallStatic<bool>("removeMod", InstanceButton.GetInstance(), name);
         DLDImage.SetActive(false);
         DLImage.SetActive(true);
     }
