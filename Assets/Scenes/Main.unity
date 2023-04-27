@@ -7289,7 +7289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c786fe3681ce24f81c9ac710c3e114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RAMSetterField: {fileID: 0}
+  RAMSetterField: {fileID: 1068650133}
 --- !u!4 &766335866
 Transform:
   m_ObjectHideFlags: 0
