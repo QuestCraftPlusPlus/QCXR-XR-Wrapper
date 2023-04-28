@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,7 +7,6 @@ using UnityEngine.XR;
 public class InstanceButton : MonoBehaviour
 {
     public static AndroidJavaObject currentVersion;
-    bool hasDefaulted = false;
     public AudioSource source;
     public int index = 0;
     public static string currInstName;
@@ -16,70 +14,50 @@ public class InstanceButton : MonoBehaviour
     public GameObject mainMenuButton;
     public GameObject searchMenuButton;
 
-    public void Update()
+    private bool hasDefaulted = false;
+
+    private void Update()
     {
-        if(JNIStorage.instances != null && !hasDefaulted)
+        if (JNIStorage.instances != null && !hasDefaulted)
         {
             currentVersion = JNIStorage.instances[0];
-            string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+            currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
             hasDefaulted = true;
-            
-            if (modManagerButton.activeSelf)
-            {
-                modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-                mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-                searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-            }
-            else if (mainMenuButton.activeSelf)
-            {
-                mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-                modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-                searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-            }
-            else if (searchMenuButton.activeSelf)
-            {
-                mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-                modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-                searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-            }
+            UpdateMenuButtons(currInstName);
         }
+    }
+
+    private void UpdateMenuButtons(string instName)
+    {
+        modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
+        mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
+        searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
     }
 
     public void SwitchInstance()
     {
-        index++;
-        if (index > JNIStorage.instances.Length - 1)
-        {
-            index = 0;
-        }
-
+        index = (index + 1) % JNIStorage.instances.Length;
         currentVersion = JNIStorage.instances[index];
         currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-        mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-        searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = currInstName + "-fabric";
-
+        UpdateMenuButtons(currInstName);
     }
 
     public static AndroidJavaObject GetInstance()
     {
         currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        AndroidJavaObject instance;
-        instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-        return instance;
+        return JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
     }
 
     public static AndroidJavaObject CreateInstance()
     {
         currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        AndroidJavaObject instance;
-        instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-        
-        if(instance == null)
+        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+
+        if (instance == null)
         {
             instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion);
         }
-        
+
         return instance;
     }
 
@@ -90,10 +68,11 @@ public class InstanceButton : MonoBehaviour
             CreateInstance();
             return;
         }
-        
+
         AndroidJavaObject instance = GetInstance();
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
-        if(currentFile != null)
+
+        if (currentFile != null)
         {
             return;
         }
@@ -101,10 +80,12 @@ public class InstanceButton : MonoBehaviour
         source.Stop();
         var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
         SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
+
         foreach (var xrDisplay in xrDisplaySubsystems)
         {
             xrDisplay.Destroy();
         }
+
         Application.Unload();
         JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance);
     }

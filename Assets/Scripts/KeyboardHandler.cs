@@ -1,61 +1,37 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class KeyboardHandler : MonoBehaviour
 {
-    public TMP_InputField searchbox;
-    public TMP_InputField ramSetter;
-    public GameObject keyboard;
-    public static bool isShift;
+    [SerializeField] private TMP_InputField searchBox;
+    [SerializeField] private TMP_InputField ramSetter;
+    [SerializeField] private GameObject keyboard;
+    private static bool isShift;
 
-    void Update()
+    private void Update()
     {
-        if (searchbox.IsActive())
-        {
-            keyboard.SetActive(true);
-        } else if (ramSetter.IsActive())
-        {
-            keyboard.SetActive(true);
-        }
-        else
-        {
-            keyboard.SetActive(false);
-        }
+        keyboard.SetActive(searchBox.IsActive() || ramSetter.IsActive());
     }
     
     public void KeyPress(string key)
     {
-        if (searchbox.IsActive())
+        if (searchBox.IsActive())
         {
-            if (isShift)
-            {
-                searchbox.text += key.ToUpper();
-            }
-            else
-            {
-                searchbox.text += key.ToLower();
-            }
+            searchBox.text += isShift ? key.ToUpper() : key.ToLower();
         }
         else if (ramSetter.IsActive())
         {
-            if (isShift)
-            {
-                ramSetter.text += key.ToUpper();
-            }
-            else
-            {
-                ramSetter.text += key.ToLower();
-            }
+            ramSetter.text += isShift ? key.ToUpper() : key.ToLower();
         }
     }
 
     public void BackspacePress()
     {
-        if (searchbox.IsActive())
+        if (searchBox.IsActive())
         {
-            searchbox.text = searchbox.text.Remove(searchbox.text.Length - 1, 1);
-        } else if (ramSetter.IsActive())
+            searchBox.text = searchBox.text.Remove(searchBox.text.Length - 1, 1);
+        }
+        else if (ramSetter.IsActive())
         {
             ramSetter.text = ramSetter.text.Remove(ramSetter.text.Length - 1, 1);
         }
@@ -63,22 +39,16 @@ public class KeyboardHandler : MonoBehaviour
     
     public void ShiftPress()
     {
-        if (isShift)
-        {
-            isShift = false;
-        }
-        else
-        {
-            isShift = true;
-        }
+        isShift = !isShift;
     }
 
     public void SpacePress()
     {
-        if (searchbox.IsActive())
+        if (searchBox.IsActive())
         {
-            searchbox.text += " ";
-        } else if (ramSetter.IsActive())
+            searchBox.text += " ";
+        }
+        else if (ramSetter.IsActive())
         {
             ramSetter.text += " ";
         }

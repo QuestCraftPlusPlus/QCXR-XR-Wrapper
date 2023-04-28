@@ -9,31 +9,31 @@ using UnityEngine.UI;
 
 public class ModManager : MonoBehaviour
 {
-    [SerializeReference] public GameObject modPrefab;
-    [SerializeReference] public GameObject modArray;
-    [SerializeReference] public GameObject modPage;
-    [SerializeReference] public APIHandler apiHandler;
-    public TextMeshProUGUI modDescription;
-    public TextMeshProUGUI modTitle;
-    public TextMeshProUGUI modIDObject;
-    public TMP_InputField searchQuery;
-    public RawImage modImage;
-    public GameObject modManagerMainpage;
-    public GameObject modSearchMenu;
-    public GameObject instanceMenu;
-    public GameObject DLDImage;
-    public GameObject DLImage;
-    public GameObject errorMenu;
-    public GameObject downloadButton;
+    [SerializeField] private GameObject modPrefab;
+    [SerializeField] private GameObject modArray;
+    [SerializeField] private GameObject modPage;
+    [SerializeField] private APIHandler apiHandler;
+    [SerializeField] private TextMeshProUGUI modDescription;
+    [SerializeField] private TextMeshProUGUI modTitle;
+    [SerializeField] private TextMeshProUGUI modIDObject;
+    [SerializeField] private TMP_InputField searchQuery;
+    [SerializeField] private RawImage modImage;
+    [SerializeField] private GameObject modManagerMainpage;
+    [SerializeField] private GameObject modSearchMenu;
+    [SerializeField] private GameObject instanceMenu;
+    [SerializeField] private GameObject DLDImage;
+    [SerializeField] private GameObject DLImage;
+    [SerializeField] private GameObject errorMenu;
+    [SerializeField] private GameObject downloadButton;
 
     public async void CreateMods()
     {
         ResetArray();
-        SearchParser sq = apiHandler.GetSearchedMods();
-        
-        foreach (SearchResults searchResults in sq.hits)
+        SearchParser searchParser = apiHandler.GetSearchedMods();
+
+        foreach (SearchResults searchResults in searchParser.hits)
         {
-            async Task GetSetTexture()
+            async Task SetModImage()
             {
                 UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
                 modImageLink.SendWebRequest();
@@ -46,51 +46,58 @@ public class ModManager : MonoBehaviour
                 if (modImageLink.result != UnityWebRequest.Result.Success)
                 {
                     Debug.Log(modImageLink.error);
+                    return;
                 }
-                else
+
+                Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+
+                GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+                modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
+                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
+                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
+                modObject.transform.SetParent(modArray.transform, false);
+                modObject.name = searchResults.project_id;
+
+                string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+                AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+
+                try
                 {
-                    Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-                    GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-                    modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
-                    modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
-                    modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
-                    modObject.transform.SetParent(modArray.transform, false);
-                    modObject.name = searchResults.project_id;
-                    string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-                    AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+                    bool hasMod = JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.GetInstance(), searchResults.title);
 
-                    try
+                    if (!hasMod)
                     {
-                        if (!JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.GetInstance(), searchResults.title))
-                        {
-                            modObject.transform.GetChild(3).gameObject.SetActive(false);
-                        }
-                        else 
-                        {
-                            modObject.transform.GetChild(3).gameObject.SetActive(true);
-                            modObject.transform.GetChild(3).GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate { RemoveMod(searchResults.title); gameObject.SetActive(false); });
-                        }
+                        modObject.transform.GetChild(3).gameObject.SetActive(false);
                     }
-                    catch (Exception ex)
+                    else 
                     {
-                        Debug.LogError($"An error occurred: {ex}");
-                        modObject.transform.gameObject.transform.GetChild(3).gameObject.SetActive(false);
+                        modObject.transform.GetChild(3).gameObject.SetActive(true);
+                        modObject.transform.GetChild(3).GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate { RemoveMod(searchResults.title); });
                     }
-
-                    modObject.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
-                    {
-                        EventSystem.current.SetSelectedGameObject(modObject);
-                        GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                        apiHandler.modID = mod.ToString().Replace("(UnityEngine.GameObject)", "");
-                        CreateModPage();
-                    });
                 }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"An error occurred: {ex}");
+                    
+                    if (modObject != null)
+                    {
+                        modObject.transform.GetChild(3).gameObject.SetActive(false);
+                    }
+                }
+
+                modObject.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
+                {
+                    EventSystem.current.SetSelectedGameObject(modObject);
+                    GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
+                    apiHandler.modID = mod.ToString().Replace("(UnityEngine.GameObject)", "");
+                    CreateModPage();
+                });
             }
 
-            await GetSetTexture();
+            await SetModImage();
         }
     }
-    
+
     public async void CreateModPage()
     {
         MetaParser mp = apiHandler.GetModInfo();
@@ -117,20 +124,12 @@ public class ModManager : MonoBehaviour
             string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
             AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
 
-
             try
             {
-                if (!JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title))
-                {
-                    DLDImage.SetActive(false);
-                    DLImage.SetActive(true);
-                }
-                else
-                {
-                    downloadButton.GetComponent<InteractableUnityEventWrapper>().enabled = false;
-                    DLImage.SetActive(false);
-                    DLDImage.SetActive(true);
-                }
+                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title);
+                DLDImage.SetActive(hasMod);
+                DLImage.SetActive(!hasMod);
+                downloadButton.GetComponent<InteractableUnityEventWrapper>().enabled = !hasMod;
             }
             catch (Exception ex)
             {
@@ -138,7 +137,6 @@ public class ModManager : MonoBehaviour
                 DLDImage.SetActive(false);
                 DLImage.SetActive(true);
             }
-
         }
 
         await GetSetTexture();
@@ -160,10 +158,11 @@ public class ModManager : MonoBehaviour
                     string modName = mp.title;
                     string modUrl = file.url;
                     string modVersion = currentInstanceName;
-                    Debug.Log("modName: " + modName + " | modUrl: " + modUrl + " | modVersion: " + modVersion);
+                    Debug.Log($"modName: {modName} | modUrl: {modUrl} | modVersion: {modVersion}");
+
                     string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-                    AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-                    
+                    AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", $"{currInstName}-fabric", JNIStorage.home);
+
                     if (instance == null)
                     {
                         errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "You must run this version of the game at least once before adding mods to the instance with ModManger!";
@@ -175,7 +174,7 @@ public class ModManager : MonoBehaviour
                         DLImage.SetActive(false);
                         DLDImage.SetActive(true);
                     }
-                    
+
                     return;
                 }
             }
@@ -189,6 +188,7 @@ public class ModManager : MonoBehaviour
         JNIStorage.apiClass.CallStatic<bool>("removeMod", InstanceButton.GetInstance(), name);
         DLDImage.SetActive(false);
         DLImage.SetActive(true);
+        SearchMods();
     }
 
     public void SearchMods()
@@ -199,10 +199,9 @@ public class ModManager : MonoBehaviour
 
     public void ResetArray()
     {
-        int childCount = modArray.transform.childCount;
-        for (int i = childCount - 1; i >= 0; i--) {
-            Transform child = modArray.transform.GetChild(i);
-            Destroy(child.gameObject);
+        for (int i = modArray.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(modArray.transform.GetChild(i).gameObject);
         }
     }
 }
