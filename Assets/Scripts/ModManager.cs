@@ -153,7 +153,7 @@ public class ModManager : MonoBehaviour
         {
             foreach (FileInfo file in metaInfo.files)
             {
-                if (metaInfo.game_versions.Contains(currentInstanceName) && metaInfo.loaders.Contains("fabric"))
+                if (metaInfo.game_versions.Contains(currentInstanceName) && metaInfo.loaders.Contains("fabric") && !file.url.Contains(".mrpack"))
                 {
                     string modName = mp.title;
                     string modUrl = file.url;
