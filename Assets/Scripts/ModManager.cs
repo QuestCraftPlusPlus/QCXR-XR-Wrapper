@@ -126,7 +126,7 @@ public class ModManager : MonoBehaviour
 
             try
             {
-                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title);
+                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", instance, mp.title);
                 DLDImage.SetActive(hasMod);
                 DLImage.SetActive(!hasMod);
                 downloadButton.GetComponent<InteractableUnityEventWrapper>().enabled = !hasMod;
@@ -177,6 +177,13 @@ public class ModManager : MonoBehaviour
 
                     return;
                 }
+            }
+            
+            bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title);
+            if (!hasMod)
+            {
+                errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "There has been an error attempting to add this mod, maybe this mod doesn't have " + currentInstanceName + " support? Please try again later or contact our support staff at https://discord.gg/QuestCraft.";
+                errorMenu.SetActive(true);
             }
         }
     }
