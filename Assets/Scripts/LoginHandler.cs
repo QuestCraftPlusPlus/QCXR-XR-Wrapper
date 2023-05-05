@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -25,12 +26,17 @@ public class LoginHandler : MonoBehaviour
         hasAttemptedLogin = true;
     }
 
-    void Update()
+    public void LogoutButton()
     {
-        if (JNIStorage.accountObj != null)
-        {
-            JNIStorage.apiClass.SetStatic("msaMessage", "You can start the game now.");
-            return;
-        }
+        handler.ErrorWindowSetter();
+        handler.errorWindow.GetComponent<TextMeshProUGUI>().text = "Are you sure you would like to sign out?";
+        handler.errorWindow.transform.GetChild(2).gameObject.SetActive(true);
+    }
+
+    public void Logout()
+    {
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("logout", JNIStorage.home);
+        handler.errorWindow.transform.GetChild(2).gameObject.SetActive(false);
+        handler.errorWindow.SetActive(false);
     }
 }

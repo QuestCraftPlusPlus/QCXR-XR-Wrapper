@@ -84,6 +84,7 @@ public class WindowHandler : MonoBehaviour
     
     public void ErrorWindowUnsetter()
     {
+        errorWindow.transform.GetChild(2).gameObject.SetActive(true);
         errorWindow.SetActive(false);
     }
 
