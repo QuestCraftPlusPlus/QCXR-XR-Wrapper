@@ -5,342 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="185aba63-5081-4c83-ac9e-c721709d14e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/AssistantCoreSDKRuntime.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Facebook.Wit.Conduit.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Facebook.Wit.TTS.Samples.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Facebook.Wit.TTS.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Facebook.WitAI.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/LitJson.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Mono.Security.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Newtonsoft.Json.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Oculus.AudioManager.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Oculus.Interaction.Samples.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Oculus.Interaction.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Oculus.LipSync.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Oculus.Platform.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Oculus.Spatializer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Oculus.VR.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Oculus.Voice.Demo.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Configuration.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Core.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Data.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Numerics.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Runtime.Serialization.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Xml.Linq.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Xml.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.TextMeshPro.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.Management.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.Oculus.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.AndroidJNIModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.AnimationModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.AssetBundleModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.AudioModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.CoreModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.GridModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.IMGUIModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.ImageConversionModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.InputLegacyModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.InputModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.JSONSerializeModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.ParticleSystemModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.Physics2DModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.PhysicsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.SharedInternalsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.SpriteShapeModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.SubsystemsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TerrainModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TextCoreFontEngineModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TextCoreTextEngineModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TextRenderingModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TilemapModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UI.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UIElementsModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UIElementsNativeModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UIModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UnityWebRequestAudioModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UnityWebRequestModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UnityWebRequestTextureModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.VRModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.XRModule.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityLinkerToEditorData.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/VoiceSDK.Runtime.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/analytics.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/Managed/mscorlib.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Assembly-CSharp.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/AssistantCoreSDKRuntime.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Facebook.Wit.Conduit.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Facebook.Wit.TTS.Samples.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Facebook.Wit.TTS.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Facebook.WitAI.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Facebook.WitAI__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__10.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__11.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__12.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__13.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__7.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__8.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods__9.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__10.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__11.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__12.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__13.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__14.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__15.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__16.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__17.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__18.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__19.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__20.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__21.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__22.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__23.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__24.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__25.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__26.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__27.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__28.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__29.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__30.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__31.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__32.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__33.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__34.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__35.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__36.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__37.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__38.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__39.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__40.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__41.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__42.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__43.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__44.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__45.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__46.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__47.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__49.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__50.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__51.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__52.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__53.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__54.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__55.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__56.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__7.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__8.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__9.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCFieldValuesTable.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCTypeValuesTable.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateTypeValues.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateTypeValues1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCodeRegistration.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppInteropDataTable.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppInvokerTable.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppReversePInvokeWrapperTable.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/LitJson.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Mono.Security.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Mono.Security__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Newtonsoft.Json.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Newtonsoft.Json__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Newtonsoft.Json__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Newtonsoft.Json__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Newtonsoft.Json__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.AudioManager.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction.Samples.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.LipSync.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Platform.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Platform__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Platform__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Spatializer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__7.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Voice.Demo.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Configuration.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data__7.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Data__8.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Numerics.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Runtime.Serialization.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml.Linq.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__10.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__11.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__12.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__13.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__14.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__15.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__16.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__7.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__8.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml__9.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__10.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__7.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__8.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System__9.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.Management.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.Oculus.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityAdsInitializationListener.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityAdsLoadListener.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityAdsShowListener.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AndroidJNIModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AnimationModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AssetBundleModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AudioModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.GridModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.IMGUIModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.IMGUIModule__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.ImageConversionModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputLegacyModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.JSONSerializeModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.ParticleSystemModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.Physics2DModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.PhysicsModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SharedInternalsModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SpriteShapeModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SubsystemsModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TerrainModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreFontEngineModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextRenderingModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TilemapModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__10.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__11.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__12.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__7.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__8.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule__9.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsNativeModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityWebRequestAudioModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityWebRequestModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityWebRequestTextureModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VRModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.XRModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnresolvedVirtualCallStubs.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/VoiceSDK.Runtime.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/__Generated.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/analytics.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__1.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__10.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__11.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__12.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__13.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__14.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__15.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__16.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__17.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__18.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__19.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__2.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__20.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__21.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__22.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__23.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__3.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__4.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__5.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__6.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__7.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__8.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib__9.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/lib-release.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/lib-release.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ModPrefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ModPrefab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/APIHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/APIHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ModManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ModManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/OVRBuildConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/OVRBuildConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/OVRBuildConfig.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/OVRBuildConfig.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/.idea/.idea.Scripts.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/.idea/.idea.Scripts.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JNIStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JNIStorage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__48.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics__48.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__7.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Interaction__7.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Platform__3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.Platform__3.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__8.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Oculus.VR__8.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro__7.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.TextMeshPro__7.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI__4.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/QCXR-4.0-Beta-2_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI__4.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,6 +22,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Pico" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -386,7 +65,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

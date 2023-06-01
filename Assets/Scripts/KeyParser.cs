@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class KeyParser : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class KeyParser : MonoBehaviour
     
     public void GetKey()
     {
-        string key = gameObject.name;
+        GameObject wack = GameObject.Find(EventSystem.current.currentSelectedGameObject.name);
+        string key = wack.name;
         keyboardHandler.KeyPress(key);
     }
 }

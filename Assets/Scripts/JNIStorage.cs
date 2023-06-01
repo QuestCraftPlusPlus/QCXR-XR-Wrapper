@@ -16,9 +16,7 @@ public class JNIStorage : MonoBehaviour
 
     private void Start()
     {
-        OVRPlugin.systemDisplayFrequency = 90.0f;
-        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
-            Permission.RequestUserPermission(Permission.Microphone);
+        Microphone.Start(Microphone.devices[0], true, 1, 44100);
         apiClass = new AndroidJavaClass("pojlib.api.API_V1");
         AndroidJavaClass constants = new AndroidJavaClass("pojlib.util.Constants");
         home = constants.GetStatic<string>("MC_DIR");

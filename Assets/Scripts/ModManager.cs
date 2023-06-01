@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using Oculus.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -72,7 +71,7 @@ public class ModManager : MonoBehaviour
                     else 
                     {
                         modObject.transform.GetChild(3).gameObject.SetActive(true);
-                        modObject.transform.GetChild(3).GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate { RemoveMod(searchResults.title); });
+                        modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { RemoveMod(searchResults.title); });
                     }
                 }
                 catch (Exception ex)
@@ -85,7 +84,7 @@ public class ModManager : MonoBehaviour
                     }
                 }
 
-                modObject.GetComponent<InteractableUnityEventWrapper>().WhenSelect.AddListener(delegate
+                modObject.GetComponent<Button>().onClick.AddListener(delegate
                 {
                     EventSystem.current.SetSelectedGameObject(modObject);
                     GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
@@ -129,7 +128,7 @@ public class ModManager : MonoBehaviour
                 bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", instance, mp.title);
                 DLDImage.SetActive(hasMod);
                 DLImage.SetActive(!hasMod);
-                downloadButton.GetComponent<InteractableUnityEventWrapper>().enabled = !hasMod;
+                downloadButton.GetComponent<Button>().enabled = !hasMod;
             }
             catch (Exception ex)
             {

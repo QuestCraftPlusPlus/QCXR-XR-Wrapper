@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using Unity.XR;
-using UnityEngine.XR;
+using UnityEngine.XR.Management;
 
 public class InstanceButton : MonoBehaviour
 {
     public static AndroidJavaObject currentVersion;
-    public AudioSource source;
     public int index = 0;
     public static string currInstName;
     public GameObject modManagerButton;
@@ -77,15 +75,9 @@ public class InstanceButton : MonoBehaviour
             return;
         }
 
-        source.Stop();
-        var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
-        SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
-
-        foreach (var xrDisplay in xrDisplaySubsystems)
-        {
-            xrDisplay.Destroy();
-        }
-
+        XRGeneralSettings.Instance.Manager.activeLoader.Stop();
+        XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
+        
         Application.Unload();
         JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance);
     }

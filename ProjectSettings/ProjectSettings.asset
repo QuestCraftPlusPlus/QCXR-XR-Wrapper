@@ -136,8 +136,8 @@ PlayerSettings:
     Others: 1
   bundleVersion: 3
   preloadedAssets:
+  - {fileID: 7359937899803193376, guid: dab045d089fcc384aa25c26de3cdc2d1, type: 2}
   - {fileID: 6154349898728414384, guid: d659781fbeb3ee24a850529d00b6529e, type: 2}
-  - {fileID: 11400000, guid: 4e124bb0e8fb02443a6b9990c306530f, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -819,7 +819,10 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL
+    Standalone: USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL
+    Windows Store Apps: USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -930,7 +933,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 06c415c5-c61c-400c-b48e-a4bfcf3d0bb1
   framebufferDepthMemorylessMode: 0
