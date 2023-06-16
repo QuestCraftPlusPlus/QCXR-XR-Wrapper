@@ -4039,10 +4039,10 @@ RectTransform:
   m_Father: {fileID: 429953253}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.17251441, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 213.14, y: -0.5}
-  m_SizeDelta: {x: 380.29, y: -3}
+  m_AnchoredPosition: {x: 199.33994, y: -0.5}
+  m_SizeDelta: {x: 407.89014, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &621316146
 MonoBehaviour:
@@ -5412,14 +5412,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844569211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1815324618}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!210 &844569213
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -7119,10 +7119,10 @@ RectTransform:
   m_Father: {fileID: 659075707}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.147, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 213.14, y: -0.5}
-  m_SizeDelta: {x: 380.29, y: -3}
+  m_AnchoredPosition: {x: 201.39214, y: -0.5}
+  m_SizeDelta: {x: 403.78574, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914923697
 MonoBehaviour:
@@ -12450,10 +12450,10 @@ RectTransform:
   m_Father: {fileID: 1178790624}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.156, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 213.14, y: -0.5}
-  m_SizeDelta: {x: 380.29, y: -3}
+  m_AnchoredPosition: {x: 200.66713, y: -0.5}
+  m_SizeDelta: {x: 405.23575, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1421272038
 MonoBehaviour:
@@ -12909,7 +12909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14db1e422cbd8414395decd760288b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
   index: 0
   modManagerButton: {fileID: 68057173}
   mainMenuButton: {fileID: 1175710487}
@@ -13875,9 +13874,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1460469780}
-        m_TargetAssemblyTypeName: DevHandler, Assembly-CSharp
-        m_MethodName: DevModsButton
+      - m_Target: {fileID: 1460469781}
+        m_TargetAssemblyTypeName: WindowHandler, Assembly-CSharp
+        m_MethodName: DevMenuSetter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18317,14 +18316,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039886948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1815324618}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!210 &2039886950
 SortingGroup:
   m_ObjectHideFlags: 0
