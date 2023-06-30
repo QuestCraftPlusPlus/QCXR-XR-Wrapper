@@ -14,6 +14,7 @@
     <meta-data android:name="com.oculus.ossplash" android:value="true" />
     <meta-data android:name="com.oculus.ossplash.colorspace" android:value="!Quest" />
 	<meta-data android:name="pvr.app.type" android:value="vr" />
+	<meta-data android:name="com.yvr.application.mode" android:value="vr_only" />
   </application>
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
   <uses-feature android:name="oculus.software.overlay_keyboard" android:required="false" />
