@@ -1,0 +1,22 @@
+{
+    "name": "YVR.Core.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e40ba710768534012815d3193fa296cb",
+        "GUID:f9fe0089ec81f4079af78eb2287a6163",
+        "GUID:27398fb0594bba74fafa811bc0710732",
+        "GUID:925f50adc4bf0db4c8123af663c449c6",
+        "GUID:5c087f2e14bd3fd47a91ac4199ddef86"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -14,3 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreSDKSetting: 0
   appIDChecked: 1
+  manifestTagInfosList:
+  - nodePath: /manifest/application
+    tag: meta-data
+    attrName: name
+    attrValue: com.yvr.application.mode
+    attrs:
+    - value
+    - vr_only
+    required: 1
+    modifyIfFound: 1
+  - nodePath: /manifest
+    tag: uses-permission
+    attrName: name
+    attrValue: com.yvr.permission.HAND_TRACKING
+    attrs: []
+    required: 0
+    modifyIfFound: 1
+  - nodePath: /manifest
+    tag: uses-feature
+    attrName: name
+    attrValue: yvr.software.handtracking
+    attrs:
+    - required
+    - false
+    required: 0
+    modifyIfFound: 1

@@ -35,7 +35,15 @@ android {
     aaptOptions {
         noCompress = **BUILTIN_NOCOMPRESS** + unityStreamingAssets.tokenize(', ')
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
-    }**PACKAGING_OPTIONS**
+    }
+	
+	packagingOptions {
+		pickFirst 'lib/x86/libc++_shared.so'
+		pickFirst 'lib/x86_64/libc++_shared.so'
+		pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+		pickFirst 'lib/arm64-v8a/libc++_shared.so'
+		pickFirst 'lib/arm64-v8a/libopenxr_loader.so'
+	}
 }**REPOSITORIES**
 **IL_CPP_BUILD_SETUP**
 **SOURCE_BUILD_SETUP**

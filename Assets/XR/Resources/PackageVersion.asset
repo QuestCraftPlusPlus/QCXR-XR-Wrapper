@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: PackageVersion
   m_EditorClassIdentifier: 
   packages:
-  - Name: com.yvr.utilities
-    AssemblyName: YVR.Utilities.Runtime
-    Version: 0.6.4
   - Name: com.yvr.platform
     AssemblyName: YVR.Platform.Runtime
     Version: 0.2.2
+  - Name: com.yvr.utilities
+    AssemblyName: YVR.Utilities.Runtime
+    Version: 0.9.3
   - Name: com.yvr.core
     AssemblyName: YVR.Core.Runtime
-    Version: 1.1.11
+    Version: 1.6.6

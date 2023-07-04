@@ -1,0 +1,24 @@
+{
+    "name": "YVR.Platform.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:925f50adc4bf0db4c8123af663c449c6",
+        "GUID:5c087f2e14bd3fd47a91ac4199ddef86",
+        "GUID:27398fb0594bba74fafa811bc0710732"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.yvr.core",
+            "expression": "",
+            "define": "YVR_CORE"
+        }
+    ],
+    "noEngineReferences": false
+}
