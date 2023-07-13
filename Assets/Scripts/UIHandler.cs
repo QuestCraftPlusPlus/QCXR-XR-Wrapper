@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -51,6 +52,7 @@ public class UIHandler : MonoBehaviour
     {
         using (UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl))
         {
+            pfp.SetRequestHeader("User-Agent", "QuestCraft");
             var requestTask = pfp.SendWebRequest();
 
             while (!requestTask.isDone)
