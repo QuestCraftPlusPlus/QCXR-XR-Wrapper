@@ -70,6 +70,8 @@ public class InstanceButton : MonoBehaviour
         AndroidJavaObject instance = GetInstance();
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
 
+        instance.Call("updateOrDownloadsMods");
+        
         if (currentFile != null)
         {
             return;
