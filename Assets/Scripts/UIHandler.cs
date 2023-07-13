@@ -31,7 +31,10 @@ public class UIHandler : MonoBehaviour
                 profileName = JNIStorage.apiClass.GetStatic<string>("profileName");
             }
 
-            GetTexturePlusName();
+            if (pfpHolder.texture == null)
+            {
+                GetTexturePlusName();
+            }
         }
         
         if (System.DateTime.Now.Minute.ToString().Length == 1)
