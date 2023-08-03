@@ -11,19 +11,26 @@ public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
     bool hasAttemptedLogin = false;
+    AndroidJavaClass jc;
+    AndroidJavaObject jo;
 
-    public void Login()
+    public void Login() {
+	jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+	jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+	JNIStorage.apiClass.CallStatic("login", jo);
+    	hasAttemptedLogin = true;
+    }
+
+    public void Update()
     {
-        AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
-        JNIStorage.accountObj = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("login", "d17a73a2-707c-40f5-8c90-d3eda0956f10", jo);
-        if (JNIStorage.accountObj != null)
-        {
+	if(!hasAttemptedLogin) {
+	    return;
+	}
+        if (JNIStorage.accountObj != null) {
             handler.MainPanelSwitch();
-        } else if(hasAttemptedLogin) {
-            JNIStorage.apiClass.SetStatic("msaMessage", "Login failure! Ensure you have accepted the permissions then try again.");
-        }
-        hasAttemptedLogin = true;
+        } else {
+	    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+	}
     }
 
     public void LogoutButton()
