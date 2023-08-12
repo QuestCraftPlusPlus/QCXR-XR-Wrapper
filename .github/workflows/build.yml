@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
   workflow_dispatch:
-    branches: [ "master" ]
-
 jobs:
   build:
 
@@ -24,7 +22,8 @@ jobs:
         repo_path: QuestCraftPlusPlus/Pojlib
     - name: Download Pojlib
       run: |
-        wget -o assets.zip ${{ steps.fetch-latest-release-pojlib.outputs.upload_url }} 
+        
+        wget -o assets.zip https://github.com/QuestCraftPlusPlus/Pojlib/releases/download/test/lib-release.aar
         mkdir pojlib-assets
         unzip assets.zip -r --dir pojlib-assets
         cd pojlib-assets 
