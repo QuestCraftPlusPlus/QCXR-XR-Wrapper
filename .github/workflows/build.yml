@@ -23,7 +23,7 @@ jobs:
     - name: Download Pojlib
       run: |
         wget https://github.com/QuestCraftPlusPlus/Pojlib/releases/download/test/lib-release.aar
-        cp -f lib-release.aar $GITHUB_WORKSPACE/QCXR-XR-Wrapper/Assets/Plugins/Android
+        cp -f lib-release.aar $GITHUB_WORKSPACE/Assets/Plugins/Android
     - name: Unity - Builder
       env:
         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
