@@ -1,0 +1,49 @@
+name: Build Wrapper
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup env
+      run: sudo apt install unzip -y
+    - name: Fetch Pojlib Release
+      id: fetch-latest-release-pojlib
+      uses: thebritican/fetch-latest-release@v1
+      with:
+        repo_path: QuestCraftPlusPlus/Pojlib
+        github_token: ${{ github.token }}
+    - name: Download Pojlib
+      run: |
+        wget -o assets.zip ${{ steps.fetch-latest-release-pojlib.assets_url }} 
+        mkdir assets
+        unzip assets.zip -r --dir assets
+        cd assets 
+        cp -f lib-release.aar $GITHUB_WORKSPACE/QCXR-XR-Wrapper/Assets/Plugins/Android
+    - name: Unity - Builder
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      with:
+        targetPlatform: Android
+        androidExportType: 'androidPackage'
+        androidTargetSdkVersion: '32'
+        androidKeystoreName: user.keystore
+        androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+        androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
+        androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
+      uses: game-ci/unity-builder@v2.2.0
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Build
+        path: build
