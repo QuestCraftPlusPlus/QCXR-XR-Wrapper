@@ -17,7 +17,7 @@ jobs:
       run: sudo apt install unzip -y
     - name: Fetch Pojlib Release
       id: fetch-latest-release-pojlib
-      uses: gregziegan/fetch-latest-release@v1
+      uses: gregziegan/fetch-latest-release
       with:
         repo_path: QuestCraftPlusPlus/Pojlib
     - name: Download Pojlib
