@@ -17,7 +17,7 @@ jobs:
       run: sudo apt install unzip -y
     - name: Fetch Pojlib Release
       id: fetch-latest-release-pojlib
-      uses: thebritican/fetch-latest-release@v1
+      uses: thebritican/fetch-latest-release@v2
       with:
         repo_path: QuestCraftPlusPlus/Pojlib
         github_token: ${{ github.token }}
