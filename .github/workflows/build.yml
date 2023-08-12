@@ -24,7 +24,7 @@ jobs:
         repo_path: QuestCraftPlusPlus/Pojlib
     - name: Download Pojlib
       run: |
-        wget -o assets.zip ${{ steps.fetch-latest-release-pojlib.assets_url }} 
+        wget -o assets.zip ${{ steps.fetch-latest-release-pojlib.outputs.assets_url }} 
         mkdir assets
         unzip assets.zip -r --dir assets
         cd assets 
