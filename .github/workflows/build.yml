@@ -22,11 +22,7 @@ jobs:
         repo_path: QuestCraftPlusPlus/Pojlib
     - name: Download Pojlib
       run: |
-        
-        wget -o assets.zip https://github.com/QuestCraftPlusPlus/Pojlib/releases/download/test/lib-release.aar
-        mkdir pojlib-assets
-        unzip assets.zip -r --dir pojlib-assets
-        cd pojlib-assets 
+        wget https://github.com/QuestCraftPlusPlus/Pojlib/releases/download/test/lib-release.aar
         cp -f lib-release.aar $GITHUB_WORKSPACE/QCXR-XR-Wrapper/Assets/Plugins/Android
     - name: Unity - Builder
       env:
