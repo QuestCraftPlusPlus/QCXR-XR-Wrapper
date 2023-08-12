@@ -1,5 +1,5 @@
 # QCXR XR Wrapper
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPLv3-green.svg)](https://choosealicense.com/licenses/gpl-3.0/)
 
 A wrapper written with Unity to put PojavLauncher in VR so it works on standalone VR headsets.
 
