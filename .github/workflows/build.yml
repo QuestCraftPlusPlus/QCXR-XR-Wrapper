@@ -25,9 +25,9 @@ jobs:
     - name: Download Pojlib
       run: |
         wget -o assets.zip ${{ steps.fetch-latest-release-pojlib.outputs.assets_url }} 
-        mkdir assets
-        unzip assets.zip -r --dir assets
-        cd assets 
+        mkdir pojlib-assets
+        unzip assets.zip -r --dir pojlib-assets
+        cd pojlib-assets 
         cp -f lib-release.aar $GITHUB_WORKSPACE/QCXR-XR-Wrapper/Assets/Plugins/Android
     - name: Unity - Builder
       env:
