@@ -38,7 +38,7 @@ jobs:
         UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       with:
         allowDirtyBuild: true
-        customImage: 'unityci/editor:2021.3.22f1-base-0'
+        customImage: 'unityci/editor:2021.3.22f1-android-1'
         targetPlatform: Android
         androidExportType: 'androidPackage'
         androidTargetSdkVersion: '32'
