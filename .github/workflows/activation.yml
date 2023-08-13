@@ -11,7 +11,7 @@ concurrency:
 
 env:
   UNITY_VERSION: 2021.3.22f1
-  ULF_FILE: Unity_v2021.3.22f1.ulf
+  ULF_FILE: Unity_v2021.x.ulf
 
 jobs:
   request_alf:
