@@ -7,8 +7,8 @@
     <list default="true" id="a468cae6-901f-4018-8f2f-8efcfb72731f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Plugins/Android/lib-release.aar" beforeDir="false" afterPath="$PROJECT_DIR$/../Plugins/Android/lib-release.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Scripts.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../XR/XRGeneralSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../XR/XRGeneralSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
@@ -67,6 +67,7 @@
       <workItem from="1685568519076" duration="3149000" />
       <workItem from="1686336931184" duration="725000" />
       <workItem from="1688062182809" duration="1018000" />
+      <workItem from="1689454877324" duration="593000" />
     </task>
     <servers />
   </component>
@@ -85,5 +86,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>
