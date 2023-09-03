@@ -7157,7 +7157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Custom Ram Limit | Default - 1024
+  m_Text: Custom Ram Limit | Default - 1800
 --- !u!222 &914923698
 CanvasRenderer:
   m_ObjectHideFlags: 0
