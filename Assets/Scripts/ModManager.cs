@@ -126,7 +126,7 @@ public class ModManager : MonoBehaviour
 
             try
             {
-                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title);
+                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.slug);
                 DLDImage.SetActive(hasMod);
                 DLImage.SetActive(!hasMod);
                 downloadButton.GetComponent<Button>().enabled = !hasMod;
