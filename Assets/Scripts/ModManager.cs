@@ -24,6 +24,8 @@ public class ModManager : MonoBehaviour
     [SerializeField] private GameObject DLImage;
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
+	
+	private string currModSlug;
 
     public async void CreateMods()
     {
@@ -62,7 +64,7 @@ public class ModManager : MonoBehaviour
 
                 try
                 {
-                    bool hasMod = JNIStorage.apiClass.CallStatic<Boolean>("hasMod", InstanceButton.GetInstance(), searchResults.title);
+                    bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), searchResults.project_id);
 
                     if (!hasMod)
                     {
@@ -88,8 +90,8 @@ public class ModManager : MonoBehaviour
                 {
                     EventSystem.current.SetSelectedGameObject(modObject);
                     GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                    apiHandler.modID = mod.ToString().Replace("(UnityEngine.GameObject)", "");
-                    CreateModPage();
+                    CreateModPage(mod.ToString().Replace("(UnityEngine.GameObject)", ""));
+					currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
                 });
             }
 
@@ -97,9 +99,9 @@ public class ModManager : MonoBehaviour
         }
     }
 
-    public async void CreateModPage()
+    public async void CreateModPage(string slug)
     {
-        MetaParser mp = apiHandler.GetModInfo();
+        MetaParser mp = apiHandler.GetModInfo(slug);
         instanceMenu.SetActive(false);
         modSearchMenu.SetActive(false);
         modManagerMainpage.SetActive(false);
@@ -121,11 +123,10 @@ public class ModManager : MonoBehaviour
             modImage.texture = modImageTexture;
             modIDObject.text = mp.slug;
             string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-            AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
 
             try
             {
-                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", instance, mp.title);
+                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title);
                 DLDImage.SetActive(hasMod);
                 DLImage.SetActive(!hasMod);
                 downloadButton.GetComponent<Button>().enabled = !hasMod;
@@ -143,9 +144,8 @@ public class ModManager : MonoBehaviour
     
     public void AddMod()
     {
-        apiHandler.modID = modIDObject.text;
-        MetaParser mp = apiHandler.GetModInfo();
-        MetaInfo[] mi = apiHandler.GetModDownloads();
+        MetaParser mp = apiHandler.GetModInfo(currModSlug);
+        MetaInfo[] mi = apiHandler.GetModDownloads(mp.slug);
 
         string currentInstanceName = InstanceButton.currInstName;
         foreach (MetaInfo metaInfo in mi)
@@ -169,20 +169,37 @@ public class ModManager : MonoBehaviour
                     }
                     else
                     {
-                        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), modName, modVersion, modUrl);
+						// Download Deps
+						if(apiHandler.GetModDeps(mp.slug) != null) {
+							foreach(MetaParser dep in apiHandler.GetModDeps(mp.slug).projects) {
+								foreach(MetaInfo depInfo in apiHandler.GetModDownloads(dep.slug)) {
+									foreach (FileInfo depFile in depInfo.files) {
+										if (depInfo.game_versions.Contains(currentInstanceName)
+											&& !file.url.Contains(".mrpack") 
+											&& depInfo.loaders.Contains("fabric")
+											&& !JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), dep.slug)) {
+											JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), dep.slug, modVersion, depFile.url);
+											Debug.Log($"Downloading Dep with file url {depFile.url}");
+											break;
+										}
+									}
+								}
+							}
+						}
+                        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), mp.slug, modVersion, modUrl);
                         DLImage.SetActive(false);
                         DLDImage.SetActive(true);
+						
+						bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.slug);
+						if (!hasMod)
+						{
+							errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "There has been an error attempting to add this mod, maybe this mod doesn't have " + currentInstanceName + " support? Please try again later or contact our support staff at https://discord.gg/QuestCraft.";
+							errorMenu.SetActive(true);
+						}
                     }
 
                     return;
                 }
-            }
-            
-            bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.title);
-            if (!hasMod)
-            {
-                errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "There has been an error attempting to add this mod, maybe this mod doesn't have " + currentInstanceName + " support? Please try again later or contact our support staff at https://discord.gg/QuestCraft.";
-                errorMenu.SetActive(true);
             }
         }
     }

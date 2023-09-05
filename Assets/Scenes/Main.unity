@@ -12824,7 +12824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchQuery: 
-  modID: 
 --- !u!114 &1460469784
 MonoBehaviour:
   m_ObjectHideFlags: 0

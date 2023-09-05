@@ -42,7 +42,15 @@ public class MetaInfo
 
 [Serializable]
 
+public class Deps
+{
+	public List<MetaParser> projects { get; set; }
+}
+
+[Serializable]
+
 public class FileInfo
 {
     public string url;
+	public string filename;
 }
