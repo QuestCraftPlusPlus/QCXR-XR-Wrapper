@@ -76,11 +76,10 @@ public class InstanceButton : MonoBehaviour
         {
             return;
         }
-
-        XRGeneralSettings.Instance.Manager.activeLoader.Stop();
+	XRGeneralSettings.Instance.Manager.activeLoader.Stop();
         XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
-        
-        Application.Unload();
+
+        Application.Quit();
         JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance);
     }
 }

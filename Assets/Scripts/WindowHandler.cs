@@ -27,8 +27,8 @@ public class WindowHandler : MonoBehaviour
     public void DevMenuSetter()
     {
         startButton.SetActive(false);
-        devOptionsMenu.SetActive(true);
         devButton.SetActive(false);
+	devOptionsMenu.SetActive(true);
     }
     
     public void DevMenuUnsetter()
