@@ -3,6 +3,7 @@
 [![Build Wrapper](https://github.com/QuestCraftPlusPlus/QCXR-XR-Wrapper/actions/workflows/build.yml/badge.svg)](https://github.com/QuestCraftPlusPlus/QCXR-XR-Wrapper/actions/workflows/build.yml)
 
 A wrapper written with Unity to put PojavLauncher in VR so it works on standalone VR headsets.
+<br>Use Unity Version [2021.3.22f1](https://unity.com/releases/editor/whats-new/2021.3.22)
 
 
 ## Contributing
@@ -20,5 +21,7 @@ Make sure your pull request describes exactly what the code does and explains wh
 
 ## Credits
 
-- [@TheJudge156](https://www.github.com/TheJudge156) - Wrote the wrapper
-- [PojavLauncherTeam](https://www.github.com/PojavLauncherTeam) - Created PojavLauncher
+- [@TheJudge156](https://www.github.com/TheJudge156) - Wrote the wrapper.
+- [@CadIndie](https://www.github.com/CadIndie) - Made the Enviroment, including the clock.
+- [@MrNavaStar](https://github.com/MrNavaStar) - Made early versions of ModManager.
+- [PojavLauncherTeam](https://www.github.com/PojavLauncherTeam) - Created PojavLauncher.
