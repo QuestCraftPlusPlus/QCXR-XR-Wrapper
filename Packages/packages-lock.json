@@ -10,7 +10,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "2.0.1",
+      "version": "2.0.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -70,7 +70,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.5.0",
+      "version": "1.5.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -80,7 +80,7 @@
     },
     "com.unity.mathematics": {
       "version": "1.2.6",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -97,15 +97,6 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.subsystemregistration": {
-      "version": "1.1.0",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.subsystems": "1.0.0"
-      },
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
@@ -180,7 +171,7 @@
     },
     "com.unity.xr.interaction.toolkit": {
       "version": "2.3.1",
-      "depth": 1,
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.inputsystem": "1.4.4",
@@ -205,15 +196,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.management": {
-      "version": "4.2.1",
+      "version": "4.3.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.subsystems": "1.0.0",
         "com.unity.modules.vr": "1.0.0",
         "com.unity.modules.xr": "1.0.0",
-        "com.unity.xr.legacyinputhelpers": "2.1.7",
-        "com.unity.subsystemregistration": "1.0.6"
+        "com.unity.xr.legacyinputhelpers": "2.1.7"
       },
       "url": "https://packages.unity.com"
     },
@@ -236,23 +226,6 @@
         "com.unity.inputsystem": "1.4.4"
       },
       "url": "https://packages.unity.com"
-    },
-    "com.unity.xr.openxr.genericsupport": {
-      "version": "file:C:/Users/fourr/Generic",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.xr.openxr": "1.3.0"
-      }
-    },
-    "com.unity.xr.pimax": {
-      "version": "file:C:/Users/fourr/Pimax",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.xr.management": "4.0.1",
-        "com.unity.xr.interaction.toolkit": "2.3.1"
-      }
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
