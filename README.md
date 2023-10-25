@@ -3,7 +3,7 @@
 [![Build Wrapper](https://github.com/QuestCraftPlusPlus/QCXR-XR-Wrapper/actions/workflows/build.yml/badge.svg)](https://github.com/QuestCraftPlusPlus/QCXR-XR-Wrapper/actions/workflows/build.yml)
 
 A wrapper written with Unity to put PojavLauncher in VR so it works on standalone VR headsets.
-Use Unity Version [2021.3.22f1](https://unity.com/releases/editor/whats-new/2021.3.22)
+/nUse Unity Version [2021.3.22f1](https://unity.com/releases/editor/whats-new/2021.3.22)
 
 
 ## Contributing
