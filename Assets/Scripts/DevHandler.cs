@@ -29,31 +29,31 @@ public class DevHandler : MonoBehaviour
 
     private void InitializeButtonListeners()
     {
-        _devToggle.onValueChanged.AddListener(OnDevModsToggleChangedHandler);
-        _ramSetterToggle.onValueChanged.AddListener(OnRamSetterToggleChangedHandler);
-        _adbToggle.onValueChanged.AddListener(OnAdbToggleChangedHandler);
+        _devToggle.onValueChanged.AddListener(OnDevModsToggleValueChanged);
+        _ramSetterToggle.onValueChanged.AddListener(OnRamSetterToggleValueChanged);
+        _adbToggle.onValueChanged.AddListener(OnAdbToggleValueChanged);
     }
     
     private void DisposeButtonListeners()
     {
-        _devToggle.onValueChanged.RemoveListener(OnDevModsToggleChangedHandler);
-        _ramSetterToggle.onValueChanged.RemoveListener(OnRamSetterToggleChangedHandler);
-        _adbToggle.onValueChanged.RemoveListener(OnAdbToggleChangedHandler);
+        _devToggle.onValueChanged.RemoveListener(OnDevModsToggleValueChanged);
+        _ramSetterToggle.onValueChanged.RemoveListener(OnRamSetterToggleValueChanged);
+        _adbToggle.onValueChanged.RemoveListener(OnAdbToggleValueChanged);
     }
 
-    private void OnDevModsToggleChangedHandler(bool isOn)
+    private void OnDevModsToggleValueChanged(bool isOn)
     {
         JNIStorage.apiClass.SetStatic(DEVELOPER_MODS_PARAMETER_NAME, isOn);
         JNIStorage.UpdateInstances();
     }    
     
-    private void OnRamSetterToggleChangedHandler(bool isOn)
+    private void OnRamSetterToggleValueChanged(bool isOn)
     {
         JNIStorage.apiClass.SetStatic(CUSTOM_RAM_PARAMETER_NAME, isOn);
         _ramSetterField.SetActive(isOn);
     }    
     
-    private void OnAdbToggleChangedHandler(bool isOn)
+    private void OnAdbToggleValueChanged(bool isOn)
     {
         JNIStorage.apiClass.SetStatic(ADVANCED_DEBUGGER_PARAMETER_NAME, isOn);
     }
