@@ -572,6 +572,27 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &2990284798978419499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076937beb8763d94790d2e9cc1248ac8, type: 3}
+  m_Name: ARFoundationFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: 'AR Foundation: Meta Quest Features'
+  version: 0.1.0
+  featureIdInternal: com.unity.openxr.feature.arfoundation-meta
+  openxrExtensionStrings: 'XR_FB_passthrough XR_FB_spatial_entity XR_FB_spatial_entity_query
+    XR_FB_spatial_entity_storage XR_FB_scene '
+  company: Unity Technologies
+  priority: 0
+  required: 0
 --- !u!114 &5138420663102343592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,24 +738,17 @@ MonoBehaviour:
   m_Name: Android
   m_EditorClassIdentifier: 
   features:
+  - {fileID: 2990284798978419499}
   - {fileID: 8433373708445689474}
-  - {fileID: 7041405246468408437}
   - {fileID: 6989768453452442212}
-  - {fileID: -2047468034155094143}
   - {fileID: -2030027150609229183}
-  - {fileID: 5948271107799333431}
   - {fileID: 6150395177194012589}
   - {fileID: 7851416526937256219}
   - {fileID: -2308035958177765451}
   - {fileID: -3343889633654480920}
   - {fileID: -4379112437326230092}
   - {fileID: -3517692690282116051}
-  - {fileID: -8109935077373484239}
   - {fileID: 2288086482969684846}
-  - {fileID: 710250913726160915}
-  - {fileID: 5138420663102343592}
-  - {fileID: -4585027056988077873}
-  - {fileID: -1254432884363804435}
   - {fileID: -5792588658180278385}
   m_renderMode: 1
   m_depthSubmissionMode: 0
