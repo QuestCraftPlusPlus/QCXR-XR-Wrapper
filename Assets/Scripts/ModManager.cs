@@ -27,7 +27,7 @@ public class ModManager : MonoBehaviour
 	
 	private string currModSlug;
 
-    public async void CreateMods()
+    private async void CreateMods()
     {
         ResetArray();
         SearchParser searchParser = apiHandler.GetSearchedMods();
@@ -122,7 +122,6 @@ public class ModManager : MonoBehaviour
             modTitle.text = mp.title;
             modImage.texture = modImageTexture;
             modIDObject.text = mp.slug;
-            string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
 
             try
             {
@@ -204,7 +203,7 @@ public class ModManager : MonoBehaviour
         }
     }
     
-    public void RemoveMod(string name)
+    private void RemoveMod(string name)
     {
         string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
         AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
@@ -220,7 +219,7 @@ public class ModManager : MonoBehaviour
         CreateMods();
     }
 
-    public void ResetArray()
+    private void ResetArray()
     {
         for (int i = modArray.transform.childCount - 1; i >= 0; i--)
         {

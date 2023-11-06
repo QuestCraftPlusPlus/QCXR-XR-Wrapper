@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class UIHandler : MonoBehaviour
 {
@@ -53,27 +49,25 @@ public class UIHandler : MonoBehaviour
 
     async Task GetTexturePlusName()
     {
-        using (UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl))
+        using UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl);
+        pfp.SetRequestHeader("User-Agent", "QuestCraft");
+        var requestTask = pfp.SendWebRequest();
+
+        while (!requestTask.isDone)
         {
-            pfp.SetRequestHeader("User-Agent", "QuestCraft");
-            var requestTask = pfp.SendWebRequest();
+            await Task.Yield();
+        }
 
-            while (!requestTask.isDone)
-            {
-                await Task.Yield();
-            }
-
-            if (pfp.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(pfp.error);
-            }
-            else
-            {
-                // Get downloaded texture
-                var pfpTexture = DownloadHandlerTexture.GetContent(pfp);
-                pfpHolder.texture = pfpTexture;
-                profileNameHolder.text = profileName;
-            }
+        if (pfp.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(pfp.error);
+        }
+        else
+        {
+            // Get downloaded texture
+            var pfpTexture = DownloadHandlerTexture.GetContent(pfp);
+            pfpHolder.texture = pfpTexture;
+            profileNameHolder.text = profileName;
         }
     }
 }

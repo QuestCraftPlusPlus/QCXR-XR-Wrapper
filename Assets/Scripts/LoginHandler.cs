@@ -1,16 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.UI;
-using Image = UnityEngine.UIElements.Image;
 
 public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
-    bool hasAttemptedLogin = false;
+    bool hasAttemptedLogin;
     AndroidJavaClass jc;
     AndroidJavaObject jo;
 
@@ -23,14 +17,15 @@ public class LoginHandler : MonoBehaviour
 
     public void Update()
     {
-	if(!hasAttemptedLogin) {
-	    return;
-	}
+	    if(!hasAttemptedLogin) {
+	        return;
+	    }
+        
         if (JNIStorage.accountObj != null) {
             handler.MainPanelSwitch();
         } else {
-	    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
-	}
+            JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+        }
     }
 
     public void LogoutButton()
