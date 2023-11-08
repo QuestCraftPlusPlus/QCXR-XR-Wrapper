@@ -10,18 +10,18 @@ public class DownloadTextManager : MonoBehaviour
     void Update()
     {
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
-        double mbDowbloaded = TruncateDouble(JNIStorage.apiClass.GetStatic<double>("downloadStatus"), 3);
+        double mbDownloaded = TruncateDouble(JNIStorage.apiClass.GetStatic<double>("downloadStatus"), 3);
 
         if (!string.IsNullOrWhiteSpace(currentFile))
-            GetComponent<TextMeshProUGUI>().text = "Downloading " + currentFile + ": " + mbDowbloaded + " MB";
+            GetComponent<TextMeshProUGUI>().text = "Downloading " + currentFile + ": " + mbDownloaded + " MB";
         else 
             GetComponent<TextMeshProUGUI>().text = "";
     
     }
 
-    public double TruncateDouble(double value, int precision)
+    private double TruncateDouble(double value, int precision)
     {
-        double step = (double)Math.Pow(10, precision);
+        double step = Math.Pow(10, precision);
         double tmp = Math.Truncate(step * value);
         return tmp / step;
     }

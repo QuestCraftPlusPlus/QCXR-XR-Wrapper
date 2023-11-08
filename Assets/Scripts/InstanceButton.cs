@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Management;
@@ -6,13 +5,13 @@ using UnityEngine.XR.Management;
 public class InstanceButton : MonoBehaviour
 {
     public static AndroidJavaObject currentVersion;
-    public int index = 0;
+    public int index;
     public static string currInstName;
     public GameObject modManagerButton;
     public GameObject mainMenuButton;
     public GameObject searchMenuButton;
 
-    private bool hasDefaulted = false;
+    private bool hasDefaulted;
 
     private void Update()
     {
@@ -76,7 +75,7 @@ public class InstanceButton : MonoBehaviour
         {
             return;
         }
-	XRGeneralSettings.Instance.Manager.activeLoader.Stop();
+	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();
         XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
 
         Application.Quit();

@@ -1,107 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class DevHandler : MonoBehaviour
 {
-    public Toggle DevToggle;
-    public Toggle ADBToggle;
-    public Toggle RAMSetterToggle;
-    public GameObject RAMSetterField;
+    private const string DEVELOPER_MODS_PARAMETER_NAME = "developerMods";
+    private const string CUSTOM_RAM_PARAMETER_NAME = "customRAMValue";
+    private const string ADVANCED_DEBUGGER_PARAMETER_NAME = "advancedDebugger";
+    
+    [SerializeField, FormerlySerializedAs("DevToggle")]
+    private Toggle _devToggle;
+    [SerializeField, FormerlySerializedAs("ADBToggle")]
+    private Toggle _adbToggle;
+    [SerializeField, FormerlySerializedAs("RAMSetterToggle")]
+    private Toggle _ramSetterToggle;
+    [SerializeField, FormerlySerializedAs("RAMSetterField")]
+    private GameObject _ramSetterField;
 
-    void Start()
+    private void Start()
     {
-        DevToggle.onValueChanged.AddListener(delegate
-        {
-            DevModsToggleChanged(DevToggle);
-        });
-        
-        RAMSetterToggle.onValueChanged.AddListener(delegate
-        {
-            RAMSetterToggleChanged(RAMSetterToggle);
-        });
-        
-        ADBToggle.onValueChanged.AddListener(delegate
-        {
-            ADBToggleChanged(ADBToggle);
-        });
+        InitializeButtonListeners();
     }
     
-    void DevModsToggleChanged(Toggle change)
+    private void OnDestroy()
     {
-        if (DevToggle.isOn)
-        {
-            JNIStorage.apiClass.SetStatic<bool>("developerMods", true);
-            JNIStorage.UpdateInstances();
-        }
-        else
-        {
-            JNIStorage.apiClass.SetStatic<bool>("developerMods", false);
-            JNIStorage.UpdateInstances();
-        }
-    }    
-    
-    void RAMSetterToggleChanged(Toggle change)
-    {
-        if (RAMSetterToggle.isOn)
-        {
-            JNIStorage.apiClass.SetStatic<bool>("customRAMValue", true);
-            RAMSetterField.SetActive(true);
-        }
-        else
-        {
-            JNIStorage.apiClass.SetStatic<bool>("customRAMValue", false);
-            RAMSetterField.SetActive(false);
-        }
-    }    
-    
-    void ADBToggleChanged(Toggle change)
-    {
-        if (ADBToggle.isOn)
-        {
-            JNIStorage.apiClass.SetStatic<bool>("advancedDebugger", true);
-        }
-        else
-        {
-            JNIStorage.apiClass.SetStatic<bool>("advancedDebugger", false);
-        }
+        DisposeButtonListeners();
     }
 
-    public void DevModsButton()
+    private void InitializeButtonListeners()
     {
-        if (DevToggle.isOn)
-        {
-            DevToggle.isOn = false;
-        }
-        else
-        {
-            DevToggle.isOn = true;
-        }
-    }    
-        
-    public void ADBButton()
-    {
-        if (ADBToggle.isOn)
-        {
-            ADBToggle.isOn = false;
-        }
-        else
-        {
-            ADBToggle.isOn = true;
-        }
+        _devToggle.onValueChanged.AddListener(OnDevModsToggleValueChanged);
+        _ramSetterToggle.onValueChanged.AddListener(OnRamSetterToggleValueChanged);
+        _adbToggle.onValueChanged.AddListener(OnAdbToggleValueChanged);
     }
     
-    public void RAMButton()
+    private void DisposeButtonListeners()
     {
-        if (RAMSetterToggle.isOn)
-        {
-            RAMSetterToggle.isOn = false;
-        }
-        else
-        {
-            RAMSetterToggle.isOn = true;
-        }
-    }    
+        _devToggle.onValueChanged.RemoveListener(OnDevModsToggleValueChanged);
+        _ramSetterToggle.onValueChanged.RemoveListener(OnRamSetterToggleValueChanged);
+        _adbToggle.onValueChanged.RemoveListener(OnAdbToggleValueChanged);
+    }
 
+    private void OnDevModsToggleValueChanged(bool isOn)
+    {
+        JNIStorage.apiClass.SetStatic(DEVELOPER_MODS_PARAMETER_NAME, isOn);
+        JNIStorage.UpdateInstances();
+    }    
+    
+    private void OnRamSetterToggleValueChanged(bool isOn)
+    {
+        JNIStorage.apiClass.SetStatic(CUSTOM_RAM_PARAMETER_NAME, isOn);
+        _ramSetterField.SetActive(isOn);
+    }    
+    
+    private void OnAdbToggleValueChanged(bool isOn)
+    {
+        JNIStorage.apiClass.SetStatic(ADVANCED_DEBUGGER_PARAMETER_NAME, isOn);
+    }
 }
