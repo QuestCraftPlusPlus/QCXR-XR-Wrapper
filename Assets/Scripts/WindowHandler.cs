@@ -10,22 +10,24 @@ public class WindowHandler : MonoBehaviour
     public GameObject modManagerPanel;
     public GameObject modSearchMenu;
     public GameObject instanceMenu;
+    public GameObject instanceMainpage;
+    public GameObject instanceCreator;
     public GameObject modInfoMenu;
     public GameObject modManagerMainpage;
     public GameObject errorWindow;
     
     public void MainPanelSwitch()
-        {
-            startPanel.SetActive(false);
-            modManagerPanel.SetActive(false);
-            mainPanel.SetActive(true);
-        }
+    {
+        startPanel.SetActive(false);
+        modManagerPanel.SetActive(false);
+        mainPanel.SetActive(true);
+    }
 
     public void DevMenuSetter()
     {
         startButton.SetActive(false);
         devButton.SetActive(false);
-	devOptionsMenu.SetActive(true);
+	    devOptionsMenu.SetActive(true);
     }
     
     public void DevMenuUnsetter()
@@ -36,10 +38,10 @@ public class WindowHandler : MonoBehaviour
     }
 
     public void LogoutButton()
-        {
-            mainPanel.SetActive(false);
-            startPanel.SetActive(true);
-        }
+    {
+        mainPanel.SetActive(false);
+        startPanel.SetActive(true);
+    }
 
     public void ModManagerButton()
     {
@@ -58,12 +60,28 @@ public class WindowHandler : MonoBehaviour
         modSearchMenu.SetActive(true);
     }
 
-    public void InstanceManagerButton()
+    public void InstanceManagerSetter()
     {
-        modInfoMenu.SetActive(false);
-        modSearchMenu.SetActive(false);
         modManagerMainpage.SetActive(false);
         instanceMenu.SetActive(true);
+    }
+    
+    public void InstanceManagerUnsetter()
+    {
+        modManagerMainpage.SetActive(true);
+        instanceMenu.SetActive(false);
+    }
+
+    public void InstanceCreatorSetter()
+    {
+        instanceMainpage.SetActive(false);
+        instanceCreator.SetActive(true);
+    }
+
+    public void InstanceCreatorUnsetter()
+    {
+        instanceCreator.SetActive(false);
+        instanceMainpage.SetActive(true);
     }
 
     public void ModInfoSetter()

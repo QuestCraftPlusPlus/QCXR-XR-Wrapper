@@ -5,12 +5,13 @@ public class KeyboardHandler : MonoBehaviour
 {
     [SerializeField] private TMP_InputField searchBox;
     [SerializeField] private TMP_InputField ramSetter;
+    [SerializeField] private TMP_InputField instanceEditor;
     [SerializeField] private GameObject keyboard;
     private static bool isShift;
 
     private void Update()
     {
-        keyboard.SetActive(searchBox.IsActive() || ramSetter.IsActive());
+        keyboard.SetActive(searchBox.IsActive() || ramSetter.IsActive() || instanceEditor.IsActive());
     }
     
     public void KeyPress(string key)
@@ -22,6 +23,9 @@ public class KeyboardHandler : MonoBehaviour
         else if (ramSetter.IsActive())
         {
             ramSetter.text += isShift ? key.ToUpper() : key.ToLower();
+        } else if (instanceEditor.IsActive())
+        {
+            instanceEditor.text += isShift ? key.ToUpper() : key.ToLower(); 
         }
     }
 
@@ -34,6 +38,9 @@ public class KeyboardHandler : MonoBehaviour
         else if (ramSetter.IsActive())
         {
             ramSetter.text = ramSetter.text.Remove(ramSetter.text.Length - 1, 1);
+        } else if (instanceEditor.IsActive())
+        {
+            instanceEditor.text = instanceEditor.text.Remove(instanceEditor.text.Length - 1, 1);
         }
     }
     
@@ -51,6 +58,9 @@ public class KeyboardHandler : MonoBehaviour
         else if (ramSetter.IsActive())
         {
             ramSetter.text += " ";
+        } else if (instanceEditor.IsActive())
+        {
+            instanceEditor.text += " ";
         }
     }
 }

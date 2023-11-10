@@ -10,6 +10,7 @@ public class InstanceButton : MonoBehaviour
     public GameObject modManagerButton;
     public GameObject mainMenuButton;
     public GameObject searchMenuButton;
+    public GameObject instanceCreatorButton;
 
     private bool hasDefaulted;
 
@@ -29,6 +30,7 @@ public class InstanceButton : MonoBehaviour
         modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
         mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
         searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
+        instanceCreatorButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
     }
 
     public void SwitchInstance()
@@ -45,24 +47,11 @@ public class InstanceButton : MonoBehaviour
         return JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
     }
 
-    public static AndroidJavaObject CreateInstance()
-    {
-        currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-
-        if (instance == null)
-        {
-            instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion);
-        }
-
-        return instance;
-    }
-
-    public void LaunchCurrentInstance()
+    public static void LaunchCurrentInstance()
     {
         if (GetInstance() == null)
         {
-            CreateInstance();
+            InstanceManager.CreateDefaultInstance(currentVersion);
             return;
         }
 

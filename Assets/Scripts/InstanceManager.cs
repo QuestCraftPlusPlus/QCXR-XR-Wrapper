@@ -9,20 +9,41 @@ using UnityEngine.UI;
 public class InstanceManager : MonoBehaviour
 {
     [SerializeField] private GameObject modArray;
-    
 	private string currModSlug;
-    public AndroidJavaObject[] MinecraftVersion;
     public TMP_InputField instanceName;
-    public GameObject instanceButton;
 
-    public void CreateInstances()
+    public void ListInstances()
     {
         ResetArray();
     }
 
-    public void NewInstance()
+    public  void CreateInstance()
     {
-        JNIStorage.apiClass.CallStatic("createNewInstance", JNIStorage.activity, instanceName, JNIStorage.home);
+        CreateCustomInstance();
+    }
+
+    public static AndroidJavaObject CreateDefaultInstance(AndroidJavaObject currentVersion)
+    {
+        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion);
+
+        return instance;
+    }
+
+    public AndroidJavaObject CreateCustomInstance()
+    {
+        try
+        {
+            AndroidJavaObject currentVersion = InstanceButton.currentVersion;
+            AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion);
+
+            return instance;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     private void ResetArray()
