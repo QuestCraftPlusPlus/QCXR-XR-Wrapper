@@ -39,6 +39,7 @@ public class ModManager : MonoBehaviour
                 UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
                 modImageLink.SendWebRequest();
 
+                //TODO: Remove artificial wait. 
                 while (!modImageLink.isDone)
                 {
                     await Task.Delay(50);

@@ -7,10 +7,11 @@ using UnityEngine;
 public class APIHandler : MonoBehaviour
 {
     public string searchQuery;
-
+    
     public SearchParser GetSearchedMods()
     {
-        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/search?query=" + searchQuery + "&filters=categories=fabric");
+        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/search?q=" + searchQuery + "&game_versions=" + currInstName + "&filters=categories=fabric");
         using var response = (HttpWebResponse)request.GetResponse();
         using var reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
