@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class JNIStorage : MonoBehaviour
 {
@@ -7,8 +9,10 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaObject accountObj;
     public static AndroidJavaObject activity;
     public static AndroidJavaObject[] instances;
-    public static string home;
     public TMP_InputField RAMSetterField;
+    [SerializeField, FormerlySerializedAs("DevToggle")]
+    private Toggle _devToggle;
+    public static string home;
 
     private void Start()
     {
@@ -16,6 +20,7 @@ public class JNIStorage : MonoBehaviour
         apiClass = new AndroidJavaClass("pojlib.api.API_V1");
         AndroidJavaClass constants = new AndroidJavaClass("pojlib.util.Constants");
         home = constants.GetStatic<string>("MC_DIR");
+        apiClass.SetStatic("developerMods", _devToggle.isOn);
         UpdateInstances();
 		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
         SetMemoryValue(OpenXRFeatureSystemInfo.GetHeadsetName());

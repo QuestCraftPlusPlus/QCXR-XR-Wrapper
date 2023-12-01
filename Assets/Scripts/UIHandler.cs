@@ -10,9 +10,20 @@ public class UIHandler : MonoBehaviour
     public TextMeshProUGUI profileNameHolder;
     public TextMeshProUGUI minuteHourText;
     public TextMeshProUGUI secondText;
+    public Toggle modToggle;
+    public Toggle modpacksToggle;
+    public Toggle resourcePacksToggle;
     string pfpUrl;
     string profileName;
 
+    void Start()
+    {
+        // Add listeners for toggle buttons
+        modToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, modToggle));
+        modpacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, modpacksToggle));
+        resourcePacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, resourcePacksToggle));
+    }
+    
     void Update()
     {
         if (JNIStorage.accountObj != null)
@@ -68,6 +79,26 @@ public class UIHandler : MonoBehaviour
             var pfpTexture = DownloadHandlerTexture.GetContent(pfp);
             pfpHolder.texture = pfpTexture;
             profileNameHolder.text = profileName;
+        }
+    }
+
+    void OnToggleClicked(bool value, Toggle clickedToggle)
+    {
+        if (value)
+        {
+            // Disable the clicked toggle
+            clickedToggle.interactable = false;
+
+            // Enable the rest of the toggles
+            Toggle[] allToggles = { modToggle, modpacksToggle, resourcePacksToggle };
+
+            foreach (Toggle toggle in allToggles)
+            {
+                if (toggle != clickedToggle)
+                {
+                    toggle.interactable = true;
+                }
+            }
         }
     }
 }
