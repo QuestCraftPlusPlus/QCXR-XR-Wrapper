@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 [Serializable]
 public class SearchParser
@@ -35,13 +36,18 @@ public class MetaInfo
     public List<string> game_versions { get; set; }
     public List<FileInfo> files { get; set; }
     public List<string> loaders { get; set; }
+    public List<Deps> dependencies { get; set; }
+    public string id { get; set; }
 }
 
 [Serializable]
 
 public class Deps
 {
-	public List<MetaParser> projects { get; set; }
+    public string version_id;
+    public string project_id;
+    public string file_name;
+    public string dependency_type;
 }
 
 [Serializable]

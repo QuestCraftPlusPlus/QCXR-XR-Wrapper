@@ -170,15 +170,17 @@ public class ModManager : MonoBehaviour
                     else
                     {
 						// Download Deps
-						if(apiHandler.GetModDeps(mp.slug) != null) {
-							foreach(MetaParser dep in apiHandler.GetModDeps(mp.slug).projects) {
-								foreach(MetaInfo depInfo in apiHandler.GetModDownloads(dep.slug)) {
+						if(apiHandler.GetModDeps(mp.slug, metaInfo.id) != null) {
+							foreach(Deps dep in apiHandler.GetModDeps(mp.slug, metaInfo.id))
+                            {
+                                string slug = apiHandler.GetModInfo(dep.project_id).slug;
+								foreach(MetaInfo depInfo in apiHandler.GetModDownloads(dep.project_id)) {
 									foreach (FileInfo depFile in depInfo.files) {
 										if (depInfo.game_versions.Contains(currentInstanceName)
 											&& !file.url.Contains(".mrpack") 
 											&& depInfo.loaders.Contains("fabric")
-											&& !JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), dep.slug)) {
-											JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), dep.slug, modVersion, depFile.url);
+											&& !JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), slug)) {
+											JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), slug, modVersion, depFile.url);
 											Debug.Log($"Downloading Dep with file url {depFile.url}");
 											break;
 										}
@@ -186,11 +188,14 @@ public class ModManager : MonoBehaviour
 								}
 							}
 						}
+                        
                         JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), mp.slug, modVersion, modUrl);
+                        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.slug);
+                        
                         DLImage.SetActive(false);
                         DLDImage.SetActive(true);
-						
-						bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.slug);
+                        downloadButton.GetComponent<Button>().enabled = !hasMod;
+                        
 						if (!hasMod)
 						{
 							errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "There has been an error attempting to add this mod, maybe this mod doesn't have " + currentInstanceName + " support? Please try again later or contact our support staff at https://discord.gg/QuestCraft.";

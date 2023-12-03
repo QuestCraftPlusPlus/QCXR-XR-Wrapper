@@ -41,16 +41,16 @@ public class APIHandler : MonoBehaviour
         string json = reader.ReadToEnd();
         return JsonConvert.DeserializeObject<MetaInfo[]>(json);
     }
-
-    public Deps GetModDeps(string modID)
+    
+    public List<Deps> GetModDeps(string modID, string versionID)
     {
-        var request =
-            (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID + "/dependencies");
+        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID + "/version/" + versionID);
         using var response = (HttpWebResponse)request.GetResponse();
         using var reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
-        return JsonConvert.DeserializeObject<Deps>(json);
+        return JsonConvert.DeserializeObject<MetaInfo>(json).dependencies;
     }
+
 
     public string GetFilterOption()
     {
