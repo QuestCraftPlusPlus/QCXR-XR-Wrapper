@@ -21,7 +21,5 @@ Make sure your pull request describes exactly what the code does and explains wh
 
 ## Credits
 
-- [@TheJudge156](https://www.github.com/TheJudge156) - Wrote the wrapper.
-- [@CadIndie](https://www.github.com/CadIndie) - Made the Enviroment, including the clock.
-- [@MrNavaStar](https://github.com/MrNavaStar) - Made early versions of ModManager.
-- [PojavLauncherTeam](https://www.github.com/PojavLauncherTeam) - Created PojavLauncher.
+- [@TheJudge156](https://www.github.com/TheJudge156) - Wrote core wrapper functionality.
+- [@CADIndie](https://www.github.com/CadIndie) - Main feature and QOL implementer.
