@@ -38,6 +38,7 @@ public class JNIStorage : MonoBehaviour
     {
         if (RAMSetterField.text == null)
         {
+            apiClass.SetStatic("customRAMValue", true);
             switch (headsetName)
             {
                 case "quest":
