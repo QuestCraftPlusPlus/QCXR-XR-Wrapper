@@ -25,7 +25,11 @@ public class InstanceManager : MonoBehaviour
     public static AndroidJavaObject CreateDefaultInstance(AndroidJavaObject currentVersion)
     {
         string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion);
+        AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
+        AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
+
+        
+        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion, fabric);
 
         return instance;
     }
@@ -34,6 +38,12 @@ public class InstanceManager : MonoBehaviour
     {
         try
         {
+            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
+            AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
+            AndroidJavaObject quilt = modloaderEnum.GetStatic<AndroidJavaObject>("Quilt");
+            AndroidJavaObject forge = modloaderEnum.GetStatic<AndroidJavaObject>("Forge");
+            AndroidJavaObject neoForge = modloaderEnum.GetStatic<AndroidJavaObject>("NeoForge");
+            
             AndroidJavaObject currentVersion = InstanceButton.currentVersion;
             AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion);
 
