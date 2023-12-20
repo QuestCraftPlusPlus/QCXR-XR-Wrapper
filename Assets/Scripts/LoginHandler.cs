@@ -9,10 +9,14 @@ public class LoginHandler : MonoBehaviour
     AndroidJavaObject jo;
 
     public void Login() {
-	jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-	jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
-	JNIStorage.apiClass.CallStatic("login", jo);
-    	hasAttemptedLogin = true;
+	if (FindObjectOfType<LoginText>().getMsaCode() != "") {
+	    Application.OpenURL("https://login.live.com/oauth20_remoteconnect.srf?otc=" + FindObjectOfType<LoginText>().getMsaCode());
+	} else {
+	    jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+	    jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+	    JNIStorage.apiClass.CallStatic("login", jo);
+    	    hasAttemptedLogin = true;
+	}
     }
 
     public void Update()
