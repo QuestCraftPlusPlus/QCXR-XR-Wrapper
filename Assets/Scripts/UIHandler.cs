@@ -58,17 +58,14 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    async Task GetTexturePlusName()
+    void GetTexturePlusName()
     {
         using UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl);
         pfp.SetRequestHeader("User-Agent", "QuestCraft");
         var requestTask = pfp.SendWebRequest();
+        Debug.Log("Making URL request for PFP...");
 
-        while (!requestTask.isDone)
-        {
-            await Task.Yield();
-        }
-
+        while (!requestTask.isDone);
         if (pfp.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(pfp.error);
