@@ -30,7 +30,7 @@ public class ModManager : MonoBehaviour
     private async void CreateMods()
     {
         ResetArray();
-        SearchParser searchParser = apiHandler.GetSearchedMods();
+        SearchParser searchParser = apiHandler.GetSearchedProjects();
 
         foreach (SearchResults searchResults in searchParser.hits)
         {
@@ -209,11 +209,11 @@ public class ModManager : MonoBehaviour
         }
     }
     
-    private void RemoveMod(string name)
+    private void RemoveMod(string modName)
     {
         string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
         AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-        JNIStorage.apiClass.CallStatic<bool>("removeMod", InstanceButton.GetInstance(), name);
+        JNIStorage.apiClass.CallStatic<bool>("removeMod", InstanceButton.GetInstance(), modName);
         DLDImage.SetActive(false);
         DLImage.SetActive(true);
         SearchMods();

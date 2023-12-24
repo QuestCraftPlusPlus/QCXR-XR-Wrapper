@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -9,15 +11,32 @@ using UnityEngine.UI;
 public class APIHandler : MonoBehaviour
 {
     public GameObject modButton;
-    public GameObject modpacksButton;
+    public GameObject modPacksButton;
     public GameObject resourcePacksButton;
+    public GameObject dataPacksButton;
     public string searchQuery;
 
-    public SearchParser GetSearchedMods()
+    //TODO: Add error handling
+    
+    public SearchParser GetSearchedProjects()
     {
-        string currInstName =
-            JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/search?query=" + searchQuery + "&facets=[[\"versions:" + currInstName + "\"], [\"project_type:" + GetFilterOption() + "\"], [\"categories:fabric\"]]");
+        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+        string filterOption = GetFilterOption();
+
+        List<string> facets = new List<string>
+        {
+            "[\"versions:" + currInstName + "\"]",
+            "[\"project_type:" + filterOption + "\"]"
+        };
+
+        if (filterOption != "datapack" && filterOption != "resourcepack")
+        {
+            facets.Add("[\"categories:fabric\"]");
+        }
+
+        string url = "https://api.modrinth.com/v2/search?query=" + searchQuery + "&facets=[" + String.Join(", ", facets) + "]";
+
+        var request = (HttpWebRequest)WebRequest.Create(url);
         using var response = (HttpWebResponse)request.GetResponse();
         using var reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
@@ -29,7 +48,7 @@ public class APIHandler : MonoBehaviour
         var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID);
         using var response = (HttpWebResponse)request.GetResponse();
         using var reader = new StreamReader(response.GetResponseStream());
-        string json = reader.ReadToEnd();
+        string json = reader.ReadToEnd(); 
         return JsonConvert.DeserializeObject<MetaParser>(json);
     }
 
@@ -52,24 +71,17 @@ public class APIHandler : MonoBehaviour
     }
 
 
-    public string GetFilterOption()
+    private string GetFilterOption()
     {
         List<Toggle> toggleButtons = new List<Toggle>
         {
             modButton.GetComponent<Toggle>(),
-            modpacksButton.GetComponent<Toggle>(),
-            resourcePacksButton.GetComponent<Toggle>()
+            modPacksButton.GetComponent<Toggle>(),
+            resourcePacksButton.GetComponent<Toggle>(),
+            dataPacksButton.GetComponent<Toggle>()
         };
 
-        foreach (Toggle button in toggleButtons)
-        {
-            if (!button.interactable)
-            {
-                return button.name;
-            }
-        }
-
-        return null;
+        return (from button in toggleButtons where !button.interactable select button.name).FirstOrDefault();
     }
 
 } 
