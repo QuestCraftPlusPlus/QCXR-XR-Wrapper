@@ -7,27 +7,21 @@ public class LoginHandler : MonoBehaviour
     bool hasAttemptedLogin;
     AndroidJavaClass jc;
     AndroidJavaObject jo;
-
+    
     public void Login() {
-	jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-	jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
-	JNIStorage.apiClass.CallStatic("login", jo);
-    	hasAttemptedLogin = true;
+	    //TODO: Fix double click bug
+		jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+		jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+		JNIStorage.apiClass.CallStatic("login", jo);
+		hasAttemptedLogin = true;
+		
+		if (JNIStorage.accountObj != null) {
+			handler.MainPanelSwitch();
+		} else {
+			JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+		}
     }
-
-    public void Update()
-    {
-	    if(!hasAttemptedLogin) {
-	        return;
-	    }
-        
-        if (JNIStorage.accountObj != null) {
-            handler.MainPanelSwitch();
-        } else {
-            JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
-        }
-    }
-
+    
     public void LogoutButton()
     {
         handler.ErrorWindowSetter();

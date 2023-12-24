@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WindowHandler : MonoBehaviour
 {
@@ -15,12 +17,15 @@ public class WindowHandler : MonoBehaviour
     public GameObject modInfoMenu;
     public GameObject modManagerMainpage;
     public GameObject errorWindow;
+    public TextMeshProUGUI profileNameHolder;
+    public RawImage pfpHolder;
     
     public void MainPanelSwitch()
     {
         startPanel.SetActive(false);
         modManagerPanel.SetActive(false);
         mainPanel.SetActive(true);
+        UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
     }
 
     public void DevMenuSetter()

@@ -6,15 +6,13 @@ using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
 {
-    public RawImage pfpHolder;
-    public TextMeshProUGUI profileNameHolder;
     public TextMeshProUGUI minuteHourText;
     public TextMeshProUGUI secondText;
     public Toggle modToggle;
     public Toggle modpacksToggle;
     public Toggle resourcePacksToggle;
-    string pfpUrl;
-    string profileName;
+    static string pfpUrl;
+    static string profileName;
 
     void Start()
     {
@@ -26,24 +24,6 @@ public class UIHandler : MonoBehaviour
     
     void Update()
     {
-        if (JNIStorage.accountObj != null)
-        {
-            if (pfpUrl == null)
-            {
-                pfpUrl = JNIStorage.apiClass.GetStatic<string>("profileImage");
-            }
-
-            if (profileName == null)
-            {
-                profileName = JNIStorage.apiClass.GetStatic<string>("profileName");
-            }
-
-            if (pfpHolder.texture == null)
-            {
-                GetTexturePlusName();
-            }
-        }
-        
         if (System.DateTime.Now.Minute.ToString().Length == 1)
         {
             string hour = System.DateTime.Now.Hour.ToString();
@@ -58,24 +38,37 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    void GetTexturePlusName()
+    public static async Task GetTexturePlusName(RawImage pfpHolder, TextMeshProUGUI profileNameHolder)
     {
-        using UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl);
-        pfp.SetRequestHeader("User-Agent", "QuestCraft");
-        var requestTask = pfp.SendWebRequest();
-        Debug.Log("Making URL request for PFP...");
+        if (JNIStorage.accountObj != null)
+        {
+            pfpUrl ??= JNIStorage.apiClass.GetStatic<string>("profileImage");
+            profileName ??= JNIStorage.apiClass.GetStatic<string>("profileName");
 
-        while (!requestTask.isDone);
-        if (pfp.result != UnityWebRequest.Result.Success)
-        {
-            Debug.Log(pfp.error);
-        }
-        else
-        {
-            // Get downloaded texture
-            var pfpTexture = DownloadHandlerTexture.GetContent(pfp);
-            pfpHolder.texture = pfpTexture;
-            profileNameHolder.text = profileName;
+            if (pfpHolder.texture == null)
+            {
+                using UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl);
+                pfp.SetRequestHeader("User-Agent", "QuestCraft v5");
+                var requestTask = pfp.SendWebRequest();
+                Debug.Log("Making URL request for PFP...");
+
+                while (!requestTask.isDone)
+                {
+                    await Task.Yield();
+                }
+                
+                if (pfp.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.Log(pfp.error);
+                }
+                else
+                {
+                    // Get downloaded texture
+                    var pfpTexture = DownloadHandlerTexture.GetContent(pfp);
+                    pfpHolder.texture = pfpTexture;
+                    profileNameHolder.text = profileName;
+                }
+            }
         }
     }
 
