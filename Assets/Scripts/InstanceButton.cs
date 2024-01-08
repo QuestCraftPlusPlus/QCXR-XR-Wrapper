@@ -27,9 +27,9 @@ public class InstanceButton : MonoBehaviour
 
     private void UpdateMenuButtons(string instName)
     {
-        modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
-        mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
-        searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName + "-fabric";
+        modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
+        mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
+        searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
         instanceCreatorButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
     }
 

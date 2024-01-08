@@ -5,6 +5,7 @@ public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
     bool hasAttemptedLogin;
+    bool isMainScreen;
     AndroidJavaClass jc;
     AndroidJavaObject jo;
     
@@ -14,12 +15,15 @@ public class LoginHandler : MonoBehaviour
 		jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
 		JNIStorage.apiClass.CallStatic("login", jo);
 		hasAttemptedLogin = true;
-		
-		if (JNIStorage.accountObj != null) {
-			handler.MainPanelSwitch();
-		} else {
-			JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
-		}
+    }
+    
+    public void Update() {
+	    if (JNIStorage.accountObj != null && !isMainScreen) {
+		    handler.MainPanelSwitch();
+		    isMainScreen = true;
+	    } else {
+		    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+	    }
     }
     
     public void LogoutButton()

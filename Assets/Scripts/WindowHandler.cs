@@ -26,6 +26,7 @@ public class WindowHandler : MonoBehaviour
         modManagerPanel.SetActive(false);
         mainPanel.SetActive(true);
         UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
+        Debug.Log("QCXR: Getting PFP and Username.");
     }
 
     public void DevMenuSetter()
