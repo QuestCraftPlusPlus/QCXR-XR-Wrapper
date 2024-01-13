@@ -24,18 +24,8 @@ public class UIHandler : MonoBehaviour
     
     void Update()
     {
-        if (System.DateTime.Now.Minute.ToString().Length == 1)
-        {
-            string hour = System.DateTime.Now.Hour.ToString();
-            string minute = System.DateTime.Now.Minute.ToString().Insert(0, "0");
-            minuteHourText.text = hour + ":" + minute;
-        }
-        else
-        {
-            string hour = System.DateTime.Now.Hour.ToString();
-            string minute = System.DateTime.Now.Minute.ToString();
-            minuteHourText.text = hour + ":" + minute;
-        }
+        string time = System.DateTime.Now.ToString("hh:mm tt");
+        minuteHourText.text = time;
     }
 
     public static async Task GetTexturePlusName(RawImage pfpHolder, TextMeshProUGUI profileNameHolder)
