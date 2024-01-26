@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class UIHandler : MonoBehaviour
     public Toggle modToggle;
     public Toggle modpacksToggle;
     public Toggle resourcePacksToggle;
+    public static Button modloaderSwitcher;
     static string pfpUrl;
     static string profileName;
 
@@ -61,6 +63,19 @@ public class UIHandler : MonoBehaviour
             }
         }
     }
+    
+    public static void ModLoaderSwitch()
+    {
+        switch (modloaderSwitcher.name)
+        {
+            case "Fabric":
+                modloaderSwitcher.name = "Quilt";
+                break;
+            case "Quilt":
+                modloaderSwitcher.name = "Fabric";
+                break;
+        }
+    } 
 
     void OnToggleClicked(bool value, Toggle clickedToggle)
     {

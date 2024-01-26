@@ -1572,7 +1572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &158777818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4629,9 +4629,6 @@ GameObject:
   - component: {fileID: 519564939}
   - component: {fileID: 519564938}
   - component: {fileID: 519564937}
-  - component: {fileID: 519564936}
-  - component: {fileID: 519564935}
-  - component: {fileID: 519564934}
   m_Layer: 5
   m_Name: ModLoaderButton
   m_TagString: Untagged
@@ -4660,43 +4657,6 @@ RectTransform:
   m_AnchoredPosition: {x: -255, y: -58.999985}
   m_SizeDelta: {x: 215, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &519564934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519564932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb86ba9d4c5126e48bfef9b0c9550e9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &519564935
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519564932}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 215, y: 40, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &519564936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519564932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &519564937
 MonoBehaviour:
   m_ObjectHideFlags: 0

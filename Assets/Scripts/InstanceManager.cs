@@ -1,16 +1,14 @@
 using System;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Networking;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class InstanceManager : MonoBehaviour
 {
     [SerializeField] private GameObject modArray;
-	private string currModSlug;
     public TMP_InputField instanceName;
+    public Button ModLoaderButton;
+    private string currModSlug;
 
     public void ListInstances()
     {
@@ -24,13 +22,21 @@ public class InstanceManager : MonoBehaviour
 
     public static AndroidJavaObject CreateDefaultInstance(AndroidJavaObject currentVersion)
     {
-        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
-        AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
-        
-        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion, fabric);
+        try
+        {
+            string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
+            AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
 
-        return instance;
+            AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion, fabric);
+
+            return instance;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     public AndroidJavaObject CreateCustomInstance()
@@ -38,13 +44,25 @@ public class InstanceManager : MonoBehaviour
         try
         {
             AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
-            AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
-            AndroidJavaObject quilt = modloaderEnum.GetStatic<AndroidJavaObject>("Quilt");
-            AndroidJavaObject forge = modloaderEnum.GetStatic<AndroidJavaObject>("Forge");
-            AndroidJavaObject neoForge = modloaderEnum.GetStatic<AndroidJavaObject>("NeoForge");
+            AndroidJavaObject instance = null;
             
-            AndroidJavaObject currentVersion = InstanceButton.currentVersion;
-            AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion, fabric);
+            switch (ModLoaderButton.name)
+            {
+                case "Fabric":
+                {
+                    AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
+                    AndroidJavaObject currentVersion = InstanceButton.currentVersion;
+                    instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion, fabric);
+                    break;
+                }
+                case "Quilt":
+                {
+                    AndroidJavaObject quilt = modloaderEnum.GetStatic<AndroidJavaObject>("Quilt");
+                    AndroidJavaObject currentVersion = InstanceButton.currentVersion;
+                    instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion, quilt);
+                    break;
+                }
+            }
 
             return instance;
         }
