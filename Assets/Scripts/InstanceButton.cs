@@ -57,13 +57,9 @@ public class InstanceButton : MonoBehaviour
 
         AndroidJavaObject instance = GetInstance();
         bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
-
         instance.Call("updateOrDownloadMods");
         
-        if (!finishedDownloading)
-        {
-            return;
-        }
+        if (!finishedDownloading) { return; }
 	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();
         XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
 

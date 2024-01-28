@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -145,68 +146,99 @@ public class ModManager : MonoBehaviour
     public void AddMod()
     {
         MetaParser mp = apiHandler.GetModInfo(currModSlug);
-        MetaInfo[] mi = apiHandler.GetModDownloads(mp.slug);
-
+        MetaInfo[] modInfos = apiHandler.GetModDownloads(mp.slug);
         string currentInstanceName = InstanceButton.currInstName;
-        foreach (MetaInfo metaInfo in mi)
+
+        foreach (MetaInfo metaInfo in modInfos)
         {
-            foreach (FileInfo file in metaInfo.files)
+            foreach (var file in metaInfo.files.Where(file => IsValidModFile(file, metaInfo, currentInstanceName)))
             {
-                if (metaInfo.game_versions.Contains(currentInstanceName) && metaInfo.loaders.Contains("fabric") && !file.url.Contains(".mrpack"))
+                ProcessModFile(mp, file, metaInfo, currentInstanceName);
+                return;
+            }
+        }
+    }
+
+    private bool IsValidModFile(FileInfo file, MetaInfo metaInfo, string currentInstanceName)
+    {
+        return metaInfo.game_versions.Contains(currentInstanceName) 
+               && metaInfo.loaders.Contains("fabric") 
+               && !file.url.Contains(".mrpack");
+    }
+
+    private void ProcessModFile(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceName)
+    {
+        Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceName}");
+
+        AndroidJavaObject instance = LoadInstance(currentInstanceName);
+        if (instance == null) return;
+
+        DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceName);
+    }
+
+    private AndroidJavaObject LoadInstance(string currentInstanceName)
+    {
+        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", $"{currInstName}-fabric", JNIStorage.home);
+
+        if (instance == null)
+        {
+            ShowError("You must run this version of the game at least once before adding mods to the instance with ModManger!");
+        }
+
+        return instance;
+    }
+
+    private void DownloadDependenciesAndAddMod(MetaParser mp, MetaInfo metaInfo, string modUrl, string currentInstanceName)
+    {
+        var dependencies = apiHandler.GetModDeps(mp.slug, metaInfo.id);
+        if (dependencies != null)
+        {
+            foreach (Deps dep in dependencies)
+            {
+                string slug = apiHandler.GetModInfo(dep.project_id).slug;
+                foreach (MetaInfo depInfo in apiHandler.GetModDownloads(dep.project_id))
                 {
-                    string modName = mp.title;
-                    string modUrl = file.url;
-                    string modVersion = currentInstanceName;
-                    Debug.Log($"modName: {modName} | modUrl: {modUrl} | modVersion: {modVersion}");
-
-                    string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-                    AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", $"{currInstName}-fabric", JNIStorage.home);
-
-                    if (instance == null)
+                    var validDepFiles = depInfo.files.Where(depFile => IsValidDependency(depFile, depInfo, currentInstanceName, slug));
+                    foreach (var depFile in validDepFiles)
                     {
-                        errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "You must run this version of the game at least once before adding mods to the instance with ModManger!";
-                        errorMenu.SetActive(true);
+                        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), slug, currentInstanceName, depFile.url);
+                        Debug.Log($"Downloading Dep with file url {depFile.url}");
+                        break;
                     }
-                    else
-                    {
-						// Download Deps
-						if(apiHandler.GetModDeps(mp.slug, metaInfo.id) != null) {
-							foreach(Deps dep in apiHandler.GetModDeps(mp.slug, metaInfo.id))
-                            {
-                                string slug = apiHandler.GetModInfo(dep.project_id).slug;
-								foreach(MetaInfo depInfo in apiHandler.GetModDownloads(dep.project_id)) {
-									foreach (FileInfo depFile in depInfo.files) {
-										if (depInfo.game_versions.Contains(currentInstanceName)
-											&& !file.url.Contains(".mrpack") 
-											&& depInfo.loaders.Contains("fabric")
-											&& !JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), slug)) {
-											JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), slug, modVersion, depFile.url);
-											Debug.Log($"Downloading Dep with file url {depFile.url}");
-											break;
-										}
-									}
-								}
-							}
-						}
-                        
-                        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), mp.slug, modVersion, modUrl);
-                        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.slug);
-                        
-                        DLImage.SetActive(false);
-                        DLDImage.SetActive(true);
-                        downloadButton.GetComponent<Button>().enabled = !hasMod;
-                        
-						if (!hasMod)
-						{
-							errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = "There has been an error attempting to add this mod, maybe this mod doesn't have " + currentInstanceName + " support? Please try again later or contact our support staff at https://discord.gg/QuestCraft.";
-							errorMenu.SetActive(true);
-						}
-                    }
-
-                    return;
                 }
             }
         }
+
+        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), mp.slug, currentInstanceName, modUrl);
+        UpdateUIAfterModAddition(mp.slug);
+    }
+
+    private bool IsValidDependency(FileInfo depFile, MetaInfo depInfo, string currentInstanceName, string slug)
+    {
+        return depInfo.game_versions.Contains(currentInstanceName)
+               && !depFile.url.Contains(".mrpack")
+               && depInfo.loaders.Contains("fabric")
+               && !JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), slug);
+    }
+
+    private void UpdateUIAfterModAddition(string slug)
+    {
+        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), slug);
+        DLImage.SetActive(false);
+        DLDImage.SetActive(true);
+        downloadButton.GetComponent<Button>().enabled = !hasMod;
+
+        if (!hasMod)
+        {
+            ShowError("There has been an error attempting to add this mod, maybe this mod doesn't have support? Please try again later or contact our support staff.");
+        }
+    }
+
+    private void ShowError(string message)
+    {
+        errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        errorMenu.SetActive(true);
     }
     
     private void RemoveMod(string modName)
