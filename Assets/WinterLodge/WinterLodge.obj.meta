@@ -27,6 +27,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-azure_bluet
+    second: {fileID: 2100000, guid: 17386e869fd12604caf06ec89e9a59bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-bamboo_stalk
     second: {fileID: 2100000, guid: 4ab51c84e581ed04fae39601388a86bb, type: 2}
   - first:
@@ -74,6 +79,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: minecraft_block-black_concrete
     second: {fileID: 2100000, guid: e531f29e76f0c1a468b28e616d5f29fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-blast_furnace_front
+    second: {fileID: 2100000, guid: fbb933749471b3a4c8d7203bb0ac518d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-blast_furnace_side
+    second: {fileID: 2100000, guid: 977d1c8ae24568f43b6c3c34dcbe8ad0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-blast_furnace_top
+    second: {fileID: 2100000, guid: 8b7b349825dd2d348afec045fdd996cb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -257,13 +277,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-hopper_inside
+    second: {fileID: 2100000, guid: b864f41f8019a02448c9bbdac52f39e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-hopper_outside
     second: {fileID: 2100000, guid: d1d3d1f2cf832ee4ba14c055ce86e6c0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-hopper_top
+    second: {fileID: 2100000, guid: a4f6604f414905c4298144149a418ce5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-iron_bars
     second: {fileID: 2100000, guid: 0e7fed3ffabc16d4bac8da2ad1475242, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-iron_block
+    second: {fileID: 2100000, guid: cfeb43f74f3718c4caa2bd8ffee83763, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-iron_trapdoor
+    second: {fileID: 2100000, guid: 0d097a7f95575c2439f70a55f958f72c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -307,6 +347,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-lever
+    second: {fileID: 2100000, guid: cbf1d423d0327034b97e948ee17ebcf5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-light_blue_wool
     second: {fileID: 2100000, guid: 384b81cd6463c8f458ab7390b17c1c49, type: 2}
   - first:
@@ -314,6 +359,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: minecraft_block-lily_of_the_valley
     second: {fileID: 2100000, guid: 7fea2ebf197e61d4ea88532c1af4a654, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-loom_bottom
+    second: {fileID: 2100000, guid: a5d3a4f650ce0c547a0965f8157087f1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -329,6 +379,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: minecraft_block-loom_top
     second: {fileID: 2100000, guid: ae817e79a48530344b7e3ab4e5a8b3ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-mangrove_planks
+    second: {fileID: 2100000, guid: 1db1bedd4cc36d0479aa7d1d4e487a6e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -372,6 +427,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-oxeye_daisy
+    second: {fileID: 2100000, guid: afe8df46a7d6dc04bb01f8ca8a981715, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-pink_tulip
     second: {fileID: 2100000, guid: ad1372c37e8b9de4eab10c011f2b0bbd, type: 2}
   - first:
@@ -412,6 +472,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-potted_flowering_azalea_bush_plant
+    second: {fileID: 2100000, guid: 03fab3f39b2cbe644b32ee31a9952b42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-potted_flowering_azalea_bush_side
     second: {fileID: 2100000, guid: 02c6b518de9c7cd4bb6db8a5772dfded, type: 2}
   - first:
@@ -432,8 +497,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-quartz_block_side
+    second: {fileID: 2100000, guid: ada9f06d92727bf41ae202fcb8754734, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-quartz_block_top
+    second: {fileID: 2100000, guid: 446c9be548e06974bb88cc86f659a347, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-rail
     second: {fileID: 2100000, guid: 6da0ded247336234e8227df8916c5a57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-red_candle
+    second: {fileID: 2100000, guid: 4550d4ea02a2aca4e9ef367d5db065b4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -464,6 +544,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: minecraft_block-redstone_block
     second: {fileID: 2100000, guid: 3ecd92cd5d871b645b86da4e2a3edbc2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_block-rose_bush_bottom
+    second: {fileID: 2100000, guid: 71d39584321f40047899cd177476cd5b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -562,6 +647,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-torchflower
+    second: {fileID: 2100000, guid: c2c7122d50d29a643a6d597603e39c3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-turtle_egg
     second: {fileID: 2100000, guid: b8ad970c241b5f0489e5921f67d71fa9, type: 2}
   - first:
@@ -587,6 +677,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: minecraft_block-wither_rose
+    second: {fileID: 2100000, guid: 5384e230112356b4d906342b875c02b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: minecraft_block-yellow_wool
     second: {fileID: 2100000, guid: b257418209e135d4496cfdff84341a44, type: 2}
   - first:
@@ -594,6 +689,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: minecraft_entity-bed-blue
     second: {fileID: 2100000, guid: 79045594610c4d045b76be40e696290a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_entity-bed-green
+    second: {fileID: 2100000, guid: 2256bc7b7975b1f4199d7dc217e8a8b1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -654,6 +754,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: minecraft_entity-signs-spruce
     second: {fileID: 2100000, guid: 38a12724722b9c141874ae6ec80fde85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: minecraft_painting-match
+    second: {fileID: 2100000, guid: 118954ea0c3a7fa4face8c84dab473cf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
