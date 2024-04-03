@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.meta.xr.sdk.core": {
+      "version": "63.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "2.2.0",
       "depth": 0,
