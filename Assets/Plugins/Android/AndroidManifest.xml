@@ -21,6 +21,7 @@
       </intent-filter>
     </activity>
     <meta-data android:name="com.oculus.trade_cpu_for_gpu_amount" android:value="-1" />
+    <meta-data android:name="com.oculus.dualcorecpuset" android:value="true" />
   </application>
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
 </manifest>
