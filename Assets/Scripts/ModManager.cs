@@ -21,8 +21,7 @@ public class ModManager : MonoBehaviour
     [SerializeField] private GameObject modManagerMainpage;
     [SerializeField] private GameObject modSearchMenu;
     [SerializeField] private GameObject instanceMenu;
-    [SerializeField] private GameObject DLDImage;
-    [SerializeField] private GameObject DLImage;
+    [SerializeField] private TextMeshProUGUI downloadText;
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
 	
@@ -128,15 +127,13 @@ public class ModManager : MonoBehaviour
             try
             {
                 bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.slug);
-                DLDImage.SetActive(hasMod);
-                DLImage.SetActive(!hasMod);
+                downloadText.text = hasMod ? "Installed" : "Install";
                 downloadButton.GetComponent<Button>().enabled = !hasMod;
             }
             catch (Exception ex)
             {
                 Debug.LogError($"An error occurred: {ex}");
-                DLDImage.SetActive(false);
-                DLImage.SetActive(true);
+                downloadText.text = "Install";
             }
         }
 
@@ -225,8 +222,7 @@ public class ModManager : MonoBehaviour
     private void UpdateUIAfterModAddition(string slug)
     {
         bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), slug);
-        DLImage.SetActive(false);
-        DLDImage.SetActive(true);
+        downloadText.text = "Installed";
         downloadButton.GetComponent<Button>().enabled = !hasMod;
 
         if (!hasMod)
@@ -246,8 +242,7 @@ public class ModManager : MonoBehaviour
         string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
         AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
         JNIStorage.apiClass.CallStatic<bool>("removeMod", InstanceButton.GetInstance(), modName);
-        DLDImage.SetActive(false);
-        DLImage.SetActive(true);
+        downloadText.text = "Install";
         SearchMods();
     }
 
