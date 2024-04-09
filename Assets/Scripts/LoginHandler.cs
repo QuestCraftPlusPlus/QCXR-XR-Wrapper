@@ -35,8 +35,11 @@ public class LoginHandler : MonoBehaviour
 
     public void Logout()
     {
-        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("logout", JNIStorage.home);
+        JNIStorage.apiClass.CallStatic<bool>("logout", JNIStorage.activity);
+        
         handler.errorWindow.transform.GetChild(2).gameObject.SetActive(false);
         handler.errorWindow.SetActive(false);
+        handler.startPanel.SetActive(true);
+        handler.mainPanel.SetActive(false);
     }
 }

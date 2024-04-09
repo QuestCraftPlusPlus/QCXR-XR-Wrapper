@@ -25,7 +25,6 @@ public class JNIStorage : MonoBehaviour
         UpdateInstances();
 		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
         SetMemoryValue(OpenXRFeatureSystemInfo.GetHeadsetName());
-        SetDisplayRefreshRate();
     }
 
     public static void UpdateInstances()
@@ -57,11 +56,5 @@ public class JNIStorage : MonoBehaviour
                     break;
             }
         }
-    }
-
-    private void SetDisplayRefreshRate()
-    {
-        float[] refreshRates = OVRManager.display.displayFrequenciesAvailable;
-        OVRPlugin.systemDisplayFrequency = refreshRates.Max();
     }
 }
