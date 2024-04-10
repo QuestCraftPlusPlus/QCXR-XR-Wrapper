@@ -1,30 +1,38 @@
+using System.Collections;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
 public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
-    bool hasAttemptedLogin;
     bool isMainScreen;
     AndroidJavaClass jc;
     AndroidJavaObject jo;
     
     public void Login() {
-	    //TODO: Fix double click bug
 		jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 		jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
 		JNIStorage.apiClass.CallStatic("login", jo);
-		hasAttemptedLogin = true;
+		CheckVerification();
     }
     
-    public void Update() {
-	    if (JNIStorage.accountObj != null && !isMainScreen) {
-		    handler.MainPanelSwitch();
-		    isMainScreen = true;
-	    } else {
-		    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+    private async void CheckVerification() {
+	    while (true)
+	    {
+		    await Task.Delay(3000);
+		    
+		    if (JNIStorage.accountObj != null && !isMainScreen) {
+			    handler.MainPanelSwitch();
+			    isMainScreen = true;
+		    } else {
+			    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+			    Debug.Log("Check Login State");
+		    }
+		    
+		    Debug.Log("End of login task");
 	    }
-    }
+	}
     
     public void LogoutButton()
     {
@@ -35,6 +43,8 @@ public class LoginHandler : MonoBehaviour
 
     public void Logout()
     {
+	    isMainScreen = false;
+	    JNIStorage.accountObj = null;
         JNIStorage.apiClass.CallStatic<bool>("logout", JNIStorage.activity);
         
         handler.errorWindow.transform.GetChild(2).gameObject.SetActive(false);
