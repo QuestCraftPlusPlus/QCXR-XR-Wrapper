@@ -24,7 +24,6 @@ public class JNIStorage : MonoBehaviour
         apiClass.SetStatic("developerMods", _devToggle.isOn);
         UpdateInstances();
 		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
-        SetMemoryValue(OpenXRFeatureSystemInfo.GetHeadsetName());
     }
 
     public static void UpdateInstances()
@@ -35,26 +34,11 @@ public class JNIStorage : MonoBehaviour
         activity = jc.GetStatic<AndroidJavaObject>("currentActivity");
     }
 
-    public void SetMemoryValue(string headsetName)
+    public void SetMemoryValue()
     {
-        if (RAMSetterField.text == null)
+        if (RAMSetterField.text != null)
         {
-            apiClass.SetStatic("customRAMValue", true);
-            switch (headsetName)
-            {
-                case "quest":
-                    apiClass.SetStatic("memoryValue", "1024");
-                    break;
-                case "Oculus Quest2":
-                    apiClass.SetStatic("memoryValue", "2048");
-                    break;
-                case "Oculus Headset1":
-                    apiClass.SetStatic("memoryValue", "4096");
-                    break;
-                default:
-                    apiClass.SetStatic("memoryValue", "2048");
-                    break;
-            }
+            apiClass.SetStatic("memoryValue", RAMSetterField.text);
         }
     }
 }
