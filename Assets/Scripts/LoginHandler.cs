@@ -18,9 +18,9 @@ public class LoginHandler : MonoBehaviour
     }
     
     private async void CheckVerification() {
-	    while (true)
+	    while (isMainScreen == false)
 	    {
-		    await Task.Delay(3000);
+		    await Task.Delay(1500);
 		    
 		    if (JNIStorage.accountObj != null && !isMainScreen) {
 			    handler.MainPanelSwitch();
@@ -29,8 +29,6 @@ public class LoginHandler : MonoBehaviour
 			    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
 			    Debug.Log("Check Login State");
 		    }
-		    
-		    Debug.Log("End of login task");
 	    }
 	}
     
