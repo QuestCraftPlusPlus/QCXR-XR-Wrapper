@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,8 +12,10 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaClass apiClass;
     public static AndroidJavaObject accountObj;
     public static AndroidJavaObject activity;
-    public static AndroidJavaObject[] instances;
+    public static AndroidJavaObject instanceList;
+    public static List<PojlibInstance> instances;
     public TMP_InputField RAMSetterField;
+    public static TMP_Dropdown instancesDropdown;
     [SerializeField, FormerlySerializedAs("DevToggle")]
     private Toggle _devToggle;
     public static string home;
@@ -28,10 +33,25 @@ public class JNIStorage : MonoBehaviour
 
     public static void UpdateInstances()
     {
-        AndroidJavaClass instance = new AndroidJavaClass("pojlib.instance.MinecraftInstance");
-        instances = apiClass.CallStatic<AndroidJavaObject[]>("getQCSupportedVersions");
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         activity = jc.GetStatic<AndroidJavaObject>("currentActivity");
+        
+        instanceList = apiClass.CallStatic<AndroidJavaObject>("loadAll");
+        AndroidJavaObject[] availableInstances = instanceList.Call<AndroidJavaObject[]>("toArray");
+        instances = new List<PojlibInstance>();
+        
+        foreach (AndroidJavaObject instance in availableInstances)
+        {
+            instances.Add(PojlibInstance.parse(instance));
+        }
+
+        List<string> instanceNames = new List<string>();
+        foreach (PojlibInstance instance in instances)
+        {
+            instanceNames.Add(instance.instanceName);
+        }
+        
+        instancesDropdown.AddOptions(instanceNames);
     }
 
     public void SetMemoryValue()

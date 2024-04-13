@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +9,7 @@ public class InstanceManager : MonoBehaviour
     [SerializeField] private GameObject modArray;
     public TMP_InputField instanceName;
     public TMP_Text modLoaderButton;
+    public static string[] instanceList;
     private string currModSlug;
 
     public void ListInstances()
@@ -32,17 +35,18 @@ public class InstanceManager : MonoBehaviour
         }
     } 
 
-    public static AndroidJavaObject CreateDefaultInstance(AndroidJavaObject currentVersion)
+    public static void CreateDefaultInstances()
     {
         try
         {
-            string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
+            instanceList = JNIStorage.apiClass.CallStatic<string[]>("getQCSupportedVersions");
+            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.InstanceHandler$ModLoader");
             AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
 
-            AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion, fabric);
-
-            return instance;
+            foreach (string instance in instanceList)
+            {
+                JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instance, JNIStorage.home, true, instance, fabric, null);
+            }
         }
         catch (Exception e)
         {
@@ -55,7 +59,7 @@ public class InstanceManager : MonoBehaviour
     {
         try
         {
-            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
+            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.InstanceHandler$ModLoader");
             AndroidJavaObject instance = null;
             
             switch (modLoaderButton.text)
