@@ -22,7 +22,7 @@ public class JNIStorage : MonoBehaviour
         apiClass = new AndroidJavaClass("pojlib.api.API_V1");
         AndroidJavaClass constants = new AndroidJavaClass("pojlib.util.Constants");
         home = constants.GetStatic<string>("MC_DIR");
-        instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll");
+        instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll", JNIStorage.home);
         apiClass.SetStatic("developerMods", _devToggle.isOn);
         UpdateInstances();
 		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
