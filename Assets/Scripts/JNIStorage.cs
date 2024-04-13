@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,8 +9,7 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaClass apiClass;
     public static AndroidJavaObject accountObj;
     public static AndroidJavaObject activity;
-    public static AndroidJavaObject instanceList;
-    public static List<PojlibInstance> instances;
+    public static AndroidJavaObject instancesObj;
     public TMP_InputField RAMSetterField;
     public static TMP_Dropdown instancesDropdown;
     [SerializeField, FormerlySerializedAs("DevToggle")]
@@ -26,9 +22,39 @@ public class JNIStorage : MonoBehaviour
         apiClass = new AndroidJavaClass("pojlib.api.API_V1");
         AndroidJavaClass constants = new AndroidJavaClass("pojlib.util.Constants");
         home = constants.GetStatic<string>("MC_DIR");
+        instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll");
         apiClass.SetStatic("developerMods", _devToggle.isOn);
         UpdateInstances();
 		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
+    }
+
+    private static void FillSupportedVersions(List<string> supportedVersions, string[] supportedVersionsArray)
+    {
+        supportedVersions.AddRange(supportedVersionsArray);
+        AndroidJavaObject[] instances = instancesObj.Get<AndroidJavaObject[]>("instances");
+        foreach (var instance in instances)
+        {
+            string name = instance.Get<string>("instanceName");
+            if (!supportedVersions.Contains(name))
+            {
+                supportedVersions.Add(name);
+            }
+        }
+    }
+
+    public static PojlibInstance GetInstance(string name)
+    {
+        AndroidJavaObject[] instances = instancesObj.Get<AndroidJavaObject[]>("instances");
+        foreach (var instance in instances)
+        {
+            PojlibInstance pojlibInstance = PojlibInstance.parse(instance);
+            if (pojlibInstance.instanceName.Equals(name))
+            {
+                return pojlibInstance;
+            }
+        }
+
+        return null;
     }
 
     public static void UpdateInstances()
@@ -36,22 +62,10 @@ public class JNIStorage : MonoBehaviour
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         activity = jc.GetStatic<AndroidJavaObject>("currentActivity");
         
-        instanceList = apiClass.CallStatic<AndroidJavaObject>("loadAll");
-        AndroidJavaObject[] availableInstances = instanceList.Call<AndroidJavaObject[]>("toArray");
-        instances = new List<PojlibInstance>();
-        
-        foreach (AndroidJavaObject instance in availableInstances)
-        {
-            instances.Add(PojlibInstance.parse(instance));
-        }
-
-        List<string> instanceNames = new List<string>();
-        foreach (PojlibInstance instance in instances)
-        {
-            instanceNames.Add(instance.instanceName);
-        }
-        
-        instancesDropdown.AddOptions(instanceNames);
+        string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions");
+        List<string> supportedVersions = new List<string>();
+        FillSupportedVersions(supportedVersions, supportedVersionsArray);
+        instancesDropdown.AddOptions(supportedVersions);
     }
 
     public void SetMemoryValue()

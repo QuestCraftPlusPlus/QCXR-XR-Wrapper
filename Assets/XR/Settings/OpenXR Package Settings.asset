@@ -111,7 +111,7 @@ MonoBehaviour:
   - {fileID: 5642158129966033225}
   - {fileID: 683242963972653743}
   - {fileID: 6330444517237439503}
-  - {fileID: -3020008386283306383}
+  - {fileID: -626418897677270208}
   - {fileID: -7070372472448086894}
   - {fileID: -6384184786031156892}
   m_renderMode: 0
@@ -413,6 +413,26 @@ MonoBehaviour:
   featureIdInternal: com.unity.openxr.feature.input.eyetracking
   openxrExtensionStrings: XR_EXT_eye_gaze_interaction
   company: Unity
+  priority: 0
+  required: 0
+--- !u!114 &-626418897677270208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cbce3c0a43cb94993bae5d5d772f48, type: 3}
+  m_Name: OpenXRFeatureSystemInfo Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Get System Info
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.example.getSystemInfo
+  openxrExtensionStrings: 
+  company: Fireproof Studios
   priority: 0
   required: 0
 --- !u!114 &-519190482025496450

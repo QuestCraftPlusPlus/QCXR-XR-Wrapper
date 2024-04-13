@@ -4,7 +4,6 @@ using UnityEngine.XR.Management;
 
 public class InstanceButton : MonoBehaviour
 {
-    public static AndroidJavaObject currentVersion;
     public int index;
     public static string currInstName;
     public GameObject modManagerButton;
@@ -16,10 +15,9 @@ public class InstanceButton : MonoBehaviour
 
     private void Update()
     {
-        if (JNIStorage.instances != null && !hasDefaulted)
+        if (!hasDefaulted)
         {
-            currentVersion = JNIStorage.instances[0];
-            currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
+            currInstName = JNIStorage.instancesDropdown.itemText.text;
             hasDefaulted = true;
             UpdateMenuButtons(currInstName);
         }
@@ -32,32 +30,22 @@ public class InstanceButton : MonoBehaviour
         searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
         instanceCreatorButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
     }
-
-    public void SwitchInstance()
+    private static void CreateDefaultInstance(string name)
     {
-        index = (index + 1) % JNIStorage.instances.Length;
-        currentVersion = JNIStorage.instances[index];
-        currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        UpdateMenuButtons(currInstName);
-    }
-
-    public static AndroidJavaObject GetInstance()
-    {
-        currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        return JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, name, JNIStorage.home, true, name, null);
     }
 
     public static void LaunchCurrentInstance()
     {
-        if (GetInstance() == null)
+        if (JNIStorage.GetInstance(currInstName) == null)
         {
-            InstanceManager.CreateDefaultInstance(currentVersion);
+            CreateDefaultInstance(currInstName);
             return;
         }
 
-        AndroidJavaObject instance = GetInstance();
+        PojlibInstance instance = JNIStorage.GetInstance(currInstName);
         bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
-        instance.Call("updateOrDownloadMods");
+        instance.raw.Call("updateMods", JNIStorage.home);
         
         if (!finishedDownloading) { return; }
 	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();

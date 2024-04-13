@@ -20,7 +20,7 @@ public class APIHandler : MonoBehaviour
     
     public SearchParser GetSearchedProjects()
     {
-        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
+        string currInstName = JNIStorage.GetInstance(InstanceButton.currInstName).versionName;
         string filterOption = GetFilterOption();
 
         List<string> facets = new List<string>
