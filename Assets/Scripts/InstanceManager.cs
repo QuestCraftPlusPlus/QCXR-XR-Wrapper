@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InstanceManager : MonoBehaviour
 {
     [SerializeField] private GameObject modArray;
     public TMP_InputField instanceName;
-    public TMP_Text modLoaderButton;
+    public Toggle defaultModsToggle;
+    public TMP_Dropdown versionDropdown; 
     private string currModSlug;
 
     public void ListInstances()
@@ -16,48 +18,12 @@ public class InstanceManager : MonoBehaviour
         ResetArray();
     }
     
-    public void ModLoaderSwitch()
-    {
-        switch (modLoaderButton.text)
-        {
-            case "Fabric":
-                modLoaderButton.text = "Quilt";
-                break;
-            case "Quilt":
-                modLoaderButton.text = "Fabric";
-                break;
-        }
-    } 
-
-    /* TODO: Refactor
-    public AndroidJavaObject CreateCustomInstance()
+    public void CreateCustomInstance()
     {
         try
         {
-            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.InstanceHandler$ModLoader");
-            AndroidJavaObject instance = null;
-
-            switch (modLoaderButton.text)
-            {
-                case "Fabric":
-                {
-                    AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
-                    AndroidJavaObject currentVersion = InstanceButton.currentVersion;
-                    instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion, fabric);
-                    Debug.Log("Creating " + currentVersion + " Fabric instance with name " + instanceName.name);
-                    break;
-                }
-                case "Quilt":
-                {
-                    AndroidJavaObject quilt = modloaderEnum.GetStatic<AndroidJavaObject>("Quilt");
-                    AndroidJavaObject currentVersion = InstanceButton.;
-                    instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion, quilt);
-                    Debug.Log("Creating " + currentVersion + " Quilt instance with name " + instanceName.name);
-                    break;
-                }
-            }
-
-            return instance;
+            JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, 
+                defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, instanceName.text);
         }
         catch (Exception e)
         {
@@ -65,7 +31,6 @@ public class InstanceManager : MonoBehaviour
             throw;
         }
     }
-    */
 
     private void ResetArray()
     {

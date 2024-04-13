@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dd12b67-74c7-4922-b8b7-42388d8fe02d" name="Changes" comment="Couple script fixes, sorry craftar">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/Pojlib-release.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/Pojlib-release.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InstanceButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InstanceButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InstanceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InstanceManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
