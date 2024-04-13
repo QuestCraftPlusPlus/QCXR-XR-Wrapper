@@ -15,12 +15,8 @@ public class InstanceButton : MonoBehaviour
 
     private void Update()
     {
-        if (!hasDefaulted)
-        {
-            currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
-            hasDefaulted = true;
-            UpdateMenuButtons(currInstName);
-        }
+        currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+        UpdateMenuButtons(currInstName);
     }
 
     private void UpdateMenuButtons(string instName)
@@ -46,7 +42,7 @@ public class InstanceButton : MonoBehaviour
 
         PojlibInstance instance = JNIStorage.GetInstance(currInstName);
         bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
-        instance.raw.Call("updateMods", JNIStorage.home);
+        instance.raw.Call("updateMods", JNIStorage.home, JNIStorage.instancesObj);
         
         if (!finishedDownloading) { return; }
 	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();
