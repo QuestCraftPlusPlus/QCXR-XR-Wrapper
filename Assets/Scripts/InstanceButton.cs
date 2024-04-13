@@ -17,7 +17,7 @@ public class InstanceButton : MonoBehaviour
     {
         if (!hasDefaulted)
         {
-            currInstName = JNIStorage.instancesDropdown.itemText.text;
+            currInstName = JNIStorage.instance.instancesDropdown.itemText.text;
             hasDefaulted = true;
             UpdateMenuButtons(currInstName);
         }
