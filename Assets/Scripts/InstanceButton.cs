@@ -39,6 +39,7 @@ public class InstanceButton : MonoBehaviour
     {
         if (JNIStorage.GetInstance(currInstName) == null)
         {
+            Debug.Log("Instance is null!");
             CreateDefaultInstance(currInstName);
             return;
         }
