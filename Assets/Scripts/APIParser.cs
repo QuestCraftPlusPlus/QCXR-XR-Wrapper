@@ -73,7 +73,7 @@ public class PojlibInstance
     public bool defaultMods;
     public AndroidJavaObject raw;
 
-    public static PojlibInstance parse(AndroidJavaObject raw)
+    public static PojlibInstance Parse(AndroidJavaObject raw)
     {
         PojlibInstance instance = new PojlibInstance();
         instance.raw = raw;
@@ -90,9 +90,34 @@ public class PojlibInstance
         return instance;
     }
 
-    public AndroidJavaObject[] getMods()
+    public PojlibMod[] GetMods()
     {
         // Mods can change at runtime
-        return raw.Call<AndroidJavaObject[]>("toArray");
+        List<PojlibMod> mods = new List<PojlibMod>();
+        foreach (var mod in raw.Get<AndroidJavaObject[]>("mods"))
+        {
+            mods.Add(PojlibMod.Parse(mod));
+        }
+
+        return mods.ToArray();
+    }
+}
+
+public class PojlibMod
+{
+    public string slug;
+    public string version;
+    public string download_link;
+    public AndroidJavaObject raw;
+
+    public static PojlibMod Parse(AndroidJavaObject raw)
+    {
+        PojlibMod mod = new PojlibMod();
+        mod.raw = raw;
+        
+        mod.slug = raw.Get<string>("slug");
+        mod.version = raw.Get<string>("version");
+        mod.download_link = raw.Get<string>("download_link");
+        return mod;
     }
 }

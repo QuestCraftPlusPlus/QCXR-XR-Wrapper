@@ -50,7 +50,7 @@ public class JNIStorage : MonoBehaviour
         AndroidJavaObject[] instances = instancesObj.Call<AndroidJavaObject[]>("toArray");
         foreach (var instance in instances)
         {
-            PojlibInstance pojlibInstance = PojlibInstance.parse(instance);
+            PojlibInstance pojlibInstance = PojlibInstance.Parse(instance);
             if (pojlibInstance.instanceName.Equals(name))
             {
                 return pojlibInstance;
