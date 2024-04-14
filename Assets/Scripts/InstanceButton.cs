@@ -11,14 +11,13 @@ public class InstanceButton : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(JNIStorage.instance.instancesDropdown.value);
         currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
     }
 
     private static void CreateDefaultInstance(string name)
     {
         JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, name, JNIStorage.home, true, name, null);
-        JNIStorage.instance.UpdateInstances(false);
+        JNIStorage.instance.UpdateInstances();
     }
 
     public static void LaunchCurrentInstance()

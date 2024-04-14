@@ -30,10 +30,26 @@ public class UIHandler : MonoBehaviour
         resourcePacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, resourcePacksToggle));
         datapacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, datapacksToggle));
         
-        dropdownMain.onValueChanged.AddListener(delegate {JNIStorage.instance.UpdateInstances(false); selectedInstance = dropdownMain.value;});
-        dropdownInstanceCreator.onValueChanged.AddListener(delegate {JNIStorage.instance.UpdateInstances(false); selectedInstance = dropdownInstanceCreator.value;});
-        dropdownModInfo.onValueChanged.AddListener(delegate {JNIStorage.instance.UpdateInstances(false); selectedInstance = dropdownModInfo.value;});
-        dropdownModSearch.onValueChanged.AddListener(delegate {JNIStorage.instance.UpdateInstances(false); selectedInstance = dropdownModSearch.value;});
+        dropdownMain.onValueChanged.AddListener(delegate
+        {
+            selectedInstance = dropdownMain.value;
+            UpdateDropdowns(false, null);
+        });
+        dropdownInstanceCreator.onValueChanged.AddListener(delegate
+        {
+            selectedInstance = dropdownInstanceCreator.value;
+            UpdateDropdowns(false, null);
+        });
+        dropdownModInfo.onValueChanged.AddListener(delegate
+        {
+            selectedInstance = dropdownModInfo.value;
+            UpdateDropdowns(false, null);
+        });
+        dropdownModSearch.onValueChanged.AddListener(delegate
+        {
+            selectedInstance = dropdownModSearch.value;
+            UpdateDropdowns(false, null);
+        });
 
     }
     

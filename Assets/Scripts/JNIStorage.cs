@@ -28,7 +28,7 @@ public class JNIStorage : MonoBehaviour
         home = constants.GetStatic<string>("MC_DIR");
         instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll", JNIStorage.home);
         apiClass.SetStatic("developerMods", _devToggle.isOn);
-        UpdateInstances(true);
+        UpdateInstances();
 		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
     }
 
@@ -61,7 +61,7 @@ public class JNIStorage : MonoBehaviour
         return null;
     }
 
-    public void UpdateInstances(bool init)
+    public void UpdateInstances()
     {
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         activity = jc.GetStatic<AndroidJavaObject>("currentActivity");
@@ -70,7 +70,7 @@ public class JNIStorage : MonoBehaviour
         string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions");
         List<string> supportedVersions = new List<string>();
         FillSupportedVersions(supportedVersions, supportedVersionsArray);
-        uiHandler.UpdateDropdowns(init, supportedVersions);
+        uiHandler.UpdateDropdowns(true, supportedVersions);
     }
 
     public void SetMemoryValue()
