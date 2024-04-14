@@ -6,29 +6,19 @@ public class InstanceButton : MonoBehaviour
 {
     public int index;
     public static string currInstName;
-    public GameObject modManagerButton;
-    public GameObject mainMenuButton;
-    public GameObject searchMenuButton;
-    public GameObject instanceCreatorButton;
 
     private bool hasDefaulted;
 
     private void Update()
     {
+        Debug.Log(JNIStorage.instance.instancesDropdown.value);
         currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
-        UpdateMenuButtons(currInstName);
     }
 
-    private void UpdateMenuButtons(string instName)
-    {
-        modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
-        mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
-        searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
-        instanceCreatorButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
-    }
     private static void CreateDefaultInstance(string name)
     {
         JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, name, JNIStorage.home, true, name, null);
+        JNIStorage.instance.UpdateInstances(false);
     }
 
     public static void LaunchCurrentInstance()

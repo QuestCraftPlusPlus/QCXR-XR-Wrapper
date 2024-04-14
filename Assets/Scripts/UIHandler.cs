@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -9,10 +10,15 @@ public class UIHandler : MonoBehaviour
 {
     public TextMeshProUGUI minuteHourText;
     public TextMeshProUGUI secondText;
+    public TMP_Dropdown dropdownMain;
+    public TMP_Dropdown dropdownModSearch;
+    public TMP_Dropdown dropdownModInfo;
+    public TMP_Dropdown dropdownInstanceCreator;
     public Toggle modToggle;
     public Toggle modpacksToggle;
     public Toggle resourcePacksToggle;
     public Toggle datapacksToggle;
+    public static int selectedInstance;
     static string pfpUrl;
     static string profileName;
 
@@ -23,6 +29,11 @@ public class UIHandler : MonoBehaviour
         modpacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, modpacksToggle));
         resourcePacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, resourcePacksToggle));
         datapacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, datapacksToggle));
+        
+        dropdownMain.onValueChanged.AddListener(delegate {JNIStorage.instance.UpdateInstances(false); selectedInstance = dropdownMain.value;});
+        dropdownInstanceCreator.onValueChanged.AddListener(delegate {JNIStorage.instance.UpdateInstances(false); selectedInstance = dropdownInstanceCreator.value;});
+        dropdownModInfo.onValueChanged.AddListener(delegate {JNIStorage.instance.UpdateInstances(false); selectedInstance = dropdownModInfo.value;});
+        dropdownModSearch.onValueChanged.AddListener(delegate {JNIStorage.instance.UpdateInstances(false); selectedInstance = dropdownModSearch.value;});
 
     }
     
@@ -84,5 +95,31 @@ public class UIHandler : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void UpdateDropdowns(bool init, List<string> list)
+    {
+        if (init)
+        {
+            dropdownMain.AddOptions(list);
+            dropdownInstanceCreator.AddOptions(list);
+            dropdownModInfo.AddOptions(list);
+            dropdownModSearch.AddOptions(list);
+        }
+        else
+        {
+            dropdownMain.SetValueWithoutNotify(selectedInstance);
+            dropdownInstanceCreator.SetValueWithoutNotify(selectedInstance);
+            dropdownModInfo.SetValueWithoutNotify(selectedInstance);
+            dropdownModSearch.SetValueWithoutNotify(selectedInstance);
+        }
+    }
+
+    public void ClearDropdowns()
+    {
+        dropdownMain.ClearOptions();
+        dropdownInstanceCreator.ClearOptions();
+        dropdownModInfo.ClearOptions();
+        dropdownModSearch.ClearOptions();
     }
 }
