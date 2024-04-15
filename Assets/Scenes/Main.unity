@@ -3863,8 +3863,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296709983}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00005627924}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000000059611914}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0077778953}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3875,12 +3875,12 @@ RectTransform:
   - {fileID: 1255894076}
   - {fileID: 748927919}
   - {fileID: 855064046}
-  m_Father: {fileID: 2055945967}
-  m_RootOrder: 2
+  m_Father: {fileID: 1023253171}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.0036910784, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &303674148
@@ -7945,7 +7945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &668226022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13294,6 +13294,8 @@ RectTransform:
   - {fileID: 1199009809}
   - {fileID: 1147369740}
   - {fileID: 2055945967}
+  - {fileID: 1349654759}
+  - {fileID: 296709984}
   m_Father: {fileID: 1895559466}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -360.008, z: 0}
@@ -13410,7 +13412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1033016412
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14175,7 +14177,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1460469781}
         m_TargetAssemblyTypeName: WindowHandler, Assembly-CSharp
-        m_MethodName: ModManagerButton
+        m_MethodName: InstanceEditorUnsetter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18651,7 +18653,6 @@ RectTransform:
   - {fileID: 1292378258}
   - {fileID: 762036115}
   - {fileID: 1072551852}
-  - {fileID: 1349654759}
   m_Father: {fileID: 2055945967}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19435,8 +19436,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349654758}
-  m_LocalRotation: {x: -0, y: 0.000000059611914, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00009934837}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000000059611914}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0077381576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19449,12 +19450,12 @@ RectTransform:
   - {fileID: 1757319837}
   - {fileID: 1293485304}
   - {fileID: 498132123}
-  m_Father: {fileID: 1306787903}
-  m_RootOrder: 3
+  m_Father: {fileID: 1023253171}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.0036910784, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1349654760
@@ -21052,6 +21053,8 @@ MonoBehaviour:
   instanceMenu: {fileID: 2055945966}
   instanceMainpage: {fileID: 158777817}
   instanceCreator: {fileID: 296709983}
+  instanceEditor: {fileID: 1306787902}
+  instanceInfo: {fileID: 1349654758}
   modInfoMenu: {fileID: 1147369739}
   modManagerMainpage: {fileID: 1706876831}
   errorWindow: {fileID: 120930483}
@@ -22657,7 +22660,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1460469781}
         m_TargetAssemblyTypeName: WindowHandler, Assembly-CSharp
-        m_MethodName: ModSearchButton
+        m_MethodName: InstanceEditorSetter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23762,9 +23765,6 @@ GameObject:
   - component: {fileID: 1757319843}
   - component: {fileID: 1757319842}
   - component: {fileID: 1757319841}
-  - component: {fileID: 1757319840}
-  - component: {fileID: 1757319839}
-  - component: {fileID: 1757319838}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -23792,43 +23792,6 @@ RectTransform:
   m_AnchoredPosition: {x: 475, y: 210}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!65 &1757319838
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757319836}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 50, y: 50, z: 1}
-  m_Center: {x: 2, y: 0, z: 0}
---- !u!114 &1757319839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757319836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb86ba9d4c5126e48bfef9b0c9550e9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1757319840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757319836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1757319841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23875,7 +23838,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1460469781}
         m_TargetAssemblyTypeName: WindowHandler, Assembly-CSharp
-        m_MethodName: ModManagerButton
+        m_MethodName: instanceInfoUnsetter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31920,7 +31883,6 @@ RectTransform:
   m_Children:
   - {fileID: 158777818}
   - {fileID: 1306787903}
-  - {fileID: 296709984}
   m_Father: {fileID: 1023253171}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}

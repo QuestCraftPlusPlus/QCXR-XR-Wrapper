@@ -14,6 +14,8 @@ public class WindowHandler : MonoBehaviour
     public GameObject instanceMenu;
     public GameObject instanceMainpage;
     public GameObject instanceCreator;
+    public GameObject instanceEditor;
+    public GameObject instanceInfo;
     public GameObject modInfoMenu;
     public GameObject modManagerMainpage;
     public GameObject errorWindow;
@@ -90,6 +92,30 @@ public class WindowHandler : MonoBehaviour
         instanceMainpage.SetActive(true);
     }
 
+    public void InstanceEditorSetter()
+    {
+        instanceMainpage.SetActive(false);
+        instanceEditor.SetActive(true);
+    }
+    
+    public void InstanceEditorUnsetter()
+    {
+        instanceEditor.SetActive(false);
+        instanceMainpage.SetActive(true);
+    }
+
+    public void instanceInfoSetter()
+    {
+        instanceMenu.SetActive(false);
+        instanceInfo.SetActive(true);
+    }
+    
+    public void instanceInfoUnsetter()
+    {
+        instanceInfo.SetActive(false);
+        instanceMenu.SetActive(true);
+    }
+    
     public void ModInfoSetter()
     {
         instanceMenu.SetActive(false);
@@ -101,7 +127,7 @@ public class WindowHandler : MonoBehaviour
     public void ErrorWindowSetter()
     {
         errorWindow.SetActive(true);
-    }    
+    }
     
     public void ErrorWindowUnsetter()
     {
