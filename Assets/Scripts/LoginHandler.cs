@@ -7,14 +7,18 @@ public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
     bool isMainScreen;
+    private bool hasAttemptedLogin;
     AndroidJavaClass jc;
     AndroidJavaObject jo;
     
-    public void Login() {
-		jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-		jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
-		JNIStorage.apiClass.CallStatic("login", jo);
-		CheckVerification();
+    public void Login()
+    {
+	    if (hasAttemptedLogin) return;
+	    jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+	    jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+	    JNIStorage.apiClass.CallStatic("login", jo);
+	    CheckVerification();
+	    hasAttemptedLogin = true;
     }
     
     private async void CheckVerification() {
@@ -44,7 +48,7 @@ public class LoginHandler : MonoBehaviour
 	    isMainScreen = false;
 	    JNIStorage.accountObj = null;
         JNIStorage.apiClass.CallStatic<bool>("logout", JNIStorage.activity);
-        
+        hasAttemptedLogin = false;
         handler.errorWindow.transform.GetChild(2).gameObject.SetActive(false);
         handler.errorWindow.SetActive(false);
         handler.startPanel.SetActive(true);
