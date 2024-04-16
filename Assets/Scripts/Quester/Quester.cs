@@ -105,10 +105,6 @@ public class Quester : MonoBehaviour
 
     void Startgame()
     {
-        //reset score
-        score = 0;
-        ScoreBox.gameObject.SetActive(true);
-        
         //destroy existing obstacles
         foreach (GameObject obstacle in Obstacles)
             if (obstacle != null)
@@ -122,6 +118,10 @@ public class Quester : MonoBehaviour
         //unfreeze and reset quest
         quest.GetComponent<Rigidbody2D>().isKinematic = false;
         quest.transform.position = QuestOriginalPosition;
+     
+        //reset score
+        score = 0;
+        ScoreBox.gameObject.SetActive(true);
         
         //animate background and begin generating obstacles
         loopbg();
