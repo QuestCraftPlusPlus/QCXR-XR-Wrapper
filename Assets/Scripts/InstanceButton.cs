@@ -16,7 +16,7 @@ public class InstanceButton : MonoBehaviour
 
     private static void CreateDefaultInstance(string name)
     {
-        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, name, JNIStorage.home, true, name, null);
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, name, JNIStorage.home, true, name, null, null);
         JNIStorage.instance.UpdateInstances();
     }
 

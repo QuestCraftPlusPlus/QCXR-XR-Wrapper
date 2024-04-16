@@ -62,6 +62,7 @@ public class FileInfo
 public class PojlibInstance
 {
     public string instanceName;
+    public string instanceImageURL;
     public string versionName;
     public string modsDirName;
     public string versionType;
@@ -78,6 +79,7 @@ public class PojlibInstance
         PojlibInstance instance = new PojlibInstance();
         instance.raw = raw;
         instance.instanceName = raw.Get<string>("instanceName");
+        instance.instanceImageURL = raw.Get<string>("instanceImageURL");
         instance.versionName = raw.Get<string>("versionName");
         instance.modsDirName = raw.Get<string>("modsDirName");
         instance.versionType = raw.Get<string>("versionType");

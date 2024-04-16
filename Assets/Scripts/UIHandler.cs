@@ -17,7 +17,6 @@ public class UIHandler : MonoBehaviour
     public Toggle modToggle;
     public Toggle modpacksToggle;
     public Toggle resourcePacksToggle;
-    public Toggle datapacksToggle;
     public static int selectedInstance;
     static string pfpUrl;
     static string profileName;
@@ -28,7 +27,6 @@ public class UIHandler : MonoBehaviour
         modToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, modToggle));
         modpacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, modpacksToggle));
         resourcePacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, resourcePacksToggle));
-        datapacksToggle.onValueChanged.AddListener((value) => OnToggleClicked(value, datapacksToggle));
         
         dropdownMain.onValueChanged.AddListener(delegate
         {
@@ -101,7 +99,7 @@ public class UIHandler : MonoBehaviour
             clickedToggle.interactable = false;
 
             // Enable the rest of the toggles
-            Toggle[] allToggles = { modToggle, modpacksToggle, resourcePacksToggle, datapacksToggle};
+            Toggle[] allToggles = { modToggle, modpacksToggle, resourcePacksToggle};
 
             foreach (Toggle toggle in allToggles)
             {

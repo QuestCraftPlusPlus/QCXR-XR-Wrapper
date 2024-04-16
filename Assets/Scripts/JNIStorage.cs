@@ -11,6 +11,7 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaObject activity;
     public static AndroidJavaObject instancesObj;
     public static JNIStorage instance;
+    public List<string> supportedVersions;
     public UIHandler uiHandler;
     public TMP_InputField RAMSetterField;
     public TMP_Dropdown instancesDropdown;
@@ -68,7 +69,6 @@ public class JNIStorage : MonoBehaviour
         
         uiHandler.ClearDropdowns();
         string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions");
-        List<string> supportedVersions = new List<string>();
         FillSupportedVersions(supportedVersions, supportedVersionsArray);
         uiHandler.UpdateDropdowns(true, supportedVersions);
     }

@@ -13,7 +13,6 @@ public class APIHandler : MonoBehaviour
     public GameObject modButton;
     public GameObject modPacksButton;
     public GameObject resourcePacksButton;
-    public GameObject dataPacksButton;
     public string searchQuery;
 
     //TODO: Add error handling
@@ -78,7 +77,6 @@ public class APIHandler : MonoBehaviour
             modButton.GetComponent<Toggle>(),
             modPacksButton.GetComponent<Toggle>(),
             resourcePacksButton.GetComponent<Toggle>(),
-            dataPacksButton.GetComponent<Toggle>()
         };
 
         return (from button in toggleButtons where !button.interactable select button.name).FirstOrDefault();
