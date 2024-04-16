@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ScoreAdder : MonoBehaviour
 {
-    public Questicles GameManager;
+    public Quester GameManager;
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject == GameManager.questicle)
+        if (other.gameObject == GameManager.quest)
         {
             GameManager.score++;
         }

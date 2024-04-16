@@ -5,19 +5,19 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-public class Questicles : MonoBehaviour
+public class Quester : MonoBehaviour
 {
-    public GameObject questiclesBox;
-    public GameObject questicle;
+    public GameObject questerBox;
+    public GameObject quest;
     public InputActionReference ToggleGame;
     public InputActionReference Act;
     [SerializeField]
     bool gameon;
     public GameObject background;
     Vector3 BackGroundOriginalPosition;
-    Vector3 QuesticleOriginalPosition;
-    public TMPro.TextMeshProUGUI Title;
-    [FormerlySerializedAs("Score")] public TMPro.TextMeshProUGUI ScoreBox;
+    Vector3 QuestOriginalPosition;
+    public TextMeshProUGUI Title;
+    [FormerlySerializedAs("Score")] public TextMeshProUGUI ScoreBox;
     public GameObject Obsticle;
     public List<GameObject> Obstacles;
 
@@ -37,7 +37,7 @@ public class Questicles : MonoBehaviour
     {
         //get the starting positions
         BackGroundOriginalPosition = background.transform.position;
-        QuesticleOriginalPosition = questicle.transform.position;
+        QuestOriginalPosition = quest.transform.position;
     }
 
     //enable processing the events
@@ -63,10 +63,10 @@ public class Questicles : MonoBehaviour
         //stop scrolling bg
         LeanTween.cancel(background);
 
-        //freeze questicle
-        questicle.GetComponent<Rigidbody2D>().angularVelocity = 0;
-        questicle.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        questicle.GetComponent<Rigidbody2D>().isKinematic = true;
+        //freeze quest
+        quest.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        quest.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        quest.GetComponent<Rigidbody2D>().isKinematic = true;
         
         //reset background position
         background.transform.position = BackGroundOriginalPosition;
@@ -119,9 +119,9 @@ public class Questicles : MonoBehaviour
         Title.gameObject.SetActive(false);
         gameon = true;
         
-        //unfreeze and reset questicle
-        questicle.GetComponent<Rigidbody2D>().isKinematic = false;
-        questicle.transform.position = QuesticleOriginalPosition;
+        //unfreeze and reset quest
+        quest.GetComponent<Rigidbody2D>().isKinematic = false;
+        quest.transform.position = QuestOriginalPosition;
         
         //animate background and begin generating obstacles
         loopbg();
@@ -138,7 +138,7 @@ public class Questicles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        questiclesBox.SetActive(ToggleGame.action.IsPressed());
+        questerBox.SetActive(ToggleGame.action.IsPressed());
         if (!gameon)
         {
             if (ToggleGame.action.IsPressed() && Act.action.IsPressed())
@@ -147,7 +147,7 @@ public class Questicles : MonoBehaviour
         else
         {
             if (Act.action.IsPressed())
-                questicle.GetComponent<Rigidbody2D>().AddForce(32 * Time.deltaTime * Vector3.up, ForceMode2D.Impulse);
+                quest.GetComponent<Rigidbody2D>().AddForce(32 * Time.deltaTime * Vector3.up, ForceMode2D.Impulse);
         }
     }
 }

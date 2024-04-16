@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuesticlesGameEnder : MonoBehaviour
+public class QuesterGameEnder : MonoBehaviour
 {
-    public Questicles GameManager;
+    public Quester GameManager;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject == GameManager.questicle)
+        if (collision.gameObject == GameManager.quest)
         {
             GameManager.Gameover();
         }

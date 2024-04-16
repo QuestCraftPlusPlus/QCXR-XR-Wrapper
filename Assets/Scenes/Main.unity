@@ -3288,7 +3288,7 @@ GameObject:
   - component: {fileID: 328686343}
   - component: {fileID: 328686342}
   m_Layer: 0
-  m_Name: Questicles
+  m_Name: Quester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3618,7 +3618,7 @@ GameObject:
   - component: {fileID: 341624321}
   - component: {fileID: 341624320}
   m_Layer: 0
-  m_Name: Questicles Background
+  m_Name: Quester Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6780,7 +6780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Questicles!
+  m_text: 'Quester!
 
     press A to start game.'
   m_isRightToLeft: 0
@@ -8036,7 +8036,7 @@ GameObject:
   - component: {fileID: 805854618}
   - component: {fileID: 805854621}
   m_Layer: 0
-  m_Name: Questicle
+  m_Name: Quest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17669,7 +17669,7 @@ GameObject:
   - component: {fileID: 1383936995}
   - component: {fileID: 1383936997}
   m_Layer: 0
-  m_Name: Questicles renderer
+  m_Name: Quester renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17750,11 +17750,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe24441dc4b9ce4ba14f056a91051d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questiclesBox: {fileID: 380418059}
-  questicle: {fileID: 805854615}
+  questerBox: {fileID: 380418059}
+  quest: {fileID: 805854615}
   ToggleGame: {fileID: -8514278639596572500, guid: e0ca4504471ca124088e1e2cfe6804ae,
     type: 3}
-  Act: {fileID: 5113088590926889233, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  Act: {fileID: 11711766586467970, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
   gameon: 0
   background: {fileID: 341624317}
   Title: {fileID: 666510426}
