@@ -6,6 +6,9 @@ public class LoginText : MonoBehaviour
 {
     void Update()
     {
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+            return;
+
         GetComponent<TextMeshProUGUI>().text = JNIStorage.apiClass.GetStatic<string>("msaMessage");
         if(GetComponent<TextMeshProUGUI>().text != "")
         {

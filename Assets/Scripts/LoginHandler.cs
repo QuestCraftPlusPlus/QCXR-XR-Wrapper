@@ -18,6 +18,8 @@ public class LoginHandler : MonoBehaviour
     }
     
     private async void CheckVerification() {
+	    if (Application.platform == RuntimePlatform.WindowsEditor)
+		    return;
 	    while (true)
 	    {
 		    await Task.Delay(3000);
