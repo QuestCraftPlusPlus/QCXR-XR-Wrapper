@@ -38,9 +38,8 @@ public class LoginHandler : MonoBehaviour
     
     public void LogoutButton()
     {
-        handler.ErrorWindowSetter();
-        handler.errorWindow.GetComponent<TextMeshProUGUI>().text = "Are you sure you would like to sign out?";
-        handler.errorWindow.transform.GetChild(2).gameObject.SetActive(true);
+        handler.LogoutWindowSetter();
+        handler.logoutWindow.GetComponent<TextMeshProUGUI>().text = "Are you sure you would like to sign out?";
     }
 
     public void Logout()
@@ -49,8 +48,7 @@ public class LoginHandler : MonoBehaviour
 	    JNIStorage.accountObj = null;
         JNIStorage.apiClass.CallStatic<bool>("logout", JNIStorage.activity);
         hasAttemptedLogin = false;
-        handler.errorWindow.transform.GetChild(2).gameObject.SetActive(false);
-        handler.errorWindow.SetActive(false);
+        handler.logoutWindow.SetActive(false);
         handler.startPanel.SetActive(true);
         handler.mainPanel.SetActive(false);
     }

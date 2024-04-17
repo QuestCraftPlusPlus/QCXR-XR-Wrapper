@@ -18,9 +18,12 @@ public class WindowHandler : MonoBehaviour
     public GameObject instanceInfo;
     public GameObject modInfoMenu;
     public GameObject modManagerMainpage;
+    public GameObject instanceDeleteWarning;
+    public GameObject logoutWindow;
     public GameObject errorWindow;
     public TextMeshProUGUI profileNameHolder;
     public RawImage pfpHolder;
+    public InstanceManager instanceManager;
     
     public void MainPanelSwitch()
     {
@@ -96,6 +99,7 @@ public class WindowHandler : MonoBehaviour
     {
         instanceMainpage.SetActive(false);
         instanceEditor.SetActive(true);
+        instanceManager.CreateInstanceArray();
     }
     
     public void InstanceEditorUnsetter()
@@ -124,14 +128,33 @@ public class WindowHandler : MonoBehaviour
         modInfoMenu.SetActive(true);
     }
     
-    public void ErrorWindowSetter()
+    public void LogoutWindowSetter()
+    {
+        logoutWindow.SetActive(true);
+    }
+    
+    public void LogoutWindowUnsetter()
+    {
+        logoutWindow.SetActive(false);
+    }
+    
+    public void InstanceDeleteWarningSetter()
+    {
+        instanceDeleteWarning.SetActive(true);
+    }
+    
+    public void InstanceDeleteWarningUnsetter()
+    {
+        instanceDeleteWarning.SetActive(false);
+    }
+
+    public void ErrorMenuSetter()
     {
         errorWindow.SetActive(true);
     }
     
-    public void ErrorWindowUnsetter()
+    public void ErrorMenuUnsetter()
     {
-        errorWindow.transform.GetChild(2).gameObject.SetActive(true);
         errorWindow.SetActive(false);
     }
 

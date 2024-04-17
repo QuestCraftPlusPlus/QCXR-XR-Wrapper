@@ -10,12 +10,16 @@ using UnityEngine.UI;
 
 public class InstanceManager : MonoBehaviour
 {
-    [SerializeField] private GameObject modArray;
+    [SerializeField] private GameObject instanceArray;
     [SerializeField] private GameObject instancePrefab;
+    [SerializeField] private TextMeshProUGUI instanceVersion;
+    [SerializeField] private TextMeshProUGUI instanceTitle;
+    [SerializeField] private RawImage instanceImage;
+    [SerializeField] private GameObject instanceRemoveMenu;
     public TMP_InputField instanceName;
     public Toggle defaultModsToggle;
-    public TMP_Dropdown versionDropdown; 
-    private string currModSlug;
+    public TMP_Dropdown versionDropdown;
+    public WindowHandler windowHandler;
     
     public void CreateCustomInstance()
     {
@@ -31,7 +35,7 @@ public class InstanceManager : MonoBehaviour
         }
     }
     
-    private async void CreateInstanceArray()
+    public async void CreateInstanceArray()
     {
         ResetArray();
 
@@ -65,15 +69,15 @@ public class InstanceManager : MonoBehaviour
                 }
 
                 instanceGameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = instance.instanceName;
-                instanceGameObject.transform.SetParent(modArray.transform, false);
+                instanceGameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = instance.versionName + " - Fabric";
+                instanceGameObject.transform.SetParent(instanceArray.transform, false);
                 instanceGameObject.name = instance.instanceName;
 
                 instanceGameObject.GetComponent<Button>().onClick.AddListener(delegate
                 {
                     EventSystem.current.SetSelectedGameObject(instanceGameObject);
-                    GameObject instance = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                    //CreateInstanceInfoPage(instance.ToString().Replace("(UnityEngine.GameObject)", ""));
-					currModSlug = instance.ToString().Replace("(UnityEngine.GameObject)", "");
+                    GameObject InstanceObject = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
+                    CreateInstanceInfoPage(InstanceObject.name);
                 });
             }
 
@@ -81,51 +85,53 @@ public class InstanceManager : MonoBehaviour
         }
     }
     
-    /*public async void CreateInstanceInfoPage(string slug)
+    public async void CreateInstanceInfoPage(string slug)
     {
-        MetaParser mp = apiHandler.GetModInfo(slug);
-        instanceMenu.SetActive(false);
-        modSearchMenu.SetActive(false);
-        modManagerMainpage.SetActive(false);
-        modPage.SetActive(true);
+        PojlibInstance instance = JNIStorage.GetInstance(slug);
+        windowHandler.instanceInfoSetter();
 
         async Task GetSetTexture()
         {
-            UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(mp.icon_url);
-            modImageLink.SendWebRequest();
 
-            while (!modImageLink.isDone)
+            if (instance.instanceImageURL != null)
             {
-                await Task.Delay(50);
+                UnityWebRequest instanceImageLink = UnityWebRequestTexture.GetTexture(instance.instanceImageURL);
+                instanceImageLink.SendWebRequest();
+
+                while (!instanceImageLink.isDone)
+                {
+                    await Task.Delay(50);
+                }
+
+                Texture instanceImageTex = ((DownloadHandlerTexture)instanceImageLink.downloadHandler).texture;
+                instanceImage.texture = instanceImageTex;
             }
 
-            Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-            modDescription.text = mp.description;
-            modTitle.text = mp.title;
-            modImage.texture = modImageTexture;
-            modIDObject.text = mp.slug;
-
-            try
-            {
-                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, mp.slug);
-                downloadText.text = hasMod ? "Installed" : "Install";
-                downloadButton.GetComponent<Button>().enabled = !hasMod;
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"An error occurred: {ex}");
-                downloadText.text = "Install";
-            }
+            instanceVersion.text = instance.versionName + " - Fabric";
+            instanceTitle.text = instance.instanceName;
         }
 
         await GetSetTexture();
-    }*/
+    }
+
+    public void RemoveInstancePrompt()
+    {
+        instanceRemoveMenu.GetComponentInChildren<TextMeshProUGUI>().text = "Pressing continue will delete this instance forever! Are you sure you want to do this?";
+        instanceRemoveMenu.SetActive(true);
+    }
+
+    public void RemoveInstance()
+    {
+        JNIStorage.apiClass.CallStatic<bool>("deleteInstance", JNIStorage.instancesObj, JNIStorage.GetInstance(instanceTitle.text).raw, JNIStorage.home);
+        instanceRemoveMenu.SetActive(false);
+        windowHandler.instanceInfoUnsetter();
+    }
 
     private void ResetArray()
     {
-        for (int i = modArray.transform.childCount - 1; i >= 0; i--)
+        for (int i = instanceArray.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(modArray.transform.GetChild(i).gameObject);
+            Destroy(instanceArray.transform.GetChild(i).gameObject);
         }
     }
 }
