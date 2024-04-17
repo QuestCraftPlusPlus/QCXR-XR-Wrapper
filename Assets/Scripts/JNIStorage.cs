@@ -35,6 +35,7 @@ public class JNIStorage : MonoBehaviour
 
     private static void FillSupportedVersions(List<string> supportedVersions, string[] supportedVersionsArray)
     {
+        supportedVersions.Clear();
         supportedVersions.AddRange(supportedVersionsArray);
         AndroidJavaObject[] instances = instancesObj.Call<AndroidJavaObject[]>("toArray");
         foreach (var instance in instances)
