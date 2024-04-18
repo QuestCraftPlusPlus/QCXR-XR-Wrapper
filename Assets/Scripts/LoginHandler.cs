@@ -36,22 +36,22 @@ public class LoginHandler : MonoBehaviour
 			    Debug.Log("Check Login State");
 		    }
 	    }
-	}
+	  }
     
-	public void LogoutButton()
-	{
-		handler.LogoutWindowSetter();
-		handler.logoutWindow.GetComponent<TextMeshProUGUI>().text = "Are you sure you would like to sign out?";
-	}
+    public void LogoutButton()
+    {
+      handler.LogoutWindowSetter();
+      handler.logoutWindow.GetComponent<TextMeshProUGUI>().text = "Are you sure you would like to sign out?";
+    }
 
     public void Logout()
     {
 	    isMainScreen = false;
 	    JNIStorage.accountObj = null;
 	    JNIStorage.apiClass.CallStatic<bool>("logout", JNIStorage.activity);
-        hasAttemptedLogin = false;
-        handler.logoutWindow.SetActive(false);
-        handler.startPanel.SetActive(true);
-        handler.mainPanel.SetActive(false);
+      hasAttemptedLogin = false;
+      handler.logoutWindow.SetActive(false);
+      handler.startPanel.SetActive(true);
+      handler.mainPanel.SetActive(false);
     }
 }
