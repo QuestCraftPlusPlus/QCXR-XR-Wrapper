@@ -7,6 +7,7 @@ public class LoginHandler : MonoBehaviour
 {
     public WindowHandler handler;
     bool isMainScreen;
+    private bool hasAttemptedLogin;
     AndroidJavaClass jc;
     AndroidJavaObject jo;
     
@@ -37,12 +38,11 @@ public class LoginHandler : MonoBehaviour
 	    }
 	}
     
-    public void LogoutButton()
-    {
-        handler.ErrorWindowSetter();
-        handler.errorWindow.GetComponent<TextMeshProUGUI>().text = "Are you sure you would like to sign out?";
-        handler.errorWindow.transform.GetChild(2).gameObject.SetActive(true);
-    }
+	public void LogoutButton()
+	{
+		handler.LogoutWindowSetter();
+		handler.logoutWindow.GetComponent<TextMeshProUGUI>().text = "Are you sure you would like to sign out?";
+	}
 
     public void Logout()
     {
