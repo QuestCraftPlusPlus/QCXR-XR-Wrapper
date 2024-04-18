@@ -1,84 +1,32 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class InstanceManager : MonoBehaviour
 {
-    [SerializeField] private GameObject modArray;
+    [SerializeField] private GameObject instanceArray;
+    [SerializeField] private GameObject instancePrefab;
+    [SerializeField] private TextMeshProUGUI instanceVersion;
+    [SerializeField] private TextMeshProUGUI instanceTitle;
+    [SerializeField] private RawImage instanceImage;
+    [SerializeField] private GameObject instanceRemoveMenu;
     public TMP_InputField instanceName;
-    public TMP_Text modLoaderButton;
-    private string currModSlug;
-
-    public void ListInstances()
-    {
-        ResetArray();
-    }
-
-    public  void CreateInstance()
-    {
-        CreateCustomInstance();
-    }
+    public Toggle defaultModsToggle;
+    public TMP_Dropdown versionDropdown;
+    public WindowHandler windowHandler;
     
-    public void ModLoaderSwitch()
-    {
-        switch (modLoaderButton.text)
-        {
-            case "Fabric":
-                modLoaderButton.text = "Quilt";
-                break;
-            case "Quilt":
-                modLoaderButton.text = "Fabric";
-                break;
-        }
-    } 
-
-    public static AndroidJavaObject CreateDefaultInstance(AndroidJavaObject currentVersion)
+    public void CreateCustomInstance()
     {
         try
         {
-            string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
-            AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
-
-            AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, currInstName + "-fabric", JNIStorage.home, currentVersion, fabric);
-
-            return instance;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }
-
-    public AndroidJavaObject CreateCustomInstance()
-    {
-        try
-        {
-            AndroidJavaClass modloaderEnum = new AndroidJavaClass("pojlib.instance.MinecraftInstance$ModLoader");
-            AndroidJavaObject instance = null;
-            
-            switch (modLoaderButton.text)
-            {
-                case "Fabric":
-                {
-                    AndroidJavaObject fabric = modloaderEnum.GetStatic<AndroidJavaObject>("Fabric");
-                    AndroidJavaObject currentVersion = InstanceButton.currentVersion;
-                    instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion, fabric);
-                    Debug.Log("Creating " + currentVersion + " Fabric instance with name " + instanceName.name);
-                    break;
-                }
-                case "Quilt":
-                {
-                    AndroidJavaObject quilt = modloaderEnum.GetStatic<AndroidJavaObject>("Quilt");
-                    AndroidJavaObject currentVersion = InstanceButton.currentVersion;
-                    instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, instanceName.text, JNIStorage.home, currentVersion, quilt);
-                    Debug.Log("Creating " + currentVersion + " Quilt instance with name " + instanceName.name);
-                    break;
-                }
-            }
-
-            return instance;
+            JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, JNIStorage.home, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, instanceName.text, null);
+            JNIStorage.instance.UpdateInstances();
         }
         catch (Exception e)
         {
@@ -86,12 +34,104 @@ public class InstanceManager : MonoBehaviour
             throw;
         }
     }
+    
+    public async void CreateInstanceArray()
+    {
+        ResetArray();
+
+        foreach (var instanceObj in JNIStorage.instancesObj.Call<AndroidJavaObject[]>("toArray"))
+        {
+            PojlibInstance instance = PojlibInstance.Parse(instanceObj);
+            
+            async Task SetInstanceData()
+            {
+                GameObject instanceGameObject = Instantiate(instancePrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+                
+                if (instance.instanceImageURL != null)
+                {
+                    UnityWebRequest instanceImageLink = UnityWebRequestTexture.GetTexture(instance.instanceImageURL);
+                    instanceImageLink.SendWebRequest();
+
+                    //TODO: Remove artificial wait. 
+                    while (!instanceImageLink.isDone)
+                    {
+                        await Task.Delay(50);
+                    }
+
+                    if (instanceImageLink.result != UnityWebRequest.Result.Success)
+                    {
+                        Debug.Log(instanceImageLink.error);
+                        return;
+                    }
+
+                    Texture modImageTexture = ((DownloadHandlerTexture)instanceImageLink.downloadHandler).texture;
+                    instanceGameObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
+                }
+
+                instanceGameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = instance.instanceName;
+                instanceGameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = instance.versionName + " - Fabric";
+                instanceGameObject.transform.SetParent(instanceArray.transform, false);
+                instanceGameObject.name = instance.instanceName;
+
+                instanceGameObject.GetComponent<Button>().onClick.AddListener(delegate
+                {
+                    EventSystem.current.SetSelectedGameObject(instanceGameObject);
+                    GameObject InstanceObject = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
+                    CreateInstanceInfoPage(InstanceObject.name);
+                });
+            }
+
+            await SetInstanceData();
+        }
+    }
+    
+    public async void CreateInstanceInfoPage(string slug)
+    {
+        PojlibInstance instance = JNIStorage.GetInstance(slug);
+        windowHandler.instanceInfoSetter();
+
+        async Task GetSetTexture()
+        {
+
+            if (instance.instanceImageURL != null)
+            {
+                UnityWebRequest instanceImageLink = UnityWebRequestTexture.GetTexture(instance.instanceImageURL);
+                instanceImageLink.SendWebRequest();
+
+                while (!instanceImageLink.isDone)
+                {
+                    await Task.Delay(50);
+                }
+
+                Texture instanceImageTex = ((DownloadHandlerTexture)instanceImageLink.downloadHandler).texture;
+                instanceImage.texture = instanceImageTex;
+            }
+
+            instanceVersion.text = instance.versionName + " - Fabric";
+            instanceTitle.text = instance.instanceName;
+        }
+
+        await GetSetTexture();
+    }
+
+    public void RemoveInstancePrompt()
+    {
+        instanceRemoveMenu.GetComponentInChildren<TextMeshProUGUI>().text = "Pressing continue will delete this instance forever! Are you sure you want to do this?";
+        instanceRemoveMenu.SetActive(true);
+    }
+
+    public void RemoveInstance()
+    {
+        JNIStorage.apiClass.CallStatic<bool>("deleteInstance", JNIStorage.instancesObj, JNIStorage.GetInstance(instanceTitle.text).raw, JNIStorage.home);
+        instanceRemoveMenu.SetActive(false);
+        windowHandler.instanceInfoUnsetter();
+    }
 
     private void ResetArray()
     {
-        for (int i = modArray.transform.childCount - 1; i >= 0; i--)
+        for (int i = instanceArray.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(modArray.transform.GetChild(i).gameObject);
+            Destroy(instanceArray.transform.GetChild(i).gameObject);
         }
     }
 }

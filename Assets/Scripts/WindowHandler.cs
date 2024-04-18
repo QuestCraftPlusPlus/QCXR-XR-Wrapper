@@ -14,11 +14,16 @@ public class WindowHandler : MonoBehaviour
     public GameObject instanceMenu;
     public GameObject instanceMainpage;
     public GameObject instanceCreator;
+    public GameObject instanceEditor;
+    public GameObject instanceInfo;
     public GameObject modInfoMenu;
     public GameObject modManagerMainpage;
+    public GameObject instanceDeleteWarning;
+    public GameObject logoutWindow;
     public GameObject errorWindow;
     public TextMeshProUGUI profileNameHolder;
     public RawImage pfpHolder;
+    public InstanceManager instanceManager;
     
     public void MainPanelSwitch()
     {
@@ -90,6 +95,31 @@ public class WindowHandler : MonoBehaviour
         instanceMainpage.SetActive(true);
     }
 
+    public void InstanceEditorSetter()
+    {
+        instanceMainpage.SetActive(false);
+        instanceEditor.SetActive(true);
+        instanceManager.CreateInstanceArray();
+    }
+    
+    public void InstanceEditorUnsetter()
+    {
+        instanceEditor.SetActive(false);
+        instanceMainpage.SetActive(true);
+    }
+
+    public void instanceInfoSetter()
+    {
+        instanceMenu.SetActive(false);
+        instanceInfo.SetActive(true);
+    }
+    
+    public void instanceInfoUnsetter()
+    {
+        instanceInfo.SetActive(false);
+        instanceMenu.SetActive(true);
+    }
+    
     public void ModInfoSetter()
     {
         instanceMenu.SetActive(false);
@@ -98,14 +128,33 @@ public class WindowHandler : MonoBehaviour
         modInfoMenu.SetActive(true);
     }
     
-    public void ErrorWindowSetter()
+    public void LogoutWindowSetter()
+    {
+        logoutWindow.SetActive(true);
+    }
+    
+    public void LogoutWindowUnsetter()
+    {
+        logoutWindow.SetActive(false);
+    }
+    
+    public void InstanceDeleteWarningSetter()
+    {
+        instanceDeleteWarning.SetActive(true);
+    }
+    
+    public void InstanceDeleteWarningUnsetter()
+    {
+        instanceDeleteWarning.SetActive(false);
+    }
+
+    public void ErrorMenuSetter()
     {
         errorWindow.SetActive(true);
-    }    
+    }
     
-    public void ErrorWindowUnsetter()
+    public void ErrorMenuUnsetter()
     {
-        errorWindow.transform.GetChild(2).gameObject.SetActive(true);
         errorWindow.SetActive(false);
     }
 
