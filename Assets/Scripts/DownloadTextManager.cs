@@ -9,6 +9,8 @@ public class DownloadTextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+            return;
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
         double mbDownloaded = TruncateDouble(JNIStorage.apiClass.GetStatic<double>("downloadStatus"), 3);
 

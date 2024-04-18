@@ -14,6 +14,7 @@ public class UIHandler : MonoBehaviour
     public TMP_Dropdown dropdownModSearch;
     public TMP_Dropdown dropdownModInfo;
     public TMP_Dropdown dropdownInstanceCreator;
+    public GameObject errorMenu;
     public Toggle modToggle;
     public Toggle modpacksToggle;
     public Toggle resourcePacksToggle;
@@ -135,5 +136,11 @@ public class UIHandler : MonoBehaviour
         dropdownInstanceCreator.ClearOptions();
         dropdownModInfo.ClearOptions();
         dropdownModSearch.ClearOptions();
+    }
+
+    public void SetAndShowError(String errorMessage)
+    {
+        errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = errorMessage;
+        errorMenu.SetActive(true);
     }
 }
