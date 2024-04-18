@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class SearchParser
@@ -55,4 +57,69 @@ public class FileInfo
 {
     public string url;
 	public string filename;
+}
+
+public class PojlibInstance
+{
+    public string instanceName;
+    public string instanceImageURL;
+    public string versionName;
+    public string modsDirName;
+    public string versionType;
+    public string classpath;
+    public string gameDir;
+    public string assetIndex;
+    public string assetsDir;
+    public string mainClass;
+    public bool defaultMods;
+    public AndroidJavaObject raw;
+
+    public static PojlibInstance Parse(AndroidJavaObject raw)
+    {
+        PojlibInstance instance = new PojlibInstance();
+        instance.raw = raw;
+        instance.instanceName = raw.Get<string>("instanceName");
+        instance.instanceImageURL = raw.Get<string>("instanceImageURL");
+        instance.versionName = raw.Get<string>("versionName");
+        instance.modsDirName = raw.Get<string>("modsDirName");
+        instance.versionType = raw.Get<string>("versionType");
+        instance.classpath = raw.Get<string>("classpath");
+        instance.gameDir = raw.Get<string>("gameDir");
+        instance.assetIndex = raw.Get<string>("assetIndex");
+        instance.assetsDir = raw.Get<string>("assetsDir");
+        instance.mainClass = raw.Get<string>("mainClass");
+        instance.defaultMods = raw.Get<bool>("defaultMods");
+        return instance;
+    }
+
+    public PojlibMod[] GetMods()
+    {
+        // Mods can change at runtime
+        List<PojlibMod> mods = new List<PojlibMod>();
+        foreach (var mod in raw.Get<AndroidJavaObject[]>("mods"))
+        {
+            mods.Add(PojlibMod.Parse(mod));
+        }
+
+        return mods.ToArray();
+    }
+}
+
+public class PojlibMod
+{
+    public string slug;
+    public string version;
+    public string download_link;
+    public AndroidJavaObject raw;
+
+    public static PojlibMod Parse(AndroidJavaObject raw)
+    {
+        PojlibMod mod = new PojlibMod();
+        mod.raw = raw;
+        
+        mod.slug = raw.Get<string>("slug");
+        mod.version = raw.Get<string>("version");
+        mod.download_link = raw.Get<string>("download_link");
+        return mod;
+    }
 }

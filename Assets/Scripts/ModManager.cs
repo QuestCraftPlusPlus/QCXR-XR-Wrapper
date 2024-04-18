@@ -59,13 +59,10 @@ public class ModManager : MonoBehaviour
                 modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
                 modObject.transform.SetParent(modArray.transform, false);
                 modObject.name = searchResults.project_id;
-
-                string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-                AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-
+                
                 try
                 {
-                    bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), searchResults.project_id);
+                    bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, searchResults.project_id);
 
                     if (!hasMod)
                     {
@@ -126,7 +123,7 @@ public class ModManager : MonoBehaviour
 
             try
             {
-                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), mp.slug);
+                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, mp.slug);
                 downloadText.text = hasMod ? "Installed" : "Install";
                 downloadButton.GetComponent<Button>().enabled = !hasMod;
             }
@@ -144,13 +141,13 @@ public class ModManager : MonoBehaviour
     {
         MetaParser mp = apiHandler.GetModInfo(currModSlug);
         MetaInfo[] modInfos = apiHandler.GetModDownloads(mp.slug);
-        string currentInstanceName = InstanceButton.currInstName;
+        string currentInstanceVer = JNIStorage.GetInstance(InstanceButton.currInstName).versionName;
 
         foreach (MetaInfo metaInfo in modInfos)
         {
-            foreach (var file in metaInfo.files.Where(file => IsValidModFile(file, metaInfo, currentInstanceName)))
+            foreach (var file in metaInfo.files.Where(file => IsValidModFile(file, metaInfo, currentInstanceVer)))
             {
-                ProcessModFile(mp, file, metaInfo, currentInstanceName);
+                ProcessModFile(mp, file, metaInfo, currentInstanceVer);
                 return;
             }
         }
@@ -163,30 +160,30 @@ public class ModManager : MonoBehaviour
                && !file.url.Contains(".mrpack");
     }
 
-    private void ProcessModFile(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceName)
+    private void ProcessModFile(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceVer)
     {
-        Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceName}");
+        Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceVer}");
 
-        AndroidJavaObject instance = LoadInstance(currentInstanceName);
+        AndroidJavaObject instance = LoadInstance();
         if (instance == null) return;
 
-        DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceName);
+        DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
     }
 
-    private AndroidJavaObject LoadInstance(string currentInstanceName)
+    private AndroidJavaObject LoadInstance()
     {
-        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", $"{currInstName}-fabric", JNIStorage.home);
+        PojlibInstance currInst = JNIStorage.GetInstance(InstanceButton.currInstName);
 
-        if (instance == null)
+        if (currInst == null)
         {
             ShowError("You must run this version of the game at least once before adding mods to the instance with ModManger!");
+            return null;
         }
 
-        return instance;
+        return currInst.raw;
     }
 
-    private void DownloadDependenciesAndAddMod(MetaParser mp, MetaInfo metaInfo, string modUrl, string currentInstanceName)
+    private void DownloadDependenciesAndAddMod(MetaParser mp, MetaInfo metaInfo, string modUrl, string currentInstanceVer)
     {
         var dependencies = apiHandler.GetModDeps(mp.slug, metaInfo.id);
         if (dependencies != null)
@@ -196,10 +193,11 @@ public class ModManager : MonoBehaviour
                 string slug = apiHandler.GetModInfo(dep.project_id).slug;
                 foreach (MetaInfo depInfo in apiHandler.GetModDownloads(dep.project_id))
                 {
-                    var validDepFiles = depInfo.files.Where(depFile => IsValidDependency(depFile, depInfo, currentInstanceName, slug));
+                    var validDepFiles = depInfo.files.Where(depFile => IsValidDependency(depFile, depInfo, currentInstanceVer, slug));
                     foreach (var depFile in validDepFiles)
                     {
-                        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), slug, currentInstanceName, depFile.url);
+                        PojlibInstance currInst = JNIStorage.GetInstance(InstanceButton.currInstName);
+                        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, currInst.raw, JNIStorage.home, slug, currentInstanceVer, depFile.url);
                         Debug.Log($"Downloading Dep with file url {depFile.url}");
                         break;
                     }
@@ -207,21 +205,22 @@ public class ModManager : MonoBehaviour
             }
         }
 
-        JNIStorage.apiClass.CallStatic("addCustomMod", InstanceButton.GetInstance(), mp.slug, currentInstanceName, modUrl);
+        PojlibInstance inst = JNIStorage.GetInstance(InstanceButton.currInstName);
+        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, inst.raw, JNIStorage.home, mp.slug, currentInstanceVer, modUrl);
         UpdateUIAfterModAddition(mp.slug);
     }
 
-    private bool IsValidDependency(FileInfo depFile, MetaInfo depInfo, string currentInstanceName, string slug)
+    private bool IsValidDependency(FileInfo depFile, MetaInfo depInfo, string currentInstanceVer, string slug)
     {
-        return depInfo.game_versions.Contains(currentInstanceName)
+        return depInfo.game_versions.Contains(currentInstanceVer)
                && !depFile.url.Contains(".mrpack")
                && depInfo.loaders.Contains("fabric")
-               && !JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), slug);
+               && !JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, slug);
     }
 
     private void UpdateUIAfterModAddition(string slug)
     {
-        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", InstanceButton.GetInstance(), slug);
+        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, slug);
         downloadText.text = "Installed";
         downloadButton.GetComponent<Button>().enabled = !hasMod;
 
@@ -239,9 +238,8 @@ public class ModManager : MonoBehaviour
     
     private void RemoveMod(string modName)
     {
-        string currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", InstanceButton.currentVersion);
-        AndroidJavaObject instance = JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
-        JNIStorage.apiClass.CallStatic<bool>("removeMod", InstanceButton.GetInstance(), modName);
+        PojlibInstance currInstName = JNIStorage.GetInstance(InstanceButton.currInstName);
+        JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, currInstName.raw, JNIStorage.home, modName);
         downloadText.text = "Install";
         SearchMods();
     }

@@ -10,19 +10,22 @@ public class LoginHandler : MonoBehaviour
     AndroidJavaClass jc;
     AndroidJavaObject jo;
     
-    public void Login() {
-		jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-		jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
-		JNIStorage.apiClass.CallStatic("login", jo);
-		CheckVerification();
+    public void Login()
+    {
+	    if (hasAttemptedLogin) return;
+	    jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+	    jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+	    JNIStorage.apiClass.CallStatic("login", jo);
+	    CheckVerification();
+	    hasAttemptedLogin = true;
     }
     
     private async void CheckVerification() {
 	    if (Application.platform == RuntimePlatform.WindowsEditor)
 		    return;
-	    while (true)
+	    while (isMainScreen == false)
 	    {
-		    await Task.Delay(3000);
+		    await Task.Delay(1500);
 		    
 		    if (JNIStorage.accountObj != null && !isMainScreen) {
 			    handler.MainPanelSwitch();
@@ -31,8 +34,6 @@ public class LoginHandler : MonoBehaviour
 			    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
 			    Debug.Log("Check Login State");
 		    }
-		    
-		    Debug.Log("End of login task");
 	    }
 	}
     

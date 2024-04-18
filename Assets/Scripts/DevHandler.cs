@@ -44,7 +44,7 @@ public class DevHandler : MonoBehaviour
     private void OnDevModsToggleValueChanged(bool isOn)
     {
         JNIStorage.apiClass.SetStatic(DEVELOPER_MODS_PARAMETER_NAME, isOn);
-        JNIStorage.UpdateInstances();
+        JNIStorage.instance.UpdateInstances();
     }    
     
     private void OnRamSetterToggleValueChanged(bool isOn)
