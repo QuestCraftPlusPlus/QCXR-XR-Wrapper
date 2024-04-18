@@ -26,6 +26,8 @@ public class InstanceManager : MonoBehaviour
         try
         {
             JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, JNIStorage.home, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, instanceName.text, null);
+            JNIStorage.instance.uiHandler.SetAndShowError(instanceName.text + " is now being created.");
+            
             JNIStorage.instance.UpdateInstances();
         }
         catch (Exception e)

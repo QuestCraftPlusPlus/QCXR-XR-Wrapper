@@ -1,12 +1,9 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Management;
 
 public class InstanceButton : MonoBehaviour
 {
-    public int index;
     public static string currInstName;
-
     private bool hasDefaulted;
 
     private void Update()
@@ -16,12 +13,20 @@ public class InstanceButton : MonoBehaviour
 
     private static void CreateDefaultInstance(string name)
     {
-        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, name, JNIStorage.home, true, name, null, null);
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, name, JNIStorage.home, true, name, null, null);
+        JNIStorage.instance.uiHandler.SetAndShowError(currInstName + " is now installing.");
         JNIStorage.instance.UpdateInstances();
     }
 
     public static void LaunchCurrentInstance()
     {
+        bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
+        if (!finishedDownloading)
+        {
+            JNIStorage.instance.uiHandler.SetAndShowError(currInstName + " is still installing, please wait until the install has finished.");
+            return; 
+        }
+        
         if (JNIStorage.GetInstance(currInstName) == null)
         {
             Debug.Log("Instance is null!");
@@ -30,10 +35,7 @@ public class InstanceButton : MonoBehaviour
         }
 
         PojlibInstance instance = JNIStorage.GetInstance(currInstName);
-        bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
         instance.raw.Call("updateMods", JNIStorage.home, JNIStorage.instancesObj);
-        
-        if (!finishedDownloading) { return; }
 	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();
         XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
 
