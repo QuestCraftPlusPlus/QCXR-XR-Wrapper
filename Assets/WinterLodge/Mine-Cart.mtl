@@ -1,0 +1,12 @@
+# Made in Blockbench 4.9.4
+newmtl m_0e6c2054-35d9-895d-940f-3e712d9fc52a
+map_Kd metal bars.png
+newmtl m_54e58068-e726-5bb6-b7d8-3646c68b150d
+map_Kd body.png
+newmtl m_f4125201-a75c-c185-f559-423647c4545c
+map_Kd wheels.png
+newmtl m_aff64005-91e9-0f83-8321-df49ab1496c6
+map_Kd glasses.png
+newmtl m_6bf37aad-723d-51b9-1cc7-051bc0a0aa72
+map_Kd glass.png
+newmtl none

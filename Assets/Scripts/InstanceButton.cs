@@ -4,66 +4,40 @@ using UnityEngine.XR.Management;
 
 public class InstanceButton : MonoBehaviour
 {
-    public static AndroidJavaObject currentVersion;
     public int index;
     public static string currInstName;
-    public GameObject modManagerButton;
-    public GameObject mainMenuButton;
-    public GameObject searchMenuButton;
-    public GameObject instanceCreatorButton;
 
     private bool hasDefaulted;
 
     private void Update()
     {
-        if (JNIStorage.instances != null && !hasDefaulted)
-        {
-            currentVersion = JNIStorage.instances[0];
-            currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-            hasDefaulted = true;
-            UpdateMenuButtons(currInstName);
-        }
+        currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
     }
 
-    private void UpdateMenuButtons(string instName)
+    private static void CreateDefaultInstance(string name)
     {
-        modManagerButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
-        mainMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
-        searchMenuButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
-        instanceCreatorButton.GetComponentInChildren<TextMeshProUGUI>().text = instName;
-    }
-
-    public void SwitchInstance()
-    {
-        index = (index + 1) % JNIStorage.instances.Length;
-        currentVersion = JNIStorage.instances[index];
-        currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        UpdateMenuButtons(currInstName);
-    }
-
-    public static AndroidJavaObject GetInstance()
-    {
-        currInstName = JNIStorage.apiClass.CallStatic<string>("getQCSupportedVersionName", currentVersion);
-        return JNIStorage.apiClass.CallStatic<AndroidJavaObject>("load", currInstName + "-fabric", JNIStorage.home);
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, name, JNIStorage.home, true, name, null, null);
+        JNIStorage.instance.UpdateInstances();
     }
 
     public static void LaunchCurrentInstance()
     {
-        if (GetInstance() == null)
+        if (JNIStorage.GetInstance(currInstName) == null)
         {
-            InstanceManager.CreateDefaultInstance(currentVersion);
+            Debug.Log("Instance is null!");
+            CreateDefaultInstance(currInstName);
             return;
         }
 
-        AndroidJavaObject instance = GetInstance();
+        PojlibInstance instance = JNIStorage.GetInstance(currInstName);
         bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
-        instance.Call("updateOrDownloadMods");
+        instance.raw.Call("updateMods", JNIStorage.home, JNIStorage.instancesObj);
         
         if (!finishedDownloading) { return; }
 	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();
         XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
 
         Application.Quit();
-        JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance);
+        JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
     }
 }
