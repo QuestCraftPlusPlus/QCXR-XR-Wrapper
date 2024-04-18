@@ -22,13 +22,6 @@ public class InstanceButton : MonoBehaviour
 
     public static void LaunchCurrentInstance()
     {
-        bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
-        if (!finishedDownloading)
-        {
-            JNIStorage.instance.uiHandler.SetAndShowError(currInstName + " is still installing, please wait until the install has finished.");
-            return; 
-        }
-        
         if (JNIStorage.GetInstance(currInstName) == null)
         {
             Debug.Log("Instance is null!");
@@ -37,7 +30,16 @@ public class InstanceButton : MonoBehaviour
         }
 
         PojlibInstance instance = JNIStorage.GetInstance(currInstName);
+        bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
+
         instance.raw.Call("updateMods", JNIStorage.home, JNIStorage.instancesObj);
+        
+        if (!finishedDownloading)
+        { 
+            JNIStorage.instance.uiHandler.SetAndShowError(currInstName + " is still installing, please wait until the install has finished.");
+            return; 
+        }
+        
 	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();
         XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
 

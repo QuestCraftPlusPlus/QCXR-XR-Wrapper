@@ -22434,6 +22434,7 @@ MonoBehaviour:
   dropdownModSearch: {fileID: 1778431242}
   dropdownModInfo: {fileID: 1003380043}
   dropdownInstanceCreator: {fileID: 855064047}
+  errorMenu: {fileID: 488683237}
   modToggle: {fileID: 1789290221}
   modpacksToggle: {fileID: 675128254}
   resourcePacksToggle: {fileID: 290311427}
@@ -22510,7 +22511,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14db1e422cbd8414395decd760288b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
 --- !u!114 &1460469789
 MonoBehaviour:
   m_ObjectHideFlags: 0
