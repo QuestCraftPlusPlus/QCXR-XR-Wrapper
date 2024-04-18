@@ -1,0 +1,54 @@
+{
+    "name": "DesktopActions",
+    "maps": [
+        {
+            "name": "Keyboard",
+            "id": "67efbf0d-5642-4bff-948e-638931da68ad",
+            "actions": [
+                {
+                    "name": "LeftShift",
+                    "type": "Button",
+                    "id": "b5690c37-2728-4919-a735-6582d65503d8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Space",
+                    "type": "Button",
+                    "id": "61383d4c-1555-4a70-ac9e-f79e0c9b47e0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7c8a2774-9717-4001-8cf1-756ab3225cd4",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34c20247-8e65-48f0-b9fd-a8e75bb46d37",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Space",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
