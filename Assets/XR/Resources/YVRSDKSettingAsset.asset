@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2226f49630b27a41b028afb9af4b81d, type: 3}
+  m_Name: YVRSDKSettingAsset
+  m_EditorClassIdentifier: 
+  ignoreSDKSetting: 1
+  appIDChecked: 0
+  manifestTagInfosList:
+  - nodePath: /manifest
+    tag: uses-feature
+    attrName: name
+    attrValue: android.hardware.vr.headtracking
+    attrs:
+    - version
+    - 1
+    - required
+    - true
+    required: 1
+    modifyIfFound: 1
+  - nodePath: /manifest/application
+    tag: meta-data
+    attrName: name
+    attrValue: com.yvr.application.mode
+    attrs:
+    - value
+    - vr_only
+    required: 1
+    modifyIfFound: 1
+  - nodePath: /manifest/application/activity/intent-filter
+    tag: category
+    attrName: name
+    attrValue: org.khronos.openxr.intent.category.IMMERSIVE_HMD
+    attrs: []
+    required: 1
+    modifyIfFound: 1
+  - nodePath: /manifest/application
+    tag: meta-data
+    attrName: name
+    attrValue: yvr.sdk.version
+    attrs:
+    - value
+    - Unity_core_1.14.7|Unity_utilities_0.14.14
+    required: 1
+    modifyIfFound: 1
+  - nodePath: /manifest/application
+    tag: meta-data
+    attrName: name
+    attrValue: com.yvr.ossplash
+    attrs:
+    - value
+    - true
+    required: 1
+    modifyIfFound: 1
+  assetInfoList:
+  - shouldDelete: 0
+    unityAssetPath: Assets/Resources/questcraftxp.png
+    androidProjectAssetPath: E:\QCXR-XR-Wrapper\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src/main/assets/vr_splash.png
