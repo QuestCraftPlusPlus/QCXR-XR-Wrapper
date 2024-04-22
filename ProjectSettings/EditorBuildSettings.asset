@@ -13,6 +13,8 @@ EditorBuildSettings:
       type: 2}
     Unity.XR.Pimax.Settings: {fileID: 11400000, guid: 7ccdb14299a6b844c98b299a20ae593c,
       type: 2}
+    YVR.Core.XR.YVRXRSettings: {fileID: 11400000, guid: 9af42eca7e1e87a499326571ff3dc0e6,
+      type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: a89b22d6b90969e48b6df2b153aa991a,
       type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 9fc8791df863b584b8fa258e1594bb23,

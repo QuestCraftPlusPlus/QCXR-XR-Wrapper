@@ -43,7 +43,7 @@ public class InstanceButton : MonoBehaviour
 	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();
         XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
 
-        Application.Quit();
+        Application.Unload();
         JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
     }
 }
