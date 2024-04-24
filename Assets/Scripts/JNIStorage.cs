@@ -17,7 +17,6 @@ public class JNIStorage : MonoBehaviour
     public TMP_Dropdown instancesDropdown;
     [SerializeField, FormerlySerializedAs("DevToggle")]
     private Toggle _devToggle;
-    public static string home;
 
     private void Start()
     {
@@ -25,9 +24,7 @@ public class JNIStorage : MonoBehaviour
         
         Microphone.Start(Microphone.devices[0], true, 1, 44100);
         apiClass = new AndroidJavaClass("pojlib.api.API_V1");
-        AndroidJavaClass constants = new AndroidJavaClass("pojlib.util.Constants");
-        home = constants.GetStatic<string>("MC_DIR");
-        instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll", JNIStorage.home);
+        instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll");
         apiClass.SetStatic("developerMods", _devToggle.isOn);
         UpdateInstances();
 		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());

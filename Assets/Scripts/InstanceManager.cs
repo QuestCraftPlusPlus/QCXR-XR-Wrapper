@@ -25,7 +25,7 @@ public class InstanceManager : MonoBehaviour
     {
         try
         {
-            JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, JNIStorage.home, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, instanceName.text, null);
+            JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, null);
             JNIStorage.instance.uiHandler.SetAndShowError(instanceName.text + " is now being created.");
             
             JNIStorage.instance.UpdateInstances();
@@ -124,7 +124,7 @@ public class InstanceManager : MonoBehaviour
 
     public void RemoveInstance()
     {
-        JNIStorage.apiClass.CallStatic<bool>("deleteInstance", JNIStorage.instancesObj, JNIStorage.GetInstance(instanceTitle.text).raw, JNIStorage.home);
+        JNIStorage.apiClass.CallStatic<bool>("deleteInstance", JNIStorage.instancesObj, JNIStorage.GetInstance(instanceTitle.text).raw);
         instanceRemoveMenu.SetActive(false);
         windowHandler.instanceInfoUnsetter();
     }

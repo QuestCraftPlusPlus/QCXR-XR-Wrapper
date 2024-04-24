@@ -197,7 +197,7 @@ public class ModManager : MonoBehaviour
                     foreach (var depFile in validDepFiles)
                     {
                         PojlibInstance currInst = JNIStorage.GetInstance(InstanceButton.currInstName);
-                        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, currInst.raw, JNIStorage.home, slug, currentInstanceVer, depFile.url);
+                        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, currInst.raw, slug, currentInstanceVer, depFile.url);
                         Debug.Log($"Downloading Dep with file url {depFile.url}");
                         break;
                     }
@@ -206,7 +206,7 @@ public class ModManager : MonoBehaviour
         }
 
         PojlibInstance inst = JNIStorage.GetInstance(InstanceButton.currInstName);
-        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, inst.raw, JNIStorage.home, mp.slug, currentInstanceVer, modUrl);
+        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, inst.raw, mp.slug, currentInstanceVer, modUrl);
         UpdateUIAfterModAddition(mp.slug);
     }
 
@@ -239,7 +239,7 @@ public class ModManager : MonoBehaviour
     private void RemoveMod(string modName)
     {
         PojlibInstance currInstName = JNIStorage.GetInstance(InstanceButton.currInstName);
-        JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, currInstName.raw, JNIStorage.home, modName);
+        JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, currInstName.raw, modName);
         downloadText.text = "Install";
         SearchMods();
     }
