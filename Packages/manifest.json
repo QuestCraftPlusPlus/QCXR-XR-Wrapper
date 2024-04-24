@@ -16,6 +16,7 @@
     "com.unity.xr.interaction.toolkit": "2.5.2",
     "com.unity.xr.management": "4.4.1",
     "com.unity.xr.openxr": "1.10.0",
+    "com.unity.xr.picoxr": "file:C:/Users/CADIndie/Downloads/PICO Unity Integration SDK_250",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
