@@ -15,7 +15,7 @@ public class InstanceButton : MonoBehaviour
 
     private static void CreateDefaultInstance(string name)
     {
-        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, name, JNIStorage.home, true, name, null, null);
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, name, true, name, null);
         JNIStorage.instance.uiHandler.SetAndShowError(currInstName + " is now installing.");
         JNIStorage.instance.UpdateInstances();
     }
@@ -32,7 +32,7 @@ public class InstanceButton : MonoBehaviour
         PojlibInstance instance = JNIStorage.GetInstance(currInstName);
         bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
 
-        instance.raw.Call("updateMods", JNIStorage.home, JNIStorage.instancesObj);
+        instance.raw.Call("updateMods", JNIStorage.instancesObj);
         
         if (!finishedDownloading)
         { 
