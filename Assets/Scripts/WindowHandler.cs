@@ -5,8 +5,7 @@ using UnityEngine.UI;
 public class WindowHandler : MonoBehaviour
 {
     public GameObject devOptionsMenu;
-    public GameObject startButton;
-    public GameObject devButton;
+    public GameObject LoginElements;
     public GameObject mainPanel;
     public GameObject startPanel;
     public GameObject modManagerPanel;
@@ -36,15 +35,13 @@ public class WindowHandler : MonoBehaviour
 
     public void DevMenuSetter()
     {
-        startButton.SetActive(false);
-        devButton.SetActive(false);
+        LoginElements.SetActive(false);
 	    devOptionsMenu.SetActive(true);
     }
     
     public void DevMenuUnsetter()
     {
-        startButton.SetActive(true);
-        devButton.SetActive(true);
+        LoginElements.SetActive(true);
         devOptionsMenu.SetActive(false);
     }
 
