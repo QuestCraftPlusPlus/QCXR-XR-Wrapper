@@ -18,7 +18,6 @@ public class ModManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI modIDObject;
     [SerializeField] private TMP_InputField searchQuery;
     [SerializeField] private RawImage modImage;
-    [SerializeField] private GameObject modManagerMainpage;
     [SerializeField] private GameObject modSearchMenu;
     [SerializeField] private GameObject instanceMenu;
     [SerializeField] private TextMeshProUGUI downloadText;
@@ -102,7 +101,6 @@ public class ModManager : MonoBehaviour
         MetaParser mp = apiHandler.GetModInfo(slug);
         instanceMenu.SetActive(false);
         modSearchMenu.SetActive(false);
-        modManagerMainpage.SetActive(false);
         modPage.SetActive(true);
 
         async Task GetSetTexture()

@@ -8,7 +8,6 @@ public class WindowHandler : MonoBehaviour
     public GameObject LoginElements;
     public GameObject mainPanel;
     public GameObject startPanel;
-    public GameObject modManagerPanel;
     public GameObject modSearchMenu;
     public GameObject instanceMenu;
     public GameObject instanceMainpage;
@@ -16,7 +15,6 @@ public class WindowHandler : MonoBehaviour
     public GameObject instanceEditor;
     public GameObject instanceInfo;
     public GameObject modInfoMenu;
-    public GameObject modManagerMainpage;
     public GameObject instanceDeleteWarning;
     public GameObject logoutWindow;
     public GameObject errorWindow;
@@ -27,7 +25,6 @@ public class WindowHandler : MonoBehaviour
     public void MainPanelSwitch()
     {
         startPanel.SetActive(false);
-        modManagerPanel.SetActive(false);
         mainPanel.SetActive(true);
         UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
         Debug.Log("QCXR: Getting PFP and Username.");
@@ -56,28 +53,26 @@ public class WindowHandler : MonoBehaviour
         modSearchMenu.SetActive(false);
         mainPanel.SetActive(false);
         modInfoMenu.SetActive(false);
-        modManagerPanel.SetActive(true);
-        modManagerMainpage.SetActive(true);
     }
 
     public void ModSearchButton()
     {
         instanceMenu.SetActive(false);
         modInfoMenu.SetActive(false);
-        modManagerMainpage.SetActive(false);
         modSearchMenu.SetActive(true);
+        mainPanel.SetActive(false);
     }
 
     public void InstanceManagerSetter()
     {
-        modManagerMainpage.SetActive(false);
         instanceMenu.SetActive(true);
+        mainPanel.SetActive(false);
     }
     
     public void InstanceManagerUnsetter()
     {
-        modManagerMainpage.SetActive(true);
         instanceMenu.SetActive(false);
+        mainPanel.SetActive(true);
     }
 
     public void InstanceCreatorSetter()
@@ -121,7 +116,6 @@ public class WindowHandler : MonoBehaviour
     {
         instanceMenu.SetActive(false);
         modSearchMenu.SetActive(false);
-        modManagerMainpage.SetActive(false);
         modInfoMenu.SetActive(true);
     }
     
