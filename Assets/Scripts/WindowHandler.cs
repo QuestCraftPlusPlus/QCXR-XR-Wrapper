@@ -5,10 +5,11 @@ using UnityEngine.UI;
 public class WindowHandler : MonoBehaviour
 {
     public GameObject devOptionsMenu;
-    public GameObject LoginElements;
+    public GameObject loginElements;
     public GameObject mainPanel;
     public GameObject startPanel;
     public GameObject modSearchMenu;
+    public GameObject modSearchPanel;
     public GameObject instanceMenu;
     public GameObject instanceMainpage;
     public GameObject instanceCreator;
@@ -32,13 +33,13 @@ public class WindowHandler : MonoBehaviour
 
     public void DevMenuSetter()
     {
-        LoginElements.SetActive(false);
+        loginElements.SetActive(false);
 	    devOptionsMenu.SetActive(true);
     }
     
     public void DevMenuUnsetter()
     {
-        LoginElements.SetActive(true);
+        loginElements.SetActive(true);
         devOptionsMenu.SetActive(false);
     }
 
@@ -60,6 +61,7 @@ public class WindowHandler : MonoBehaviour
         instanceMenu.SetActive(false);
         modInfoMenu.SetActive(false);
         modSearchMenu.SetActive(true);
+        modSearchPanel.SetActive(true);
         mainPanel.SetActive(false);
     }
 
