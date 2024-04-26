@@ -246,13 +246,13 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.picoxr": {
-      "version": "file:C:/Users/CADIndie/Downloads/PICO Unity Integration SDK_250",
+    "com.unity.xr.openxr.picoxr": {
+      "version": "file:C:/Users/CADIndie/Downloads/PICO Unity OpenXR Integration SDK_120",
       "depth": 0,
       "source": "local",
       "dependencies": {
-        "com.unity.xr.management": "4.0.0",
-        "com.unity.xr.interaction.toolkit": "2.0.0"
+        "com.unity.xr.core-utils": "2.2.0",
+        "com.unity.xr.openxr": "1.7.0"
       }
     },
     "com.unity.modules.ai": {
