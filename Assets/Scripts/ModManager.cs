@@ -190,6 +190,7 @@ public class ModManager : MonoBehaviour
         {
             foreach (Deps dep in dependencies)
             {
+                if (!dep.dependency_type.Equals("required")) {continue;}
                 string slug = apiHandler.GetModInfo(dep.project_id).slug;
                 foreach (MetaInfo depInfo in apiHandler.GetModDownloads(dep.project_id))
                 {
