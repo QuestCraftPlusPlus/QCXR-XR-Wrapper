@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using Newtonsoft.Json;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,8 +20,9 @@ public class APIHandler : MonoBehaviour
     
     public SearchParser GetSearchedProjects()
     {
-        string currInstName = JNIStorage.GetInstance(InstanceButton.currInstName).versionName;
+        string currInstName;
         string filterOption = GetFilterOption();
+        currInstName = JNIStorage.GetInstance(InstanceButton.currInstName).versionName ?? JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
 
         List<string> facets = new List<string>
         {
