@@ -11,6 +11,7 @@ public class WindowHandler : MonoBehaviour
     public GameObject modSearchMenu;
     public GameObject modSearchPanel;
     public GameObject instanceMenu;
+    public GameObject instanceMenuPanel;
     public GameObject instanceMainpage;
     public GameObject instanceCreator;
     public GameObject instanceEditor;
@@ -106,14 +107,14 @@ public class WindowHandler : MonoBehaviour
 
     public void InstanceInfoSetter()
     {
-        instanceMenu.SetActive(false);
+        instanceMenuPanel.SetActive(false);
         instanceInfo.SetActive(true);
     }
     
     public void InstanceInfoUnsetter()
     {
         instanceInfo.SetActive(false);
-        instanceMenu.SetActive(true);
+        instanceMenuPanel.SetActive(true);
     }
     
     public void ModInfoSetter()
