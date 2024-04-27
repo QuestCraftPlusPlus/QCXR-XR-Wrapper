@@ -22,6 +22,8 @@ public class WindowHandler : MonoBehaviour
     public TextMeshProUGUI profileNameHolder;
     public RawImage pfpHolder;
     public InstanceManager instanceManager;
+    public GameObject githubLogToggle;
+    public GameObject githubLog;
     
     public void MainPanelSwitch()
     {
@@ -102,13 +104,13 @@ public class WindowHandler : MonoBehaviour
         instanceMainpage.SetActive(true);
     }
 
-    public void instanceInfoSetter()
+    public void InstanceInfoSetter()
     {
         instanceMenu.SetActive(false);
         instanceInfo.SetActive(true);
     }
     
-    public void instanceInfoUnsetter()
+    public void InstanceInfoUnsetter()
     {
         instanceInfo.SetActive(false);
         instanceMenu.SetActive(true);
@@ -149,6 +151,19 @@ public class WindowHandler : MonoBehaviour
     public void ErrorMenuUnsetter()
     {
         errorWindow.SetActive(false);
+    }
+
+    public void GithugLogSetter()
+    {
+        githubLog.SetActive(!githubLog.activeSelf);
+        
+        //folded out position on x: 314.3691
+        //folded in position on x: 574.3691
+        githubLogToggle.transform.localPosition = 
+            githubLogToggle.transform.localPosition.x == 574.3691f ? 
+                new(314.3691f , githubLogToggle.transform.localPosition.y) : 
+                new( 574.3691f, githubLogToggle.transform.localPosition.y);
+
     }
 
 }

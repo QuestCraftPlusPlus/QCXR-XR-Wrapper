@@ -1,16 +1,19 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using UnityEngine.UI;
 
 public class LoadReleases : MonoBehaviour
 {
     public TextMeshProUGUI tags;
-
+    public ScrollRect Changelog;
+    public string latestTag;
+    
+    private List<ReleaseInfo> releases;
+    
     public class ReleaseInfo
     {
         public string tag_name;
@@ -18,9 +21,6 @@ public class LoadReleases : MonoBehaviour
         public string published_at;
         public string body;
     }
-
-    private List<ReleaseInfo> releases;
-
 
     [ContextMenu("Generate Releases")]
     private void Start()
@@ -34,17 +34,23 @@ public class LoadReleases : MonoBehaviour
         yield return www.SendWebRequest();
             
         if (www.result != UnityWebRequest.Result.Success)
-        {
             Debug.Log(www.error);
-        }
         else
         {
             string changelogs = null;
             releases = JsonConvert.DeserializeObject<List<ReleaseInfo>>(www.downloadHandler.text);
+
+            latestTag = releases[0].tag_name;
             foreach (var release in releases)
-                changelogs += $"{release.published_at}\n{release.name}\n{release.body}\n\n\n";
+                changelogs += 
+                    $"<size=75%>{release.published_at.Split('T')[0]}</size>\n" +
+                    $"<size=120%><u>{release.name}</u></size>" +
+                    $"<line-height=10>\n</line-height>\n" +
+                    $"{release.body}\n\n\n\n";
 
             tags.text = changelogs;
+            yield return new WaitForEndOfFrame();
+            Changelog.verticalNormalizedPosition = 1f;      
         }
     }
 }

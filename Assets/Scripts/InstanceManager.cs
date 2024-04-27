@@ -90,7 +90,7 @@ public class InstanceManager : MonoBehaviour
     public async void CreateInstanceInfoPage(string slug)
     {
         PojlibInstance instance = JNIStorage.GetInstance(slug);
-        windowHandler.instanceInfoSetter();
+        windowHandler.InstanceInfoSetter();
 
         async Task GetSetTexture()
         {
@@ -126,7 +126,7 @@ public class InstanceManager : MonoBehaviour
     {
         JNIStorage.apiClass.CallStatic<bool>("deleteInstance", JNIStorage.instancesObj, JNIStorage.GetInstance(instanceTitle.text).raw);
         instanceRemoveMenu.SetActive(false);
-        windowHandler.instanceInfoUnsetter();
+        windowHandler.InstanceInfoUnsetter();
     }
 
     private void ResetArray()

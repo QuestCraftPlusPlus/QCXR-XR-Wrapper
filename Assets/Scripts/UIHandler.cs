@@ -54,7 +54,7 @@ public class UIHandler : MonoBehaviour
     
     void Update()
     {
-        string time = System.DateTime.Now.ToString("hh:mm tt");
+        string time = DateTime.Now.ToString("hh:mm tt");
         minuteHourText.text = time;
     }
 
@@ -96,6 +96,7 @@ public class UIHandler : MonoBehaviour
     {
         if (value)
         {
+            clickedToggle.isOn = false;
             // Disable the clicked toggle
             clickedToggle.interactable = false;
 

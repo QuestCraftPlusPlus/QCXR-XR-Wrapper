@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Text.RegularExpressions;
+
 public class LoginText : MonoBehaviour
 {
+    private TextMeshProUGUI loginText;
+    private void Start()
+    {
+        loginText = GetComponent<TextMeshProUGUI>();
+    }
+
     void Update()
     {
         if (Application.platform == RuntimePlatform.WindowsEditor)
             return;
 
-        GetComponent<TextMeshProUGUI>().text = JNIStorage.apiClass.GetStatic<string>("msaMessage");
-        if(GetComponent<TextMeshProUGUI>().text != "")
+        loginText.text = JNIStorage.apiClass.GetStatic<string>("msaMessage");
+        if(loginText.text != "")
         {
-            GetComponent<TextMeshProUGUI>().text  = GetComponent<TextMeshProUGUI>().text + "Complete then you will be logged in.";
+            loginText.text =
+                Regex.Replace(
+                    loginText.text,
+                    @"enter the code (.+) to authenticate.",
+                    "enter the code <color=\"red\">$1</color> to authenticate"
+                    );
+            
+            loginText.text += " Complete then you will be logged in.";
         }
     }
 }
