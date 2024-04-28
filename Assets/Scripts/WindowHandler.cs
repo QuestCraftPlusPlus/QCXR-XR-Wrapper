@@ -14,7 +14,6 @@ public class WindowHandler : MonoBehaviour
     public GameObject instanceMenuPanel;
     public GameObject instanceMainpage;
     public GameObject instanceCreator;
-    public GameObject instanceEditor;
     public GameObject instanceInfo;
     public GameObject modInfoMenu;
     public GameObject instanceDeleteWarning;
@@ -25,6 +24,8 @@ public class WindowHandler : MonoBehaviour
     public InstanceManager instanceManager;
     public GameObject githubLogToggle;
     public GameObject githubLog;
+    public GameObject NeedHelpPanel;
+    
     
     public void MainPanelSwitch()
     {
@@ -46,12 +47,6 @@ public class WindowHandler : MonoBehaviour
         devOptionsMenu.SetActive(false);
     }
 
-    public void LogoutButton()
-    {
-        mainPanel.SetActive(false);
-        startPanel.SetActive(true);
-    }
-
     public void ModManagerButton()
     {
         modSearchMenu.SetActive(false);
@@ -70,6 +65,7 @@ public class WindowHandler : MonoBehaviour
 
     public void InstanceManagerSetter()
     {
+        instanceManager.CreateInstanceArray();
         instanceMenu.SetActive(true);
         mainPanel.SetActive(false);
     }
@@ -92,19 +88,6 @@ public class WindowHandler : MonoBehaviour
         instanceMainpage.SetActive(true);
     }
 
-    public void InstanceEditorSetter()
-    {
-        instanceMainpage.SetActive(false);
-        instanceEditor.SetActive(true);
-        instanceManager.CreateInstanceArray();
-    }
-    
-    public void InstanceEditorUnsetter()
-    {
-        instanceEditor.SetActive(false);
-        instanceMainpage.SetActive(true);
-    }
-
     public void InstanceInfoSetter()
     {
         instanceMenuPanel.SetActive(false);
@@ -115,13 +98,6 @@ public class WindowHandler : MonoBehaviour
     {
         instanceInfo.SetActive(false);
         instanceMenuPanel.SetActive(true);
-    }
-    
-    public void ModInfoSetter()
-    {
-        instanceMenu.SetActive(false);
-        modSearchMenu.SetActive(false);
-        modInfoMenu.SetActive(true);
     }
     
     public void LogoutWindowSetter()
@@ -164,7 +140,11 @@ public class WindowHandler : MonoBehaviour
             githubLogToggle.transform.localPosition.x == 574.3691f ? 
                 new(314.3691f , githubLogToggle.transform.localPosition.y) : 
                 new( 574.3691f, githubLogToggle.transform.localPosition.y);
+    }
 
+    public void NeedHelpSetter()
+    {
+        NeedHelpPanel.SetActive(!NeedHelpPanel.activeSelf);
     }
 
 }
