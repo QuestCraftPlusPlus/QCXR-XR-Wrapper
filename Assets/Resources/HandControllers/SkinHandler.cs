@@ -15,6 +15,10 @@ public class SkinHandler : MonoBehaviour
     public GameObject lSlim;
     public GameObject lClassic;
 
+    public GameObject FigurineSlim;
+    public GameObject FigurineClassic;
+
+
     private void Start()
     {
         previousText = usernamebox.text;
@@ -62,17 +66,21 @@ public class SkinHandler : MonoBehaviour
         {
             rSlim.SetActive(true);
             lSlim.SetActive(true);
+            FigurineSlim.SetActive(true);
 
             rClassic.SetActive(false);
             lClassic.SetActive(false);
+            FigurineClassic.SetActive(false);
         }
         else
         {
             rSlim.SetActive(false);
             lSlim.SetActive(false);
+            FigurineSlim.SetActive(false);
 
             rClassic.SetActive(true);
             lClassic.SetActive(true);
+            FigurineClassic.SetActive(true);
         }
     }
 
