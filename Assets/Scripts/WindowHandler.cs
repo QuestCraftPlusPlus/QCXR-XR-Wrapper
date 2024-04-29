@@ -26,6 +26,8 @@ public class WindowHandler : MonoBehaviour
     public GameObject githubLog;
     public GameObject NeedHelpPanel;
     
+    public SkinHandler skinHandler;
+    
     
     public void MainPanelSwitch()
     {
@@ -33,6 +35,7 @@ public class WindowHandler : MonoBehaviour
         mainPanel.SetActive(true);
         UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
         Debug.Log("QCXR: Getting PFP and Username.");
+        skinHandler.LoadSkin(JNIStorage.apiClass.GetStatic<string>("profileName"));
     }
 
     public void DevMenuSetter()

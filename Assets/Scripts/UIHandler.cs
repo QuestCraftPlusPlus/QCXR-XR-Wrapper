@@ -65,6 +65,8 @@ public class UIHandler : MonoBehaviour
             pfpUrl ??= JNIStorage.apiClass.GetStatic<string>("profileImage");
             profileName ??= JNIStorage.apiClass.GetStatic<string>("profileName");
 
+            profileNameHolder.text = profileName;
+
             if (pfpHolder.texture == null)
             {
                 using UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl);
@@ -83,10 +85,9 @@ public class UIHandler : MonoBehaviour
                 }
                 else
                 {
-                    // Get downloaded texture
-                    var pfpTexture = DownloadHandlerTexture.GetContent(pfp);
-                    pfpHolder.texture = pfpTexture;
-                    profileNameHolder.text = profileName;
+                    pfpHolder.gameObject.SetActive(true);
+                    // Set downloaded texture
+                    pfpHolder.texture = DownloadHandlerTexture.GetContent(pfp);
                 }
             }
         }
