@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
@@ -143,22 +144,40 @@ public class ModManager : MonoBehaviour
 
         foreach (MetaInfo metaInfo in modInfos)
         {
-            foreach (var file in metaInfo.files.Where(file => IsValidModFile(file, metaInfo, currentInstanceVer)))
+            foreach (var file in metaInfo.files.Where(file => IsValidModFile(metaInfo, currentInstanceVer)))
             {
-                ProcessModFile(mp, file, metaInfo, currentInstanceVer);
+                if (file.url.Contains(".mrpack"))
+                {
+                    ProcessModpack(mp, file, currentInstanceVer);
+                } else if (file.url.Contains(".zip"))
+                {
+                    //ProcessResourcePack();
+                }
+                else
+                {
+                    ProcessModFile(mp, file, metaInfo, currentInstanceVer);
+                }
+                
                 return;
             }
         }
     }
-
-    private bool IsValidModFile(FileInfo file, MetaInfo metaInfo, string currentInstanceName)
+    
+    private bool IsValidModFile(MetaInfo metaInfo, string currentInstanceName)
     {
-        return metaInfo.game_versions.Contains(currentInstanceName) 
-               && metaInfo.loaders.Contains("fabric") 
-               && !file.url.Contains(".mrpack");
+        return metaInfo.game_versions.Contains(currentInstanceName)
+               && metaInfo.loaders.Contains("fabric");
     }
 
     private void ProcessModFile(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceVer)
+    {
+        AndroidJavaObject instance = LoadInstance();
+        if (instance == null) return;
+
+        DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
+    }    
+    
+    private void ProcessResourcePack(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceVer)
     {
         Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceVer}");
 
@@ -166,6 +185,34 @@ public class ModManager : MonoBehaviour
         if (instance == null) return;
 
         DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
+    }
+    
+    private async void ProcessModpack(MetaParser mp, FileInfo file, string currentInstanceVer)
+    {
+        string path = Path.Combine(Application.persistentDataPath);
+        path = Path.Combine(path, mp.title + ".mrpack");
+        Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceVer} | modPatch: {path}");
+        
+        Task DownloadModpackFile()
+        {
+            UnityWebRequest modpackFile = new UnityWebRequest(file.url);
+            modpackFile.method = UnityWebRequest.kHttpVerbGET;
+            DownloadHandlerFile dh = new DownloadHandlerFile(path);
+            dh.removeFileOnAbort = true;
+            modpackFile.downloadHandler = dh;
+            modpackFile.SendWebRequest();
+            return Task.CompletedTask;
+        }
+
+        await DownloadModpackFile();
+
+        AndroidJavaObject instance = LoadInstance();
+        if (instance == null) return;
+
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, mp.title, mp.icon_url, path);
+        JNIStorage.instance.uiHandler.SetAndShowError(mp.title + " is now being created.");
+        JNIStorage.instance.UpdateInstances();
+        File.Delete(path);
     }
 
     private AndroidJavaObject LoadInstance()
