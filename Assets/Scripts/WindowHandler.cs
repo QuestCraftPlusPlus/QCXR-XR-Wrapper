@@ -11,7 +11,6 @@ public class WindowHandler : MonoBehaviour
     public GameObject modSearchMenu;
     public GameObject modSearchPanel;
     public GameObject instanceMenu;
-    public GameObject instanceMenuPanel;
     public GameObject instanceMainpage;
     public GameObject instanceCreator;
     public GameObject instanceInfo;
@@ -29,13 +28,13 @@ public class WindowHandler : MonoBehaviour
     public SkinHandler skinHandler;
     
     
-    public void MainPanelSwitch()
+    public async void MainPanelSwitch()
     {
         startPanel.SetActive(false);
         mainPanel.SetActive(true);
-        UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
         Debug.Log("QCXR: Getting PFP and Username.");
-        skinHandler.LoadSkin(JNIStorage.apiClass.GetStatic<string>("profileName"));
+        await UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
+        skinHandler.LoadSkin(profileNameHolder.text);
     }
 
     public void DevMenuSetter()
@@ -93,14 +92,14 @@ public class WindowHandler : MonoBehaviour
 
     public void InstanceInfoSetter()
     {
-        instanceMenuPanel.SetActive(false);
         instanceInfo.SetActive(true);
+        instanceMainpage.SetActive(false);
     }
     
     public void InstanceInfoUnsetter()
     {
         instanceInfo.SetActive(false);
-        instanceMenuPanel.SetActive(true);
+        instanceMainpage.SetActive(true);
     }
     
     public void LogoutWindowSetter()
@@ -121,6 +120,7 @@ public class WindowHandler : MonoBehaviour
     public void InstanceDeleteWarningUnsetter()
     {
         instanceDeleteWarning.SetActive(false);
+        instanceManager.CreateInstanceArray();
     }
 
     public void ErrorMenuSetter()

@@ -3,11 +3,12 @@ using Newtonsoft.Json.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Serialization;
 
 public class SkinHandler : MonoBehaviour
 {
-    public TextMeshProUGUI usernamebox;
     public Material skin;
+    public Material profilePicture;
     private string skinType;
 
     public GameObject rSlim;
@@ -15,19 +16,21 @@ public class SkinHandler : MonoBehaviour
     public GameObject lSlim;
     public GameObject lClassic;
 
-    public GameObject FigurineSlim;
-    public GameObject FigurineClassic;
+    [FormerlySerializedAs("FigurineSlim")] public GameObject figurineSlim;
+    [FormerlySerializedAs("FigurineClassic")] public GameObject figurineClassic;
 
+    [Header("Debug")] public string FETCHINGUSERNAME;
 
-    private void Start()
+    [ContextMenu("DEBUG FETCH")]
+    public void DEBUGFETCH()
     {
-        previousText = usernamebox.text;
-        StartCoroutine(CheckTextChange());
+        LoadSkin(FETCHINGUSERNAME);
     }
-    
+
     public void LoadSkin(string username)
     {
         StartCoroutine(LoadImage(username));
+        StartCoroutine(SetSkinType(username));
     }
 
     IEnumerator LoadImage(string username)
@@ -41,8 +44,8 @@ public class SkinHandler : MonoBehaviour
             Debug.Log("Loading skin");
             skin.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
             skin.mainTexture.filterMode = FilterMode.Point;
-            
-            StartCoroutine(SetSkinType(username));
+            profilePicture.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            profilePicture.mainTexture.filterMode = FilterMode.Point;
         }
     }
     
@@ -66,35 +69,21 @@ public class SkinHandler : MonoBehaviour
         {
             rSlim.SetActive(true);
             lSlim.SetActive(true);
-            FigurineSlim.SetActive(true);
+            figurineSlim.SetActive(true);
 
             rClassic.SetActive(false);
             lClassic.SetActive(false);
-            FigurineClassic.SetActive(false);
+            figurineClassic.SetActive(false);
         }
         else
         {
             rSlim.SetActive(false);
             lSlim.SetActive(false);
-            FigurineSlim.SetActive(false);
+            figurineSlim.SetActive(false);
 
             rClassic.SetActive(true);
             lClassic.SetActive(true);
-            FigurineClassic.SetActive(true);
-        }
-    }
-
-    private string previousText;
-    IEnumerator CheckTextChange()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.3f);
-            if (previousText != usernamebox.text)
-            {   
-                previousText = usernamebox.text;
-                LoadSkin(previousText);
-            }
+            figurineClassic.SetActive(true);
         }
     }
 }

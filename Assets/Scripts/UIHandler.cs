@@ -62,35 +62,10 @@ public class UIHandler : MonoBehaviour
     {
         if (JNIStorage.accountObj != null)
         {
-            pfpUrl ??= JNIStorage.apiClass.GetStatic<string>("profileImage");
             profileName ??= JNIStorage.apiClass.GetStatic<string>("profileName");
-
             profileNameHolder.text = profileName;
-
-            if (pfpHolder.texture == null)
-            {
-                using UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl);
-                pfp.SetRequestHeader("User-Agent", "QuestCraft v5");
-                var requestTask = pfp.SendWebRequest();
-                Debug.Log("Making URL request for PFP...");
-
-                while (!requestTask.isDone)
-                {
-                    await Task.Yield();
-                }
-                
-                if (pfp.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.Log(pfp.error);
-                }
-                else
-                {
-                    pfpHolder.gameObject.SetActive(true);
-                    // Set downloaded texture
-                    pfpHolder.texture = DownloadHandlerTexture.GetContent(pfp);
-                }
-            }
         }
+
     }
 
     void OnToggleClicked(bool value, Toggle clickedToggle)
