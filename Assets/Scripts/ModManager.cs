@@ -221,7 +221,7 @@ public class ModManager : MonoBehaviour
 
         if (currInst == null)
         {
-            ShowError("You must run this version of the game at least once before adding mods to the instance with ModManger!");
+            ShowError("You must run this version of the game at least once before adding mods to the instance with Mod Manager!");
             return null;
         }
 
