@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.IsolatedStorage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -10,7 +11,7 @@ public class LoadReleases : MonoBehaviour
 {
     public TextMeshProUGUI tags;
     public ScrollRect Changelog;
-    public string latestTag;
+    public VersionChecker _versionChecker;
     
     private List<ReleaseInfo> releases;
     
@@ -40,7 +41,9 @@ public class LoadReleases : MonoBehaviour
             string changelogs = null;
             releases = JsonConvert.DeserializeObject<List<ReleaseInfo>>(www.downloadHandler.text);
 
-            latestTag = releases[0].tag_name;
+            _versionChecker.currentPublicVersion = releases[0].tag_name;
+            _versionChecker.CheckVersion();
+            
             foreach (var release in releases)
                 changelogs += 
                     $"<size=75%>{release.published_at.Split('T')[0]}</size>\n" +

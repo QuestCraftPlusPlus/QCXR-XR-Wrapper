@@ -143,9 +143,9 @@ public class WindowHandler : MonoBehaviour
         //folded out position on x: 314.3691
         //folded in position on x: 574.3691
         githubLogToggle.transform.localPosition = 
-            githubLogToggle.transform.localPosition.x == 574.3691f ? 
-                new(314.3691f , githubLogToggle.transform.localPosition.y) : 
-                new( 574.3691f, githubLogToggle.transform.localPosition.y);
+            githubLogToggle.transform.localPosition.x == 314.3691f ? 
+                new(574.3691f , githubLogToggle.transform.localPosition.y) : 
+                new( 314.3691f, githubLogToggle.transform.localPosition.y);
     }
 
     public void NeedHelpSetter()
