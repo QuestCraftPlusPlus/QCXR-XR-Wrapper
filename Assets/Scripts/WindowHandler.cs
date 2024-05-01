@@ -88,6 +88,7 @@ public class WindowHandler : MonoBehaviour
     {
         instanceCreator.SetActive(false);
         instanceMainpage.SetActive(true);
+        instanceManager.CreateInstanceArray();
     }
 
     public void InstanceInfoSetter()
@@ -100,6 +101,8 @@ public class WindowHandler : MonoBehaviour
     {
         instanceInfo.SetActive(false);
         instanceMainpage.SetActive(true);
+        instanceManager.CreateInstanceArray();
+        JNIStorage.instance.UpdateInstances();
     }
     
     public void LogoutWindowSetter()
