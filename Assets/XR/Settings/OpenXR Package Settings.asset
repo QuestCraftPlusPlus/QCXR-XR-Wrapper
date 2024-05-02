@@ -80,6 +80,26 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-6594960583773670916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cbce3c0a43cb94993bae5d5d772f48, type: 3}
+  m_Name: OpenXRFeatureSystemInfo Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Get System Info
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.example.getSystemInfo
+  openxrExtensionStrings: 
+  company: Fireproof Studios
+  priority: 0
+  required: 0
 --- !u!114 &-6424506199278229770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,7 +396,7 @@ MonoBehaviour:
   - {fileID: -421731470120353963}
   - {fileID: 4795121578104034638}
   - {fileID: -9169343928442634506}
-  - {fileID: -1162865437041803231}
+  - {fileID: -6594960583773670916}
   - {fileID: -3093284296845882794}
   - {fileID: -6281888907729403248}
   m_renderMode: 1

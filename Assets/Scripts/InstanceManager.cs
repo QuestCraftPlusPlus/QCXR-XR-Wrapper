@@ -20,11 +20,18 @@ public class InstanceManager : MonoBehaviour
     public Toggle defaultModsToggle;
     public TMP_Dropdown versionDropdown;
     public WindowHandler windowHandler;
+    public Texture2D errorTexture;
+    
     
     public void CreateCustomInstance()
     {
         try
         {
+            if (instanceName.text.Trim() == "")
+            {
+                JNIStorage.instance.uiHandler.SetAndShowError("Instance name cannot be blank, please enter a name.");
+                return;
+            }
             JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, null);
             JNIStorage.instance.uiHandler.SetAndShowError(instanceName.text + " is now being created.");
             
@@ -84,6 +91,17 @@ public class InstanceManager : MonoBehaviour
             }
 
             await SetInstanceData();
+        }
+
+        if (instanceArray.transform.childCount == 0)
+        {
+            GameObject instanceGameObject = Instantiate(instancePrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+            instanceGameObject.GetComponentInChildren<RawImage>().texture = errorTexture;
+            instanceGameObject.GetComponentInChildren<RawImage>().color = Color.yellow;
+            instanceGameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "No instances could be found!";
+            instanceGameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Make sure you have an instance downloaded.";
+            instanceGameObject.transform.SetParent(instanceArray.transform, false);
+            instanceGameObject.name = "ERROR";
         }
     }
     

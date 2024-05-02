@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using UnityEngine.Networking;
 using UnityEngine;
 
@@ -11,7 +14,7 @@ public class LoadLog : MonoBehaviour
     {
         public string id;
     }
-
+    
     public void UploadLog()
     {
         StartCoroutine(Upload());
@@ -24,7 +27,7 @@ public class LoadLog : MonoBehaviour
         {
             logtext = File.ReadAllText(Application.persistentDataPath + "/latestlog.txt");
         }
-        catch (FileNotFoundException e)
+        catch (FileNotFoundException)
         {
             linkbox.text = $"No log to upload!";
             throw;
@@ -40,8 +43,8 @@ public class LoadLog : MonoBehaviour
             Debug.LogError(www.error);
         else
         {
-            linkbox.text = $"https://mclo.gs/" + 
-                           JsonUtility.FromJson<LogResponse>(www.downloadHandler.text).id;
+            string id = JsonUtility.FromJson<LogResponse>(www.downloadHandler.text).id;
+            linkbox.text = $"https://mclo.gs/" + id;
         }
     }
 }
