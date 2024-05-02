@@ -22,10 +22,8 @@ public class LoginText : MonoBehaviour
                 Regex.Replace(
                     loginText.text,
                     @"enter the code (.+) to authenticate.",
-                    "enter the code <color=\"red\">$1</color> to authenticate"
+                    "enter the code <color=#1574d4>$1</color> to authenticate."
                     );
-            
-            loginText.text += " Complete then you will be logged in.";
         }
     }
 }

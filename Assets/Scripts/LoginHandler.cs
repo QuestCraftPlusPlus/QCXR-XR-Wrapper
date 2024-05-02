@@ -49,9 +49,6 @@ public class LoginHandler : MonoBehaviour
 	  isMainScreen = false;
 	  JNIStorage.accountObj = null;
 	  JNIStorage.apiClass.CallStatic<bool>("logout", JNIStorage.activity);
-      hasAttemptedLogin = false;
-      handler.logoutWindow.SetActive(false);
-      handler.startPanel.SetActive(true);
-      handler.mainPanel.SetActive(false);
+      Application.Quit();
     }
 }
