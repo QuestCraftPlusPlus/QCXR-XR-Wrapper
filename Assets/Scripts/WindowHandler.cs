@@ -1,33 +1,44 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class WindowHandler : MonoBehaviour
 {
     public GameObject devOptionsMenu;
     public GameObject loginElements;
-    public GameObject mainPanel;
+    public GameObject loginButton;
+    public CanvasGroup loginText; 
+    
     public GameObject startPanel;
+    
+    public GameObject mainPanel;
+    public TextMeshProUGUI profileNameHolder;
+    public RawImage pfpHolder;
+    
     public GameObject modSearchMenu;
     public GameObject modSearchPanel;
+    public GameObject modInfoMenu;
+
+    public InstanceManager instanceManager;
     public GameObject instanceMenu;
     public GameObject instanceMainpage;
     public GameObject instanceCreator;
     public GameObject instanceInfo;
-    public GameObject modInfoMenu;
     public GameObject instanceDeleteWarning;
+    
     public GameObject logoutWindow;
     public GameObject errorWindow;
-    public TextMeshProUGUI profileNameHolder;
-    public RawImage pfpHolder;
-    public InstanceManager instanceManager;
+    
     public GameObject githubLogToggle;
     public GameObject githubLog;
-    public GameObject NeedHelpPanel;
+    
+    public GameObject needHelpPanel;
     
     public SkinHandler skinHandler;
-    
-    
+
+
     public async void MainPanelSwitch()
     {
         startPanel.SetActive(false);
@@ -136,6 +147,15 @@ public class WindowHandler : MonoBehaviour
         errorWindow.SetActive(false);
     }
 
+    [ContextMenu("LoginAnim")]
+    public void AnimateLogin()
+    {
+            LeanTween.value(loginButton, loginButton.transform.position, loginButton.transform.parent.transform.position, 1).setEase(LeanTweenType.easeInOutCubic).setOnUpdate((Vector3 newPos) => loginButton.transform.position = newPos);
+            LeanTween.delayedCall(0.5f, () =>
+                LeanTween.value(loginText.gameObject, 0, 1, 0.5f).setEase(LeanTweenType.easeInOutCubic)
+                    .setOnUpdate((float opacity) => loginText.alpha = opacity));
+    }
+
     public void GithugLogSetter()
     {
         githubLog.SetActive(!githubLog.activeSelf);
@@ -150,7 +170,7 @@ public class WindowHandler : MonoBehaviour
 
     public void NeedHelpSetter()
     {
-        NeedHelpPanel.SetActive(!NeedHelpPanel.activeSelf);
+        needHelpPanel.SetActive(!needHelpPanel.activeSelf);
     }
 
 }
