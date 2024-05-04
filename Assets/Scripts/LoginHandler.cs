@@ -25,11 +25,11 @@ public class LoginHandler : MonoBehaviour
 		    isAnimating = true;
 		    
 		    loginButtonText.text = "Loading";
-		    await Task.Delay(500);
+		    await Task.Delay(550);
 		    foreach (int placeholder in Enumerable.Range(1,3))
 		    {
 			    loginButtonText.text += ".";
-			    await Task.Delay(500);
+			    await Task.Delay(600);
 		    }
 		    loginButtonText.text = "Sign In";
 		    isAnimating = false;

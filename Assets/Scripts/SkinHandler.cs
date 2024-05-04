@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using TMPro;
 using UnityEngine;
@@ -29,61 +30,69 @@ public class SkinHandler : MonoBehaviour
 
     public void LoadSkin(string username)
     {
-        StartCoroutine(LoadImage(username));
-        StartCoroutine(SetSkinType(username));
-    }
-
-    IEnumerator LoadImage(string username)
-    {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture("https://minotar.net/skin/" + username);
-        yield return request.SendWebRequest();
-        if (request.result != UnityWebRequest.Result.Success)
-            Debug.Log(request.error);
-        else
+        async Task LoadImage(string username)
         {
-            Debug.Log("Loading skin");
-            skin.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            skin.mainTexture.filterMode = FilterMode.Point;
-            profilePicture.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            profilePicture.mainTexture.filterMode = FilterMode.Point;
+            UnityWebRequest request = UnityWebRequestTexture.GetTexture("https://minotar.net/skin/" + username);
+            request.SendWebRequest();
+
+            while (!request.isDone)
+                await Task.Delay(16);
+            
+            if (request.result != UnityWebRequest.Result.Success)
+                Debug.Log(request.error);
+            else
+            {
+                Debug.Log("Loading skin");
+                skin.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+                skin.mainTexture.filterMode = FilterMode.Point;
+                profilePicture.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+                profilePicture.mainTexture.filterMode = FilterMode.Point;
+            }
         }
-    }
-    
-    public IEnumerator SetSkinType(string username)
-    {
-        UnityWebRequest www =
-            UnityWebRequest.Get("https://starlightskins.lunareclipse.studio/info/user/" + username);
+
+        async Task SetSkinType(string username)
+        {
+            UnityWebRequest www =
+                UnityWebRequest.Get("https://starlightskins.lunareclipse.studio/info/user/" + username);
+            www.SendWebRequest();
+
+            while (!www.isDone)
+            {
+                await Task.Delay(16);
+            }
+            
+            if (www.result != UnityWebRequest.Result.Success)
+                Debug.Log(www.error);
+            else
+            {
+                JObject SkinType = JObject.Parse(www.downloadHandler.text);
+                skinType = (string)SkinType["skinType"];
+                Debug.Log(skinType);
+            }
         
-        yield return www.SendWebRequest();
+            if (skinType != "wide")
+            {
+                rSlim.SetActive(true);
+                lSlim.SetActive(true);
+                figurineSlim.SetActive(true);
 
-        if (www.result != UnityWebRequest.Result.Success)
-            Debug.Log(www.error);
-        else
-        {
-            JObject SkinType = JObject.Parse(www.downloadHandler.text);
-            skinType = (string)SkinType["skinType"];
-            Debug.Log(skinType);
+                rClassic.SetActive(false);
+                lClassic.SetActive(false);
+                figurineClassic.SetActive(false);
+            }
+            else
+            {
+                rSlim.SetActive(false);
+                lSlim.SetActive(false);
+                figurineSlim.SetActive(false);
+
+                rClassic.SetActive(true);
+                lClassic.SetActive(true);
+                figurineClassic.SetActive(true);
+            }
         }
         
-        if (skinType != "wide")
-        {
-            rSlim.SetActive(true);
-            lSlim.SetActive(true);
-            figurineSlim.SetActive(true);
-
-            rClassic.SetActive(false);
-            lClassic.SetActive(false);
-            figurineClassic.SetActive(false);
-        }
-        else
-        {
-            rSlim.SetActive(false);
-            lSlim.SetActive(false);
-            figurineSlim.SetActive(false);
-
-            rClassic.SetActive(true);
-            lClassic.SetActive(true);
-            figurineClassic.SetActive(true);
-        }
+        LoadImage(username);
+        SetSkinType(username);
     }
 }

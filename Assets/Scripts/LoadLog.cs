@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 using UnityEngine.Networking;
 using UnityEngine;
 
@@ -17,34 +14,36 @@ public class LoadLog : MonoBehaviour
     
     public void UploadLog()
     {
-        StartCoroutine(Upload());
-    }
-
-    IEnumerator Upload()
-    {
-        string logtext;
-        try
+        async Task Upload()
         {
-            logtext = File.ReadAllText(Application.persistentDataPath + "/latestlog.txt");
-        }
-        catch (FileNotFoundException)
-        {
-            linkbox.text = $"No log to upload!";
-            throw;
-        }
+            string logtext;
+            try
+            {
+                logtext = File.ReadAllText(Application.persistentDataPath + "/latestlog.txt");
+            }
+            catch (FileNotFoundException)
+            {
+                linkbox.text = $"No log to upload!";
+                throw;
+            }
         
-        WWWForm form = new WWWForm();
-        form.AddField("content", logtext);
+            WWWForm form = new WWWForm();
+            form.AddField("content", logtext);
 
-        using UnityWebRequest www = UnityWebRequest.Post("https://api.mclo.gs/1/log", form);
-        yield return www.SendWebRequest();
+            using UnityWebRequest www = UnityWebRequest.Post("https://api.mclo.gs/1/log", form);
+            www.SendWebRequest();
 
-        if (www.result != UnityWebRequest.Result.Success)
-            Debug.LogError(www.error);
-        else
-        {
-            string id = JsonUtility.FromJson<LogResponse>(www.downloadHandler.text).id;
-            linkbox.text = $"https://mclo.gs/" + id;
+            while (!www.isDone)
+                await Task.Delay(16);
+            
+            if (www.result != UnityWebRequest.Result.Success)
+                Debug.LogError(www.error);
+            else
+            {
+                string id = JsonUtility.FromJson<LogResponse>(www.downloadHandler.text).id;
+                linkbox.text = $"https://mclo.gs/" + id;
+            } 
         }
+        Upload();
     }
 }

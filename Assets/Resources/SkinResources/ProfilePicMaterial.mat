@@ -91,7 +91,7 @@ Material:
     - _BumpScale: 1
     - _ColorMask: 15
     - _Cull: 2
-    - _Cutoff: 0.001
+    - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
