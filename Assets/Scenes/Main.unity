@@ -1815,8 +1815,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2080568463}
+  m_Children: [{fileID: 2080568463}]
   m_Father: {fileID: 239758827}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11023,8 +11022,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Are you sure you would like to sign out?
 
-    You will have to re-link
-    your Microsoft account!'
+    You will have to re-link your Microsoft account!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -14573,8 +14571,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 157275770}
+  m_Children: [{fileID: 157275770}]
   m_Father: {fileID: 620451673}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15672,8 +15669,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 68738220}
+  m_Children: [{fileID: 68738220}]
   m_Father: {fileID: 1223003958}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15732,7 +15728,6 @@ GameObject:
   - component: {fileID: 914642835}
   - component: {fileID: 914642834}
   - component: {fileID: 914642833}
-  - component: {fileID: 914642836}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -15866,19 +15861,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914642831}
   m_CullTransparentMesh: 1
---- !u!65 &914642836
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914642831}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 2, y: 0, z: 0}
 --- !u!1 &914923695
 GameObject:
   m_ObjectHideFlags: 0
@@ -15946,8 +15928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Custom Ram Limit | Default - 1800                                                                      
-    .
+  m_text: Custom Ram Limit | Default - 1800                                                                       .
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -16091,11 +16072,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0.00021855035}
   m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2090878023}
-  - {fileID: 1773740999}
-  - {fileID: 1146946156}
-  - {fileID: 287783866}
+  m_Children: [{fileID: 2090878023}, {fileID: 1773740999}, {fileID: 1146946156}, {
+      fileID: 287783866}]
   m_Father: {fileID: 1033016412}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19046,14 +19024,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -0.00007947162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1277759578}
-  - {fileID: 1863752287}
-  - {fileID: 356556487}
-  - {fileID: 498132123}
-  - {fileID: 7446553}
-  - {fileID: 427584011}
-  - {fileID: 1757319837}
+  m_Children: [{fileID: 1277759578}, {fileID: 1863752287}, {fileID: 356556487}, {
+      fileID: 498132123}, {fileID: 7446553}, {fileID: 427584011}, {fileID: 1757319837}]
   m_Father: {fileID: 1349654759}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22558,11 +22530,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "SAMPLE TEXT FOR QUESTCRAFT CHANGELOG:\n\nmeow meow meow \nMeow? Meow meow
-    meow! Meowwww? Meow. Meow meow meow meow meow meow meow! Meowwww (hiss) meow
-    meow meow. Meow\u2026 meow meow meow? Meowwww! Meow meow meow meow meow, meow
-    meow meow. Meowwww (rub) meow meow meow meow. Meow? Meow meow meow meow meow
-    meow! Meowwww (purr) meow meow.\n\n<size=120%> If you see this\n The log didnt
-    load"
+    meow! Meowwww? Meow. Meow meow meow meow meow meow meow! Meowwww (hiss) meow meow
+    meow. Meow\u2026 meow meow meow? Meowwww! Meow meow meow meow meow, meow meow
+    meow. Meowwww (rub) meow meow meow meow. Meow? Meow meow meow meow meow meow!
+    Meowwww (purr) meow meow.\n\n<size=120%> If you see this\n The log didnt load"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -23542,8 +23513,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -0.00013838406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 855064046}
+  m_Children: [{fileID: 855064046}]
   m_Father: {fileID: 296709984}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -25251,8 +25221,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Advanced Debugging                                                                                                
-    .
+  m_text: Advanced Debugging                                                                                                 .
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -26684,8 +26653,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Pressing continue will delete this instance forever!
 
-    Are you sure
-    you want to do this?'
+    Are you sure you want to do this?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -29297,8 +29265,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1319789774}
+  m_Children: [{fileID: 1319789774}]
   m_Father: {fileID: 178496364}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37708,9 +37675,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 377856571}
-  - {fileID: 64220940}
+  m_Children: [{fileID: 377856571}, {fileID: 64220940}]
   m_Father: {fileID: 1815324618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
