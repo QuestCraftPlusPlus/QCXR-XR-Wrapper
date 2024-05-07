@@ -16,13 +16,24 @@ public class APIHandler : MonoBehaviour
     public GameObject resourcePacksButton;
     public string searchQuery;
 
+    public GameObject errorMenu;
+
     //TODO: Add error handling
     
     public SearchParser GetSearchedProjects()
     {
         string currInstName;
         string filterOption = GetFilterOption();
-        currInstName = JNIStorage.GetInstance(InstanceButton.currInstName).versionName ?? JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+        
+        try
+        {
+            currInstName = JNIStorage.GetInstance(InstanceButton.currInstName).versionName ?? JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+        }
+        catch(NullReferenceException)
+        {
+            ShowError("You must run this version of the game at least once before adding mods to the instance with Mod Manager!");
+            return null;
+        }
 
         List<string> facets = new List<string>
         {
@@ -42,6 +53,12 @@ public class APIHandler : MonoBehaviour
         using var reader = new StreamReader(response.GetResponseStream());
         string json = reader.ReadToEnd();
         return JsonConvert.DeserializeObject<SearchParser>(json);
+    }
+    
+    private void ShowError(string message)
+    {
+        errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = message;
+        errorMenu.SetActive(true);
     }
 
     public MetaParser GetModInfo(string modID)

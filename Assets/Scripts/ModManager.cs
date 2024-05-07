@@ -19,14 +19,14 @@ public class ModManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI modIDObject;
     [SerializeField] private TMP_InputField searchQuery;
     [SerializeField] private RawImage modImage;
-    [SerializeField] private GameObject modManagerMainpage;
     [SerializeField] private GameObject modSearchMenu;
     [SerializeField] private GameObject instanceMenu;
     [SerializeField] private TextMeshProUGUI downloadText;
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
-	
-	private string currModSlug;
+    public Texture2D errorTexture;
+
+    private string currModSlug;
 
     private async void CreateMods()
     {
@@ -93,8 +93,20 @@ public class ModManager : MonoBehaviour
 					currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
                 });
             }
-
             await SetModImage();
+        }
+
+        await Task.Delay(20);
+        if (modArray.transform.childCount == 0)
+        {
+            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+            modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
+            modObject.GetComponentInChildren<RawImage>().color = Color.yellow;
+            modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "No mods could be found!";
+            modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Are you sure its the right name?";
+            modObject.transform.GetChild(3).gameObject.SetActive(false);
+            modObject.transform.SetParent(modArray.transform, false);
+            modObject.name = "ERROR";
         }
     }
 
@@ -103,7 +115,6 @@ public class ModManager : MonoBehaviour
         MetaParser mp = apiHandler.GetModInfo(slug);
         instanceMenu.SetActive(false);
         modSearchMenu.SetActive(false);
-        modManagerMainpage.SetActive(false);
         modPage.SetActive(true);
 
         async Task GetSetTexture()
@@ -223,7 +234,7 @@ public class ModManager : MonoBehaviour
 
         if (currInst == null)
         {
-            ShowError("You must run this version of the game at least once before adding mods to the instance with ModManger!");
+            ShowError("You must run this version of the game at least once before adding mods to the instance with Mod Manager!");
             return null;
         }
 

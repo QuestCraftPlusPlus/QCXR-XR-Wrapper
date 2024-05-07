@@ -1,22 +1,46 @@
+using System;
 using System.Collections;
+using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LoginHandler : MonoBehaviour
 {
-    public WindowHandler handler;
     bool isMainScreen;
     private bool hasAttemptedLogin;
-    AndroidJavaClass jc;
-    AndroidJavaObject jo;
+    AndroidJavaClass javaClass;
+    AndroidJavaObject javaObject;
+    
+    public TextMeshProUGUI loginButtonText;
+    public WindowHandler handler;
+    private bool isAnimating;
     
     public void Login()
     {
+	    async Task LoadingButtonText()
+	    {
+		    if (isAnimating) return;
+		    isAnimating = true;
+		    
+		    loginButtonText.text = "Loading";
+		    await Task.Delay(550);
+		    foreach (int placeholder in Enumerable.Range(1,3))
+		    {
+			    loginButtonText.text += ".";
+			    await Task.Delay(600);
+		    }
+		    loginButtonText.text = "Sign In";
+		    isAnimating = false;
+	    }
+	    LoadingButtonText();
+	    
+	    if (Application.platform == RuntimePlatform.WindowsEditor) return;
 	    if (hasAttemptedLogin) return;
-	    jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-	    jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
-	    JNIStorage.apiClass.CallStatic("login", jo);
+	    javaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+	    javaObject = javaClass.GetStatic<AndroidJavaObject>("currentActivity");
+	    JNIStorage.apiClass.CallStatic("login", javaObject);
 	    CheckVerification();
 	    hasAttemptedLogin = true;
     }
@@ -49,9 +73,6 @@ public class LoginHandler : MonoBehaviour
 	  isMainScreen = false;
 	  JNIStorage.accountObj = null;
 	  JNIStorage.apiClass.CallStatic<bool>("logout", JNIStorage.activity);
-      hasAttemptedLogin = false;
-      handler.logoutWindow.SetActive(false);
-      handler.startPanel.SetActive(true);
-      handler.mainPanel.SetActive(false);
+      Application.Quit();
     }
 }
