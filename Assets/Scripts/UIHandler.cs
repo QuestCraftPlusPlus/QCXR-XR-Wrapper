@@ -54,7 +54,7 @@ public class UIHandler : MonoBehaviour
     
     void Update()
     {
-        string time = System.DateTime.Now.ToString("hh:mm tt");
+        string time = DateTime.Now.ToString("hh:mm tt");
         minuteHourText.text = time;
     }
 
@@ -62,40 +62,17 @@ public class UIHandler : MonoBehaviour
     {
         if (JNIStorage.accountObj != null)
         {
-            pfpUrl ??= JNIStorage.apiClass.GetStatic<string>("profileImage");
             profileName ??= JNIStorage.apiClass.GetStatic<string>("profileName");
-
-            if (pfpHolder.texture == null)
-            {
-                using UnityWebRequest pfp = UnityWebRequestTexture.GetTexture(pfpUrl);
-                pfp.SetRequestHeader("User-Agent", "QuestCraft v5");
-                var requestTask = pfp.SendWebRequest();
-                Debug.Log("Making URL request for PFP...");
-
-                while (!requestTask.isDone)
-                {
-                    await Task.Yield();
-                }
-                
-                if (pfp.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.Log(pfp.error);
-                }
-                else
-                {
-                    // Get downloaded texture
-                    var pfpTexture = DownloadHandlerTexture.GetContent(pfp);
-                    pfpHolder.texture = pfpTexture;
-                    profileNameHolder.text = profileName;
-                }
-            }
+            profileNameHolder.text = profileName;
         }
+
     }
 
     void OnToggleClicked(bool value, Toggle clickedToggle)
     {
         if (value)
         {
+            clickedToggle.isOn = false;
             // Disable the clicked toggle
             clickedToggle.interactable = false;
 

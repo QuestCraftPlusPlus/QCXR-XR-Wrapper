@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
@@ -18,14 +19,14 @@ public class ModManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI modIDObject;
     [SerializeField] private TMP_InputField searchQuery;
     [SerializeField] private RawImage modImage;
-    [SerializeField] private GameObject modManagerMainpage;
     [SerializeField] private GameObject modSearchMenu;
     [SerializeField] private GameObject instanceMenu;
     [SerializeField] private TextMeshProUGUI downloadText;
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
-	
-	private string currModSlug;
+    public Texture2D errorTexture;
+
+    private string currModSlug;
 
     private async void CreateMods()
     {
@@ -92,8 +93,20 @@ public class ModManager : MonoBehaviour
 					currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
                 });
             }
-
             await SetModImage();
+        }
+
+        await Task.Delay(20);
+        if (modArray.transform.childCount == 0)
+        {
+            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+            modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
+            modObject.GetComponentInChildren<RawImage>().color = Color.yellow;
+            modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "No mods could be found!";
+            modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Are you sure its the right name?";
+            modObject.transform.GetChild(3).gameObject.SetActive(false);
+            modObject.transform.SetParent(modArray.transform, false);
+            modObject.name = "ERROR";
         }
     }
 
@@ -102,7 +115,6 @@ public class ModManager : MonoBehaviour
         MetaParser mp = apiHandler.GetModInfo(slug);
         instanceMenu.SetActive(false);
         modSearchMenu.SetActive(false);
-        modManagerMainpage.SetActive(false);
         modPage.SetActive(true);
 
         async Task GetSetTexture()
@@ -145,22 +157,40 @@ public class ModManager : MonoBehaviour
 
         foreach (MetaInfo metaInfo in modInfos)
         {
-            foreach (var file in metaInfo.files.Where(file => IsValidModFile(file, metaInfo, currentInstanceVer)))
+            foreach (var file in metaInfo.files.Where(file => IsValidModFile(metaInfo, currentInstanceVer)))
             {
-                ProcessModFile(mp, file, metaInfo, currentInstanceVer);
+                if (file.url.Contains(".mrpack"))
+                {
+                    ProcessModpack(mp, file, currentInstanceVer);
+                } else if (file.url.Contains(".zip"))
+                {
+                    //ProcessResourcePack();
+                }
+                else
+                {
+                    ProcessModFile(mp, file, metaInfo, currentInstanceVer);
+                }
+                
                 return;
             }
         }
     }
-
-    private bool IsValidModFile(FileInfo file, MetaInfo metaInfo, string currentInstanceName)
+    
+    private bool IsValidModFile(MetaInfo metaInfo, string currentInstanceName)
     {
-        return metaInfo.game_versions.Contains(currentInstanceName) 
-               && metaInfo.loaders.Contains("fabric") 
-               && !file.url.Contains(".mrpack");
+        return metaInfo.game_versions.Contains(currentInstanceName)
+               && metaInfo.loaders.Contains("fabric");
     }
 
     private void ProcessModFile(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceVer)
+    {
+        AndroidJavaObject instance = LoadInstance();
+        if (instance == null) return;
+
+        DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
+    }    
+    
+    private void ProcessResourcePack(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceVer)
     {
         Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceVer}");
 
@@ -169,6 +199,34 @@ public class ModManager : MonoBehaviour
 
         DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
     }
+    
+    private async void ProcessModpack(MetaParser mp, FileInfo file, string currentInstanceVer)
+    {
+        string path = Path.Combine(Application.persistentDataPath);
+        path = Path.Combine(path, mp.title + ".mrpack");
+        Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceVer} | modPatch: {path}");
+        
+        Task DownloadModpackFile()
+        {
+            UnityWebRequest modpackFile = new UnityWebRequest(file.url);
+            modpackFile.method = UnityWebRequest.kHttpVerbGET;
+            DownloadHandlerFile dh = new DownloadHandlerFile(path);
+            dh.removeFileOnAbort = true;
+            modpackFile.downloadHandler = dh;
+            modpackFile.SendWebRequest();
+            return Task.CompletedTask;
+        }
+
+        await DownloadModpackFile();
+
+        AndroidJavaObject instance = LoadInstance();
+        if (instance == null) return;
+
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, mp.title, mp.icon_url, path);
+        JNIStorage.instance.uiHandler.SetAndShowError(mp.title + " is now being created.");
+        JNIStorage.instance.UpdateInstances();
+        File.Delete(path);
+    }
 
     private AndroidJavaObject LoadInstance()
     {
@@ -176,7 +234,7 @@ public class ModManager : MonoBehaviour
 
         if (currInst == null)
         {
-            ShowError("You must run this version of the game at least once before adding mods to the instance with ModManger!");
+            ShowError("You must run this version of the game at least once before adding mods to the instance with Mod Manager!");
             return null;
         }
 
@@ -190,6 +248,7 @@ public class ModManager : MonoBehaviour
         {
             foreach (Deps dep in dependencies)
             {
+                if (!dep.dependency_type.Equals("required")) {continue;}
                 string slug = apiHandler.GetModInfo(dep.project_id).slug;
                 foreach (MetaInfo depInfo in apiHandler.GetModDownloads(dep.project_id))
                 {
@@ -197,7 +256,7 @@ public class ModManager : MonoBehaviour
                     foreach (var depFile in validDepFiles)
                     {
                         PojlibInstance currInst = JNIStorage.GetInstance(InstanceButton.currInstName);
-                        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, currInst.raw, JNIStorage.home, slug, currentInstanceVer, depFile.url);
+                        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, currInst.raw, slug, currentInstanceVer, depFile.url);
                         Debug.Log($"Downloading Dep with file url {depFile.url}");
                         break;
                     }
@@ -206,7 +265,7 @@ public class ModManager : MonoBehaviour
         }
 
         PojlibInstance inst = JNIStorage.GetInstance(InstanceButton.currInstName);
-        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, inst.raw, JNIStorage.home, mp.slug, currentInstanceVer, modUrl);
+        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, inst.raw, mp.slug, currentInstanceVer, modUrl);
         UpdateUIAfterModAddition(mp.slug);
     }
 
@@ -239,7 +298,7 @@ public class ModManager : MonoBehaviour
     private void RemoveMod(string modName)
     {
         PojlibInstance currInstName = JNIStorage.GetInstance(InstanceButton.currInstName);
-        JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, currInstName.raw, JNIStorage.home, modName);
+        JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, currInstName.raw, modName);
         downloadText.text = "Install";
         SearchMods();
     }
