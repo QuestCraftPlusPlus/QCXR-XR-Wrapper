@@ -3669,7 +3669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257602141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 92.537, y: -59.004, z: -25.796}
+  m_LocalPosition: {x: 92.23, y: -59.242, z: -25.892}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3727,13 +3727,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.5825e-41, y: 6e-44, z: 1e-45, w: NaN}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7459,7 +7459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea87d112f0ba8ad439f17cb8309ff273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loginButtonText: {fileID: 1874211728}
+  loginButtonText: {fileID: 0}
   handler: {fileID: 1460469781}
 --- !u!1 &442830766
 GameObject:
@@ -9106,7 +9106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546364286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 94.635, y: -58.994, z: -24.639}
+  m_LocalPosition: {x: 94.097, y: -59.132, z: -24.864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9164,13 +9164,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: NaN, z: 0, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -15542,7 +15542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751b03009ae524d48a17f520b435a33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowHandler: {fileID: 1460469781}
+  windowHandler: {fileID: 0}
   debugText: 
 --- !u!114 &909552202
 MonoBehaviour:
@@ -16680,7 +16680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957429852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 93.497, y: -60.016, z: -23.111}
+  m_LocalPosition: {x: 93.326, y: -60.057, z: -22.912}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16738,13 +16738,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: NaN, z: 0, w: 1e-45}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -26129,15 +26129,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devOptionsMenu: {fileID: 474986767}
-  loginElements: {fileID: 357216646}
-  loginButton: {fileID: 432457115}
-  loginText: {fileID: 1297291920}
+  loginElements: {fileID: 0}
+  loginButton: {fileID: 0}
+  loginText: {fileID: 0}
   startPanel: {fileID: 668226021}
   mainPanel: {fileID: 1033016411}
   profileNameHolder: {fileID: 788089990}
   pfpHolder: {fileID: 0}
   modSearchMenu: {fileID: 769034882}
-  modSearchPanel: {fileID: 1199009808}
+  modSearchPanel: {fileID: 0}
   modInfoMenu: {fileID: 1147369739}
   instanceManager: {fileID: 1460469790}
   instanceMenu: {fileID: 484804533}
@@ -26147,10 +26147,10 @@ MonoBehaviour:
   instanceDeleteWarning: {fileID: 1720838222}
   logoutWindow: {fileID: 787850197}
   errorWindow: {fileID: 1996973844}
-  githubLogToggle: {fileID: 222688974}
-  githubLog: {fileID: 359953418}
-  needHelpPanel: {fileID: 746319718}
-  skinHandler: {fileID: 1460469792}
+  githubLogToggle: {fileID: 0}
+  githubLog: {fileID: 0}
+  needHelpPanel: {fileID: 0}
+  skinHandler: {fileID: 0}
 --- !u!114 &1460469782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26189,7 +26189,7 @@ MonoBehaviour:
   modPacksButton: {fileID: 675128249}
   resourcePacksButton: {fileID: 290311422}
   searchQuery: 
-  errorMenu: {fileID: 1996973844}
+  errorMenu: {fileID: 0}
 --- !u!114 &1460469784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26217,7 +26217,7 @@ MonoBehaviour:
   downloadText: {fileID: 1181584578}
   errorMenu: {fileID: 1996973844}
   downloadButton: {fileID: 976121598}
-  errorTexture: {fileID: 2800000, guid: a4ffbc1ca8af1b9438ce9e5df01a5f18, type: 3}
+  errorTexture: {fileID: 0}
 --- !u!114 &1460469785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26317,7 +26317,7 @@ MonoBehaviour:
   defaultModsToggle: {fileID: 1794063286}
   versionDropdown: {fileID: 855064047}
   windowHandler: {fileID: 1460469781}
-  errorTexture: {fileID: 2800000, guid: a4ffbc1ca8af1b9438ce9e5df01a5f18, type: 3}
+  errorTexture: {fileID: 0}
 --- !u!114 &1460469791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28303,7 +28303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709253606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 91.536, y: -58.025, z: -22.158}
+  m_LocalPosition: {x: 91.186, y: -58.135, z: -21.852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28361,13 +28361,13 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 10
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 6.73e-43, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4e-45, y: 4e-45, z: 1.1151647e-38, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -32740,6 +32740,7 @@ GameObject:
   - component: {fileID: 1895559469}
   - component: {fileID: 1895559468}
   - component: {fileID: 1895559471}
+  - component: {fileID: 1895559472}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -32857,6 +32858,68 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!108 &1895559472
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895559465}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1896784726
 GameObject:
   m_ObjectHideFlags: 0
