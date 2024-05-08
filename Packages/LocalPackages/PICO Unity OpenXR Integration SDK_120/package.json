@@ -12,7 +12,7 @@
     "xreditorsubsystem"
   ],
   "dependencies": {
-    "com.unity.xr.core-utils": "2.2.0",
-    "com.unity.xr.openxr": "1.7.0"
+    "com.unity.xr.core-utils": "2.3.0",
+    "com.unity.xr.openxr": "1.10.0"
   }
 }
