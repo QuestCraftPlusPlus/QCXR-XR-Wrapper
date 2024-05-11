@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
@@ -22,6 +24,11 @@ public class InstanceManager : MonoBehaviour
     public WindowHandler windowHandler;
     public Texture2D errorTexture;
     
+    [SerializeField] private GameObject modPrefab;
+    [SerializeField] private GameObject modArray;
+    [SerializeField] private APIHandler apiHandler;
+    
+    public TextMeshProUGUI REMOVEPRETTYPLEASETHISISTEMPORARY;
     
     public void CreateCustomInstance()
     {
@@ -131,6 +138,23 @@ public class InstanceManager : MonoBehaviour
             instanceTitle.text = instance.instanceName;
         }
 
+        for (int i = modArray.transform.childCount - 1; i >= 0; i--)
+            if (modArray.transform.GetChild(i).name != "BaseItems") 
+                Destroy(modArray.transform.GetChild(i).gameObject);
+        REMOVEPRETTYPLEASETHISISTEMPORARY.text = "";
+        foreach (PojlibMod MOD in instance.GetMods())
+        {
+            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+            modObject.name = MOD.slug;
+            {
+                REMOVEPRETTYPLEASETHISISTEMPORARY.text += "\n" + MOD.slug;
+                modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
+                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = MOD.slug;
+                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
+                modObject.transform.SetParent(modArray.transform, false);
+            }
+        }
+        
         await GetSetTexture();
     }
 

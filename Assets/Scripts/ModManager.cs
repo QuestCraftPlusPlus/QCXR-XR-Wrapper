@@ -25,7 +25,8 @@ public class ModManager : MonoBehaviour
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
     public Texture2D errorTexture;
-
+    public TextMeshProUGUI REMOVEPRETTYPLEASETHISISTEMPORARY;
+    
     private string currModSlug;
 
     private async void CreateMods()
@@ -46,13 +47,14 @@ public class ModManager : MonoBehaviour
                     await Task.Delay(50);
                 }
 
+                Texture modImageTexture;
                 if (modImageLink.result != UnityWebRequest.Result.Success)
                 {
                     Debug.Log(modImageLink.error);
-                    return;
+                    modImageTexture = errorTexture;
                 }
-
-                Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+                else
+                    modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
 
                 GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
                 modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
@@ -64,16 +66,9 @@ public class ModManager : MonoBehaviour
                 try
                 {
                     bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, searchResults.project_id);
-
-                    if (!hasMod)
-                    {
-                        modObject.transform.GetChild(3).gameObject.SetActive(false);
-                    }
-                    else 
-                    {
-                        modObject.transform.GetChild(3).gameObject.SetActive(true);
-                        modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate { RemoveMod(searchResults.title); });
-                    }
+                    REMOVEPRETTYPLEASETHISISTEMPORARY.text = searchResults.project_id;
+                    modObject.transform.GetChild(3).gameObject.SetActive(hasMod);
+                    modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(() => RemoveMod(searchResults.title));
                 }
                 catch (Exception ex)
                 {
@@ -89,8 +84,8 @@ public class ModManager : MonoBehaviour
                 {
                     EventSystem.current.SetSelectedGameObject(modObject);
                     GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                    CreateModPage(mod.ToString().Replace("(UnityEngine.GameObject)", ""));
-					currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
+                    currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
+                    CreateModPage(currModSlug);
                 });
             }
             await SetModImage();

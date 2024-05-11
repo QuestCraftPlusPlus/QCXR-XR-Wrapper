@@ -52,15 +52,15 @@ public class LoginHandler : MonoBehaviour
 	    {
 		    await Task.Delay(1500);
 		    
-		    if (JNIStorage.accountObj != null && !isMainScreen) {
+		    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+		    Debug.Log("Check Login State");
+		    if (JNIStorage.accountObj != null) 
+		    {
 			    handler.MainPanelSwitch();
 			    isMainScreen = true;
-		    } else {
-			    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
-			    Debug.Log("Check Login State");
 		    }
-	    }
-	  }
+	    } 
+    }
     
     public void LogoutButton()
     {
