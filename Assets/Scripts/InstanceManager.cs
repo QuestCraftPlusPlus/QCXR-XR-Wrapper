@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,10 +23,7 @@ public class InstanceManager : MonoBehaviour
     
     [SerializeField] private GameObject modPrefab;
     [SerializeField] private GameObject modArray;
-    [SerializeField] private APIHandler apiHandler;
-    
-    public TextMeshProUGUI REMOVEPRETTYPLEASETHISISTEMPORARY;
-    
+
     public void CreateCustomInstance()
     {
         try
@@ -107,7 +105,7 @@ public class InstanceManager : MonoBehaviour
             instanceGameObject.name = "ERROR";
         }
     }
-    
+
     public async void CreateInstanceInfoPage(string slug)
     {
         PojlibInstance instance = JNIStorage.GetInstance(slug);
@@ -115,7 +113,6 @@ public class InstanceManager : MonoBehaviour
 
         async Task GetSetTexture()
         {
-
             if (instance.instanceImageURL != null)
             {
                 UnityWebRequest instanceImageLink = UnityWebRequestTexture.GetTexture(instance.instanceImageURL);
@@ -133,25 +130,67 @@ public class InstanceManager : MonoBehaviour
             instanceVersion.text = instance.versionName + " - Fabric";
             instanceTitle.text = instance.instanceName;
         }
-
-        for (int i = modArray.transform.childCount - 1; i >= 0; i--)
-            if (modArray.transform.GetChild(i).name != "BaseItems") 
-                Destroy(modArray.transform.GetChild(i).gameObject);
-        REMOVEPRETTYPLEASETHISISTEMPORARY.text = "";
-        foreach (PojlibMod MOD in instance.GetMods())
-        {
-            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-            modObject.name = MOD.slug;
-            {
-                REMOVEPRETTYPLEASETHISISTEMPORARY.text += "\n" + MOD.slug;
-                modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
-                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = MOD.slug;
-                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
-                modObject.transform.SetParent(modArray.transform, false);
-            }
-        }
-        
         await GetSetTexture();
+
+        
+        for (int i = modArray.transform.childCount - 1; i >= 0; i--)
+            if (modArray.transform.GetChild(i).name != "BaseItems")
+                Destroy(modArray.transform.GetChild(i).gameObject);
+        
+        PojlibMod[] ModList = instance.GetMods();
+        foreach (PojlibMod Mod in ModList)
+        {
+            Debug.Log("Loading Mod " + Mod.slug);
+            MetaParser metaParser = null;
+            async Task GetModInfo()
+            {
+                UnityWebRequest www = UnityWebRequest.Get("https://api.modrinth.com/v2/project/" + Mod.slug);
+                www.SendWebRequest();
+                while (!www.isDone)
+                    await Task.Delay(16);
+                if (www.result != UnityWebRequest.Result.Success)
+                    Debug.Log(www.error);
+                else
+                    metaParser = JsonConvert.DeserializeObject<MetaParser>(www.downloadHandler.text);
+            }
+            await GetModInfo();
+
+            async Task SetModInfo()
+            {
+                GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+                modObject.name = Mod.slug;
+                modObject.transform.SetParent(modArray.transform, false);
+                if (metaParser != null)
+                {
+                    modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = metaParser.title;
+                    modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = metaParser.description;
+                    
+                    UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(metaParser.icon_url);
+                    modImageLink.SendWebRequest();
+
+                    while (!modImageLink.isDone)
+                        await Task.Delay(16);
+
+                    Texture modImageTexture;
+                    if (modImageLink.result != UnityWebRequest.Result.Success)
+                    {
+                        Debug.Log(modImageLink.error);
+                        modImageTexture = errorTexture;
+                    }
+                    else
+                        modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+                    
+                    modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
+                }
+                else
+                {
+                    modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
+                    modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Mod.slug;
+                    modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
+                }
+            }
+            await SetModInfo();
+        }
     }
 
     public void RemoveInstancePrompt()

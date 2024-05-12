@@ -25,7 +25,6 @@ public class ModManager : MonoBehaviour
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
     public Texture2D errorTexture;
-    public TextMeshProUGUI REMOVEPRETTYPLEASETHISISTEMPORARY;
     
     private string currModSlug;
 
@@ -66,7 +65,6 @@ public class ModManager : MonoBehaviour
                 try
                 {
                     bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, searchResults.project_id);
-                    REMOVEPRETTYPLEASETHISISTEMPORARY.text = searchResults.project_id;
                     modObject.transform.GetChild(3).gameObject.SetActive(hasMod);
                     modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(() => RemoveMod(searchResults.title));
                 }
