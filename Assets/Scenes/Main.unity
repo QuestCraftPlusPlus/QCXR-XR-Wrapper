@@ -19851,6 +19851,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1460469784}
+        m_TargetAssemblyTypeName: ModManager, Assembly-CSharp
+        m_MethodName: SearchMods
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1146946158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26541,7 +26553,6 @@ MonoBehaviour:
   modPrefab: {fileID: 5410042389903846261, guid: 629574bbc42c6be47bae88fbe9370cea,
     type: 3}
   modArray: {fileID: 1076671957}
-  apiHandler: {fileID: 0}
 --- !u!114 &1460469791
 MonoBehaviour:
   m_ObjectHideFlags: 0

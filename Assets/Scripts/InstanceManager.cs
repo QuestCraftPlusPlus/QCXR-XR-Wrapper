@@ -130,9 +130,8 @@ public class InstanceManager : MonoBehaviour
             instanceVersion.text = instance.versionName + " - Fabric";
             instanceTitle.text = instance.instanceName;
         }
-        await GetSetTexture();
-
         
+        await GetSetTexture();
         for (int i = modArray.transform.childCount - 1; i >= 0; i--)
             if (modArray.transform.GetChild(i).name != "BaseItems")
                 Destroy(modArray.transform.GetChild(i).gameObject);
@@ -152,8 +151,9 @@ public class InstanceManager : MonoBehaviour
                     Debug.Log(www.error);
                 else
                     metaParser = JsonConvert.DeserializeObject<MetaParser>(www.downloadHandler.text);
+                
+                SetModInfo();
             }
-            await GetModInfo();
 
             async Task SetModInfo()
             {
@@ -164,7 +164,7 @@ public class InstanceManager : MonoBehaviour
                 modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate
                 {
                     //public static boolean removeMod(MinecraftInstances instances, MinecraftInstances.Instance instance, String gameDir, String name)
-                    JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, instance.raw, instance.gameDir, Mod.slug);
+                    JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, instance.raw, Mod.slug);
                     Destroy(modObject.gameObject);
                 });
                 
@@ -198,7 +198,8 @@ public class InstanceManager : MonoBehaviour
                 }
                 modObject.transform.GetChild(3).gameObject.SetActive(true);
             }
-            SetModInfo();
+            
+            GetModInfo();
         }
     }
 

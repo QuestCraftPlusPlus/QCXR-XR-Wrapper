@@ -28,20 +28,26 @@ public class ModManager : MonoBehaviour
     
     private string currModSlug;
 
-    private async void CreateMods()
+    private void CreateMods()
     {
         ResetArray();
         SearchParser searchParser = apiHandler.GetSearchedProjects();
-
         foreach (SearchResults searchResults in searchParser.hits)
         {
-            
             GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
             modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
             modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
             modObject.transform.SetParent(modArray.transform, false);
             modObject.name = searchResults.project_id;
             modObject.transform.GetChild(3).gameObject.SetActive(false);
+            modObject.GetComponent<Button>().onClick.AddListener(delegate
+            {
+                EventSystem.current.SetSelectedGameObject(modObject);
+                GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
+                currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
+                CreateModPage(currModSlug);
+            });
+            
             async Task SetModImage()
             {
                 UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
@@ -53,16 +59,17 @@ public class ModManager : MonoBehaviour
                     await Task.Delay(50);
                 }
 
-                Texture modImageTexture;
+                Texture modImageTexture = errorTexture;
                 if (modImageLink.result != UnityWebRequest.Result.Success)
-                {
                     Debug.Log(modImageLink.error);
-                    modImageTexture = errorTexture;
-                }
                 else
                     modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
 
                 modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
+            }
+
+            async Task HasModCheck()
+            {
                 try
                 {
                     bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, searchResults.project_id);
@@ -73,20 +80,11 @@ public class ModManager : MonoBehaviour
                 {
                     Debug.LogError($"An error occurred: {ex}");
                     if (modObject != null)
-                    {
                         modObject.transform.GetChild(3).gameObject.SetActive(false);
-                    }
                 }
-
-                modObject.GetComponent<Button>().onClick.AddListener(delegate
-                {
-                    EventSystem.current.SetSelectedGameObject(modObject);
-                    GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                    currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
-                    CreateModPage(currModSlug);
-                });
             }
             SetModImage();
+            HasModCheck();
         }
 
         if (searchParser.hits.Count == 0)
@@ -102,12 +100,16 @@ public class ModManager : MonoBehaviour
         }
     }
 
-    public async void CreateModPage(string slug)
+    public void CreateModPage(string slug)
     {
         MetaParser mp = apiHandler.GetModInfo(slug);
         instanceMenu.SetActive(false);
         modSearchMenu.SetActive(false);
         modPage.SetActive(true);
+        
+        modDescription.text = mp.description;
+        modTitle.text = mp.title;
+        modIDObject.text = mp.slug;
 
         async Task GetSetTexture()
         {
@@ -116,15 +118,20 @@ public class ModManager : MonoBehaviour
 
             while (!modImageLink.isDone)
             {
-                await Task.Delay(50);
+                await Task.Delay(16);
             }
-
-            Texture modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-            modDescription.text = mp.description;
-            modTitle.text = mp.title;
+            
+            Texture modImageTexture = errorTexture;
+            if (modImageLink.result != UnityWebRequest.Result.Success)
+                Debug.Log(modImageLink.error);
+            else
+                modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+            
             modImage.texture = modImageTexture;
-            modIDObject.text = mp.slug;
+        }
 
+        async Task HasModCheck()
+        {
             try
             {
                 bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, mp.slug);
@@ -137,8 +144,9 @@ public class ModManager : MonoBehaviour
                 downloadText.text = "Install";
             }
         }
-
-        await GetSetTexture();
+        
+        GetSetTexture();
+        HasModCheck();
     }
     
     public void AddMod()
