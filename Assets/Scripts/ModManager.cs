@@ -35,6 +35,13 @@ public class ModManager : MonoBehaviour
 
         foreach (SearchResults searchResults in searchParser.hits)
         {
+            
+            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+            modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
+            modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
+            modObject.transform.SetParent(modArray.transform, false);
+            modObject.name = searchResults.project_id;
+            modObject.transform.GetChild(3).gameObject.SetActive(false);
             async Task SetModImage()
             {
                 UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
@@ -55,13 +62,7 @@ public class ModManager : MonoBehaviour
                 else
                     modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
 
-                GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
                 modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
-                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
-                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
-                modObject.transform.SetParent(modArray.transform, false);
-                modObject.name = searchResults.project_id;
-                
                 try
                 {
                     bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, searchResults.project_id);
@@ -71,7 +72,6 @@ public class ModManager : MonoBehaviour
                 catch (Exception ex)
                 {
                     Debug.LogError($"An error occurred: {ex}");
-                    
                     if (modObject != null)
                     {
                         modObject.transform.GetChild(3).gameObject.SetActive(false);
@@ -86,11 +86,10 @@ public class ModManager : MonoBehaviour
                     CreateModPage(currModSlug);
                 });
             }
-            await SetModImage();
+            SetModImage();
         }
 
-        await Task.Delay(20);
-        if (modArray.transform.childCount == 0)
+        if (searchParser.hits.Count == 0)
         {
             GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
             modObject.GetComponentInChildren<RawImage>().texture = errorTexture;

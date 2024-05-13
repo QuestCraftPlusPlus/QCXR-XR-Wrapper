@@ -160,6 +160,14 @@ public class InstanceManager : MonoBehaviour
                 GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
                 modObject.name = Mod.slug;
                 modObject.transform.SetParent(modArray.transform, false);
+                modObject.GetComponent<RectTransform>().sizeDelta = new(850 ,modObject.GetComponent<RectTransform>().sizeDelta.y);
+                modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate
+                {
+                    //public static boolean removeMod(MinecraftInstances instances, MinecraftInstances.Instance instance, String gameDir, String name)
+                    JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, instance.raw, instance.gameDir, Mod.slug);
+                    Destroy(modObject.gameObject);
+                });
+                
                 if (metaParser != null)
                 {
                     modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = metaParser.title;
@@ -188,8 +196,9 @@ public class InstanceManager : MonoBehaviour
                     modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Mod.slug;
                     modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
                 }
+                modObject.transform.GetChild(3).gameObject.SetActive(true);
             }
-            await SetModInfo();
+            SetModInfo();
         }
     }
 
