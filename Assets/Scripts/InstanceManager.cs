@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TMPro;
@@ -86,8 +88,8 @@ public class InstanceManager : MonoBehaviour
                 instanceGameObject.GetComponent<Button>().onClick.AddListener(delegate
                 {
                     EventSystem.current.SetSelectedGameObject(instanceGameObject);
-                    GameObject InstanceObject = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                    CreateInstanceInfoPage(InstanceObject.name);
+                    GameObject instanceObject = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
+                    CreateInstanceInfoPage(instanceObject.name);
                 });
             }
 
@@ -106,7 +108,7 @@ public class InstanceManager : MonoBehaviour
         }
     }
 
-    public async void CreateInstanceInfoPage(string slug)
+    async void CreateInstanceInfoPage(string slug)
     {
         PojlibInstance instance = JNIStorage.GetInstance(slug);
         windowHandler.InstanceInfoSetter();
@@ -130,76 +132,87 @@ public class InstanceManager : MonoBehaviour
             instanceVersion.text = instance.versionName + " - Fabric";
             instanceTitle.text = instance.instanceName;
         }
-        
+
         await GetSetTexture();
+
+
         for (int i = modArray.transform.childCount - 1; i >= 0; i--)
             if (modArray.transform.GetChild(i).name != "BaseItems")
                 Destroy(modArray.transform.GetChild(i).gameObject);
-        
-        PojlibMod[] ModList = instance.GetMods();
-        foreach (PojlibMod Mod in ModList)
+
+        PojlibMod[] modList = instance.GetMods();
+        List<MetaParser> fetchedMods = new();
+
+        async Task GetModInfoArray()
         {
-            Debug.Log("Loading Mod " + Mod.slug);
-            MetaParser metaParser = null;
-            async Task GetModInfo()
+            string request = "https://api.modrinth.com/v2/projects?ids=[";
+            foreach (PojlibMod mod in modList)
+                request += $"\"{mod.slug}\",";
+            request = request.Remove(request.Length - 1, 1) + "]";
+
+            UnityWebRequest www = UnityWebRequest.Get(request);
+            www.SendWebRequest();
+            while (!www.isDone)
+                await Task.Delay(16);
+            if (www.result != UnityWebRequest.Result.Success)
+                Debug.Log(www.error);
+            else
+                fetchedMods = new List<MetaParser>(JsonConvert.DeserializeObject<MetaParser[]>(www.downloadHandler.text));
+
+            HashSet<string> fetchedSlugs = new HashSet<string>(fetchedMods.Select(mod => mod.slug.ToLower()));
+            foreach (PojlibMod mod in modList)
             {
-                UnityWebRequest www = UnityWebRequest.Get("https://api.modrinth.com/v2/project/" + Mod.slug);
-                www.SendWebRequest();
-                while (!www.isDone)
-                    await Task.Delay(16);
-                if (www.result != UnityWebRequest.Result.Success)
-                    Debug.Log(www.error);
-                else
-                    metaParser = JsonConvert.DeserializeObject<MetaParser>(www.downloadHandler.text);
-                
-                SetModInfo();
+                string currentSlug = mod.slug.ToLower();
+                if (fetchedSlugs.Add(currentSlug))
+                {
+                    MetaParser newMod = new MetaParser
+                    {
+                        slug = currentSlug,
+                        title = currentSlug,
+                        description = "",
+                        icon_url = "OFFLINE"
+                    };
+                    fetchedMods.Add(newMod);
+                }
             }
+        }
+        await GetModInfoArray();
+
+        //sort it
+        fetchedMods = fetchedMods.OrderBy(mod => mod.title).ToList();
+
+        foreach (MetaParser mod in fetchedMods)
+        {
+            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+            modObject.name = mod.slug;
+            modObject.transform.SetParent(modArray.transform, false);
+            modObject.GetComponent<RectTransform>().sizeDelta =
+                new(850, modObject.GetComponent<RectTransform>().sizeDelta.y);
+            modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate
+            {
+                JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, instance.raw, mod.slug);
+                Destroy(modObject.gameObject);
+            });
 
             async Task SetModInfo()
             {
-                GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-                modObject.name = Mod.slug;
-                modObject.transform.SetParent(modArray.transform, false);
-                modObject.GetComponent<RectTransform>().sizeDelta = new(850 ,modObject.GetComponent<RectTransform>().sizeDelta.y);
-                modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate
+                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = mod.title;
+                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = mod.description;
+                Texture modImageTexture = errorTexture;
+                if (mod.icon_url != "OFFLINE")
                 {
-                    //public static boolean removeMod(MinecraftInstances instances, MinecraftInstances.Instance instance, String gameDir, String name)
-                    JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, instance.raw, Mod.slug);
-                    Destroy(modObject.gameObject);
-                });
-                
-                if (metaParser != null)
-                {
-                    modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = metaParser.title;
-                    modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = metaParser.description;
-                    
-                    UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(metaParser.icon_url);
+                    UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(mod.icon_url);
                     modImageLink.SendWebRequest();
-
                     while (!modImageLink.isDone)
                         await Task.Delay(16);
-
-                    Texture modImageTexture;
                     if (modImageLink.result != UnityWebRequest.Result.Success)
-                    {
                         Debug.Log(modImageLink.error);
-                        modImageTexture = errorTexture;
-                    }
                     else
                         modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-                    
-                    modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
                 }
-                else
-                {
-                    modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
-                    modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Mod.slug;
-                    modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "";
-                }
-                modObject.transform.GetChild(3).gameObject.SetActive(true);
+                modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
             }
-            
-            GetModInfo();
+            SetModInfo();
         }
     }
 
