@@ -57,6 +57,7 @@ public class LoginHandler : MonoBehaviour
 		    if (JNIStorage.accountObj != null) 
 		    {
 			    handler.MainPanelSwitch();
+			    handler.LoadAv();
 			    isMainScreen = true;
 		    }
 	    } 

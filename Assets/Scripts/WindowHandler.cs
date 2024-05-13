@@ -39,10 +39,14 @@ public class WindowHandler : MonoBehaviour
     public SkinHandler skinHandler;
 
 
-    public async void MainPanelSwitch()
+    public void MainPanelSwitch()
     {
         startPanel.SetActive(false);
         mainPanel.SetActive(true);
+    }
+
+    public async void LoadAv()
+    {
         Debug.Log("QCXR: Getting PFP and Username.");
         await UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
         skinHandler.LoadSkin(profileNameHolder.text);
