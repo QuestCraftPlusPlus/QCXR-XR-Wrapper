@@ -67,24 +67,9 @@ public class ModManager : MonoBehaviour
 
                 modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
             }
-
-            async Task HasModCheck()
-            {
-                try
-                {
-                    bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, searchResults.project_id);
-                    modObject.transform.GetChild(3).gameObject.SetActive(hasMod);
-                    modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(() => RemoveMod(searchResults.title));
-                }
-                catch (Exception ex)
-                {
-                    Debug.LogError($"An error occurred: {ex}");
-                    if (modObject != null)
-                        modObject.transform.GetChild(3).gameObject.SetActive(false);
-                }
-            }
+            
+            modObject.transform.GetChild(3).gameObject.SetActive(false);
             SetModImage();
-            HasModCheck();
         }
 
         if (searchParser.hits.Count == 0)
