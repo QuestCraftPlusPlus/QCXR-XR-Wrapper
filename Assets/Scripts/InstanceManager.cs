@@ -22,7 +22,8 @@ public class InstanceManager : MonoBehaviour
     public TMP_Dropdown versionDropdown;
     public WindowHandler windowHandler;
     public Texture2D errorTexture;
-    
+
+    public TextMeshProUGUI ModCounter;
     [SerializeField] private GameObject modPrefab;
     [SerializeField] private GameObject modArray;
 
@@ -121,9 +122,7 @@ public class InstanceManager : MonoBehaviour
                 instanceImageLink.SendWebRequest();
 
                 while (!instanceImageLink.isDone)
-                {
                     await Task.Delay(50);
-                }
 
                 Texture instanceImageTex = ((DownloadHandlerTexture)instanceImageLink.downloadHandler).texture;
                 instanceImage.texture = instanceImageTex;
@@ -134,13 +133,23 @@ public class InstanceManager : MonoBehaviour
         }
 
         await GetSetTexture();
-
-
+        
         for (int i = modArray.transform.childCount - 1; i >= 0; i--)
-            if (modArray.transform.GetChild(i).name != "BaseItems")
-                Destroy(modArray.transform.GetChild(i).gameObject);
-
+            Destroy(modArray.transform.GetChild(i).gameObject);
+        
         PojlibMod[] modList = instance.GetMods();
+        
+        void CountMods(int count)
+        {
+            Color counterColor;
+            if (count < 50)
+                counterColor = Color.Lerp(new Color(3, 152, 252), new Color(255, 108, 10), (float)count / 50);
+            else
+                counterColor = Color.Lerp(new Color(255, 108, 10), new Color(255, 0, 0), (float)(count - 50) / 50.0f);
+            ModCounter.text = $"Currently Installed mods: <color={ColorToHex(counterColor)}>{count}";
+        }
+        CountMods(modList.Length);
+        
         List<MetaParser> fetchedMods = new();
 
         async Task GetModInfoArray()
@@ -187,11 +196,12 @@ public class InstanceManager : MonoBehaviour
             modObject.name = mod.slug;
             modObject.transform.SetParent(modArray.transform, false);
             modObject.GetComponent<RectTransform>().sizeDelta =
-                new(850, modObject.GetComponent<RectTransform>().sizeDelta.y);
+                new(675, modObject.GetComponent<RectTransform>().sizeDelta.y);
             modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate
             {
                 JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, instance.raw, mod.slug);
                 Destroy(modObject.gameObject);
+                CountMods(modArray.transform.childCount - 1);
             });
 
             async Task SetModInfo()
@@ -214,6 +224,14 @@ public class InstanceManager : MonoBehaviour
             }
             SetModInfo();
         }
+    }
+
+    string ColorToHex(Color color)
+    {
+        int r = (int)color.r;
+        int g = (int)color.g;
+        int b = (int)color.b;
+        return "#" + r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
     }
 
     public void RemoveInstancePrompt()
