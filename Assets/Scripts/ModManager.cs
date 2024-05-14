@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ModManager : MonoBehaviour
@@ -25,25 +26,27 @@ public class ModManager : MonoBehaviour
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
     public Texture2D errorTexture;
-    [SerializeField] private TMP_Dropdown InstanceDropdown;
-    [SerializeField] private TextMeshProUGUI InstanceLabel;
+    [FormerlySerializedAs("InstanceDropdown")] [SerializeField] private TMP_Dropdown instanceDropdown;
+    [SerializeField] private TMP_Dropdown mainMenuModDropdown;
+    [FormerlySerializedAs("InstanceLabel")] [SerializeField] private TextMeshProUGUI instanceLabel;
     
     private string currModSlug;
 
     private void Start()
     {
-        InstanceDropdown.onValueChanged.AddListener(delegate
+        instanceDropdown.onValueChanged.AddListener(delegate
         {
-            Debug.Log("DROPDOWNUPDATE");
             async Task RefreshStat()
             {
                 Task.Delay(100);
-                InstanceButton.currInstName = InstanceLabel.text;
+                InstanceButton.currInstName = instanceLabel.text;
                 if (modPage.activeSelf)
                     HasModCheck(currModSlug);
             }
             RefreshStat();
         });
+        
+        mainMenuModDropdown.onValueChanged.AddListener(delegate { SearchMods(); });
     }
     
     private void CreateMods()

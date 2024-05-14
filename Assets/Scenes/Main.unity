@@ -26716,8 +26716,9 @@ MonoBehaviour:
   errorMenu: {fileID: 1996973844}
   downloadButton: {fileID: 976121598}
   errorTexture: {fileID: 2800000, guid: a4ffbc1ca8af1b9438ce9e5df01a5f18, type: 3}
-  InstanceDropdown: {fileID: 1003380043}
-  InstanceLabel: {fileID: 268807875}
+  instanceDropdown: {fileID: 1003380043}
+  mainMenuModDropdown: {fileID: 1778431242}
+  instanceLabel: {fileID: 268807875}
 --- !u!114 &1460469785
 MonoBehaviour:
   m_ObjectHideFlags: 0
