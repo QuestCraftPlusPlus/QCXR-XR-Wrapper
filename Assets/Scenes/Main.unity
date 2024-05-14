@@ -20566,9 +20566,9 @@ MonoBehaviour:
   m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 24
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -20579,7 +20579,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -26452,6 +26452,8 @@ MonoBehaviour:
   errorMenu: {fileID: 1996973844}
   downloadButton: {fileID: 976121598}
   errorTexture: {fileID: 2800000, guid: a4ffbc1ca8af1b9438ce9e5df01a5f18, type: 3}
+  InstanceDropdown: {fileID: 1003380043}
+  InstanceLabel: {fileID: 268807875}
 --- !u!114 &1460469785
 MonoBehaviour:
   m_ObjectHideFlags: 0

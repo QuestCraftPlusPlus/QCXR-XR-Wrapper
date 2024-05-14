@@ -25,9 +25,27 @@ public class ModManager : MonoBehaviour
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
     public Texture2D errorTexture;
+    [SerializeField] private TMP_Dropdown InstanceDropdown;
+    [SerializeField] private TextMeshProUGUI InstanceLabel;
     
     private string currModSlug;
 
+    private void Start()
+    {
+        InstanceDropdown.onValueChanged.AddListener(delegate
+        {
+            Debug.Log("DROPDOWNUPDATE");
+            async Task RefreshStat()
+            {
+                Task.Delay(100);
+                InstanceButton.currInstName = InstanceLabel.text;
+                if (modPage.activeSelf)
+                    HasModCheck(currModSlug);
+            }
+            RefreshStat();
+        });
+    }
+    
     private void CreateMods()
     {
         ResetArray();
@@ -55,9 +73,7 @@ public class ModManager : MonoBehaviour
 
                 //TODO: Remove artificial wait. 
                 while (!modImageLink.isDone)
-                {
-                    await Task.Delay(50);
-                }
+                    await Task.Delay(16);
 
                 Texture modImageTexture = errorTexture;
                 if (modImageLink.result != UnityWebRequest.Result.Success)
@@ -85,7 +101,23 @@ public class ModManager : MonoBehaviour
         }
     }
 
-    public void CreateModPage(string slug)
+    async Task HasModCheck(string ModSlug)
+    {
+        if (JNIStorage.GetInstance(InstanceButton.currInstName) == null)
+        {
+            downloadText.text = "Instance Not Downloaded";
+            downloadButton.GetComponent<Button>().enabled = false;
+            return;
+        }
+
+        Debug.Log("Current instance: " + InstanceButton.currInstName + "\nChecking for mod " + ModSlug);
+        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod",
+            JNIStorage.GetInstance(InstanceButton.currInstName).raw, ModSlug);
+        downloadText.text = hasMod ? "Installed" : "Install";
+        downloadButton.GetComponent<Button>().enabled = !hasMod;
+    }
+
+    private void CreateModPage(string slug)
     {
         MetaParser mp = apiHandler.GetModInfo(slug);
         instanceMenu.SetActive(false);
@@ -102,10 +134,7 @@ public class ModManager : MonoBehaviour
             modImageLink.SendWebRequest();
 
             while (!modImageLink.isDone)
-            {
                 await Task.Delay(16);
-            }
-            
             Texture modImageTexture = errorTexture;
             if (modImageLink.result != UnityWebRequest.Result.Success)
                 Debug.Log(modImageLink.error);
@@ -115,23 +144,9 @@ public class ModManager : MonoBehaviour
             modImage.texture = modImageTexture;
         }
 
-        async Task HasModCheck()
-        {
-            try
-            {
-                bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, mp.slug);
-                downloadText.text = hasMod ? "Installed" : "Install";
-                downloadButton.GetComponent<Button>().enabled = !hasMod;
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"An error occurred: {ex}");
-                downloadText.text = "Install";
-            }
-        }
-        
+        currModSlug = mp.slug;
         GetSetTexture();
-        HasModCheck();
+        HasModCheck(currModSlug);
     }
     
     public void AddMod()

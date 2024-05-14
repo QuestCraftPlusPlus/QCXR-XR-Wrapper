@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.XR.Management;
 
@@ -42,17 +43,15 @@ public class InstanceButton : MonoBehaviour
             return; 
         }
         
-
-
-        LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(FinishAnim);
-
-        void FinishAnim()
+        async Task FinishAnim()
         {
+            await Task.Delay(200);
             XRGeneralSettings.Instance.Manager.activeLoader.Stop();
             XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
             
             Application.Unload();
             JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
         }
+        LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(() => FinishAnim());
     }
 }
