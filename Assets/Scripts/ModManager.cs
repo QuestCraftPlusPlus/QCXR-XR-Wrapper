@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
-using WebP;
 
 public class ModManager : MonoBehaviour
 {
@@ -69,41 +68,9 @@ public class ModManager : MonoBehaviour
                 CreateModPage(currModSlug);
             });
             
-            async Task SetModImage()
-            {
-                Texture modImageTexture = errorTexture;
-                if (searchResults.icon_url.ToLower().EndsWith(".webp"))
-                {
-                 
-                    UnityWebRequest modImageLink = UnityWebRequest.Get(searchResults.icon_url);
-                    modImageLink.SendWebRequest();
-                
-                    while (!modImageLink.isDone)
-                        await Task.Delay(16);
-                    if (modImageLink.result != UnityWebRequest.Result.Success)
-                        Debug.Log(modImageLink.error);
-                    else
-                        modImageTexture = Texture2DExt.CreateTexture2DFromWebP(modImageLink.downloadHandler.data, lMipmaps: true, lLinear: false, lError: out Error lError);;
-                }
-                else
-                {
-                    UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
-                    modImageLink.SendWebRequest();
+            apiHandler.DownloadImage(searchResults.icon_url, modObject.GetComponentInChildren<RawImage>());
 
-                    while (!modImageLink.isDone)
-                        await Task.Delay(16);
-
-                    if (modImageLink.result != UnityWebRequest.Result.Success)
-                        Debug.Log(modImageLink.error);
-                    else
-                        modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-                }
-                
-                modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
-            }
-            
             modObject.transform.GetChild(3).gameObject.SetActive(false);
-            SetModImage();
         }
 
         if (searchParser.hits.Count == 0)
@@ -145,41 +112,10 @@ public class ModManager : MonoBehaviour
         modDescription.text = mp.description;
         modTitle.text = mp.title;
         modIDObject.text = mp.slug;
-
-        async Task GetSetTexture()
-        {
-            Texture modImageTexture = errorTexture;
-            if (mp.icon_url.ToLower().EndsWith(".webp"))
-            {
-                UnityWebRequest modImageLink = UnityWebRequest.Get(mp.icon_url);
-                modImageLink.SendWebRequest();
-                
-                while (!modImageLink.isDone)
-                    await Task.Delay(16);
-                if (modImageLink.result != UnityWebRequest.Result.Success)
-                    Debug.Log(modImageLink.error);
-                else
-                    modImageTexture = Texture2DExt.CreateTexture2DFromWebP(modImageLink.downloadHandler.data, lMipmaps: true, lLinear: false, lError: out Error lError);;
-            }
-            else
-            {
-                UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(mp.icon_url);
-                modImageLink.SendWebRequest();
-                
-                while (!modImageLink.isDone)
-                    await Task.Delay(16);
-                
-                if (modImageLink.result != UnityWebRequest.Result.Success)
-                    Debug.Log(modImageLink.error);
-                else
-                    modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-            }
-                
-            modImage.texture = modImageTexture;
-        }
-
+        
+        apiHandler.DownloadImage(mp.icon_url, modImage);
+        
         currModSlug = mp.slug;
-        GetSetTexture();
         HasModCheck(currModSlug);
     }
     

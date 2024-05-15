@@ -28,7 +28,8 @@ public class InstanceManager : MonoBehaviour
     [FormerlySerializedAs("ModCounter")] public TextMeshProUGUI modCounter;
     [SerializeField] private GameObject modPrefab;
     [SerializeField] private GameObject modArray;
-
+    [SerializeField] private APIHandler apiHandler;
+    
     public void CreateCustomInstance()
     {
         try
@@ -73,35 +74,7 @@ public class InstanceManager : MonoBehaviour
                 });
                 
                 if (instance.instanceImageURL != null)
-                {
-                    Texture modImageTexture = errorTexture;
-                    if (instance.instanceImageURL.ToLower().EndsWith(".webp"))
-                    {
-                        UnityWebRequest modImageLink = UnityWebRequest.Get(instance.instanceImageURL);
-                        modImageLink.SendWebRequest();
-                
-                        while (!modImageLink.isDone)
-                            await Task.Delay(16);
-                        if (modImageLink.result != UnityWebRequest.Result.Success)
-                            Debug.Log(modImageLink.error);
-                        else
-                            modImageTexture = Texture2DExt.CreateTexture2DFromWebP(modImageLink.downloadHandler.data, lMipmaps: true, lLinear: false, lError: out Error lError);;
-                    }
-                    else
-                    {
-                        UnityWebRequest instanceImageLink = UnityWebRequestTexture.GetTexture(instance.instanceImageURL);
-                        instanceImageLink.SendWebRequest();
-
-                        while (!instanceImageLink.isDone)
-                            await Task.Delay(16);
-                        if (instanceImageLink.result != UnityWebRequest.Result.Success)
-                            Debug.Log(instanceImageLink.error);
-                        else
-                            modImageTexture = ((DownloadHandlerTexture)instanceImageLink.downloadHandler).texture;   
-                    }
-                    
-                    instanceGameObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
-                }
+                    apiHandler.DownloadImage(instance.instanceImageURL, instanceGameObject.GetComponentInChildren<RawImage>());
             }
             SetInstanceData();
         }
@@ -123,44 +96,15 @@ public class InstanceManager : MonoBehaviour
         PojlibInstance instance = JNIStorage.GetInstance(slug);
         windowHandler.InstanceInfoSetter();
 
-        async Task GetSetTexture()
-        {
+        instanceVersion.text = instance.versionName + " - Fabric";
+        instanceTitle.text = instance.instanceName;
+
             if (instance.instanceImageURL != null)
-            {
-                Texture instanceImageTex = errorTexture;
-                if (instance.instanceImageURL.ToLower().EndsWith(".webp"))
-                {
-                    UnityWebRequest modImageLink = UnityWebRequest.Get(instance.instanceImageURL);
-                    modImageLink.SendWebRequest();
-                
-                    while (!modImageLink.isDone)
-                        await Task.Delay(16);
-                    if (modImageLink.result != UnityWebRequest.Result.Success)
-                        Debug.Log(modImageLink.error);
-                    else
-                        instanceImageTex = Texture2DExt.CreateTexture2DFromWebP(modImageLink.downloadHandler.data, lMipmaps: true, lLinear: false, lError: out Error lError);;
-                }
-                else
-                {
-                    UnityWebRequest instanceImageLink = UnityWebRequestTexture.GetTexture(instance.instanceImageURL);
-                    instanceImageLink.SendWebRequest();
+                apiHandler.DownloadImage(instance.instanceImageURL, instanceImage);
 
-                    while (!instanceImageLink.isDone)
-                        await Task.Delay(16);
-                    instanceImageTex = ((DownloadHandlerTexture)instanceImageLink.downloadHandler).texture;
-                }
-                instanceImage.texture = instanceImageTex;
-            }
-
-            instanceVersion.text = instance.versionName + " - Fabric";
-            instanceTitle.text = instance.instanceName;
-        }
-
-        await GetSetTexture();
-        
         for (int i = modArray.transform.childCount - 1; i >= 0; i--)
             Destroy(modArray.transform.GetChild(i).gameObject);
-        
+
         PojlibMod[] modList = instance.GetMods();
 
         void CountMods(int count)
@@ -174,8 +118,9 @@ public class InstanceManager : MonoBehaviour
                 counterColor = Color.Lerp(new Color(255, 108, 10), new Color(255, 0, 0), (count - 50) / 50.0f);
             modCounter.text = $"Currently Installed mods: <color={ColorToHex(counterColor)}>{count}";
         }
+
         CountMods(modList.Length);
-        
+
         List<MetaParser> fetchedMods = new();
 
         async Task GetModInfoArray()
@@ -192,7 +137,8 @@ public class InstanceManager : MonoBehaviour
             if (www.result != UnityWebRequest.Result.Success)
                 Debug.Log(www.error);
             else
-                fetchedMods = new List<MetaParser>(JsonConvert.DeserializeObject<MetaParser[]>(www.downloadHandler.text));
+                fetchedMods =
+                    new List<MetaParser>(JsonConvert.DeserializeObject<MetaParser[]>(www.downloadHandler.text));
 
             HashSet<string> fetchedSlugs = new HashSet<string>(fetchedMods.Select(mod => mod.slug.ToLower()));
             foreach (PojlibMod mod in modList)
@@ -211,6 +157,7 @@ public class InstanceManager : MonoBehaviour
                 }
             }
         }
+
         await GetModInfoArray();
 
         //sort it
@@ -230,40 +177,12 @@ public class InstanceManager : MonoBehaviour
                 CountMods(modArray.transform.childCount - 1);
             });
 
-            async Task SetModInfo()
+            modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = mod.title;
+            modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = mod.description;
+            if (mod.icon_url != "OFFLINE")
             {
-                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = mod.title;
-                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = mod.description;
-                Texture modImageTexture = errorTexture;
-                if (mod.icon_url != "OFFLINE")
-                {
-                    if (mod.icon_url.ToLower().EndsWith(".webp"))
-                    {
-                        UnityWebRequest modImageLink = UnityWebRequest.Get(mod.icon_url);
-                        modImageLink.SendWebRequest();
-                
-                        while (!modImageLink.isDone)
-                            await Task.Delay(16);
-                        if (modImageLink.result != UnityWebRequest.Result.Success)
-                            Debug.Log(modImageLink.error);
-                        else
-                            modImageTexture = Texture2DExt.CreateTexture2DFromWebP(modImageLink.downloadHandler.data, lMipmaps: true, lLinear: false, lError: out Error lError);;
-                    }
-                    else
-                    {
-                        UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(mod.icon_url);
-                        modImageLink.SendWebRequest();
-                        while (!modImageLink.isDone)
-                            await Task.Delay(16);
-                        if (modImageLink.result != UnityWebRequest.Result.Success)
-                            Debug.Log(modImageLink.error);
-                        else
-                            modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-                    }
-                }
-                modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
+                apiHandler.DownloadImage(mod.icon_url, modObject.GetComponentInChildren<RawImage>());
             }
-            SetModInfo();
         }
     }
 

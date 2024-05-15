@@ -300,11 +300,11 @@ MonoBehaviour:
   m_Name: OpenXRFeatureSystemInfo Android
   m_EditorClassIdentifier: 
   m_enabled: 0
-  nameUi: 
-  version: 
-  featureIdInternal: 
+  nameUi: Get System Info
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.example.getSystemInfo
   openxrExtensionStrings: 
-  company: 
+  company: Fireproof Studios
   priority: 0
   required: 0
 --- !u!114 &-3461286792160552512
@@ -761,6 +761,7 @@ MonoBehaviour:
   - {fileID: -9036722581895785136}
   - {fileID: -8407958838487534456}
   - {fileID: 7187154287239601824}
+  - {fileID: -3466961940648385793}
   - {fileID: -8696254741053916671}
   - {fileID: -6143020859967261069}
   - {fileID: 8419929947591248074}
