@@ -30,19 +30,31 @@ public class InstanceManager : MonoBehaviour
     [SerializeField] private GameObject modArray;
     [SerializeField] private APIHandler apiHandler;
     
+    
     public void CreateCustomInstance()
     {
         try
         {
-            if (instanceName.text.Trim() == "")
+            instanceName.text = instanceName.text.Trim();
+            if (instanceName.text == "")
             {
                 JNIStorage.instance.uiHandler.SetAndShowError("Instance name cannot be blank, please enter a name.");
                 return;
             }
-            JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, null);
-            JNIStorage.instance.uiHandler.SetAndShowError(instanceName.text + " is now being created.");
             
-            JNIStorage.instance.UpdateInstances();
+            HashSet<string> instanceNames = new HashSet<string>
+                (JNIStorage.instancesObj.Call<AndroidJavaObject[]>("toArray")
+                    .Select(instance => PojlibInstance.Parse(instance).instanceName.ToLower()));
+
+            if (instanceNames.Add(instanceName.text.ToLower()))
+            {
+                JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, null);
+                JNIStorage.instance.uiHandler.SetAndShowError(instanceName.text + " is now being created.");
+            
+                JNIStorage.instance.UpdateInstances();
+            }
+            else
+                JNIStorage.instance.uiHandler.SetAndShowError("Instance already exists, please choose another name.");
         }
         catch (Exception e)
         {
@@ -203,6 +215,7 @@ public class InstanceManager : MonoBehaviour
     public void RemoveInstance()
     {
         JNIStorage.apiClass.CallStatic<bool>("deleteInstance", JNIStorage.instancesObj, JNIStorage.GetInstance(instanceTitle.text).raw);
+        instanceRemoveMenu.SetActive(false);
         windowHandler.InstanceInfoUnsetter();
     }
 

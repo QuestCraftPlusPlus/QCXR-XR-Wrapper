@@ -72,7 +72,7 @@ public class APIHandler : MonoBehaviour
         async Task DownloadImageTask()
         {
             Destroy(image.GetComponent<GifLoader>());
-            Texture2D texture = errorTexture;
+            image.texture = errorTexture;
             if (url.ToLower().EndsWith(".webp"))
             {
                 Debug.Log("Downloading webp at url: \n" + url);
