@@ -52,8 +52,7 @@ public class SkinHandler : MonoBehaviour
 
         async Task SetSkinType(string username)
         {
-            UnityWebRequest www =
-                UnityWebRequest.Get("https://starlightskins.lunareclipse.studio/info/user/" + username);
+            UnityWebRequest www = UnityWebRequest.Get("https://starlightskins.lunareclipse.studio/info/user/" + username);
             www.SendWebRequest();
 
             while (!www.isDone)

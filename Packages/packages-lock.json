@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.netpyoung.webp": {
+      "version": "https://github.com/netpyoung/unity.webp.git?path=unity_project/Assets/unity.webp#0.3.9",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "dab6a5dd546082a5cb55c2cc6787a0ab622eed96"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -260,6 +267,13 @@
         "com.unity.xr.core-utils": "2.3.0",
         "com.unity.xr.openxr": "1.10.0"
       }
+    },
+    "org.nuget.system.runtime.compilerservices.unsafe": {
+      "version": "6.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

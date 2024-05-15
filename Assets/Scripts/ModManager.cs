@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using WebP;
 
 public class ModManager : MonoBehaviour
 {
@@ -71,19 +71,34 @@ public class ModManager : MonoBehaviour
             
             async Task SetModImage()
             {
-                UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
-                modImageLink.SendWebRequest();
-
-                //TODO: Remove artificial wait. 
-                while (!modImageLink.isDone)
-                    await Task.Delay(16);
-
                 Texture modImageTexture = errorTexture;
-                if (modImageLink.result != UnityWebRequest.Result.Success)
-                    Debug.Log(modImageLink.error);
+                if (searchResults.icon_url.ToLower().EndsWith(".webp"))
+                {
+                 
+                    UnityWebRequest modImageLink = UnityWebRequest.Get(searchResults.icon_url);
+                    modImageLink.SendWebRequest();
+                
+                    while (!modImageLink.isDone)
+                        await Task.Delay(16);
+                    if (modImageLink.result != UnityWebRequest.Result.Success)
+                        Debug.Log(modImageLink.error);
+                    else
+                        modImageTexture = Texture2DExt.CreateTexture2DFromWebP(modImageLink.downloadHandler.data, lMipmaps: true, lLinear: false, lError: out Error lError);;
+                }
                 else
-                    modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+                {
+                    UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(searchResults.icon_url);
+                    modImageLink.SendWebRequest();
 
+                    while (!modImageLink.isDone)
+                        await Task.Delay(16);
+
+                    if (modImageLink.result != UnityWebRequest.Result.Success)
+                        Debug.Log(modImageLink.error);
+                    else
+                        modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+                }
+                
                 modObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
             }
             
@@ -133,17 +148,33 @@ public class ModManager : MonoBehaviour
 
         async Task GetSetTexture()
         {
-            UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(mp.icon_url);
-            modImageLink.SendWebRequest();
-
-            while (!modImageLink.isDone)
-                await Task.Delay(16);
             Texture modImageTexture = errorTexture;
-            if (modImageLink.result != UnityWebRequest.Result.Success)
-                Debug.Log(modImageLink.error);
+            if (mp.icon_url.ToLower().EndsWith(".webp"))
+            {
+                UnityWebRequest modImageLink = UnityWebRequest.Get(mp.icon_url);
+                modImageLink.SendWebRequest();
+                
+                while (!modImageLink.isDone)
+                    await Task.Delay(16);
+                if (modImageLink.result != UnityWebRequest.Result.Success)
+                    Debug.Log(modImageLink.error);
+                else
+                    modImageTexture = Texture2DExt.CreateTexture2DFromWebP(modImageLink.downloadHandler.data, lMipmaps: true, lLinear: false, lError: out Error lError);;
+            }
             else
-                modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
-            
+            {
+                UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(mp.icon_url);
+                modImageLink.SendWebRequest();
+                
+                while (!modImageLink.isDone)
+                    await Task.Delay(16);
+                
+                if (modImageLink.result != UnityWebRequest.Result.Success)
+                    Debug.Log(modImageLink.error);
+                else
+                    modImageTexture = ((DownloadHandlerTexture)modImageLink.downloadHandler).texture;
+            }
+                
             modImage.texture = modImageTexture;
         }
 
@@ -302,9 +333,9 @@ public class ModManager : MonoBehaviour
     {
         PojlibInstance currInstName = JNIStorage.GetInstance(InstanceButton.currInstName);
         JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, currInstName.raw, modName);
-        downloadText.text = "Install";
-        SearchMods();
-    }
+             downloadText.text = "Install";
+             SearchMods();
+         }
 
     public void SearchMods()
     {
