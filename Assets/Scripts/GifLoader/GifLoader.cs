@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using ThreeDISevenZeroR.UnityGifDecoder;
@@ -11,21 +9,19 @@ using UnityEngine.UI;
 public class GifLoader : MonoBehaviour
 {
 
-    private List<Texture> frames = new List<Texture>();
-    private List<float> frameDelays = new List<float>();
+    private List<Texture> frames = new();
+    private List<float> frameDelays = new();
     
-    private float time = 0;
-    private int index = 0;
+    private float time;
+    private int index;
 
     RawImage img;
-
-    public string DEBUGURL;
-
-    [ContextMenu("DEBUGFETCH")]
-    void loady()
+    public string debugUrl;
+    [ContextMenu("Debug Load")]
+    void DebugLoad()
     {
-        Debug.Log("Downloading gif at url: \n" + DEBUGURL);
-        UnityWebRequest modImageLink = UnityWebRequest.Get(DEBUGURL);
+        Debug.Log("Downloading gif at url: \n" + debugUrl);
+        UnityWebRequest modImageLink = UnityWebRequest.Get(debugUrl);
         modImageLink.SendWebRequest();
 
         while (!modImageLink.isDone)

@@ -66,7 +66,6 @@ public class APIHandler : MonoBehaviour
         errorMenu.SetActive(true);
     }
 
-    //this fella needs to be in an async task or else the game frozed ! !
     public void DownloadImage(string url, RawImage image)
     {
         async Task DownloadImageTask()

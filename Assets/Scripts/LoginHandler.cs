@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class LoginHandler : MonoBehaviour
 {

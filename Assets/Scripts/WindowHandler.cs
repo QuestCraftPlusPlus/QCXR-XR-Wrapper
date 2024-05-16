@@ -1,7 +1,5 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class WindowHandler : MonoBehaviour
@@ -154,7 +152,11 @@ public class WindowHandler : MonoBehaviour
     [ContextMenu("LoginAnim")]
     public void AnimateLogin()
     {
-            LeanTween.value(loginButton, loginButton.transform.position, loginButton.transform.parent.transform.position, 1).setEase(LeanTweenType.easeInOutCubic).setOnUpdate((Vector3 newPos) => loginButton.transform.position = newPos);
+            LeanTween.value(loginButton, loginButton.transform.localPosition.x, 0, 1).setEase(LeanTweenType.easeInOutCubic).setOnUpdate((float newX) =>
+            {
+                loginButton.transform.localPosition = new Vector3(newX, loginButton.transform.localPosition.y, 0);
+                loginText.gameObject.transform.localPosition = new Vector3(newX + 500, loginText.transform.localPosition.y, 0);
+            });
             LeanTween.delayedCall(0.5f, () =>
                 LeanTween.value(loginText.gameObject, 0, 1, 0.5f).setEase(LeanTweenType.easeInOutCubic)
                     .setOnUpdate((float opacity) => loginText.alpha = opacity));

@@ -8,6 +8,8 @@ public class LoginText : MonoBehaviour
     private bool hasShown;
     public WindowHandler windowHandler;
     public string debugText;
+    [HideInInspector] public string PreviousText;
+    
     private void Start()
     {
         loginText = GetComponent<TextMeshProUGUI>();
@@ -15,18 +17,27 @@ public class LoginText : MonoBehaviour
 
     void Update()
     {
+        string buffer;
         if (Application.platform == RuntimePlatform.WindowsEditor)
-            loginText.text = debugText;
+            buffer = debugText;
         else
-            loginText.text = JNIStorage.apiClass.GetStatic<string>("msaMessage");
-
+            buffer = JNIStorage.apiClass.GetStatic<string>("msaMessage");
         
-        if(loginText.text == "")
+        if(buffer == "" || PreviousText == buffer)
             return;
-
+        
+        PreviousText = buffer;
+        loginText.text = buffer;
+        
         if (!hasShown)
             windowHandler.AnimateLogin();
         hasShown = true;
+        
+        if (loginText.text.Contains("UnknownHostException"))
+        {
+            loginText.text = "<color=red>UnknownHostException!</color>\nCould not contact Microsoft's auth servers.\nCheck your internet connection and restart QuestCraft.";
+            return;
+        }
         
         loginText.text =
             Regex.Replace(
