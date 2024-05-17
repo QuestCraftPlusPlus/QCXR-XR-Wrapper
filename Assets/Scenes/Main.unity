@@ -15916,6 +15916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowHandler: {fileID: 1460469781}
   debugText: 
+  PreviousText: 
 --- !u!114 &909552202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26682,10 +26683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c679a29675d38419b2896e3a32da59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modButton: {fileID: 1789290216}
-  modPacksButton: {fileID: 675128249}
-  resourcePacksButton: {fileID: 290311422}
-  searchQuery: 
   errorMenu: {fileID: 1996973844}
   errorTexture: {fileID: 2800000, guid: a4ffbc1ca8af1b9438ce9e5df01a5f18, type: 3}
 --- !u!114 &1460469784
@@ -26719,6 +26716,9 @@ MonoBehaviour:
   instanceDropdown: {fileID: 1003380043}
   mainMenuModDropdown: {fileID: 1778431242}
   instanceLabel: {fileID: 268807875}
+  modButton: {fileID: 1789290216}
+  modPacksButton: {fileID: 675128249}
+  resourcePacksButton: {fileID: 290311422}
 --- !u!114 &1460469785
 MonoBehaviour:
   m_ObjectHideFlags: 0

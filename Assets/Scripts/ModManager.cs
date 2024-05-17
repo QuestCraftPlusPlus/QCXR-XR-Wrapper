@@ -1,6 +1,9 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,9 +28,13 @@ public class ModManager : MonoBehaviour
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
     public Texture2D errorTexture;
-    [FormerlySerializedAs("InstanceDropdown")] [SerializeField] private TMP_Dropdown instanceDropdown;
+    [SerializeField] private TMP_Dropdown instanceDropdown;
     [SerializeField] private TMP_Dropdown mainMenuModDropdown;
-    [FormerlySerializedAs("InstanceLabel")] [SerializeField] private TextMeshProUGUI instanceLabel;
+    [SerializeField] private TextMeshProUGUI instanceLabel;
+    
+    public GameObject modButton;
+    public GameObject modPacksButton;
+    public GameObject resourcePacksButton;
     
     private string currModSlug;
 
@@ -48,42 +55,98 @@ public class ModManager : MonoBehaviour
         mainMenuModDropdown.onValueChanged.AddListener(delegate { SearchMods(); });
     }
     
-    private void CreateMods()
+    public string GetFilterOption()
+    {
+        List<Toggle> toggleButtons = new List<Toggle>
+        {
+            modButton.GetComponent<Toggle>(),
+            modPacksButton.GetComponent<Toggle>(),
+            resourcePacksButton.GetComponent<Toggle>(),
+        };
+
+        return (from button in toggleButtons where !button.interactable select button.name).FirstOrDefault();
+    }
+    
+    private async void CreateMods()
     {
         ResetArray();
-        SearchParser searchParser = apiHandler.GetSearchedProjects();
-        foreach (SearchResults searchResults in searchParser.hits)
+        async Task GetResults()
         {
-            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-            modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
-            modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
-            modObject.transform.SetParent(modArray.transform, false);
-            modObject.name = searchResults.project_id;
-            modObject.transform.GetChild(3).gameObject.SetActive(false);
-            modObject.GetComponent<Button>().onClick.AddListener(delegate
+            string currInstName;
+            string filterOption = GetFilterOption();
+
+            try
             {
-                EventSystem.current.SetSelectedGameObject(modObject);
-                GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
-                CreateModPage(currModSlug);
-            });
+                currInstName = JNIStorage.GetInstance(InstanceButton.currInstName).versionName ?? JNIStorage.instance
+                    .instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+            }
+            catch (NullReferenceException)
+            {
+                ShowError(
+                    "You must run this version of the game at least once before adding mods to the instance with Mod Manager!");
+                return;
+            }
+
+            List<string> facets = new List<string>
+            {
+                "[\"versions:" + currInstName + "\"]",
+                "[\"project_type:" + filterOption + "\"]"
+            };
+
+            if (filterOption != "datapack" && filterOption != "resourcepack")
+                facets.Add("[\"categories:fabric\"]");
+
+            string url = "https://api.modrinth.com/v2/search?query=" + searchQuery.text + "&facets=[" +
+                         String.Join(", ", facets) + "]";
+
+            UnityWebRequest queryDownload = UnityWebRequest.Get(url);
+            queryDownload.SendWebRequest();
+
+            while (!queryDownload.isDone)
+                await Task.Delay(16);
+            if (queryDownload.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(queryDownload.error);
+                return;
+            }
+
+            SearchParser searchParser = JsonConvert.DeserializeObject<SearchParser>(queryDownload.downloadHandler.text);
             
-            apiHandler.DownloadImage(searchResults.icon_url, modObject.GetComponentInChildren<RawImage>());
+            
+            foreach (SearchResults searchResults in searchParser.hits)
+            {
+                GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
+                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
+                modObject.transform.SetParent(modArray.transform, false);
+                modObject.name = searchResults.project_id;
+                modObject.transform.GetChild(3).gameObject.SetActive(false);
+                modObject.GetComponent<Button>().onClick.AddListener(delegate
+                {
+                    EventSystem.current.SetSelectedGameObject(modObject);
+                    GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
+                    currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
+                    CreateModPage(currModSlug);
+                });
+            
+                apiHandler.DownloadImage(searchResults.icon_url, modObject.GetComponentInChildren<RawImage>());
 
-            modObject.transform.GetChild(3).gameObject.SetActive(false);
-        }
+                modObject.transform.GetChild(3).gameObject.SetActive(false);
+            }
 
-        if (searchParser.hits.Count == 0)
-        {
-            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-            modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
-            modObject.GetComponentInChildren<RawImage>().color = Color.yellow;
-            modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "No mods could be found!";
-            modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Are you sure its the right name?";
-            modObject.transform.GetChild(3).gameObject.SetActive(false);
-            modObject.transform.SetParent(modArray.transform, false);
-            modObject.name = "ERROR";
+            if (searchParser.hits.Count == 0)
+            {
+                GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+                modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
+                modObject.GetComponentInChildren<RawImage>().color = Color.yellow;
+                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "No mods could be found!";
+                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Are you sure its the right name?";
+                modObject.transform.GetChild(3).gameObject.SetActive(false);
+                modObject.transform.SetParent(modArray.transform, false);
+                modObject.name = "ERROR";
+            }
         }
+        await GetResults();
     }
 
     async Task HasModCheck(string ModSlug)
@@ -275,7 +338,6 @@ public class ModManager : MonoBehaviour
 
     public void SearchMods()
     {
-        apiHandler.searchQuery = searchQuery.text;
         CreateMods();
     }
 
