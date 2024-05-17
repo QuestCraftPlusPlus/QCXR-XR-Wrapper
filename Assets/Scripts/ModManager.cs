@@ -36,6 +36,8 @@ public class ModManager : MonoBehaviour
     public GameObject modButton;
     public GameObject modPacksButton;
     public GameObject resourcePacksButton;
+
+    public TextMeshProUGUI statusText;
     
     private string currModSlug;
     private bool isSearching;
@@ -55,6 +57,10 @@ public class ModManager : MonoBehaviour
         });
         
         mainMenuModDropdown.onValueChanged.AddListener(delegate { SearchMods(); });
+
+        if (statusText == null)
+            statusText = new TextMeshProUGUI();
+        statusText.text = "";
     }
     
     public string GetFilterOption()
@@ -74,6 +80,7 @@ public class ModManager : MonoBehaviour
         if (isSearching)
             return;
         isSearching = true;
+        statusText.text = "Searching..";
         ResetArray();
         async Task GetResults()
         {
@@ -112,11 +119,25 @@ public class ModManager : MonoBehaviour
             if (queryDownload.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log(queryDownload.error);
+                statusText.text = "<color=red>An error occured";
                 return;
             }
 
             SearchParser searchParser = JsonConvert.DeserializeObject<SearchParser>(queryDownload.downloadHandler.text);
+            statusText.text = $"Found {searchParser.total_hits.ToString()} Results";
             
+            if (searchParser.hits.Count == 0)
+            {
+                GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+                modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
+                modObject.GetComponentInChildren<RawImage>().color = Color.yellow;
+                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "No mods could be found!";
+                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Are you sure its the right name?";
+                modObject.transform.GetChild(3).gameObject.SetActive(false);
+                modObject.transform.SetParent(modArray.transform, false);
+                modObject.name = "ERROR";
+                return;
+            }
             
             foreach (SearchResults searchResults in searchParser.hits)
             {
@@ -137,18 +158,6 @@ public class ModManager : MonoBehaviour
                 apiHandler.DownloadImage(searchResults.icon_url, modObject.GetComponentInChildren<RawImage>());
 
                 modObject.transform.GetChild(3).gameObject.SetActive(false);
-            }
-
-            if (searchParser.hits.Count == 0)
-            {
-                GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-                modObject.GetComponentInChildren<RawImage>().texture = errorTexture;
-                modObject.GetComponentInChildren<RawImage>().color = Color.yellow;
-                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "No mods could be found!";
-                modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Are you sure its the right name?";
-                modObject.transform.GetChild(3).gameObject.SetActive(false);
-                modObject.transform.SetParent(modArray.transform, false);
-                modObject.name = "ERROR";
             }
         }
         await GetResults();
@@ -186,7 +195,7 @@ public class ModManager : MonoBehaviour
         modImage.texture = image.texture;
         
         Destroy(modImage.GetComponent<GifLoader>());
-        if (image.gameObject.TryGetComponent<GifLoader>(out GifLoader loader))
+        if (image.gameObject.TryGetComponent(out GifLoader loader))
         {
             GifLoader gifLoader = modImage.AddComponent<GifLoader>();
             gifLoader.LoadGifImage(loader.bytes);

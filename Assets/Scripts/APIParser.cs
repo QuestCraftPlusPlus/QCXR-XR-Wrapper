@@ -7,6 +7,8 @@ using UnityEngine;
 public class SearchParser
 {
     public List<SearchResults> hits;
+    public int total_hits;
+
 }
 
 [Serializable]
