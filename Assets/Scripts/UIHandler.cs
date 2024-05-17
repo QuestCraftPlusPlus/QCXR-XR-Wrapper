@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class UIHandler : MonoBehaviour
 {
     public TextMeshProUGUI minuteHourText;
-    public TextMeshProUGUI secondText;
     public TMP_Dropdown dropdownMain;
     public TMP_Dropdown dropdownModSearch;
     public TMP_Dropdown dropdownModInfo;
