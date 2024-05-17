@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
@@ -37,7 +38,8 @@ public class ModManager : MonoBehaviour
     public GameObject resourcePacksButton;
     
     private string currModSlug;
-
+    private bool isSearching;
+    
     private void Start()
     {
         instanceDropdown.onValueChanged.AddListener(delegate
@@ -69,6 +71,9 @@ public class ModManager : MonoBehaviour
     
     private async void CreateMods()
     {
+        if (isSearching)
+            return;
+        isSearching = true;
         ResetArray();
         async Task GetResults()
         {
@@ -126,7 +131,7 @@ public class ModManager : MonoBehaviour
                     EventSystem.current.SetSelectedGameObject(modObject);
                     GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
                     currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
-                    CreateModPage(currModSlug);
+                    CreateModPage(currModSlug, mod.GetComponentInChildren<RawImage>());
                 });
             
                 apiHandler.DownloadImage(searchResults.icon_url, modObject.GetComponentInChildren<RawImage>());
@@ -147,6 +152,7 @@ public class ModManager : MonoBehaviour
             }
         }
         await GetResults();
+        isSearching = false;
     }
 
     async Task HasModCheck(string ModSlug)
@@ -165,7 +171,7 @@ public class ModManager : MonoBehaviour
         downloadButton.GetComponent<Button>().enabled = !hasMod;
     }
 
-    private void CreateModPage(string slug)
+    private void CreateModPage(string slug, RawImage image)
     {
         MetaParser mp = apiHandler.GetModInfo(slug);
         instanceMenu.SetActive(false);
@@ -175,8 +181,17 @@ public class ModManager : MonoBehaviour
         modDescription.text = mp.description;
         modTitle.text = mp.title;
         modIDObject.text = mp.slug;
+
         
-        apiHandler.DownloadImage(mp.icon_url, modImage);
+        modImage.texture = image.texture;
+        
+        Destroy(modImage.GetComponent<GifLoader>());
+        if (image.gameObject.TryGetComponent<GifLoader>(out GifLoader loader))
+        {
+            GifLoader gifLoader = modImage.AddComponent<GifLoader>();
+            gifLoader.LoadGifImage(loader.bytes);
+        }
+        
         
         currModSlug = mp.slug;
         HasModCheck(currModSlug);

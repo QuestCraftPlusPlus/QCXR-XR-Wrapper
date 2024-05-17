@@ -15,7 +15,8 @@ public class GifLoader : MonoBehaviour
     private float time;
     private int index;
 
-    RawImage img;
+    public RawImage img;
+    public byte[] bytes;
     public string debugUrl;
     [ContextMenu("Debug Load")]
     void DebugLoad()
@@ -32,10 +33,11 @@ public class GifLoader : MonoBehaviour
             LoadGifImage(modImageLink.downloadHandler.data);
     }
     
-    public Texture2D LoadGifImage(byte[] bytes)
+    public Texture2D LoadGifImage(byte[] imageBytes)
     {
+        bytes = imageBytes;
         img = GetComponent<RawImage>();
-        DecodeGif(bytes);
+        DecodeGif(imageBytes);
         return (Texture2D)img.texture;
     }
 

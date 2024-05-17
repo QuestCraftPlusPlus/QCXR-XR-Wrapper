@@ -9,7 +9,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
-using WebP;
 
 public class InstanceManager : MonoBehaviour
 {
