@@ -15,6 +15,7 @@ using UnityEngine.UI;
 public class ModManager : MonoBehaviour
 {
     [SerializeField] private GameObject modPrefab;
+    [SerializeField] private GameObject modPagePrefab;
     [SerializeField] private GameObject modArray;
     [SerializeField] private GameObject modPage;
     [SerializeField] private APIHandler apiHandler;
@@ -38,7 +39,8 @@ public class ModManager : MonoBehaviour
     public GameObject resourcePacksButton;
 
     public TextMeshProUGUI statusText;
-    
+
+    public int page;
     private string currModSlug;
     private bool isSearching;
     
@@ -82,6 +84,7 @@ public class ModManager : MonoBehaviour
         isSearching = true;
         statusText.text = "Searching..";
         ResetArray();
+
         async Task GetResults()
         {
             string currInstName;
@@ -108,8 +111,13 @@ public class ModManager : MonoBehaviour
             if (filterOption != "datapack" && filterOption != "resourcepack")
                 facets.Add("[\"categories:fabric\"]");
 
-            string url = "https://api.modrinth.com/v2/search?query=" + searchQuery.text + "&facets=[" +
-                         String.Join(", ", facets) + "]";
+            //https://docs.modrinth.com/#tag/projects/operation/searchProjects
+            
+            string url = "https://api.modrinth.com/v2/search" +
+                         $"?query={searchQuery.text}" +
+                         $"&facets=[{String.Join(", ", facets)}]" +
+                         $"&offset={page*10}" +
+                         "&limit=10";
 
             UnityWebRequest queryDownload = UnityWebRequest.Get(url);
             queryDownload.SendWebRequest();
@@ -159,10 +167,56 @@ public class ModManager : MonoBehaviour
 
                 modObject.transform.GetChild(3).gameObject.SetActive(false);
             }
+            
+            if (searchParser.total_hits > 10)
+            {
+                GameObject modPages = Instantiate(modPagePrefab);
+                modPages.transform.SetParent(modArray.transform, false);
+                modPages.name = "ModPages";
+                
+                //updating visibility
+                if (page == 0)
+                    modPages.transform.GetChild(0).gameObject.SetActive(false);
+                if (page-2 < 0)
+                    modPages.transform.GetChild(1).gameObject.SetActive(false);
+                if (page-1 < 0)
+                    modPages.transform.GetChild(2).gameObject.SetActive(false);
+                if (page+1 < 0)
+                    modPages.transform.GetChild(4).gameObject.SetActive(false);
+                if (page+2 < 0)
+                    modPages.transform.GetChild(5).gameObject.SetActive(false);
+                if (page == searchParser.total_hits / 10)
+                    modPages.transform.GetChild(6).gameObject.SetActive(false);
+                
+                //updating text
+                modPages.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>().text = (page - 2).ToString();
+                modPages.transform.GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = (page - 1).ToString();
+                modPages.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>().text = page.ToString();
+                modPages.transform.GetChild(4).GetComponentInChildren<TextMeshProUGUI>().text = (page + 1).ToString();
+                modPages.transform.GetChild(5).GetComponentInChildren<TextMeshProUGUI>().text = (page + 2).ToString();
+                
+                //button listeners
+                modPages.transform.GetChild(6).GetComponent<Button>().onClick.AddListener(PageUp);
+                modPages.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(PageDown);
+            }
         }
         await GetResults();
         isSearching = false;
     }
+
+    public void PageUp()
+    {
+        page++;
+        CreateMods();
+    }
+    
+    public void PageDown()
+    {
+        page--;
+        CreateMods();
+    }
+    
+    
 
     async Task HasModCheck(string ModSlug)
     {
@@ -362,6 +416,7 @@ public class ModManager : MonoBehaviour
 
     public void SearchMods()
     {
+        page = 0;
         CreateMods();
     }
 
