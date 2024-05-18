@@ -30,7 +30,6 @@ public class WindowHandler : MonoBehaviour
     public GameObject errorWindow;
     
     public GameObject githubLogToggle;
-    public GameObject githubLog;
     
     public GameObject needHelpPanel;
     

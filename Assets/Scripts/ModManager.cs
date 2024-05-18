@@ -17,6 +17,7 @@ public class ModManager : MonoBehaviour
     [SerializeField] private GameObject modPrefab;
     [SerializeField] private GameObject modPagePrefab;
     [SerializeField] private GameObject modArray;
+    [SerializeField] private GameObject modInfoArray;
     [SerializeField] private GameObject modPage;
     [SerializeField] private APIHandler apiHandler;
     [SerializeField] private TextMeshProUGUI modDescription;
@@ -116,8 +117,8 @@ public class ModManager : MonoBehaviour
             string url = "https://api.modrinth.com/v2/search" +
                          $"?query={searchQuery.text}" +
                          $"&facets=[{String.Join(", ", facets)}]" +
-                         $"&offset={page*10}" +
-                         "&limit=10";
+                         $"&offset={page*20}" +
+                         "&limit=20";
 
             UnityWebRequest queryDownload = UnityWebRequest.Get(url);
             queryDownload.SendWebRequest();
@@ -145,12 +146,12 @@ public class ModManager : MonoBehaviour
                 modObject.transform.SetParent(modArray.transform, false);
                 modObject.name = "ERROR";
                 return;
-            }
+            } 
             
             foreach (SearchResults searchResults in searchParser.hits)
             {
                 GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title;
+                modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = searchResults.title + " <size=75%>by " + searchResults.author;
                 modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = searchResults.description;
                 modObject.transform.SetParent(modArray.transform, false);
                 modObject.name = searchResults.project_id;
@@ -160,7 +161,7 @@ public class ModManager : MonoBehaviour
                     EventSystem.current.SetSelectedGameObject(modObject);
                     GameObject mod = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
                     currModSlug = mod.ToString().Replace("(UnityEngine.GameObject)", "");
-                    CreateModPage(currModSlug, mod.GetComponentInChildren<RawImage>());
+                    CreateModPage(currModSlug, mod.GetComponentInChildren<RawImage>(), searchResults.author);
                 });
             
                 apiHandler.DownloadImage(searchResults.icon_url, modObject.GetComponentInChildren<RawImage>());
@@ -168,7 +169,7 @@ public class ModManager : MonoBehaviour
                 modObject.transform.GetChild(3).gameObject.SetActive(false);
             }
             
-            if (searchParser.total_hits > 10)
+            if (searchParser.total_hits > 20)
             {
                 GameObject modPages = Instantiate(modPagePrefab);
                 modPages.transform.SetParent(modArray.transform, false);
@@ -185,7 +186,7 @@ public class ModManager : MonoBehaviour
                     modPages.transform.GetChild(4).gameObject.SetActive(false);
                 if (page+2 < 0)
                     modPages.transform.GetChild(5).gameObject.SetActive(false);
-                if (page == searchParser.total_hits / 10)
+                if (page == searchParser.total_hits / 20)
                     modPages.transform.GetChild(6).gameObject.SetActive(false);
                 
                 //updating text
@@ -234,7 +235,7 @@ public class ModManager : MonoBehaviour
         downloadButton.GetComponent<Button>().enabled = !hasMod;
     }
 
-    private void CreateModPage(string slug, RawImage image)
+    private void CreateModPage(string slug, RawImage image, string author)
     {
         MetaParser mp = apiHandler.GetModInfo(slug);
         instanceMenu.SetActive(false);
@@ -242,9 +243,8 @@ public class ModManager : MonoBehaviour
         modPage.SetActive(true);
         
         modDescription.text = mp.description;
-        modTitle.text = mp.title;
+        modTitle.text = mp.title + " <size=75%>by " + author;
         modIDObject.text = mp.slug;
-
         
         modImage.texture = image.texture;
         

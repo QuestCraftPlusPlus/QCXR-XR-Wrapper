@@ -18,6 +18,7 @@ public class SearchResults
     public string project_id;
     public string title;
     public string description;
+    public string author;
     public string icon_url;
     public List<string> versions;
 }
