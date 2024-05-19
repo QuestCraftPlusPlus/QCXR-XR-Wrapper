@@ -43,6 +43,7 @@ public class ModManager : MonoBehaviour
 
     public int page;
     private string currModSlug;
+    private string[] currModVersions;
     private bool isSearching;
     
     private void Start()
@@ -54,7 +55,7 @@ public class ModManager : MonoBehaviour
                 Task.Delay(100);
                 InstanceButton.currInstName = instanceLabel.text;
                 if (modPage.activeSelf)
-                    HasModCheck(currModSlug);
+                    HasModCheck(currModSlug, currModVersions);
             }
             RefreshStat();
         });
@@ -219,8 +220,18 @@ public class ModManager : MonoBehaviour
     
     
 
-    async Task HasModCheck(string ModSlug)
+    async Task HasModCheck(string ModSlug, string[]  Fetchedmod = null)
     {
+        if (Fetchedmod != null)
+        {
+            if (!Fetchedmod.Contains(JNIStorage.GetInstance(InstanceButton.currInstName).versionName))
+            {
+                downloadText.text = "No mod for version";
+                downloadButton.GetComponent<Button>().enabled = false;
+                return;
+            }
+        }
+        
         if (JNIStorage.GetInstance(InstanceButton.currInstName) == null)
         {
             downloadText.text = "Instance Not Downloaded";
@@ -255,9 +266,9 @@ public class ModManager : MonoBehaviour
             gifLoader.LoadGifImage(loader.bytes);
         }
         
-        
         currModSlug = mp.slug;
-        HasModCheck(currModSlug);
+        currModVersions = mp.game_versions.ToArray();
+        HasModCheck(currModSlug, currModVersions);
     }
     
     public void AddMod()

@@ -31,6 +31,7 @@ public class MetaParser
     public string icon_url;
     public string description;
     public string slug;
+    public List<string> game_versions;
 }
 
 [Serializable]
