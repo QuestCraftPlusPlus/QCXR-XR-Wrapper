@@ -44,7 +44,7 @@ public class ModManager : MonoBehaviour
     public int page;
     private string currModSlug;
     private string[] currModVersions;
-    private bool isSearching;
+    public bool isSearching;
     
     private void Start()
     {

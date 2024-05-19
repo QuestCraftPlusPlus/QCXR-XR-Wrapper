@@ -16,13 +16,9 @@ public class UiRedocker : MonoBehaviour
         RedockButton.onClick.AddListener(() =>
         {
             if (main)
-            {
                 Transition(watchDisplay);   
-            }
             else
-            {
                 Transition(mainScreen);                
-            }
 
             main = !main;
         });

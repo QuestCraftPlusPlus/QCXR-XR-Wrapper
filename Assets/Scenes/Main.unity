@@ -28213,6 +28213,7 @@ MonoBehaviour:
   modToggle: {fileID: 1789290221}
   modpacksToggle: {fileID: 675128254}
   resourcePacksToggle: {fileID: 290311427}
+  modManager: {fileID: 1460469784}
 --- !u!114 &1460469783
 MonoBehaviour:
   m_ObjectHideFlags: 0

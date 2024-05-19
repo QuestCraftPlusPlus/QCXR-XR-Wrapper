@@ -21,6 +21,8 @@ public class UIHandler : MonoBehaviour
     static string pfpUrl;
     static string profileName;
 
+    public ModManager modManager;
+
     void Start()
     {
         // Add listeners for toggle buttons
@@ -69,22 +71,23 @@ public class UIHandler : MonoBehaviour
 
     void OnToggleClicked(bool value, Toggle clickedToggle)
     {
+        if (modManager.isSearching)
+        {
+            clickedToggle.isOn = false;
+            return;
+        }
+        
         if (value)
         {
+            // Enable the toggles
+            Toggle[] allToggles = { modToggle, modpacksToggle, resourcePacksToggle };
+            foreach (Toggle toggle in allToggles)
+                toggle.interactable = true;
+
             clickedToggle.isOn = false;
             // Disable the clicked toggle
             clickedToggle.interactable = false;
-
-            // Enable the rest of the toggles
-            Toggle[] allToggles = { modToggle, modpacksToggle, resourcePacksToggle};
-
-            foreach (Toggle toggle in allToggles)
-            {
-                if (toggle != clickedToggle)
-                {
-                    toggle.interactable = true;
-                }
-            }
+            modManager.SearchMods();
         }
     }
 
