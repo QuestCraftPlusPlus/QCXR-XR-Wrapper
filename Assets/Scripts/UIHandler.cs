@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class UIHandler : MonoBehaviour
 {
     public TextMeshProUGUI minuteHourText;
-    public TextMeshProUGUI secondText;
     public TMP_Dropdown dropdownMain;
     public TMP_Dropdown dropdownModSearch;
     public TMP_Dropdown dropdownModInfo;
@@ -21,6 +20,8 @@ public class UIHandler : MonoBehaviour
     public static int selectedInstance;
     static string pfpUrl;
     static string profileName;
+
+    public ModManager modManager;
 
     void Start()
     {
@@ -70,22 +71,23 @@ public class UIHandler : MonoBehaviour
 
     void OnToggleClicked(bool value, Toggle clickedToggle)
     {
+        if (modManager.isSearching)
+        {
+            clickedToggle.isOn = false;
+            return;
+        }
+        
         if (value)
         {
+            // Enable the toggles
+            Toggle[] allToggles = { modToggle, modpacksToggle, resourcePacksToggle };
+            foreach (Toggle toggle in allToggles)
+                toggle.interactable = true;
+
             clickedToggle.isOn = false;
             // Disable the clicked toggle
             clickedToggle.interactable = false;
-
-            // Enable the rest of the toggles
-            Toggle[] allToggles = { modToggle, modpacksToggle, resourcePacksToggle};
-
-            foreach (Toggle toggle in allToggles)
-            {
-                if (toggle != clickedToggle)
-                {
-                    toggle.interactable = true;
-                }
-            }
+            modManager.SearchMods();
         }
     }
 

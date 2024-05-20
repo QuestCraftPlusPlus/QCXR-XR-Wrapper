@@ -1,7 +1,5 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class WindowHandler : MonoBehaviour
@@ -32,17 +30,20 @@ public class WindowHandler : MonoBehaviour
     public GameObject errorWindow;
     
     public GameObject githubLogToggle;
-    public GameObject githubLog;
     
     public GameObject needHelpPanel;
     
     public SkinHandler skinHandler;
 
 
-    public async void MainPanelSwitch()
+    public void MainPanelSwitch()
     {
         startPanel.SetActive(false);
         mainPanel.SetActive(true);
+    }
+
+    public async void LoadAv()
+    {
         Debug.Log("QCXR: Getting PFP and Username.");
         await UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
         skinHandler.LoadSkin(profileNameHolder.text);
@@ -150,22 +151,30 @@ public class WindowHandler : MonoBehaviour
     [ContextMenu("LoginAnim")]
     public void AnimateLogin()
     {
-            LeanTween.value(loginButton, loginButton.transform.position, loginButton.transform.parent.transform.position, 1).setEase(LeanTweenType.easeInOutCubic).setOnUpdate((Vector3 newPos) => loginButton.transform.position = newPos);
+            LeanTween.value(loginButton, loginButton.transform.localPosition.x, 0, 1).setEase(LeanTweenType.easeInOutCubic).setOnUpdate(newX =>
+            {
+                loginButton.transform.localPosition = new Vector3(newX, loginButton.transform.localPosition.y, 0);
+                loginText.gameObject.transform.localPosition = new Vector3(newX + 500, loginText.transform.localPosition.y, 0);
+            });
             LeanTween.delayedCall(0.5f, () =>
                 LeanTween.value(loginText.gameObject, 0, 1, 0.5f).setEase(LeanTweenType.easeInOutCubic)
-                    .setOnUpdate((float opacity) => loginText.alpha = opacity));
+                    .setOnUpdate(opacity => loginText.alpha = opacity));
     }
 
+    private bool githubLogAnimating;
     public void GithugLogSetter()
     {
-        githubLog.SetActive(!githubLog.activeSelf);
+        Debug.Log(githubLogToggle.transform.localPosition);
+        if (githubLogAnimating)
+            return;
+        githubLogAnimating = true;
         
-        //folded out position on x: 314.3691
-        //folded in position on x: 574.3691
-        githubLogToggle.transform.localPosition = 
-            githubLogToggle.transform.localPosition.x == 314.3691f ? 
-                new(574.3691f , githubLogToggle.transform.localPosition.y) : 
-                new( 314.3691f, githubLogToggle.transform.localPosition.y);
+        //folded out position on x: -131.93
+        //folded in position on x: 132.70
+        if (githubLogToggle.transform.localPosition.x == -131.93f)
+            LeanTween.value(githubLogToggle.gameObject, githubLogToggle.transform.localPosition, new(132.70f, githubLogToggle.transform.localPosition.y), 0.75f).setEase(LeanTweenType.easeInOutCubic).setOnUpdate((Vector3 loc) => githubLogToggle.transform.localPosition = loc).setOnComplete(() => githubLogAnimating = false);
+        else
+            LeanTween.value(githubLogToggle.gameObject, githubLogToggle.transform.localPosition, new Vector3(-131.93f, githubLogToggle.transform.localPosition.y), 0.75f).setEase(LeanTweenType.easeInOutCubic).setOnUpdate((Vector3 loc) => githubLogToggle.transform.localPosition = loc).setOnComplete(() => githubLogAnimating = false);
     }
 
     public void NeedHelpSetter()

@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class InstanceManager : MonoBehaviour
@@ -21,21 +23,37 @@ public class InstanceManager : MonoBehaviour
     public TMP_Dropdown versionDropdown;
     public WindowHandler windowHandler;
     public Texture2D errorTexture;
+
+    [FormerlySerializedAs("ModCounter")] public TextMeshProUGUI modCounter;
+    [SerializeField] private GameObject modPrefab;
+    [SerializeField] private GameObject modArray;
+    [SerializeField] private APIHandler apiHandler;
     
     
     public void CreateCustomInstance()
     {
         try
         {
-            if (instanceName.text.Trim() == "")
+            instanceName.text = instanceName.text.Trim();
+            if (instanceName.text == "")
             {
                 JNIStorage.instance.uiHandler.SetAndShowError("Instance name cannot be blank, please enter a name.");
                 return;
             }
-            JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, null);
-            JNIStorage.instance.uiHandler.SetAndShowError(instanceName.text + " is now being created.");
             
-            JNIStorage.instance.UpdateInstances();
+            HashSet<string> instanceNames = new HashSet<string>
+                (JNIStorage.instancesObj.Call<AndroidJavaObject[]>("toArray")
+                    .Select(instance => PojlibInstance.Parse(instance).instanceName.ToLower()));
+
+            if (instanceNames.Add(instanceName.text.ToLower()))
+            {
+                JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, instanceName.text, defaultModsToggle.isOn, versionDropdown.options[versionDropdown.value].text, null);
+                JNIStorage.instance.uiHandler.SetAndShowError(instanceName.text + " is now being created.");
+            
+                JNIStorage.instance.UpdateInstances();
+            }
+            else
+                JNIStorage.instance.uiHandler.SetAndShowError("Instance already exists, please choose another name.");
         }
         catch (Exception e)
         {
@@ -44,39 +62,16 @@ public class InstanceManager : MonoBehaviour
         }
     }
     
-    public async void CreateInstanceArray()
+    public void CreateInstanceArray()
     {
         ResetArray();
 
         foreach (var instanceObj in JNIStorage.instancesObj.Call<AndroidJavaObject[]>("toArray"))
         {
-            PojlibInstance instance = PojlibInstance.Parse(instanceObj);
-            
             async Task SetInstanceData()
             {
+                PojlibInstance instance = PojlibInstance.Parse(instanceObj);
                 GameObject instanceGameObject = Instantiate(instancePrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-                
-                if (instance.instanceImageURL != null)
-                {
-                    UnityWebRequest instanceImageLink = UnityWebRequestTexture.GetTexture(instance.instanceImageURL);
-                    instanceImageLink.SendWebRequest();
-
-                    //TODO: Remove artificial wait. 
-                    while (!instanceImageLink.isDone)
-                    {
-                        await Task.Delay(50);
-                    }
-
-                    if (instanceImageLink.result != UnityWebRequest.Result.Success)
-                    {
-                        Debug.Log(instanceImageLink.error);
-                        return;
-                    }
-
-                    Texture modImageTexture = ((DownloadHandlerTexture)instanceImageLink.downloadHandler).texture;
-                    instanceGameObject.GetComponentInChildren<RawImage>().texture = modImageTexture;
-                }
-
                 instanceGameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = instance.instanceName;
                 instanceGameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = instance.versionName + " - Fabric";
                 instanceGameObject.transform.SetParent(instanceArray.transform, false);
@@ -85,12 +80,14 @@ public class InstanceManager : MonoBehaviour
                 instanceGameObject.GetComponent<Button>().onClick.AddListener(delegate
                 {
                     EventSystem.current.SetSelectedGameObject(instanceGameObject);
-                    GameObject InstanceObject = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                    CreateInstanceInfoPage(InstanceObject.name);
+                    GameObject instanceObject = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
+                    CreateInstanceInfoPage(instanceObject.name);
                 });
+                
+                if (instance.instanceImageURL != null)
+                    apiHandler.DownloadImage(instance.instanceImageURL, instanceGameObject.GetComponentInChildren<RawImage>());
             }
-
-            await SetInstanceData();
+            SetInstanceData();
         }
 
         if (instanceArray.transform.childCount == 0)
@@ -104,34 +101,109 @@ public class InstanceManager : MonoBehaviour
             instanceGameObject.name = "ERROR";
         }
     }
-    
-    public async void CreateInstanceInfoPage(string slug)
+
+    async void CreateInstanceInfoPage(string slug)
     {
         PojlibInstance instance = JNIStorage.GetInstance(slug);
         windowHandler.InstanceInfoSetter();
 
-        async Task GetSetTexture()
-        {
+        instanceVersion.text = instance.versionName + " - Fabric";
+        instanceTitle.text = instance.instanceName;
 
             if (instance.instanceImageURL != null)
-            {
-                UnityWebRequest instanceImageLink = UnityWebRequestTexture.GetTexture(instance.instanceImageURL);
-                instanceImageLink.SendWebRequest();
+                apiHandler.DownloadImage(instance.instanceImageURL, instanceImage);
 
-                while (!instanceImageLink.isDone)
-                {
-                    await Task.Delay(50);
-                }
+        for (int i = modArray.transform.childCount - 1; i >= 0; i--)
+            Destroy(modArray.transform.GetChild(i).gameObject);
 
-                Texture instanceImageTex = ((DownloadHandlerTexture)instanceImageLink.downloadHandler).texture;
-                instanceImage.texture = instanceImageTex;
-            }
+        PojlibMod[] modList = instance.GetMods();
 
-            instanceVersion.text = instance.versionName + " - Fabric";
-            instanceTitle.text = instance.instanceName;
+        void CountMods(int count)
+        {
+            Color counterColor;
+            if (count < 50)
+                counterColor = Color.Lerp(new Color(3, 152, 252), new Color(255, 108, 10), (float)count / 50);
+            else if (count == 69)
+                counterColor = Color.green;
+            else
+                counterColor = Color.Lerp(new Color(255, 108, 10), new Color(255, 0, 0), (count - 50) / 50.0f);
+            modCounter.text = $"Currently Installed mods: <color={ColorToHex(counterColor)}>{count}";
         }
 
-        await GetSetTexture();
+        CountMods(modList.Length);
+
+        List<MetaParser> fetchedMods = new();
+
+        async Task GetModInfoArray()
+        {
+            string request = "https://api.modrinth.com/v2/projects?ids=[";
+            foreach (PojlibMod mod in modList)
+                request += $"\"{mod.slug}\",";
+            request = request.Remove(request.Length - 1, 1) + "]";
+
+            UnityWebRequest www = UnityWebRequest.Get(request);
+            www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
+            www.SendWebRequest();
+            while (!www.isDone)
+                await Task.Delay(16);
+            if (www.result != UnityWebRequest.Result.Success)
+                Debug.Log(www.error);
+            else
+                fetchedMods =
+                    new List<MetaParser>(JsonConvert.DeserializeObject<MetaParser[]>(www.downloadHandler.text));
+
+            HashSet<string> fetchedSlugs = new HashSet<string>(fetchedMods.Select(mod => mod.slug.ToLower()));
+            foreach (PojlibMod mod in modList)
+            {
+                string currentSlug = mod.slug.ToLower();
+                if (fetchedSlugs.Add(currentSlug))
+                {
+                    MetaParser newMod = new MetaParser
+                    {
+                        slug = currentSlug,
+                        title = currentSlug,
+                        description = "",
+                        icon_url = "OFFLINE"
+                    };
+                    fetchedMods.Add(newMod);
+                }
+            }
+        }
+
+        await GetModInfoArray();
+
+        //sort it
+        fetchedMods = fetchedMods.OrderBy(mod => mod.title).ToList();
+
+        foreach (MetaParser mod in fetchedMods)
+        {
+            GameObject modObject = Instantiate(modPrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+            modObject.name = mod.slug;
+            modObject.transform.SetParent(modArray.transform, false);
+            modObject.GetComponent<RectTransform>().sizeDelta =
+                new(675, modObject.GetComponent<RectTransform>().sizeDelta.y);
+            modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate
+            {
+                JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, instance.raw, mod.slug);
+                Destroy(modObject.gameObject);
+                CountMods(modArray.transform.childCount - 1);
+            });
+
+            modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = mod.title;
+            modObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = mod.description;
+            if (mod.icon_url != "OFFLINE")
+            {
+                apiHandler.DownloadImage(mod.icon_url, modObject.GetComponentInChildren<RawImage>());
+            }
+        }
+    }
+
+    string ColorToHex(Color color)
+    {
+        int r = (int)color.r;
+        int g = (int)color.g;
+        int b = (int)color.b;
+        return "#" + r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
     }
 
     public void RemoveInstancePrompt()

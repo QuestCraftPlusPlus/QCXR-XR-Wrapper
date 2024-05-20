@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.XR.Management;
 
@@ -6,6 +7,8 @@ public class InstanceButton : MonoBehaviour
     public static string currInstName;
     private bool hasDefaulted;
 
+    public CanvasGroup ScreenFade;
+    
     private void Update()
     {
         if (Application.platform == RuntimePlatform.WindowsEditor)
@@ -20,7 +23,7 @@ public class InstanceButton : MonoBehaviour
         JNIStorage.instance.UpdateInstances();
     }
 
-    public static void LaunchCurrentInstance()
+    public void LaunchCurrentInstance()
     {
         if (JNIStorage.GetInstance(currInstName) == null)
         {
@@ -40,10 +43,15 @@ public class InstanceButton : MonoBehaviour
             return; 
         }
         
-	    XRGeneralSettings.Instance.Manager.activeLoader.Stop();
-        XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
-
-        Application.Unload();
-        JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
+        async Task FinishAnim()
+        {
+            await Task.Delay(200);
+            XRGeneralSettings.Instance.Manager.activeLoader.Stop();
+            XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
+            
+            Application.Unload();
+            JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
+        }
+        LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(() => FinishAnim());
     }
 }

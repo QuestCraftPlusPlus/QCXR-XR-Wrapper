@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class LoginHandler : MonoBehaviour
 {
@@ -52,15 +49,16 @@ public class LoginHandler : MonoBehaviour
 	    {
 		    await Task.Delay(1500);
 		    
-		    if (JNIStorage.accountObj != null && !isMainScreen) {
+		    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+		    Debug.Log("Check Login State");
+		    if (JNIStorage.accountObj != null) 
+		    {
 			    handler.MainPanelSwitch();
+			    handler.LoadAv();
 			    isMainScreen = true;
-		    } else {
-			    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
-			    Debug.Log("Check Login State");
 		    }
-	    }
-	  }
+	    } 
+    }
     
     public void LogoutButton()
     {
