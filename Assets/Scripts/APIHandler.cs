@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TMPro;
@@ -11,7 +7,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using WebP;
-
 
 public class APIHandler : MonoBehaviour
 {
@@ -34,6 +29,7 @@ public class APIHandler : MonoBehaviour
             {
                 Debug.Log("Downloading webp at url: \n" + url);
                 UnityWebRequest modImageLink = UnityWebRequest.Get(url);
+                modImageLink.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
                 modImageLink.SendWebRequest();
 
                 while (!modImageLink.isDone)
@@ -50,6 +46,7 @@ public class APIHandler : MonoBehaviour
                 Debug.Log("Downloading gif at url: \n" + url);
 
                 UnityWebRequest modImageLink = UnityWebRequest.Get(url);
+                modImageLink.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
                 modImageLink.SendWebRequest();
 
                 while (!modImageLink.isDone)
@@ -63,6 +60,7 @@ public class APIHandler : MonoBehaviour
             {
                 Debug.Log("Downloading a random format at url: \n" + url);
                 UnityWebRequest modImageLink = UnityWebRequestTexture.GetTexture(url);
+                modImageLink.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
                 modImageLink.SendWebRequest();
 
                 while (!modImageLink.isDone)
@@ -80,28 +78,46 @@ public class APIHandler : MonoBehaviour
 
     public MetaParser GetModInfo(string modID)
     {
-        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID);
-        using var response = (HttpWebResponse)request.GetResponse();
-        using var reader = new StreamReader(response.GetResponseStream());
-        string json = reader.ReadToEnd(); 
-        return JsonConvert.DeserializeObject<MetaParser>(json);
+        UnityWebRequest www = UnityWebRequest.Get("https://api.modrinth.com/v2/project/" + modID);
+        www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
+        www.SendWebRequest();
+
+        while (!www.isDone)
+            Task.Delay(16);
+        if (www.result != UnityWebRequest.Result.Success)
+            Debug.Log(www.error);
+        else
+            return JsonConvert.DeserializeObject<MetaParser>(www.downloadHandler.text);
+        return null;
     }
 
     public MetaInfo[] GetModDownloads(string modID)
     {
-        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID + "/version");
-        using var response = (HttpWebResponse)request.GetResponse();
-        using var reader = new StreamReader(response.GetResponseStream());
-        string json = reader.ReadToEnd();
-        return JsonConvert.DeserializeObject<MetaInfo[]>(json);
+        UnityWebRequest www = UnityWebRequest.Get("https://api.modrinth.com/v2/project/" + modID + "/version");
+        www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
+        www.SendWebRequest();
+
+        while (!www.isDone)
+            Task.Delay(16);
+        if (www.result != UnityWebRequest.Result.Success)
+            Debug.Log(www.error);
+        else
+            return JsonConvert.DeserializeObject<MetaInfo[]>(www.downloadHandler.text);
+        return null;
     }
     
     public List<Deps> GetModDeps(string modID, string versionID)
     {
-        var request = (HttpWebRequest)WebRequest.Create("https://api.modrinth.com/v2/project/" + modID + "/version/" + versionID);
-        using var response = (HttpWebResponse)request.GetResponse();
-        using var reader = new StreamReader(response.GetResponseStream());
-        string json = reader.ReadToEnd();
-        return JsonConvert.DeserializeObject<MetaInfo>(json).dependencies;
+        UnityWebRequest www = UnityWebRequest.Get("https://api.modrinth.com/v2/project/" + modID + "/version/" + versionID);
+        www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
+        www.SendWebRequest();
+
+        while (!www.isDone)
+            Task.Delay(16);
+        if (www.result != UnityWebRequest.Result.Success)
+            Debug.Log(www.error);
+        else
+            return JsonConvert.DeserializeObject<MetaInfo>(www.downloadHandler.text).dependencies;
+        return null;
     }
 } 

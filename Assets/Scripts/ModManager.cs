@@ -122,6 +122,7 @@ public class ModManager : MonoBehaviour
                          "&limit=20";
 
             UnityWebRequest queryDownload = UnityWebRequest.Get(url);
+            queryDownload.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
             queryDownload.SendWebRequest();
 
             while (!queryDownload.isDone)
@@ -331,6 +332,7 @@ public class ModManager : MonoBehaviour
         Task DownloadModpackFile()
         {
             UnityWebRequest modpackFile = new UnityWebRequest(file.url);
+            modpackFile.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
             modpackFile.method = UnityWebRequest.kHttpVerbGET;
             DownloadHandlerFile dh = new DownloadHandlerFile(path);
             dh.removeFileOnAbort = true;

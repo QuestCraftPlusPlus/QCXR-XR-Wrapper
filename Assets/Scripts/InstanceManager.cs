@@ -142,6 +142,7 @@ public class InstanceManager : MonoBehaviour
             request = request.Remove(request.Length - 1, 1) + "]";
 
             UnityWebRequest www = UnityWebRequest.Get(request);
+            www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
             www.SendWebRequest();
             while (!www.isDone)
                 await Task.Delay(16);
