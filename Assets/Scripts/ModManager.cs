@@ -323,33 +323,29 @@ public class ModManager : MonoBehaviour
         DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
     }
     
-    private async void ProcessModpack(MetaParser mp, FileInfo file, string currentInstanceVer)
+    private void ProcessModpack(MetaParser mp, FileInfo file, string currentInstanceVer)
     {
-        string path = Path.Combine(Application.persistentDataPath);
+        string path = Path.Combine(Application.persistentDataPath, "downloads");
         path = Path.Combine(path, mp.title + ".mrpack");
-        Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceVer} | modPatch: {path}");
+        Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceVer} | modPath: {path}");
         
-        Task DownloadModpackFile()
+        UnityWebRequest modpackFile = UnityWebRequest.Get(file.url);
+        modpackFile.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
+        DownloadHandlerFile dh = new DownloadHandlerFile(path);
+        dh.removeFileOnAbort = true;
+        modpackFile.downloadHandler = dh;
+        UnityWebRequestAsyncOperation op = modpackFile.SendWebRequest();
+
+        JNIStorage.instance.uiHandler.SetAndShowError(mp.title + " is downloading, please wait.");
+        op.completed += operation =>
         {
-            UnityWebRequest modpackFile = new UnityWebRequest(file.url);
-            modpackFile.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
-            modpackFile.method = UnityWebRequest.kHttpVerbGET;
-            DownloadHandlerFile dh = new DownloadHandlerFile(path);
-            dh.removeFileOnAbort = true;
-            modpackFile.downloadHandler = dh;
-            modpackFile.SendWebRequest();
-            return Task.CompletedTask;
-        }
+            AndroidJavaObject instance = LoadInstance();
+            if (instance == null) return;
 
-        await DownloadModpackFile();
-
-        AndroidJavaObject instance = LoadInstance();
-        if (instance == null) return;
-
-        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, mp.title, mp.icon_url, path);
-        JNIStorage.instance.uiHandler.SetAndShowError(mp.title + " is now being created.");
-        JNIStorage.instance.UpdateInstances();
-        File.Delete(path);
+            JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, mp.title, mp.icon_url, path);
+            JNIStorage.instance.uiHandler.SetAndShowError(mp.title + " is now being created.");
+            JNIStorage.instance.UpdateInstances();
+        };
     }
 
     private AndroidJavaObject LoadInstance()
