@@ -241,7 +241,7 @@ public class ModManager : MonoBehaviour
         }
 
         Debug.Log("Current instance: " + InstanceButton.currInstName + "\nChecking for mod " + ModSlug);
-        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod",
+        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasExtraProject",
             JNIStorage.GetInstance(InstanceButton.currInstName).raw, ModSlug);
         downloadText.text = hasMod ? "Installed" : "Install";
         downloadButton.GetComponent<Button>().enabled = !hasMod;
@@ -285,9 +285,6 @@ public class ModManager : MonoBehaviour
                 if (file.url.Contains(".mrpack"))
                 {
                     ProcessModpack(mp, file, currentInstanceVer);
-                } else if (file.url.Contains(".zip"))
-                {
-                    //ProcessResourcePack();
                 }
                 else
                 {
@@ -312,16 +309,6 @@ public class ModManager : MonoBehaviour
 
         DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
     }    
-    
-    private void ProcessResourcePack(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceVer)
-    {
-        Debug.Log($"modName: {mp.title} | modUrl: {file.url} | modVersion: {currentInstanceVer}");
-
-        AndroidJavaObject instance = LoadInstance();
-        if (instance == null) return;
-
-        DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
-    }
     
     private void ProcessModpack(MetaParser mp, FileInfo file, string currentInstanceVer)
     {
@@ -376,7 +363,7 @@ public class ModManager : MonoBehaviour
                     foreach (var depFile in validDepFiles)
                     {
                         PojlibInstance currInst = JNIStorage.GetInstance(InstanceButton.currInstName);
-                        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, currInst.raw, slug, currentInstanceVer, depFile.url);
+                        JNIStorage.apiClass.CallStatic("addExtraProject", JNIStorage.instancesObj, currInst.raw, slug, currentInstanceVer, depFile.url, mp.project_type);
                         Debug.Log($"Downloading Dep with file url {depFile.url}");
                         break;
                     }
@@ -385,7 +372,7 @@ public class ModManager : MonoBehaviour
         }
 
         PojlibInstance inst = JNIStorage.GetInstance(InstanceButton.currInstName);
-        JNIStorage.apiClass.CallStatic("addMod", JNIStorage.instancesObj, inst.raw, mp.slug, currentInstanceVer, modUrl);
+        JNIStorage.apiClass.CallStatic("addExtraProject", JNIStorage.instancesObj, inst.raw, mp.slug, currentInstanceVer, modUrl, mp.project_type);
         UpdateUIAfterModAddition(mp.slug);
     }
 
@@ -394,12 +381,12 @@ public class ModManager : MonoBehaviour
         return depInfo.game_versions.Contains(currentInstanceVer)
                && !depFile.url.Contains(".mrpack")
                && depInfo.loaders.Contains("fabric")
-               && !JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, slug);
+               && !JNIStorage.apiClass.CallStatic<bool>("hasExtraProject", JNIStorage.GetInstance(InstanceButton.currInstName).raw, slug);
     }
 
     private void UpdateUIAfterModAddition(string slug)
     {
-        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasMod", JNIStorage.GetInstance(InstanceButton.currInstName).raw, slug);
+        bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasExtraProject", JNIStorage.GetInstance(InstanceButton.currInstName).raw, slug);
         downloadText.text = "Installed";
         downloadButton.GetComponent<Button>().enabled = !hasMod;
 
@@ -418,7 +405,7 @@ public class ModManager : MonoBehaviour
     private void RemoveMod(string modName)
     {
         PojlibInstance currInstName = JNIStorage.GetInstance(InstanceButton.currInstName);
-        JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, currInstName.raw, modName);
+        JNIStorage.apiClass.CallStatic<bool>("removeExtraProject", JNIStorage.instancesObj, currInstName.raw, modName);
              downloadText.text = "Install";
              SearchMods();
          }

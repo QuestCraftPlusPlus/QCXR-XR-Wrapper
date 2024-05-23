@@ -31,6 +31,7 @@ public class MetaParser
     public string icon_url;
     public string description;
     public string slug;
+    public string project_type;
     public List<string> game_versions;
 }
 
@@ -98,7 +99,7 @@ public class PojlibInstance
     {
         // Mods can change at runtime
         List<PojlibMod> mods = new List<PojlibMod>();
-        foreach (var mod in raw.Get<AndroidJavaObject[]>("mods"))
+        foreach (var mod in raw.Get<AndroidJavaObject[]>("extProjects"))
         {
             mods.Add(PojlibMod.Parse(mod));
         }
