@@ -110,8 +110,8 @@ public class InstanceManager : MonoBehaviour
         instanceVersion.text = instance.versionName + " - Fabric";
         instanceTitle.text = instance.instanceName;
 
-            if (instance.instanceImageURL != null)
-                apiHandler.DownloadImage(instance.instanceImageURL, instanceImage);
+        if (instance.instanceImageURL != null)
+            apiHandler.DownloadImage(instance.instanceImageURL, instanceImage);
 
         for (int i = modArray.transform.childCount - 1; i >= 0; i--)
             Destroy(modArray.transform.GetChild(i).gameObject);
@@ -184,7 +184,7 @@ public class InstanceManager : MonoBehaviour
                 new(675, modObject.GetComponent<RectTransform>().sizeDelta.y);
             modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate
             {
-                JNIStorage.apiClass.CallStatic<bool>("removeMod", JNIStorage.instancesObj, instance.raw, mod.slug);
+                JNIStorage.apiClass.CallStatic<bool>("removeExtraProject", JNIStorage.instancesObj, instance.raw, mod.slug);
                 Destroy(modObject.gameObject);
                 CountMods(modArray.transform.childCount - 1);
             });
