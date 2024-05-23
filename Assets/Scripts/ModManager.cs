@@ -280,7 +280,7 @@ public class ModManager : MonoBehaviour
 
         foreach (MetaInfo metaInfo in modInfos)
         {
-            foreach (var file in metaInfo.files.Where(file => IsValidModFile(metaInfo, currentInstanceVer)))
+            foreach (var file in metaInfo.files.Where(file => IsValidModFile(metaInfo, mp, currentInstanceVer)))
             {
                 if (file.url.Contains(".mrpack"))
                 {
@@ -296,10 +296,18 @@ public class ModManager : MonoBehaviour
         }
     }
     
-    private bool IsValidModFile(MetaInfo metaInfo, string currentInstanceName)
+    private bool IsValidModFile(MetaInfo metaInfo, MetaParser metaParser, string instanceVersion)
     {
-        return metaInfo.game_versions.Contains(currentInstanceName)
-               && metaInfo.loaders.Contains("fabric");
+        if (metaParser.project_type == "mod")
+        {
+            return metaInfo.game_versions.Contains(instanceVersion)
+                   && metaInfo.loaders.Contains("fabric"); 
+        }
+        else
+        {
+            return true;
+        }
+
     }
 
     private void ProcessModFile(MetaParser mp, FileInfo file, MetaInfo metaInfo, string currentInstanceVer)
