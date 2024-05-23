@@ -298,7 +298,7 @@ public class ModManager : MonoBehaviour
     
     private bool IsValidModFile(MetaInfo metaInfo, MetaParser metaParser, string instanceVersion)
     {
-        if (metaParser.project_type == "mod")
+        if (metaParser.project_type is "mod" or "modpack")
         {
             return metaInfo.game_versions.Contains(instanceVersion)
                    && metaInfo.loaders.Contains("fabric"); 
