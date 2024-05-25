@@ -9,7 +9,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ModManager : MonoBehaviour
@@ -63,7 +62,7 @@ public class ModManager : MonoBehaviour
         mainMenuModDropdown.onValueChanged.AddListener(delegate { SearchMods(); });
 
         if (statusText == null)
-            statusText = new TextMeshProUGUI();
+            statusText = new GameObject().AddComponent<TextMeshProUGUI>();
         statusText.text = "";
     }
     
@@ -99,8 +98,7 @@ public class ModManager : MonoBehaviour
             }
             catch (NullReferenceException)
             {
-                ShowError(
-                    "You must run this version of the game at least once before adding mods to the instance with Mod Manager!");
+                ShowError("You must run this version of the game at least once before adding mods to the instance with Mod Manager!");
                 return;
             }
 
@@ -173,8 +171,7 @@ public class ModManager : MonoBehaviour
             
             if (searchParser.total_hits > 20)
             {
-                GameObject modPages = Instantiate(modPagePrefab);
-                modPages.transform.SetParent(modArray.transform, false);
+                GameObject modPages = Instantiate(modPagePrefab, modArray.transform, false);
                 modPages.name = "ModPages";
                 
                 //updating visibility
@@ -218,14 +215,12 @@ public class ModManager : MonoBehaviour
         page--;
         CreateMods();
     }
-    
-    
 
-    async Task HasModCheck(string ModSlug, string[]  Fetchedmod = null)
+    async Task HasModCheck(string modSlug, string[]  fetchedmod = null)
     {
-        if (Fetchedmod != null)
+        if (fetchedmod != null)
         {
-            if (!Fetchedmod.Contains(JNIStorage.GetInstance(InstanceButton.currInstName).versionName))
+            if (!fetchedmod.Contains(JNIStorage.GetInstance(InstanceButton.currInstName).versionName))
             {
                 downloadText.text = "No mod for version";
                 downloadButton.GetComponent<Button>().enabled = false;
@@ -240,9 +235,9 @@ public class ModManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Current instance: " + InstanceButton.currInstName + "\nChecking for mod " + ModSlug);
+        Debug.Log("Current instance: " + InstanceButton.currInstName + "\nChecking for mod " + modSlug);
         bool hasMod = JNIStorage.apiClass.CallStatic<bool>("hasExtraProject",
-            JNIStorage.GetInstance(InstanceButton.currInstName).raw, ModSlug);
+            JNIStorage.GetInstance(InstanceButton.currInstName).raw, modSlug);
         downloadText.text = hasMod ? "Installed" : "Install";
         downloadButton.GetComponent<Button>().enabled = !hasMod;
     }
@@ -280,7 +275,7 @@ public class ModManager : MonoBehaviour
 
         foreach (MetaInfo metaInfo in modInfos)
         {
-            foreach (var file in metaInfo.files.Where(file => IsValidModFile(metaInfo, mp, currentInstanceVer)))
+            foreach (var file in metaInfo.files.Where(_ => IsValidModFile(metaInfo, mp, currentInstanceVer)))
             {
                 if (file.url.Contains(".mrpack"))
                 {
@@ -332,7 +327,7 @@ public class ModManager : MonoBehaviour
         UnityWebRequestAsyncOperation op = modpackFile.SendWebRequest();
 
         JNIStorage.instance.uiHandler.SetAndShowError(mp.title + " is downloading, please wait.");
-        op.completed += operation =>
+        op.completed += _ =>
         {
             AndroidJavaObject instance = LoadInstance();
             if (instance == null) return;
@@ -416,7 +411,7 @@ public class ModManager : MonoBehaviour
         JNIStorage.apiClass.CallStatic<bool>("removeExtraProject", JNIStorage.instancesObj, currInstName.raw, modName);
              downloadText.text = "Install";
              SearchMods();
-         }
+    }
 
     public void SearchMods()
     {
