@@ -6,31 +6,31 @@ using UnityEngine.UI;
 
 public class LoadLog : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI linkBox;
-    public Button discord;
+	public TMPro.TextMeshProUGUI linkBox;
+	public Button discord;
 
-    private bool hasUploaded;
-    
-    private void Start()
-    {
-        linkBox.transform.parent.parent.GetComponent<Button>().onClick.AddListener(() =>
-        {
-            if (linkBox.text != "Loading...")
-                Application.OpenURL(linkBox.text.Replace("<color=#5765f2><u>", ""));
-        });
-        
-        discord.onClick.AddListener(() => Application.OpenURL("https://discord.com/invite/QuestCraft"));
-    }
+	private bool hasUploaded;
+	
+	private void Start()
+	{
+		linkBox.transform.parent.parent.GetComponent<Button>().onClick.AddListener(() =>
+		{
+			if (linkBox.text != "Loading...")
+				Application.OpenURL(linkBox.text.Replace("<color=#5765f2><u>", ""));
+		});
+		
+		discord.onClick.AddListener(() => Application.OpenURL("https://discord.com/invite/QuestCraft"));
+	}
 
-    private class LogResponse
-    {
-        public string id;
-    }
-    
-    public void UploadLog()
-    {
-        async Task Upload()
-        {
+	private class LogResponse
+	{
+		public string id;
+	}
+	
+	public async void UploadLog()
+	{
+		if (!hasUploaded)
+		{
             hasUploaded = true;
             string logtext;
             try
@@ -42,17 +42,14 @@ public class LoadLog : MonoBehaviour
                 linkBox.text = $"No log to upload!";
                 throw;
             }
-        
+
             WWWForm form = new WWWForm();
             form.AddField("content", logtext);
 
             using UnityWebRequest www = UnityWebRequest.Post("https://api.mclo.gs/1/log", form);
             www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
-            www.SendWebRequest();
+            await www.SendWebRequest();
 
-            while (!www.isDone)
-                await Task.Delay(16);
-            
             if (www.result != UnityWebRequest.Result.Success)
                 Debug.LogError(www.error);
             else
@@ -61,8 +58,6 @@ public class LoadLog : MonoBehaviour
                 linkBox.text = $"<color=#5765f2><u>https://mclo.gs/" + id;
             }
         }
-
-        if (!hasUploaded)
-            Upload();
-    }
+        await Task.CompletedTask;
+	}
 }
