@@ -31,33 +31,33 @@ public class LoadLog : MonoBehaviour
 	{
 		if (!hasUploaded)
 		{
-            hasUploaded = true;
-            string logtext;
-            try
-            {
-                logtext = File.ReadAllText(Application.persistentDataPath + "/latestlog.txt");
-            }
-            catch (FileNotFoundException)
-            {
-                linkBox.text = $"No log to upload!";
-                throw;
-            }
+			hasUploaded = true;
+			string logtext;
+			try
+			{
+				logtext = File.ReadAllText(Application.persistentDataPath + "/latestlog.txt");
+			}
+			catch (FileNotFoundException)
+			{
+				linkBox.text = $"No log to upload!";
+				throw;
+			}
 
-            WWWForm form = new WWWForm();
-            form.AddField("content", logtext);
+			WWWForm form = new WWWForm();
+			form.AddField("content", logtext);
 
-            using UnityWebRequest www = UnityWebRequest.Post("https://api.mclo.gs/1/log", form);
-            www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
-            await www.SendWebRequest();
+			using UnityWebRequest www = UnityWebRequest.Post("https://api.mclo.gs/1/log", form);
+			www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
+			await www.SendWebRequest();
 
-            if (www.result != UnityWebRequest.Result.Success)
-                Debug.LogError(www.error);
-            else
-            {
-                string id = JsonUtility.FromJson<LogResponse>(www.downloadHandler.text).id;
-                linkBox.text = $"<color=#5765f2><u>https://mclo.gs/" + id;
-            }
-        }
-        await Task.CompletedTask;
+			if (www.result != UnityWebRequest.Result.Success)
+				Debug.LogError(www.error);
+			else
+			{
+				string id = JsonUtility.FromJson<LogResponse>(www.downloadHandler.text).id;
+				linkBox.text = $"<color=#5765f2><u>https://mclo.gs/" + id;
+			}
+		}
+		await Task.CompletedTask;
 	}
 }

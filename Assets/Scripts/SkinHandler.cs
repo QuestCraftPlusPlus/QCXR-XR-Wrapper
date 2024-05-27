@@ -28,9 +28,10 @@ public class SkinHandler : MonoBehaviour
 		LoadSkin(FETCHINGUSERNAME);
 	}
 
-	public async void LoadSkin(string username)
+	public void LoadSkin(string username)
 	{
 		// LoadImage
+		Task.Run(async () =>
 		{
 			UnityWebRequest request = UnityWebRequestTexture.GetTexture("https://minotar.net/skin/" + username);
 			request.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
@@ -45,15 +46,16 @@ public class SkinHandler : MonoBehaviour
 				skin.mainTexture.filterMode = FilterMode.Point;
 				profilePicture.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
 				profilePicture.mainTexture.filterMode = FilterMode.Point;
-            }
-        }
+			}
+		});
 
 		// SetSkinType
+		Task.Run(async () =>
 		{
 			UnityWebRequest www = UnityWebRequest.Get("https://starlightskins.lunareclipse.studio/info/user/" + username);
 			www.SetRequestHeader("User-Agent", "QuestCraftPlusPlus/QuestCraft/" + Application.version + " (discord.gg/questcraft)");
 			await www.SendWebRequest();
-			
+
 			if (www.result != UnityWebRequest.Result.Success)
 				Debug.Log(www.error);
 			else
@@ -62,7 +64,7 @@ public class SkinHandler : MonoBehaviour
 				skinType = (string)SkinType["skinType"];
 				Debug.Log(skinType);
 			}
-		
+
 			if (skinType != "wide")
 			{
 				rSlim.SetActive(true);
@@ -82,8 +84,7 @@ public class SkinHandler : MonoBehaviour
 				rClassic.SetActive(true);
 				lClassic.SetActive(true);
 				figurineClassic.SetActive(true);
-            }
-        }
-        await Task.CompletedTask;
-    }
+			}
+		});
+	}
 }

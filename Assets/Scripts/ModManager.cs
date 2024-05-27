@@ -222,8 +222,8 @@ public class ModManager : MonoBehaviour
 				downloadText.text = "No mod for version";
 				downloadButton.GetComponent<Button>().enabled = false;
 
-                await Task.CompletedTask;
-                return;
+				await Task.CompletedTask;
+				return;
 			}
 		}
 		
@@ -242,8 +242,8 @@ public class ModManager : MonoBehaviour
 		downloadText.text = hasMod ? "Installed" : "Install";
 		downloadButton.GetComponent<Button>().enabled = !hasMod;
 
-        await Task.CompletedTask;
-    }
+		await Task.CompletedTask;
+	}
 
 	private void CreateModPage(string slug, RawImage image, string author)
 	{

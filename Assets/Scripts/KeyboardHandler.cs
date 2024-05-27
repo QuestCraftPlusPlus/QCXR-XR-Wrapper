@@ -55,17 +55,17 @@ public class KeyboardHandler : MonoBehaviour
 	}
 
 	public void ShiftPress()
-    {
-        isShift = !isShift;
-        // var keys = keyboard.GetNamedChild("Keys").GetChildGameObjects().GetComponentsInChildren<TMP_Text>();
-        //
-        // foreach (var key in keys)
-        // {
-        //     key.text = isShift ? key.text.ToLower() : key.text.ToUpper();
-        // }
+	{
+		isShift = !isShift;
+		// var keys = keyboard.GetNamedChild("Keys").GetChildGameObjects().GetComponentsInChildren<TMP_Text>();
+		//
+		// foreach (var key in keys)
+		// {
+		//     key.text = isShift ? key.text.ToLower() : key.text.ToUpper();
+		// }
 
-        keyPop.Play();
-    }
+		keyPop.Play();
+	}
 
 	public void SpacePress()
 	{

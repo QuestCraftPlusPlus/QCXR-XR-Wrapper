@@ -30,8 +30,8 @@ public class LoginHandler : MonoBehaviour
 			}
 			loginButtonText.text = "Sign In";
 			isAnimating = false;
-            await Task.CompletedTask;
-        }
+			await Task.CompletedTask;
+		}
 		LoadingButtonText();
 
 #if !UNITY_EDITOR
@@ -47,8 +47,7 @@ public class LoginHandler : MonoBehaviour
 	private async void CheckVerification() 
 	{
 #if !UNITY_EDITOR
-		int repeats = 0;
-		while (!isMainScreen && repeats++ < 40) // max for a minute
+		while (!isMainScreen)
 		{
 			await Task.Delay(1500);
 			
@@ -62,7 +61,7 @@ public class LoginHandler : MonoBehaviour
 			}
 		}
 #endif
-        await Task.CompletedTask;
+		await Task.CompletedTask;
 	}
 	
 	public void LogoutButton()
@@ -72,12 +71,12 @@ public class LoginHandler : MonoBehaviour
 	}
 
 	public void Logout()
-    {
+	{
 #if !UNITY_EDITOR
 		isMainScreen = false;
 		JNIStorage.accountObj = null;
 		JNIStorage.apiClass.CallStatic<bool>("logout", JNIStorage.activity);
 		Application.Quit();
 #endif
-    }
+	}
 }

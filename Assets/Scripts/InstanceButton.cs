@@ -11,7 +11,7 @@ public class InstanceButton : MonoBehaviour
 	
 	private void Update()
 	{
-		if (Application.platform == RuntimePlatform.WindowsEditor)
+		if (Application.isEditor)
 			return;
 		currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
 	}
@@ -45,13 +45,13 @@ public class InstanceButton : MonoBehaviour
 		
 		LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(async () =>
 		{
-            await Task.Delay(200);
-            XRGeneralSettings.Instance.Manager.activeLoader.Stop();
-            XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
+			await Task.Delay(200);
+			XRGeneralSettings.Instance.Manager.activeLoader.Stop();
+			XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
 
-            Application.Unload();
-            JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
-            await Task.CompletedTask;
-        });
+			Application.Unload();
+			JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
+			await Task.CompletedTask;
+		});
 	}
 }

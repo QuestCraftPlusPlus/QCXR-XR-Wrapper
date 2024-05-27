@@ -193,9 +193,9 @@ public class InstanceManager : MonoBehaviour
 			{
 				apiHandler.DownloadImage(mod.icon_url, modObject.GetComponentInChildren<RawImage>());
 			}
-        }
-        await Task.CompletedTask;
-    }
+		}
+		await Task.CompletedTask;
+	}
 
 	string ColorToHex(Color color)
 	{

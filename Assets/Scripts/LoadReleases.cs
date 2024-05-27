@@ -37,9 +37,6 @@ public class LoadReleases : MonoBehaviour
 			return;
 		cooldown = true;
 		
-		await Task.Delay(10000);
-		cooldown = false;
-		
 		// PopulateReleases
 		{
 			UnityWebRequest www = UnityWebRequest.Get("https://api.github.com/repos/QuestCraftPlusPlus/Questcraft/releases");
@@ -66,6 +63,9 @@ public class LoadReleases : MonoBehaviour
 				tags.text = changelogs;
 			}
 		}
+
+		await Task.Delay(10000);
+		cooldown = false;
 
 		await Task.CompletedTask;
 	}

@@ -80,14 +80,16 @@ public class APIHandler : MonoBehaviour
 
 		await Task.CompletedTask;
 		return result;
-    }
-    public MetaParser GetModInfo(string modID)
-    {
-        Task<MetaParser> task = Task.Run(async () => await GetModInfoAsync(modID));
-        return task.Result;
-    }
+	}
+	public MetaParser GetModInfo(string modID)
+	{
+		MetaParser result = null;
+		Task<MetaParser> task = Task.Run(async () => result = await GetModInfoAsync(modID));
+		task.Wait();
+		return result;
+	}
 
-    public async Task<MetaInfo[]> GetModDownloadsAsync(string modID)
+	public async Task<MetaInfo[]> GetModDownloadsAsync(string modID)
 	{
 		MetaInfo[] result = null;
 
@@ -102,14 +104,16 @@ public class APIHandler : MonoBehaviour
 
 		await Task.CompletedTask;
 		return result;
-    }
-    public MetaInfo[] GetModDownloads(string modID)
-    {
-        Task<MetaInfo[]> task = Task.Run(async () => await GetModDownloadsAsync(modID));
-        return task.Result;
-    }
+	}
+	public MetaInfo[] GetModDownloads(string modID)
+	{
+		MetaInfo[] result = null;
+		Task<MetaInfo[]> task = Task.Run(async () => result = await GetModDownloadsAsync(modID));
+		task.Wait();
+		return result;
+	}
 
-    public async Task<List<Deps>> GetModDepsAsync(string modID, string versionID)
+	public async Task<List<Deps>> GetModDepsAsync(string modID, string versionID)
 	{
 		List<Deps> result = null;
 
@@ -127,7 +131,9 @@ public class APIHandler : MonoBehaviour
 	}
 	public List<Deps> GetModDeps(string modID, string versionID)
 	{
-		Task<List<Deps>> task = Task.Run(async () => await GetModDepsAsync(modID, versionID));
-		return task.Result;
+		List<Deps> result = null;
+		Task<List<Deps>> task = Task.Run(async () => result = await GetModDepsAsync(modID, versionID));
+		task.Wait();
+		return result;
 	}
 } 
