@@ -2,9 +2,9 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
-// Extends AsyncOperation to make it properly work with `await`
-public static class AsyncOperationAwait
+public static class AsyncUtil
 {
+	// allows to await AsyncOperation
 	public static TaskAwaiter GetAwaiter(this AsyncOperation asyncOp)
 	{
 		var tcs = new TaskCompletionSource<object>();

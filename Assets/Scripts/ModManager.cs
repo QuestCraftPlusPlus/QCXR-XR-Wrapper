@@ -245,9 +245,9 @@ public class ModManager : MonoBehaviour
 		await Task.CompletedTask;
 	}
 
-	private void CreateModPage(string slug, RawImage image, string author)
+	private async void CreateModPage(string slug, RawImage image, string author)
 	{
-		MetaParser mp = apiHandler.GetModInfo(slug);
+		MetaParser mp = await apiHandler.GetModInfoAsync(slug);
 		instanceMenu.SetActive(false);
 		modSearchMenu.SetActive(false);
 		modPage.SetActive(true);
@@ -270,10 +270,10 @@ public class ModManager : MonoBehaviour
 		HasModCheck(currModSlug, currModVersions);
 	}
 	
-	public void AddMod()
+	public async void AddMod()
 	{
-		MetaParser mp = apiHandler.GetModInfo(currModSlug);
-		MetaInfo[] modInfos = apiHandler.GetModDownloads(mp.slug);
+		MetaParser mp = await apiHandler.GetModInfoAsync(currModSlug);
+		MetaInfo[] modInfos = await apiHandler.GetModDownloadsAsync(mp.slug);
 		string currentInstanceVer = JNIStorage.GetInstance(InstanceButton.currInstName).versionName;
 
 		foreach (MetaInfo metaInfo in modInfos)
@@ -354,16 +354,16 @@ public class ModManager : MonoBehaviour
 		return currInst.raw;
 	}
 
-	private void DownloadDependenciesAndAddMod(MetaParser mp, MetaInfo metaInfo, string modUrl, string currentInstanceVer)
+	private async void DownloadDependenciesAndAddMod(MetaParser mp, MetaInfo metaInfo, string modUrl, string currentInstanceVer)
 	{
-		var dependencies = apiHandler.GetModDeps(mp.slug, metaInfo.id);
+		var dependencies = await apiHandler.GetModDepsAsync(mp.slug, metaInfo.id);
 		if (dependencies != null)
 		{
 			foreach (Deps dep in dependencies)
 			{
 				if (!dep.dependency_type.Equals("required")) {continue;}
-				string slug = apiHandler.GetModInfo(dep.project_id).slug;
-				foreach (MetaInfo depInfo in apiHandler.GetModDownloads(dep.project_id))
+				string slug = (await apiHandler.GetModInfoAsync(dep.project_id)).slug;
+				foreach (MetaInfo depInfo in await apiHandler.GetModDownloadsAsync(dep.project_id))
 				{
 					var validDepFiles = depInfo.files.Where(depFile => IsValidDependency(depFile, depInfo, currentInstanceVer, slug));
 					foreach (var depFile in validDepFiles)
