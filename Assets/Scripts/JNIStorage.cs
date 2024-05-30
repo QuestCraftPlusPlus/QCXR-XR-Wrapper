@@ -15,6 +15,8 @@ public class JNIStorage : MonoBehaviour
 	public UIHandler uiHandler;
 	public TMP_InputField RAMSetterField;
 	public TMP_Dropdown instancesDropdown;
+	public Image progressBar;
+	public TextMeshProUGUI progressBarText;
 	[SerializeField, FormerlySerializedAs("DevToggle")]
 	private Toggle _devToggle;
 
