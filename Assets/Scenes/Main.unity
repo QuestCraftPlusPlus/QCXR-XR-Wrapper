@@ -5677,7 +5677,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30001
   m_TargetDisplay: 0
 --- !u!1 &329339019
 GameObject:
@@ -14503,7 +14503,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 30000
 --- !u!114 &844569214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40571,7 +40571,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 30000
 --- !u!114 &2039886951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43132,7 +43132,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 30000
+  m_SortingOrder: 30002
   m_TargetDisplay: 0
 --- !u!1 &2112401858
 GameObject:
