@@ -1,55 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class KeyboardHandler : MonoBehaviour
 {
-	[SerializeField] private TMP_InputField searchBox;
-	[SerializeField] private TMP_InputField ramSetter;
-	[SerializeField] private TMP_InputField instanceEditor;
+	private List<TMP_InputField> inputFields = new List<TMP_InputField>();
+	private List<TMP_Text> keys = new List<TMP_Text>();
 	[SerializeField] private GameObject keyboard;
 	public AudioSource keyPop;
 	private static bool isShift;
 
+	private void Awake()
+	{
+		inputFields = FindObjectsByType<TMP_InputField>(FindObjectsInactive.Include, FindObjectsSortMode.None).ToList();
+		keys = keyboard.GetNamedChild("Keys").GetComponentsInChildren<TMP_Text>().ToList();
+		keys.RemoveAll(obj => obj.text.Length > 1); // we only want letters
+	}
+
 	private void Update()
 	{
-		keyboard.SetActive(searchBox.IsActive() || ramSetter.IsActive() || instanceEditor.IsActive());
+		keyboard.SetActive(inputFields.Any(inputField => inputField.IsActive()));
 	}
 	
 	public void KeyPress(string key)
 	{
-		if (searchBox.IsActive())
+		TMP_InputField activeInputField = inputFields.Find(inputField => inputField.IsActive());
+		if(activeInputField)
 		{
-			searchBox.text += isShift ? key.ToUpper() : key.ToLower();
-			keyPop.Play();
-		}
-		else if (ramSetter.IsActive())
-		{
-			ramSetter.text += isShift ? key.ToUpper() : key.ToLower();
-			keyPop.Play();
-		} else if (instanceEditor.IsActive())
-		{
-			instanceEditor.text += isShift ? key.ToUpper() : key.ToLower();
+			activeInputField.text += isShift ? key.ToUpper() : key.ToLower();
 			keyPop.Play();
 		}
 	}
 
 	public void BackspacePress()
 	{
-		if (searchBox.IsActive())
+		TMP_InputField activeInputField = inputFields.Find(inputField => inputField.IsActive());
+		if (activeInputField)
 		{
-			searchBox.text = searchBox.text.Remove(searchBox.text.Length - 1, 1);
-			keyPop.Play();
-		}
-		else if (ramSetter.IsActive())
-		{
-			ramSetter.text = ramSetter.text.Remove(ramSetter.text.Length - 1, 1);
-			keyPop.Play();
-		} else if (instanceEditor.IsActive())
-		{
-			instanceEditor.text = instanceEditor.text.Remove(instanceEditor.text.Length - 1, 1);
+			activeInputField.text = activeInputField.text.Remove(activeInputField.text.Length - 1, 1);
 			keyPop.Play();
 		}
 	}
@@ -57,30 +50,19 @@ public class KeyboardHandler : MonoBehaviour
 	public void ShiftPress()
 	{
 		isShift = !isShift;
-		// var keys = keyboard.GetNamedChild("Keys").GetChildGameObjects().GetComponentsInChildren<TMP_Text>();
-		//
-		// foreach (var key in keys)
-		// {
-		//     key.text = isShift ? key.text.ToLower() : key.text.ToUpper();
-		// }
+
+		foreach (var key in keys)
+			key.text = isShift ? key.text.ToUpper() : key.text.ToLower();
 
 		keyPop.Play();
 	}
 
 	public void SpacePress()
 	{
-		if (searchBox.IsActive())
+		TMP_InputField activeInputField = inputFields.Find(inputField => inputField.IsActive());
+		if (activeInputField)
 		{
-			searchBox.text += " ";
-			keyPop.Play();
-		}
-		else if (ramSetter.IsActive())
-		{
-			ramSetter.text += " ";
-			keyPop.Play();
-		} else if (instanceEditor.IsActive())
-		{
-			instanceEditor.text += " ";
+			activeInputField.text += ' ';
 			keyPop.Play();
 		}
 	}
