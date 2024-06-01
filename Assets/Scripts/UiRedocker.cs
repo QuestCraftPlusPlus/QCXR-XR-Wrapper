@@ -4,36 +4,36 @@ using UnityEngine.UI;
 
 public class UiRedocker : MonoBehaviour
 {
-	public GameObject ui;
-	public GameObject mainScreen;
-	public GameObject watchDisplay;
-	public Button RedockButton;
+    public GameObject ui;
+    public GameObject mainScreen;
+    public GameObject watchDisplay;
+    public Button RedockButton;
 
-	private bool main = true;
-	private void Start()
-	{
-		RedockButton.onClick.AddListener(() =>
-		{
-			if (main)
-				Transition(watchDisplay);   
-			else
-				Transition(mainScreen);                
+    private bool main = true;
+    private void Start()
+    {
+        RedockButton.onClick.AddListener(() =>
+        {
+            if (main)
+                Transition(watchDisplay);   
+            else
+                Transition(mainScreen);                
 
-			main = !main;
-		});
+            main = !main;
+        });
 
-		return;
-		
-		GameObject gender;
-		
-		Transition(gender);
-	}
-	
-	void Transition(GameObject transitionObject)
-	{
-		ui.transform.parent = transitionObject.transform;
-		ui.transform.localScale = new Vector3(-1, 1 ,-1);
-		ui.transform.localPosition = Vector3.zero;
-		ui.transform.localRotation = quaternion.Euler(Vector3.zero);
-	}
+        return;
+        
+        GameObject gender;
+        
+        Transition(gender);
+    }
+    
+    void Transition(GameObject transitionObject)
+    {
+        ui.transform.parent = transitionObject.transform;
+        ui.transform.localScale = new Vector3(-1, 1 ,-1);
+        ui.transform.localPosition = Vector3.zero;
+        ui.transform.localRotation = quaternion.Euler(Vector3.zero);
+    }
 }
