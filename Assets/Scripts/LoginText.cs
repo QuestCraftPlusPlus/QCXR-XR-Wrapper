@@ -8,7 +8,7 @@ public class LoginText : MonoBehaviour
     private bool hasShown;
     public WindowHandler windowHandler;
     public string debugText;
-    [HideInInspector] public string PreviousText;
+    [HideInInspector] public string previousText;
     
     private void Start()
     {
@@ -23,10 +23,10 @@ public class LoginText : MonoBehaviour
         else
             buffer = JNIStorage.apiClass.GetStatic<string>("msaMessage");
         
-        if(buffer == "" || PreviousText == buffer)
+        if(buffer == "" || previousText == buffer)
             return;
         
-        PreviousText = buffer;
+        previousText = buffer;
         loginText.text = buffer;
         
         if (!hasShown)

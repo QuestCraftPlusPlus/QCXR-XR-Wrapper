@@ -59,14 +59,13 @@ public class UIHandler : MonoBehaviour
         minuteHourText.text = time;
     }
 
-    public static async Task GetTexturePlusName(RawImage pfpHolder, TextMeshProUGUI profileNameHolder)
+    public static async Task GetName(TextMeshProUGUI profileNameHolder)
     {
         if (JNIStorage.accountObj != null)
         {
             profileName ??= JNIStorage.apiClass.GetStatic<string>("profileName");
             profileNameHolder.text = profileName;
         }
-
     }
 
     void OnToggleClicked(bool value, Toggle clickedToggle)
