@@ -5,7 +5,7 @@ using UnityEngine;
 public class VersionChecker : MonoBehaviour
 {
     public string currentPublicVersion;
-    public TextMeshProUGUI UpdateText;
+    public TextMeshProUGUI updateText;
 
     [ContextMenu("Check Version")]
     public void CheckVersion()
@@ -19,6 +19,6 @@ public class VersionChecker : MonoBehaviour
         }
         
         Debug.Log("QuestCraft update available.");
-        UpdateText.text += " <color=#D70A53>| Update Available!</color>";
+        updateText.text += " <color=#D70A53>| Update Available!</color>";
     }
 }

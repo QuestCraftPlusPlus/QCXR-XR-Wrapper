@@ -45,7 +45,7 @@ public class WindowHandler : MonoBehaviour
     public async void LoadAv()
     {
         Debug.Log("QCXR: Getting PFP and Username.");
-        await UIHandler.GetTexturePlusName(pfpHolder, profileNameHolder);
+        await UIHandler.GetName(profileNameHolder);
         skinHandler.LoadSkin(profileNameHolder.text);
     }
 

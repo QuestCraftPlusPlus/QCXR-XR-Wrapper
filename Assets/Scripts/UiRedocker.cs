@@ -7,13 +7,13 @@ public class UiRedocker : MonoBehaviour
     public GameObject ui;
     public GameObject mainScreen;
     public GameObject watchDisplay;
-    public Button RedockButton;
+    public Button redockButton;
 
 
     private bool main = true;
     private void Start()
     {
-        RedockButton.onClick.AddListener(() =>
+        redockButton.onClick.AddListener(() =>
         {
             if (main)
                 Transition(watchDisplay);   
