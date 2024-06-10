@@ -75,3 +75,8 @@ QuestCraft_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGeneric
 *.c
 *.c
 *.c
+/.idea
+.vsconfig
+UpgradeLog.htm
+/Assets/.idea
+/Assets/Scripts/.idea
