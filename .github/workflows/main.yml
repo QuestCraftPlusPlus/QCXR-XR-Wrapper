@@ -10,6 +10,14 @@ jobs:
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
+        
+      - name: Free Disk Space for Android
+        run: |
+          sudo swapoff -a
+          sudo rm -f /swapfile
+          sudo apt clean
+          docker rmi $(docker images -q)
+          df -h
 
       # Cache
       - uses: actions/cache@v3
