@@ -86,6 +86,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: QuestCraftPlusPlus/Wrapper-IL2CPP
+          token: ${{ secrets.PERSONAL_TOKEN }}
       - name: Grab IL2CPP changes
         uses: actions/download-artifact@v4
         with:
