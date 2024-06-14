@@ -92,15 +92,15 @@ jobs:
           name: Exported
       - name: Copy Changes
         run: |
-          cp -rf $GITHUB_WORKSPACE/Exported/Android/unityLibrary/src/main/assets unityLibrary/src/main/assets
-          cp -rf $GITHUB_WORKSPACE/Exported/Android/unityLibrary/src/main/jniLibs unityLibrary/src/main/jniLibs
-          cp -rf $GITHUB_WORKSPACE/Exported/Android/unityLibrary/src/main/Il2CppOutputProject unityLibrary/src/main/Il2CppOutputProject
-          cp -rf $GITHUB_WORKSPACE/Exported/Android/unityLibrary/src/main/jniStaticLibs unityLibrary/src/main/jniStaticLibs
-          cp -rf $GITHUB_WORKSPACE/Exported/Android/unityLibrary/src/main/res unityLibrary/src/main/res
-          cp -rf $GITHUB_WORKSPACE/Exported/Android/unityLibrary/src/main/resources unityLibrary/src/main/resources
-          cp -rf $GITHUB_WORKSPACE/Exported/Android/launcher/src/main/res launcher/src/main/res
-          cp -f $GITHUB_WORKSPACE/Exported/Android/unityLibrary/src/main/AndroidManifest.xml unityLibrary/src/main/AndroidManifest.xml
-          cp -f $GITHUB_WORKSPACE/Exported/Android/launcher/src/main/AndroidManifest.xml launcher/src/main/AndroidManifest.xml
+          cp -rf $GITHUB_WORKSPACE/Exported/Android/Android/unityLibrary/src/main/assets unityLibrary/src/main/assets
+          cp -rf $GITHUB_WORKSPACE/Exported/Android/Android/unityLibrary/src/main/jniLibs unityLibrary/src/main/jniLibs
+          cp -rf $GITHUB_WORKSPACE/Exported/Android/Android/unityLibrary/src/main/Il2CppOutputProject unityLibrary/src/main/Il2CppOutputProject
+          cp -rf $GITHUB_WORKSPACE/Exported/Android/Android/unityLibrary/src/main/jniStaticLibs unityLibrary/src/main/jniStaticLibs
+          cp -rf $GITHUB_WORKSPACE/Exported/Android/Android/unityLibrary/src/main/res unityLibrary/src/main/res
+          cp -rf $GITHUB_WORKSPACE/Exported/Android/Android/unityLibrary/src/main/resources unityLibrary/src/main/resources
+          cp -rf $GITHUB_WORKSPACE/Exported/Android/Android/launcher/src/main/res launcher/src/main/res
+          cp -f $GITHUB_WORKSPACE/Exported/Android/Android/unityLibrary/src/main/AndroidManifest.xml unityLibrary/src/main/AndroidManifest.xml
+          cp -f $GITHUB_WORKSPACE/Exported/Android/Android/launcher/src/main/AndroidManifest.xml launcher/src/main/AndroidManifest.xml
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
