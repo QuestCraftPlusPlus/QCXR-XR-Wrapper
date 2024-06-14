@@ -72,6 +72,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: Exported
+      - name: Copy Changes
         run: |
           cp -rf ${{ GITHUB_WORKSPACE }}/Exported/Android/unityLibrary/src/main/assets unityLibrary/src/main/assets
           cp -rf ${{ GITHUB_WORKSPACE }}/Exported/Android/unityLibrary/src/main/jniLibs unityLibrary/src/main/jniLibs
