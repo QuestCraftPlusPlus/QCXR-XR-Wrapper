@@ -63,6 +63,7 @@ jobs:
           targetPlatform: Android
           customImage: 'unityci/editor:ubuntu-2021.3.37f1-android-3.1.0'
           buildsPath: exported
+          allowDirtyBuild: true
           androidExportType: androidStudioProject
           androidTargetSdkVersion: 32
           androidKeystoreName: qcxr.keystore
