@@ -30,6 +30,7 @@ jobs:
           targetPlatform: Android
           customImage: 'unityci/editor:ubuntu-2021.3.37f1-android-3.1.0'
           androidExportType: androidPackage
+          androidTargetSdkVersion: 32
           androidKeystoreName: user.keystore
           androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
@@ -48,6 +49,7 @@ jobs:
           customImage: 'unityci/editor:ubuntu-2021.3.37f1-android-3.1.0'
           buildsPath: exported
           androidExportType: androidStudioProject
+          androidTargetSdkVersion: 32
           androidKeystoreName: qcxr.keystore
           androidKeystoreBase64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           androidKeystorePass: ${{ secrets.ANDROID_KEYSTORE_PASS }}
