@@ -5,26 +5,11 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     name: Build Wrapper
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
-        
-      - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@main
-        with:
-           # this might remove tools that are actually needed,
-           # if set to "true" but frees about 6 GB
-           tool-cache: true
-           # all of these default to true, but feel free to set to
-           # "false" if necessary for your workflow
-           android: false
-           dotnet: true
-           haskell: true
-           large-packages: true
-           docker-images: true
-           swap-storage: true
 
       # Cache
       - uses: actions/cache@v3
@@ -43,7 +28,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: Android
-          customImage: 'unityci/editor:ubuntu-2021.3.37f1-android-3.1.0'
+          customImage: 'unityci/editor:windows-2021.3.37f1-android-3.1.0'
           androidExportType: androidPackage
           androidTargetSdkVersion: 32
           androidKeystoreName: user.keystore
@@ -61,7 +46,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: Android
-          customImage: 'unityci/editor:ubuntu-2021.3.37f1-android-3.1.0'
+          customImage: 'unityci/editor:windows-2021.3.37f1-android-3.1.0'
           buildsPath: exported
           allowDirtyBuild: true
           androidExportType: androidStudioProject
