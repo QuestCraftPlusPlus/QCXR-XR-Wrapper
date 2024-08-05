@@ -421,18 +421,19 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21137407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1821115323}
+  - {fileID: 1276876735}
+  - {fileID: 899875484}
   m_Father: {fileID: 790450251}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 45, y: 0.000051642095}
-  m_SizeDelta: {x: -45, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -40, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &21137409
 MonoBehaviour:
@@ -647,8 +648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 475}
+  m_AnchoredPosition: {x: 0, y: -4.23}
+  m_SizeDelta: {x: 1000, y: 334.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &34023658
 MonoBehaviour:
@@ -665,7 +666,7 @@ MonoBehaviour:
   m_Content: {fileID: 21137408}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -11903,8 +11904,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.600006, y: -70}
-  m_SizeDelta: {x: 20, y: -140}
+  m_AnchoredPosition: {x: 3.600006, y: -17.97}
+  m_SizeDelta: {x: 20, y: -17.97}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &687926829
 MonoBehaviour:
@@ -11949,8 +11950,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 872235382}
   m_HandleRect: {fileID: 872235381}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.2165617
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11968,7 +11969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.019607844}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16558,7 +16559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 3}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16907,6 +16908,7 @@ GameObject:
   - component: {fileID: 899875484}
   - component: {fileID: 899875486}
   - component: {fileID: 899875485}
+  - component: {fileID: 899875487}
   m_Layer: 5
   m_Name: EULA
   m_TagString: Untagged
@@ -16926,14 +16928,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1821115323}
+  m_Father: {fileID: 21137408}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 430.09, y: -245.18}
-  m_SizeDelta: {x: 948.57, y: 327.44}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0}
+  m_SizeDelta: {x: 948.57, y: 6570.01}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &899875485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17159,14 +17161,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 32.6
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -17177,7 +17179,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 3
+  m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -17209,6 +17211,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899875483}
   m_CullTransparentMesh: 1
+--- !u!114 &899875487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899875483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &903452227
 GameObject:
   m_ObjectHideFlags: 0
@@ -25288,6 +25304,7 @@ GameObject:
   - component: {fileID: 1276876735}
   - component: {fileID: 1276876737}
   - component: {fileID: 1276876736}
+  - component: {fileID: 1276876738}
   m_Layer: 5
   m_Name: Welcome
   m_TagString: Untagged
@@ -25307,14 +25324,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1821115323}
+  m_Father: {fileID: 21137408}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 430.09, y: -245.18}
-  m_SizeDelta: {x: 948.57, y: 327.44}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0}
+  m_SizeDelta: {x: 948.57, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1276876736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25335,22 +25352,118 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome to QuestCraft!
+  m_text: '
+
+    Welcome to QuestCraft!
+
 
     Before you can jump into the main experiance,
     we must go over some information with you, including our EULA and Privacy Policy.
 
 
+    First
+    and foremost, we must state that QuestCraft, QCXR, Digital Genesis, and any of
+    the mods included within QuestCraft are NOT an official Minecraft product or
+    service. We are not approved by or associated with Mojang or Microsoft and any
+    issues reguarding or related to QuestCraft are to be reported ONLY to QuestCraft
+    staff and support, including issues related to mods, servers, and third-party
+    libraries.
 
-    Copyright
-    Notice:
 
 
-    First and foremost, we must state that QuestCraft, QCXR, Digital
-    Genesis, and any of the mods included within QuestCraft are NOT an official Minecraft
-    product or service. We are not approved by or associated with Mojang or Microsoft
-    and any issues reguarding or related to QuestCraft are to be reported ONLY to
-    QuestCraft staff and support, including issues related to mods.'
+    Copyright Notice
+
+    QuestCraft utilizes many third-party
+    Minecraft modifications, as well as open-source libraries in order to create
+    a functional and smooth experiance for our players, these include (but are not
+    limited to):
+
+
+    Cloth Config (Library for config screens, e.g. Video Settings.)
+
+
+    Fabric
+    API (API for Fabric. Essential to get any mod running.)
+
+
+    Mod Menu (Menu
+    that lists installed mods. Not in 1.18.2, 1.19.2, or 1.20.4)
+
+
+    Simple Voice
+    Chat (Adds proximity voice chat.)
+
+
+    VivecraftMod (Port of Vivecraft to run
+    on Fabric.)
+
+
+    Fabric Language Kotlin (Allows mods to use Kotlin in their
+    code. Not included in 1.18.2/1.19.2)
+
+
+    Better Biome Blend (Fixes and adds
+    features to the Biome Blend setting, improving biome looks and improving performance.)
+
+
+    Concurrent
+    Chunk Management Engine (C2ME) (Improves chunk loading.)
+
+
+    Cull Less Leaves
+    (Culls leaves. (who would''ve guessed???) Only in 1.18.2)
+
+
+    Entity Culling
+    (Renders only visible blocks and entities, improving overall performance. Not
+    included in 1.20.4)
+
+
+    Ferrite Core (Decreases memory usage. Not included
+    in 1.20.4)
+
+
+    Fastload (Improves world load and prevents potential crashes.
+    Not included in 1.19.2)
+
+
+    Immediately Fast (Optimizes lots of things, making
+    rendering more GPU efficient.)
+
+
+    Krypton (Slightly reduces memory usage on
+    servers, decreases server CPU usage and server ticks. Not in 1.20.4)
+
+
+    LazyDFU
+    (Improves game boot time.)
+
+
+    Lithium (General purpose performance mod. Not
+    included in 1.20.4)
+
+
+    ModernFix (Performance mod, reduces memory usage yet
+    again.)
+
+
+    Noxesium (Adds features to fix bugs and performance. Only in 1.19.2/4)
+
+
+    ServerCore
+    (Reduces lag spikes in both single-player and servers. Not included in 1.18.2/1.19.2)
+
+
+    Smooth
+    Boot (Makes Minecraft loading smoother.)
+
+
+    Sodium (Improves FPS and fixes
+    graphical issues.)
+
+
+    Starlight (Improves the lighting engine. Not included
+    in 1.20.1 and later)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -25378,10 +25491,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.7
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 32.6
   m_fontStyle: 0
@@ -25396,7 +25509,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 3
+  m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -25428,6 +25541,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276876734}
   m_CullTransparentMesh: 1
+--- !u!114 &1276876738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276876734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1277759577
 GameObject:
   m_ObjectHideFlags: 0
@@ -35173,44 +35300,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818692822}
   m_CullTransparentMesh: 1
---- !u!1 &1821115322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1821115323}
-  m_Layer: 5
-  m_Name: BaseItems
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1821115323
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1821115322}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000011909753}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1276876735}
-  - {fileID: 899875484}
-  m_Father: {fileID: 21137408}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 900, y: 250}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1839600250
 GameObject:
   m_ObjectHideFlags: 0
@@ -36617,6 +36706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878022783}
+  - component: {fileID: 1878022785}
   m_Layer: 5
   m_Name: Sliding Area
   m_TagString: Untagged
@@ -36645,6 +36735,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1878022785
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878022782}
+  m_CullTransparentMesh: 1
 --- !u!1 &1884820779
 GameObject:
   m_ObjectHideFlags: 0
@@ -36794,7 +36892,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 1079186319}
+  m_Camera: {fileID: 879282675}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
