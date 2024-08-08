@@ -11951,7 +11951,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 872235381}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2165617
+  m_Size: 0.9042728
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13362,6 +13362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 766335866}
   - component: {fileID: 766335865}
+  - component: {fileID: 766335867}
   m_Layer: 0
   m_Name: JNIStorage
   m_TagString: Untagged
@@ -13383,9 +13384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   supportedVersions: []
   uiHandler: {fileID: 1460469782}
-  RAMSetterField: {fileID: 1068650133}
   instancesDropdown: {fileID: 194192002}
-  _devToggle: {fileID: 429953254}
 --- !u!4 &766335866
 Transform:
   m_ObjectHideFlags: 0
@@ -13401,6 +13400,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766335867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766335864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454b2f05c1599528caca8a1a2c945b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowHandler: {fileID: 1460469781}
+  devHandler: {fileID: 1460469780}
 --- !u!1 &769034882
 GameObject:
   m_ObjectHideFlags: 0
@@ -25364,7 +25377,7 @@ MonoBehaviour:
     First
     and foremost, we must state that QuestCraft, QCXR, Digital Genesis, and any of
     the mods included within QuestCraft are NOT an official Minecraft product or
-    service. We are not approved by or associated with Mojang or Microsoft and any
+    service. We are not approved by or associated with Mojang or Microsoft, and any
     issues reguarding or related to QuestCraft are to be reported ONLY to QuestCraft
     staff and support, including issues related to mods, servers, and third-party
     libraries.
@@ -25376,94 +25389,7 @@ MonoBehaviour:
     QuestCraft utilizes many third-party
     Minecraft modifications, as well as open-source libraries in order to create
     a functional and smooth experiance for our players, these include (but are not
-    limited to):
-
-
-    Cloth Config (Library for config screens, e.g. Video Settings.)
-
-
-    Fabric
-    API (API for Fabric. Essential to get any mod running.)
-
-
-    Mod Menu (Menu
-    that lists installed mods. Not in 1.18.2, 1.19.2, or 1.20.4)
-
-
-    Simple Voice
-    Chat (Adds proximity voice chat.)
-
-
-    VivecraftMod (Port of Vivecraft to run
-    on Fabric.)
-
-
-    Fabric Language Kotlin (Allows mods to use Kotlin in their
-    code. Not included in 1.18.2/1.19.2)
-
-
-    Better Biome Blend (Fixes and adds
-    features to the Biome Blend setting, improving biome looks and improving performance.)
-
-
-    Concurrent
-    Chunk Management Engine (C2ME) (Improves chunk loading.)
-
-
-    Cull Less Leaves
-    (Culls leaves. (who would''ve guessed???) Only in 1.18.2)
-
-
-    Entity Culling
-    (Renders only visible blocks and entities, improving overall performance. Not
-    included in 1.20.4)
-
-
-    Ferrite Core (Decreases memory usage. Not included
-    in 1.20.4)
-
-
-    Fastload (Improves world load and prevents potential crashes.
-    Not included in 1.19.2)
-
-
-    Immediately Fast (Optimizes lots of things, making
-    rendering more GPU efficient.)
-
-
-    Krypton (Slightly reduces memory usage on
-    servers, decreases server CPU usage and server ticks. Not in 1.20.4)
-
-
-    LazyDFU
-    (Improves game boot time.)
-
-
-    Lithium (General purpose performance mod. Not
-    included in 1.20.4)
-
-
-    ModernFix (Performance mod, reduces memory usage yet
-    again.)
-
-
-    Noxesium (Adds features to fix bugs and performance. Only in 1.19.2/4)
-
-
-    ServerCore
-    (Reduces lag spikes in both single-player and servers. Not included in 1.18.2/1.19.2)
-
-
-    Smooth
-    Boot (Makes Minecraft loading smoother.)
-
-
-    Sodium (Improves FPS and fixes
-    graphical issues.)
-
-
-    Starlight (Improves the lighting engine. Not included
-    in 1.20.1 and later)'
+    limited to):'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -29527,7 +29453,8 @@ MonoBehaviour:
   _devToggle: {fileID: 429953254}
   _adbToggle: {fileID: 1178790625}
   _ramSetterToggle: {fileID: 659075708}
-  _ramSetterField: {fileID: 1068650131}
+  _ramSetterField: {fileID: 1068650133}
+  configHandler: {fileID: 766335867}
 --- !u!114 &1460469781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29545,6 +29472,7 @@ MonoBehaviour:
   loginButton: {fileID: 432457115}
   loginText: {fileID: 1297291920}
   startPanel: {fileID: 668226021}
+  legalPanel: {fileID: 821339273}
   mainPanel: {fileID: 1033016411}
   profileNameHolder: {fileID: 788089990}
   pfpHolder: {fileID: 0}
@@ -36498,8 +36426,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 766335865}
-        m_TargetAssemblyTypeName: JNIStorage, Assembly-CSharp
+      - m_Target: {fileID: 766335867}
+        m_TargetAssemblyTypeName: ConfigHandler, Assembly-CSharp
         m_MethodName: SetMemoryValue
         m_Mode: 1
         m_Arguments:
