@@ -14,7 +14,7 @@ public class JNIStorage : MonoBehaviour
     public List<string> supportedVersions;
     public UIHandler uiHandler;
     public TMP_Dropdown instancesDropdown;
-    private ConfigHandler configHandler;
+    public ConfigHandler configHandler;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class JNIStorage : MonoBehaviour
         instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll");
         configHandler.LoadConfig();
         UpdateInstances();
-		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
+		//apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
     }
 
     private static void FillSupportedVersions(List<string> supportedVersions, string[] supportedVersionsArray)
@@ -65,6 +65,7 @@ public class JNIStorage : MonoBehaviour
 
     public void UpdateInstances()
     {
+        if (Application.platform != RuntimePlatform.Android) return;
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         activity = jc.GetStatic<AndroidJavaObject>("currentActivity");
         
