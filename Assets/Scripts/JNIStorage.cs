@@ -30,7 +30,7 @@ public class JNIStorage : MonoBehaviour
         instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll");
         configHandler.LoadConfig();
         UpdateInstances();
-		//apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
+	apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
     }
 
     private static void FillSupportedVersions(List<string> supportedVersions, string[] supportedVersionsArray)
