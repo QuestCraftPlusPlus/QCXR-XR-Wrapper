@@ -7,18 +7,16 @@ public class ConfigHandler : MonoBehaviour
     public WindowHandler windowHandler;
     public DevHandler devHandler;
     public Config config;
-    public static string configPath;
-    
-    private void Start()
-    {
-        configPath = Application.persistentDataPath + "/launcher.conf";
-    }
+    public string configPath;
 
     public void LoadConfig()
     {
+        configPath = Application.persistentDataPath + "/launcher.conf";
+        
         if (File.Exists(configPath))
         { 
-            config = JsonConvert.DeserializeObject<Config>(configPath);
+            string configFile = File.ReadAllText(configPath);
+            config = JsonConvert.DeserializeObject<Config>(configFile);
             
             if (!config.acceptedLegal) { windowHandler.LegalSetter(); }
             if (config.setDevMods) { devHandler._devToggle.isOn = true; }
@@ -31,20 +29,25 @@ public class ConfigHandler : MonoBehaviour
         }
         else
         {
-            config.acceptedLegal = false;
-            config.setDevMods = false;
-            config.setCustomRAM = false;
-            config.customRAMValue = "2048";
+            config = new Config
+            {
+                acceptedLegal = false,
+                setDevMods = false,
+                setCustomRAM = false,
+                customRAMValue = "2048"
+            };
 
             string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
             File.WriteAllText(configPath, JSON);
-            config = JsonConvert.DeserializeObject<Config>(configPath);
+            string configFile = File.ReadAllText(configPath);
+            config = JsonConvert.DeserializeObject<Config>(configFile);
         }
     }
     
     public void SetMemoryValue()
     {
-        config = JsonConvert.DeserializeObject<Config>(configPath);
+        string configFile = File.ReadAllText(configPath);
+        config = JsonConvert.DeserializeObject<Config>(configFile);
         string ramValue = devHandler._ramSetterField.text;
         
         if (ramValue != null)

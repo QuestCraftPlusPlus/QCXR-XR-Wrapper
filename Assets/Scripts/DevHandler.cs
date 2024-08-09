@@ -7,9 +7,6 @@ using System.IO;
 
 public class DevHandler : MonoBehaviour
 {
-    private const string DEVELOPER_MODS_PARAMETER_NAME = "developerMods";
-    private const string CUSTOM_RAM_PARAMETER_NAME = "customRAMValue";
-    
     [SerializeField, FormerlySerializedAs("DevToggle")]
     public Toggle _devToggle;
     [SerializeField, FormerlySerializedAs("ADBToggle")]
@@ -20,10 +17,12 @@ public class DevHandler : MonoBehaviour
     public TMP_InputField _ramSetterField;
 
     public ConfigHandler configHandler;
+    public string configPath;
 
     private void Start()
     {
         InitializeButtonListeners();
+        configPath = Application.persistentDataPath + "/launcher.conf";
     }
     
     private void OnDestroy()
@@ -45,23 +44,25 @@ public class DevHandler : MonoBehaviour
 
     private void OnDevModsToggleValueChanged(bool isOn)
     {
-        configHandler.config = JsonConvert.DeserializeObject<ConfigHandler.Config>(ConfigHandler.configPath);
-
-        JNIStorage.apiClass.SetStatic(DEVELOPER_MODS_PARAMETER_NAME, isOn);
-        JNIStorage.instance.UpdateInstances();
+        string configFile = File.ReadAllText(configPath);
+        configHandler.config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
         configHandler.config.setDevMods = isOn;
         string JSON = JsonConvert.SerializeObject(configHandler.config, Formatting.Indented);
-        File.WriteAllText(ConfigHandler.configPath, JSON);
+        File.WriteAllText(configPath, JSON);
+        
+        JNIStorage.apiClass.SetStatic("developerMods", isOn);
+        JNIStorage.instance.UpdateInstances();
     }    
     
     private void OnRamSetterToggleValueChanged(bool isOn)
     {
-        configHandler.config = JsonConvert.DeserializeObject<ConfigHandler.Config>(ConfigHandler.configPath);
-        
-        JNIStorage.apiClass.SetStatic(CUSTOM_RAM_PARAMETER_NAME, isOn);
-        _ramSetterField.gameObject.SetActive(isOn);
+        string configFile = File.ReadAllText(configPath);
+        configHandler.config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
         configHandler.config.setCustomRAM = isOn;
         string JSON = JsonConvert.SerializeObject(configHandler.config, Formatting.Indented);
-        File.WriteAllText(ConfigHandler.configPath, JSON);
+        File.WriteAllText(configPath, JSON);
+        
+        JNIStorage.apiClass.SetStatic("customRAMValue", isOn);
+        _ramSetterField.gameObject.SetActive(isOn);
     }    
 }
