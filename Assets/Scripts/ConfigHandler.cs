@@ -59,6 +59,15 @@ public class ConfigHandler : MonoBehaviour
         }
     }
 
+    public void AgreeToLegal()
+    {
+        string configFile = File.ReadAllText(configPath);
+        config = JsonConvert.DeserializeObject<Config>(configFile);
+        config.acceptedLegal = true;
+        string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
+        File.WriteAllText(configPath, JSON);
+    }
+
     public class Config
     {
         public bool acceptedLegal;

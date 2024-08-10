@@ -432,8 +432,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: 35.420013}
+  m_AnchoredPosition: {x: 0, y: 0.00024414062}
+  m_SizeDelta: {x: -40, y: 6830.4297}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &21137409
 MonoBehaviour:
@@ -11951,11 +11951,23 @@ MonoBehaviour:
   m_HandleRect: {fileID: 872235381}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9042728
+  m_Size: 0.046697713
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1460469782}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: UpdateLegalButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &687926830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16549,7 +16561,7 @@ RectTransform:
   m_Father: {fileID: 1878022783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.095727205}
+  m_AnchorMin: {x: 0, y: 0.95330226}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -16930,7 +16942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &899875484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16948,8 +16960,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0}
-  m_SizeDelta: {x: 948.57, y: 6570.01}
+  m_AnchoredPosition: {x: 0, y: -470.01}
+  m_SizeDelta: {x: 948.57, y: 6695.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &899875485
 MonoBehaviour:
@@ -16975,45 +16987,45 @@ MonoBehaviour:
     is licensed to You (End-User) by Digital Genesis LLC, located and registered
     at 5830 E 2nd St, Ste 7000 #6355, support@digital-genesis.org, Casper, Wyoming
     82609, United States (\"Licensor\"), for use only under the terms of this License
-    Agreement.\n\nBy downloading the Licensed Application from SideQuest and/or the
-    Meta Horizon Store, and any update thereto (as permitted by this License Agreement),
-    You indicate that You agree to be bound by all of the terms and conditions of
-    this License Agreement, and that You accept this License Agreement. referred
-    to in this License Agreement as \"Services.\"\n\nThe parties of this License
-    Agreement acknowledge that the Services are not a Party to this License Agreement
-    and are not bound by any provisions or obligations with regard to the Licensed
-    Application, such as warranty, liability, maintenance and support thereof. Digital
-    Genesis LLC, not the Services, is solely responsible for the Licensed Application
-    and the content thereof.\n\nThis License Agreement may not provide for usage
-    rules for the Licensed Application that are in conflict with the latest (\"Usage
-    Rules\"). Digital Genesis LLC acknowledges that it had the opportunity to review
-    the Usage Rules and this License Agreement is not conflicting with them.\n\nQuestCraft
-    when purchased or downloaded through the Services, is licensed to You for use
-    only under the terms of this License Agreement. The Licensor reserves all rights
-    not expressly granted to You. QuestCraft is to be used on devices that operate
-    with Meta Horizon OS or Android 11 where applicable.\n\n\nTABLE OF CONTENTS\n\n1.
-    THE APPLICATION\n2. SCOPE OF LICENSE\n3. TECHNICAL REQUIREMENTS\n4. MAINTENANCE
-    AND SUPPORT\n5. USER-GENERATED CONTRIBUTIONS\n6. CONTRIBUTION LICENSE\n7. LIABILITY\n8.
-    WARRANTY\n9. PRODUCT CLAIMS\n10. LEGAL COMPLIANCE\n11. CONTACT INFORMATION\n12.
-    TERMINATION\n13. THIRD-PARTY TERMS OF AGREEMENTS AND BENEFICIARY\n14. INTELLECTUAL
-    PROPERTY RIGHTS\n15. APPLICABLE LAW\n16. MISCELLANEOUS\n\n\n1. THE APPLICATION\n\nQuestCraft
-    (\"Licensed Application\") is a piece of software created to assist in playing
-    Minecraft: Java Edition in virtual reality with the assistance of Vivecraft (Mixin)
-    Mod \u2014 and customized for mobile devices (\"Devices\"). It is used to allow
-    users to UNOFFICIALLY and natively play Minecraft: Java Edition using standalone
-    virtual reality headsets.\n\nThe Licensed Application is not tailored to comply
-    with industry-specific regulations (Health Insurance Portability and Accountability
-    Act (HIPAA), Federal Information Security Management Act (FISMA), etc.), so if
-    your interactions would be subjected to such laws, you may not use this Licensed
-    Application. You may not use the Licensed Application in a way that would violate
-    the Gramm-Leach-Bliley Act (GLBA).\n\n\n2. SCOPE OF LICENSE\n\n2.1  This license
-    will also govern any updates of the Licensed Application provided by Licensor
-    that replace, repair, and/or supplement the first Licensed Application, unless
-    a separate license is provided for such update, in which case the terms of that
-    new license will govern.\n\n2.2  Licensor reserves the right to modify the terms
-    and conditions of licensing.\n\n2.3  Nothing in this license should be interpreted
-    to restrict third-party terms. When using the Licensed Application, You must
-    ensure that You comply with applicable third-party terms and conditions.\n\n\n3.
+    Agreement.\n\nBy downloading the Licensed Application from SideQuest, the Meta
+    Horizon Store, and/or any other platform or service, and any update thereto (as
+    permitted by this License Agreement), You indicate that You agree to be bound
+    by all of the terms and conditions of this License Agreement, and that You accept
+    this License Agreement. referred to in this License Agreement as \"Services.\"\n\nThe
+    parties of this License Agreement acknowledge that the Services are not a Party
+    to this License Agreement and are not bound by any provisions or obligations
+    with regard to the Licensed Application, such as warranty, liability, maintenance
+    and support thereof. Digital Genesis LLC, not the Services, is solely responsible
+    for the Licensed Application and the content thereof.\n\nThis License Agreement
+    may not provide for usage rules for the Licensed Application that are in conflict
+    with the latest (\"Usage Rules\"). Digital Genesis LLC acknowledges that it had
+    the opportunity to review the Usage Rules and this License Agreement is not conflicting
+    with them.\n\nQuestCraft when purchased or downloaded through the Services, is
+    licensed to You for use only under the terms of this License Agreement. The Licensor
+    reserves all rights not expressly granted to You. QuestCraft is to be used on
+    devices that operate with Meta Horizon OS or Android 11 where applicable.\n\n\nTABLE
+    OF CONTENTS\n\n1. THE APPLICATION\n2. SCOPE OF LICENSE\n3. TECHNICAL REQUIREMENTS\n4.
+    MAINTENANCE AND SUPPORT\n5. USER-GENERATED CONTRIBUTIONS\n6. CONTRIBUTION LICENSE\n7.
+    LIABILITY\n8. WARRANTY\n9. PRODUCT CLAIMS\n10. LEGAL COMPLIANCE\n11. CONTACT
+    INFORMATION\n12. TERMINATION\n13. THIRD-PARTY TERMS OF AGREEMENTS AND BENEFICIARY\n14.
+    INTELLECTUAL PROPERTY RIGHTS\n15. APPLICABLE LAW\n16. MISCELLANEOUS\n\n\n1. THE
+    APPLICATION\n\nQuestCraft (\"Licensed Application\") is a piece of software created
+    to assist in playing Minecraft: Java Edition in virtual reality with the assistance
+    of Vivecraft (Mixin) Mod \u2014 and customized for mobile devices (\"Devices\").
+    It is used to allow users to UNOFFICIALLY and natively play Minecraft: Java Edition
+    using standalone virtual reality headsets.\n\nThe Licensed Application is not
+    tailored to comply with industry-specific regulations (Health Insurance Portability
+    and Accountability Act (HIPAA), Federal Information Security Management Act (FISMA),
+    etc.), so if your interactions would be subjected to such laws, you may not use
+    this Licensed Application. You may not use the Licensed Application in a way
+    that would violate the Gramm-Leach-Bliley Act (GLBA).\n\n\n2. SCOPE OF LICENSE\n\n2.1 
+    This license will also govern any updates of the Licensed Application provided
+    by Licensor that replace, repair, and/or supplement the first Licensed Application,
+    unless a separate license is provided for such update, in which case the terms
+    of that new license will govern.\n\n2.2  Licensor reserves the right to modify
+    the terms and conditions of licensing.\n\n2.3  Nothing in this license should
+    be interpreted to restrict third-party terms. When using the Licensed Application,
+    You must ensure that You comply with applicable third-party terms and conditions.\n\n\n3.
     TECHNICAL REQUIREMENTS\n\n3.1  The Licensed Application requires a firmware version
     v68 of Meta Horizon OS or Android 11 where applicable or higher. Licensor recommends
     using the latest version of the firmware.\n\n3.2  Licensor attempts to keep the
@@ -17148,7 +17160,9 @@ MonoBehaviour:
     of the remaining provisions shall not be affected. Invalid terms will be replaced
     by valid ones formulated in a way that will achieve the primary purpose.\n              
     \n16.2  Collateral agreements, changes and amendments are only valid if laid
-    down in writing. The preceding clause can only be waived in writing.\n"
+    down in writing. The preceding clause can only be waived in writing.\n\n====================================================================================\n\nBy
+    clicking continue, you hereby agree that you have read, understand, and agree
+    to the terms and conditions as well as the copyright information provided above."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -17158,7 +17172,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284572001
+    rgba: 4291611852
   m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -25345,7 +25359,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -0}
-  m_SizeDelta: {x: 948.57, y: 370.01}
+  m_SizeDelta: {x: 948.57, y: 470.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1276876736
 MonoBehaviour:
@@ -25371,7 +25385,6 @@ MonoBehaviour:
 
     Welcome to QuestCraft!
 
-
     Before you can jump into the main experiance,
     we must go over some information with you, including our EULA and Privacy Policy.
 
@@ -25385,13 +25398,19 @@ MonoBehaviour:
     libraries.
 
 
+    ====================================================================================
 
-    Copyright Notice
 
-    QuestCraft utilizes many third-party
-    Minecraft modifications, as well as open-source libraries in order to create
-    a functional and smooth experiance for our players, these include (but are not
-    limited to):'
+    Copyright
+    Notice
+
+    QuestCraft utilizes many third-party Minecraft modifications, as
+    well as open-source libraries in order to create a functional and smooth experiance
+    for our players, these can be viewed on our GitHub (https://github.com/QuestCraftPlusPlus/)
+    or on the QuestCraft website at https://questcraft.org/open-source/.
+
+
+    ===================================================================================='
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -25402,7 +25421,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4291611852
-  m_fontColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+  m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29510,7 +29529,9 @@ MonoBehaviour:
   dropdownModSearch: {fileID: 1778431242}
   dropdownModInfo: {fileID: 1003380043}
   dropdownInstanceCreator: {fileID: 855064047}
+  legalScrollbar: {fileID: 687926829}
   errorMenu: {fileID: 1996973844}
+  legalContinue: {fileID: 1588127161}
   modToggle: {fileID: 1789290221}
   modpacksToggle: {fileID: 675128254}
   resourcePacksToggle: {fileID: 290311427}
@@ -30781,14 +30802,26 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1588127162}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1588127160}
-        m_TargetAssemblyTypeName: LoginHandler, Assembly-CSharp
-        m_MethodName: Login
+      - m_Target: {fileID: 1460469781}
+        m_TargetAssemblyTypeName: WindowHandler, Assembly-CSharp
+        m_MethodName: LegalSetter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 766335867}
+        m_TargetAssemblyTypeName: ConfigHandler, Assembly-CSharp
+        m_MethodName: AgreeToLegal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
