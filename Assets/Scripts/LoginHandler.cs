@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LoginHandler : MonoBehaviour
 {
-    bool isMainScreen;
+    public bool isMainScreen;
     private bool hasAttemptedLogin;
     AndroidJavaClass javaClass;
     AndroidJavaObject javaObject;
@@ -42,7 +42,7 @@ public class LoginHandler : MonoBehaviour
 	    hasAttemptedLogin = true;
     }
     
-    private async void CheckVerification() {
+    public async void CheckVerification() {
 	    if (Application.platform != RuntimePlatform.Android)
 		    return;
 	    while (isMainScreen == false)

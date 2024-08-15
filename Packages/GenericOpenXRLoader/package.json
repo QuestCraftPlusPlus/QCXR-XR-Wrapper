@@ -1,0 +1,24 @@
+{
+  "name": "com.zappar.openxr.genericandroidloader",
+  "displayName": "Generic OpenXR Loader",
+  "version": "0.1.0-preview.1",
+  "unity": "2020.3",
+  "description": "Provide the generic OpenXR loader for android devices",
+  "keywords": [
+    "vr",
+    "xr",
+    "openxr"
+  ],
+  "author": {
+    "name": "Nameless",
+    "email": "test@test.com"
+  },
+  "dependencies": {
+    "com.unity.inputsystem": "1.2.0",
+    "com.unity.xr.management": "4.0.7",
+    "com.unity.xr.openxr": "1.2.8"
+  },
+  "samples": [],
+  "type": "library",
+  "hideInEditor": false
+}

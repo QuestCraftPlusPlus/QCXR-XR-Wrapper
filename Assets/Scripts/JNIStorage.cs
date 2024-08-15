@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,8 +16,16 @@ public class JNIStorage : MonoBehaviour
     public UIHandler uiHandler;
     public TMP_Dropdown instancesDropdown;
     public ConfigHandler configHandler;
+    public LoginHandler loginHandler;
+    public InstanceButton instanceButton;
+
 
     private void Start()
+    {
+        StartCoroutine(TestWait());
+    }
+
+    IEnumerator TestWait()
     {
         instance = this;
 
@@ -30,7 +39,12 @@ public class JNIStorage : MonoBehaviour
         instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll");
         configHandler.LoadConfig();
         UpdateInstances();
-	apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
+        apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
+        loginHandler.Login();
+        
+        yield return new WaitForSeconds(30);
+
+        instanceButton.LaunchCurrentInstance();
     }
 
     private static void FillSupportedVersions(List<string> supportedVersions, string[] supportedVersionsArray)

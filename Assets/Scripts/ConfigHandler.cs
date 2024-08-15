@@ -18,7 +18,7 @@ public class ConfigHandler : MonoBehaviour
             string configFile = File.ReadAllText(configPath);
             config = JsonConvert.DeserializeObject<Config>(configFile);
             
-            if (!config.acceptedLegal) { windowHandler.LegalSetter(); }
+            // if (!config.acceptedLegal) { windowHandler.LegalSetter(); }
             if (config.setDevMods) { devHandler._devToggle.isOn = true; }
             if (config.setCustomRAM)
             {

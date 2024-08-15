@@ -7965,6 +7965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea87d112f0ba8ad439f17cb8309ff273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainScreen: 0
   loginButtonText: {fileID: 1874211728}
   handler: {fileID: 1460469781}
 --- !u!1 &442830766
@@ -13398,6 +13399,8 @@ MonoBehaviour:
   uiHandler: {fileID: 1460469782}
   instancesDropdown: {fileID: 194192002}
   configHandler: {fileID: 766335867}
+  loginHandler: {fileID: 432457120}
+  instanceButton: {fileID: 1460469786}
 --- !u!4 &766335866
 Transform:
   m_ObjectHideFlags: 0
@@ -15130,7 +15133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &844569212
 Transform:
   m_ObjectHideFlags: 0
@@ -30761,6 +30764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea87d112f0ba8ad439f17cb8309ff273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainScreen: 0
   loginButtonText: {fileID: 460482964}
   handler: {fileID: 1460469781}
 --- !u!114 &1588127161
@@ -42145,7 +42149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2039886949
 Transform:
   m_ObjectHideFlags: 0
