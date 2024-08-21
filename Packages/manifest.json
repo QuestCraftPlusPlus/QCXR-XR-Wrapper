@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.crowdin.unity-plugin": "0.7.1",
     "com.netpyoung.webp": "https://github.com/netpyoung/unity.webp.git?path=unity_project/Assets/unity.webp#0.3.9",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "2.3.1",
@@ -56,6 +57,13 @@
       "url": "https://unitynuget-registry.azurewebsites.net",
       "scopes": [
         "org.nuget"
+      ]
+    },
+    {
+      "name": "Crowdin Registry",
+      "url": "https://registry.npmjs.org",
+      "scopes": [
+        "com.crowdin"
       ]
     }
   ]
