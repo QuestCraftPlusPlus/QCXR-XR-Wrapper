@@ -17,7 +17,100 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 4913781735424
+    m_Localized: Jugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3196004532224
+    m_Localized: "Iniciar sesi\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: "\xBFNecesitas ayuda?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Instancias
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: "Cerrar sesi\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: "\xBFNecesitas ayuda? \xA1No hay problema!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: "\xDAnase a nuestro servidor de Discord."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: "\xA1Env\xEDa el enlace arriba a nuestro personal de soporte!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: "Enlace de registro m\xE1s reciente:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: Cargando...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: "Mods de desarrollador | \xA1NO LO HABILITES SI NO SABES LO QUE
+      EST\xC1S HACIENDO!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: "L\xEDmite de RAM personalizado | Predeterminado: 1800"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "\xBFEst\xE1 seguro que desea cerrar sesi\xF3n?\n\xA1Necesitar\xE1s
+      vincular su cuenta Microsoft nuevamente!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "\xA1Si presionas continuar, se eliminar\xE1 esta instancia de forma
+      permanente!\n\xBFEst\xE1s seguro de que quieres hacer esto?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "\xA1Bienvenido a QuestCraft!\nAntes de que puedas comenzar a disfrutar
+      de la experiencia principal, debemos repasar contigo cierta informaci\xF3n,
+      incluido nuestro Acuerdo de Licencia de Usuario (EULA) y Pol\xEDtica de Privacidad.\n\nEn
+      primer lugar, debemos aclarar que QuestCraft, QCXR, Digital Genesis y cualquiera
+      de los mods incluidos en QuestCraft NO son un producto o servicio oficial de
+      Minecraft. No estamos aprobados por Mojang o Microsoft ni estamos asociados
+      con ellos, y cualquier problema relacionado con QuestCraft debe ser reportado
+      \xDANICAMENTE al personal y al soporte de QuestCraft, incluidos los problemas
+      relacionados con mods, servidores y otro software de terceros."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "Notificaci\xF3n de copyright\nQuestCraft utiliza muchas modificaciones
+      de Minecraft de terceros, as\xED como software de c\xF3digo abierto para crear
+      una experiencia funcional y fluida para nuestros jugadores. Estas se pueden
+      ver en nuestro GitHub (https://github.com/QuestCraftPlusPlus/) o en sitio web
+      de QuestCraft en https://questcraft.org/open-source/."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Al hacer clic en continuar, usted acepta que ha le\xEDdo, comprendido
+      y aceptado los t\xE9rminos, condiciones, y la informaci\xF3n de copyright proporcionada
+      anteriormente."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
