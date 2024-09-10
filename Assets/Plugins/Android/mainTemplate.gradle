@@ -4,6 +4,7 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 	implementation("com.google.guava:guava:31.0.1-jre")
+    implementation("com.github.Mathias-Boulay:android_gamepad_remapper:2.0.3")
 	implementation("commons-io:commons-io:2.11.0")
 	implementation("commons-codec:commons-codec:1.15")
 	implementation("com.microsoft.azure:msal4j:1.13.9")

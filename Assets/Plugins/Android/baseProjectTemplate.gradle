@@ -3,6 +3,7 @@ allprojects {
         repositories {**ARTIFACTORYREPOSITORY**
             google()
             jcenter()
+            mavenCentral()
         }
 
         dependencies {
@@ -18,6 +19,9 @@ allprojects {
     repositories {**ARTIFACTORYREPOSITORY**
         google()
         jcenter()
+        maven {
+            url = uri("https://jitpack.io")
+        }
         flatDir {
             dirs "${project(':unityLibrary').projectDir}/libs"
         }
