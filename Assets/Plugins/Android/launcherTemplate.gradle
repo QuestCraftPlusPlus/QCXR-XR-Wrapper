@@ -1,7 +1,14 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    maven {
+       url = uri("https://jitpack.io")
+    }
+}
+
 dependencies {
     implementation project(':unityLibrary')
+    implementation("com.github.Mathias-Boulay:android_gamepad_remapper:2.0.3")
     }
 
 android {
