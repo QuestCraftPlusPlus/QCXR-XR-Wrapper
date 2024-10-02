@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: Sign In
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: Need help?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Instances
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: Sign Out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: Need help? No problem!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: Come join our Discord server.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: Send the link above to our support team!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: 'Latest log link:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: Loading...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: Dev Mods | DO NOT ENABLE UNLESS YOU KNOW WHAT YOU'RE DOING!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: Custom RAM Limit | Default - 1800
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: 'Are you sure you would like to sign out?
+
+      You will have to
+      re-link your Microsoft account!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: 'Pressing continue will delete this instance forever!
+
+      Are
+      you sure you want to do this?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: 'Welcome to QuestCraft!
+
+      Before you can jump into the main
+      experiance, we must go over some information with you, including our EULA and
+      Privacy Policy.
+
+
+      First and foremost, we must state that QuestCraft,
+      QCXR, Digital Genesis, and any of the mods included within QuestCraft are NOT
+      an official Minecraft product or service. We are not approved by or associated
+      with Mojang or Microsoft, and any issues reguarding or related to QuestCraft
+      are to be reported ONLY to QuestCraft staff and support, including issues related
+      to mods, servers, and third-party libraries.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: 'Copyright Notice
+
+      QuestCraft utilizes many third-party Minecraft
+      modifications, as well as open-source libraries in order to create a functional
+      and smooth experiance for our players, these can be viewed on our GitHub (https://github.com/QuestCraftPlusPlus/)
+      or on the QuestCraft website at https://questcraft.org/open-source/.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: By clicking continue, you hereby agree that you have read, understand,
+      and agree to the terms and conditions as well as the copyright information
+      provided above.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

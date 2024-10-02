@@ -11,7 +11,7 @@ public class InstanceButton : MonoBehaviour
     
     private void Update()
     {
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform != RuntimePlatform.Android)
             return;
         currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
     }

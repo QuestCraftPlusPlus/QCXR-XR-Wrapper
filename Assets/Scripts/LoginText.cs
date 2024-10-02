@@ -18,7 +18,7 @@ public class LoginText : MonoBehaviour
     void Update()
     {
         string buffer;
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform != RuntimePlatform.Android)
             buffer = debugText;
         else
             buffer = JNIStorage.apiClass.GetStatic<string>("msaMessage");

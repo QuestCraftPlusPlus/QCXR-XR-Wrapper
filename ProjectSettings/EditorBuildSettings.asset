@@ -17,7 +17,11 @@ EditorBuildSettings:
       type: 2}
     YVR.Core.XR.YVRXRSettings: {fileID: 11400000, guid: 9af42eca7e1e87a499326571ff3dc0e6,
       type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: accdd3567e6556c24b3690c9acae3475,
+      type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: a89b22d6b90969e48b6df2b153aa991a,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 1d87c4f70557acbdbb67d5fa81b6d8a7,
       type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 9fc8791df863b584b8fa258e1594bb23,
       type: 2}

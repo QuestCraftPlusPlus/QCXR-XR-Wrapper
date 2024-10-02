@@ -8,7 +8,7 @@ public class DesktopCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Application.platform != RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.Android)
             return;
         
         VrCam.SetActive(false);

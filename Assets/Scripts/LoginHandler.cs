@@ -33,7 +33,7 @@ public class LoginHandler : MonoBehaviour
 	    }
 	    LoadingButtonText();
 	    
-	    if (Application.platform == RuntimePlatform.WindowsEditor) return;
+	    if (Application.platform != RuntimePlatform.Android) return;
 	    if (hasAttemptedLogin) return;
 	    javaClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
 	    javaObject = javaClass.GetStatic<AndroidJavaObject>("currentActivity");
@@ -43,7 +43,7 @@ public class LoginHandler : MonoBehaviour
     }
     
     private async void CheckVerification() {
-	    if (Application.platform == RuntimePlatform.WindowsEditor)
+	    if (Application.platform != RuntimePlatform.Android)
 		    return;
 	    while (isMainScreen == false)
 	    {
