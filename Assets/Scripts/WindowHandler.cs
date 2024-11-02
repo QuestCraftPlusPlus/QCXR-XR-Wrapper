@@ -10,6 +10,7 @@ public class WindowHandler : MonoBehaviour
     public CanvasGroup loginText; 
     
     public GameObject startPanel;
+    public GameObject legalPanel;
     
     public GameObject mainPanel;
     public TextMeshProUGUI profileNameHolder;
@@ -180,6 +181,11 @@ public class WindowHandler : MonoBehaviour
     public void NeedHelpSetter()
     {
         needHelpPanel.SetActive(!needHelpPanel.activeSelf);
+    }
+
+    public void LegalSetter()
+    {
+        legalPanel.SetActive(!legalPanel.activeSelf);
     }
 
 }

@@ -14,10 +14,8 @@ public class JNIStorage : MonoBehaviour
     public static JNIStorage instance;
     public List<string> supportedVersions;
     public UIHandler uiHandler;
-    public TMP_InputField RAMSetterField;
     public TMP_Dropdown instancesDropdown;
-    [SerializeField, FormerlySerializedAs("DevToggle")]
-    private Toggle _devToggle;
+    public ConfigHandler configHandler;
 
     private void Start()
     {
@@ -32,9 +30,9 @@ public class JNIStorage : MonoBehaviour
 
         apiClass = new AndroidJavaClass("pojlib.API");
         instancesObj = apiClass.CallStatic<AndroidJavaObject>("loadAll");
-        apiClass.SetStatic("developerMods", _devToggle.isOn);
+        configHandler.LoadConfig();
         UpdateInstances();
-		apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
+	apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
     }
 
     private static void FillSupportedVersions(List<string> supportedVersions, string[] supportedVersionsArray)
@@ -69,6 +67,7 @@ public class JNIStorage : MonoBehaviour
 
     public void UpdateInstances()
     {
+        if (Application.platform != RuntimePlatform.Android) return;
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         activity = jc.GetStatic<AndroidJavaObject>("currentActivity");
         
@@ -76,13 +75,5 @@ public class JNIStorage : MonoBehaviour
         string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions");
         FillSupportedVersions(supportedVersions, supportedVersionsArray);
         uiHandler.UpdateDropdowns(true, supportedVersions);
-    }
-
-    public void SetMemoryValue()
-    {
-        if (RAMSetterField.text != null)
-        {
-            apiClass.SetStatic("memoryValue", RAMSetterField.text);
-        }
     }
 }

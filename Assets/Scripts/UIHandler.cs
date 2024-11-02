@@ -13,7 +13,9 @@ public class UIHandler : MonoBehaviour
     public TMP_Dropdown dropdownModSearch;
     public TMP_Dropdown dropdownModInfo;
     public TMP_Dropdown dropdownInstanceCreator;
+    public Scrollbar legalScrollbar;
     public GameObject errorMenu;
+    public Button legalContinue;
     public Toggle modToggle;
     public Toggle modpacksToggle;
     public Toggle resourcePacksToggle;
@@ -120,5 +122,13 @@ public class UIHandler : MonoBehaviour
     {
         errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = errorMessage;
         errorMenu.SetActive(true);
+    }
+
+    public void UpdateLegalButton()
+    {
+        if (legalScrollbar.value == 0)
+        {
+            legalContinue.interactable = true;
+        }
     }
 }

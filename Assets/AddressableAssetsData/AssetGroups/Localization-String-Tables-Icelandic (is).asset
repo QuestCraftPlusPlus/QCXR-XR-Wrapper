@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Icelandic (is)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Icelandic (is)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 162ade415d441bcda8f812e5b5c251a4
+  m_SerializeEntries:
+  - m_GUID: f770c54b297a898898028f38372138aa
+    m_Address: Main_is
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-is
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 202d18ff2356e3177b922c18e387d25e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2007e2d8a1d675661a6fe671889ec379, type: 2}
+    - {fileID: 11400000, guid: 6f5dac44c2d360af8b316d49c16202bb, type: 2}
