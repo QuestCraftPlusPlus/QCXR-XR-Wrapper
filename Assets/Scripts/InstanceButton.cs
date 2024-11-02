@@ -49,7 +49,7 @@ public class InstanceButton : MonoBehaviour
             XRGeneralSettings.Instance.Manager.activeLoader.Stop();
             XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
             
-            Application.Unload();
+            Application.Quit();
             JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
         }
         LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(() => FinishAnim());

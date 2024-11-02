@@ -6,10 +6,12 @@ dependencies {
 	implementation("com.google.guava:guava:31.0.1-jre")
 	implementation("commons-io:commons-io:2.11.0")
 	implementation("commons-codec:commons-codec:1.15")
-	implementation("com.microsoft.azure:msal4j:1.13.9")
+	implementation("com.microsoft.azure:msal4j:1.17.0")
 **DEPS**}
 
 android {
+	namespace "com.unity3d.player"
+	ndkPath "**NDKPATH**"
     compileSdkVersion **APIVERSION**
     buildToolsVersion '**BUILDTOOLS**'
 

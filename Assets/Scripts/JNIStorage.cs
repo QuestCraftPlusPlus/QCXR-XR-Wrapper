@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.CrashReportHandler;
 
 public class JNIStorage : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class JNIStorage : MonoBehaviour
 
     private void Start()
     {
+		CrashReportHandler.enableCaptureExceptions = false;
         instance = this;
 
         // If the user has not granted Microphone permission, don't try to start the clip.

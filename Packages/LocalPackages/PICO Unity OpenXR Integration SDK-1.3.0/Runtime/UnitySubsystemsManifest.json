@@ -1,0 +1,10 @@
+{
+    "name": "pico_openxr",
+    "version": "1.3.3",
+    "libraryName": "openxr_pico",
+	"meshings": [
+        {
+            "id": "PICO Mesh"
+        }
+    ]
+}

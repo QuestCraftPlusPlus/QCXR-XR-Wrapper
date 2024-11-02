@@ -42,6 +42,7 @@ public class MetaInfo
     public List<FileInfo> files { get; set; }
     public List<string> loaders { get; set; }
     public List<Deps> dependencies { get; set; }
+    public string version_number { get; set; }
     public string id { get; set; }
 }
 
@@ -49,7 +50,6 @@ public class MetaInfo
 
 public class Deps
 {
-    public string version_id;
     public string project_id;
     public string file_name;
     public string dependency_type;
