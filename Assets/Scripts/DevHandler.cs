@@ -1,25 +1,28 @@
+using Newtonsoft.Json;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using System.IO;
 
 public class DevHandler : MonoBehaviour
 {
-    private const string DEVELOPER_MODS_PARAMETER_NAME = "developerMods";
-    private const string CUSTOM_RAM_PARAMETER_NAME = "customRAMValue";
-    private const string ADVANCED_DEBUGGER_PARAMETER_NAME = "advancedDebugger";
-    
     [SerializeField, FormerlySerializedAs("DevToggle")]
-    private Toggle _devToggle;
+    public Toggle _devToggle;
     [SerializeField, FormerlySerializedAs("ADBToggle")]
     private Toggle _adbToggle;
     [SerializeField, FormerlySerializedAs("RAMSetterToggle")]
-    private Toggle _ramSetterToggle;
+    public Toggle _ramSetterToggle;
     [SerializeField, FormerlySerializedAs("RAMSetterField")]
-    private GameObject _ramSetterField;
+    public TMP_InputField _ramSetterField;
+
+    public ConfigHandler configHandler;
+    public string configPath;
 
     private void Start()
     {
         InitializeButtonListeners();
+        configPath = Application.persistentDataPath + "/launcher.conf";
     }
     
     private void OnDestroy()
@@ -31,30 +34,35 @@ public class DevHandler : MonoBehaviour
     {
         _devToggle.onValueChanged.AddListener(OnDevModsToggleValueChanged);
         _ramSetterToggle.onValueChanged.AddListener(OnRamSetterToggleValueChanged);
-        _adbToggle.onValueChanged.AddListener(OnAdbToggleValueChanged);
     }
     
     private void DisposeButtonListeners()
     {
         _devToggle.onValueChanged.RemoveListener(OnDevModsToggleValueChanged);
         _ramSetterToggle.onValueChanged.RemoveListener(OnRamSetterToggleValueChanged);
-        _adbToggle.onValueChanged.RemoveListener(OnAdbToggleValueChanged);
     }
 
     private void OnDevModsToggleValueChanged(bool isOn)
     {
-        JNIStorage.apiClass.SetStatic(DEVELOPER_MODS_PARAMETER_NAME, isOn);
+        string configFile = File.ReadAllText(configPath);
+        configHandler.config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
+        configHandler.config.setDevMods = isOn;
+        string JSON = JsonConvert.SerializeObject(configHandler.config, Formatting.Indented);
+        File.WriteAllText(configPath, JSON);
+        
+        JNIStorage.apiClass.SetStatic("developerMods", isOn);
         JNIStorage.instance.UpdateInstances();
     }    
     
     private void OnRamSetterToggleValueChanged(bool isOn)
     {
-        JNIStorage.apiClass.SetStatic(CUSTOM_RAM_PARAMETER_NAME, isOn);
-        _ramSetterField.SetActive(isOn);
+        string configFile = File.ReadAllText(configPath);
+        configHandler.config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
+        configHandler.config.setCustomRAM = isOn;
+        string JSON = JsonConvert.SerializeObject(configHandler.config, Formatting.Indented);
+        File.WriteAllText(configPath, JSON);
+        
+        JNIStorage.apiClass.SetStatic("customRAMValue", isOn);
+        _ramSetterField.gameObject.SetActive(isOn);
     }    
-    
-    private void OnAdbToggleValueChanged(bool isOn)
-    {
-        JNIStorage.apiClass.SetStatic(ADVANCED_DEBUGGER_PARAMETER_NAME, isOn);
-    }
 }

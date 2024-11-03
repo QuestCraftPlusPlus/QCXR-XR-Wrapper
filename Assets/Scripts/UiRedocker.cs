@@ -13,6 +13,8 @@ public class UiRedocker : MonoBehaviour
     private bool main = true;
     private void Start()
     {
+        if (Application.platform != RuntimePlatform.Android) return;        
+        
         redockButton.onClick.AddListener(() =>
         {
             if (main)
@@ -22,12 +24,6 @@ public class UiRedocker : MonoBehaviour
 
             main = !main;
         });
-
-        return;
-        
-        GameObject gender;
-        
-        Transition(gender);
     }
     
     void Transition(GameObject transitionObject)

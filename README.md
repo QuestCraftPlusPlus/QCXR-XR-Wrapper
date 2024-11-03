@@ -3,7 +3,7 @@
 [![Build Wrapper](https://github.com/QuestCraftPlusPlus/QCXR-XR-Wrapper/actions/workflows/build.yml/badge.svg)](https://github.com/QuestCraftPlusPlus/QCXR-XR-Wrapper/actions/workflows/build.yml)
 
 A wrapper/launcher made with Unity and Pojlib meant for use in QCXR projects.
-<br>Use Unity Version [2021.3.37f1](https://unity.com/releases/editor/whats-new/2021.3.37) With Android plugin.
+<br>Use Unity Version [2021.3.45f1](https://unity.com/releases/editor/whats-new/2021.3.45) With Android plugin.
 
 
 ## Contributing
