@@ -6,7 +6,6 @@ public class LoginText : MonoBehaviour
 {
     private TextMeshProUGUI loginText;
     private bool hasShown;
-    public WindowHandler windowHandler;
     public string debugText;
     [HideInInspector] public string previousText;
     
@@ -28,10 +27,6 @@ public class LoginText : MonoBehaviour
         
         previousText = buffer;
         loginText.text = buffer;
-        
-        if (!hasShown)
-            windowHandler.AnimateLogin();
-        hasShown = true;
         
         if (loginText.text.Contains("UnknownHostException"))
         {

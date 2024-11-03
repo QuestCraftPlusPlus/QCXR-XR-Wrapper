@@ -1,4 +1,6 @@
+using System.IO;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.XR.Management;
 
@@ -6,14 +8,21 @@ public class InstanceButton : MonoBehaviour
 {
     public static string currInstName;
     private bool hasDefaulted;
+    public ConfigHandler.Config config;
+    public string configPath;
 
     public CanvasGroup ScreenFade;
     
-    private void Update()
+    public void SelectInstance()
     {
         if (Application.platform != RuntimePlatform.Android)
             return;
         currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+        string configFile = File.ReadAllText(configPath);
+        config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
+        config.lastInstance = JNIStorage.instance.instancesDropdown.value;
+        string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
+        File.WriteAllText(configPath, JSON);
     }
 
     private static void CreateDefaultInstance(string name)

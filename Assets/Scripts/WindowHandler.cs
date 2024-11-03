@@ -6,10 +6,6 @@ public class WindowHandler : MonoBehaviour
 {
     public GameObject devOptionsMenu;
     public GameObject loginElements;
-    public GameObject loginButton;
-    public CanvasGroup loginText; 
-    
-    public GameObject startPanel;
     public GameObject legalPanel;
     
     public GameObject mainPanel;
@@ -29,25 +25,15 @@ public class WindowHandler : MonoBehaviour
     
     public GameObject logoutWindow;
     public GameObject errorWindow;
-    
     public GameObject githubLogToggle;
-    
     public GameObject needHelpPanel;
-    
     public SkinHandler skinHandler;
 
-
-    public void MainPanelSwitch()
-    {
-        startPanel.SetActive(false);
-        mainPanel.SetActive(true);
-    }
-
-    public async void LoadAv()
+    public async void LoadAv(string username, Material pfpObj)
     {
         Debug.Log("QCXR: Getting PFP and Username.");
-        await UIHandler.GetName(profileNameHolder);
-        skinHandler.LoadSkin(profileNameHolder.text);
+        if (username.Length == 0) await UIHandler.GetName(profileNameHolder);
+        skinHandler.LoadSkin(username, pfpObj);
     }
 
     public void DevMenuSetter()
@@ -147,19 +133,6 @@ public class WindowHandler : MonoBehaviour
     public void ErrorMenuUnsetter()
     {
         errorWindow.SetActive(false);
-    }
-
-    [ContextMenu("LoginAnim")]
-    public void AnimateLogin()
-    {
-            LeanTween.value(loginButton, loginButton.transform.localPosition.x, 0, 1).setEase(LeanTweenType.easeInOutCubic).setOnUpdate(newX =>
-            {
-                loginButton.transform.localPosition = new Vector3(newX, loginButton.transform.localPosition.y, 0);
-                loginText.gameObject.transform.localPosition = new Vector3(newX + 500, loginText.transform.localPosition.y, 0);
-            });
-            LeanTween.delayedCall(0.5f, () =>
-                LeanTween.value(loginText.gameObject, 0, 1, 0.5f).setEase(LeanTweenType.easeInOutCubic)
-                    .setOnUpdate(opacity => loginText.alpha = opacity));
     }
 
     private bool githubLogAnimating;
