@@ -17,7 +17,162 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: "P\u0159ihl\xE1sit se"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: "Pot\u0159ebuje\u0161 pomoc?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: "Hr\xE1t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Instance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: "M\xF3dy"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: "Odhl\xE1sit se"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: "Pot\u0159ebuje\u0161 pomoc? Nen\xED probl\xE9m!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: "P\u0159ipoj se na n\xE1\u0161 Discord server."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: "Po\u0161li odkaz naho\u0159e na\u0161emu teamu podpory!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: "Aktu\xE1ln\xED log odkaz:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: "Na\u010D\xEDt\xE1n\xED..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: "V\xFDvoj\xE1\u0159sk\xE9 m\xF3dy | NEZAP\xCDNEJ POKUD NEV\xCD\u0160
+      CO D\u011AL\xC1\u0160!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: "Vlastn\xED RAM Limit | V\xFDchoz\xED - 1800"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "Jsi si jist\xFD, \u017Ee se chce\u0161 odhl\xE1sit?\nBude\u0161
+      muset znovu p\u0159ipojit sv\u016Fj Microsoft \xFA\u010Det!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "Kliknut\xEDm na pokra\u010Dovat odstran\xED\u010D instanci nav\u017Edy!\nSe\u0161
+      si jist\xFD, \u017Ee to chce\u0161 ud\u011Blat?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: "Zru\u0161it"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "V\xEDtej v QuestCraftu!\nNe\u017E se pono\u0159\xED\u0161 do hlavn\xEDho
+      z\xE1\u017Eitku, mus\xEDme proj\xEDt p\xE1r informac\xED, v\u010Detn\u011B
+      na\u0161eho EULA a z\xE1sad ochrany osobn\xEDch \xFAdaj\u016F.\n\nP\u0159edev\u0161\xEDm
+      mus\xEDme \u0159\xEDct, \u017Ee QuestCraft, QCXR, Digital Genesis a v\u0161echny
+      mody v QuestCraftu NEJSOU ofici\xE1ln\xEDm produktem nebo slu\u017Ebou Minecraftu.
+      Nem\xE1me schv\xE1len\xED ani spojen\xED s Mojangem nebo Microsoftem, a jak\xE9koliv
+      probl\xE9my t\xFDkaj\xEDc\xED se QuestCraftu mus\xED\u0161 hl\xE1sit POUZE
+      t\xFDmu QuestCraftu, v\u010Detn\u011B probl\xE9m\u016F s mody, servery a knihovnami
+      t\u0159et\xEDch stran."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "Ozn\xE1men\xED o autorsk\xFDch pr\xE1vech\nQuestCraft vyu\u017E\xEDv\xE1
+      mnoho modifikac\xED Minecraftu t\u0159et\xEDch stran a open-source knihoven,
+      aby vytvo\u0159il funk\u010Dn\xED a plynul\xFD z\xE1\u017Eitek pro na\u0161e
+      hr\xE1\u010De. Tyto modifikace a knihovny si m\u016F\u017Ee\u0161 prohl\xE9dnout
+      na na\u0161em GitHubu (https://github.com/QuestCraftPlusPlus/) nebo na webu
+      QuestCraft na adrese https://questcraft.org/open-source/."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Kliknut\xEDm na pokra\u010Dovat t\xEDmto potvrzuje\u0161, \u017Ee
+      jsi si p\u0159e\u010Detl, porozum\u011Bl a souhlas\xED\u0161 s podm\xEDnkami
+      a ustanoven\xEDmi, stejn\u011B jako s informacemi o autorsk\xFDch pr\xE1vech
+      uveden\xFDmi v\xFD\u0161e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: "Pokra\u010Dovat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Modpacky
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Resource Packy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: "Str\xE1nky:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: Mod Manager
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: "Vyhledej m\xF3d nap\u0159iklad: LambDynamicLights"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Instalovat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: Instance Manager
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: "Jm\xE9no:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: 'Popis:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Aktualizovat instanci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: Odstranit instanci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: "Jm\xE9no instance:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: "Vytvo\u0159it instanci"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: "Z\xE1kladn\xED m\xF3dy"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

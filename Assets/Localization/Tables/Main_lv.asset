@@ -17,7 +17,161 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: "Pierakst\u012Bties"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: "Vajag pal\u012Bdz\u012Bbu?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: "Sp\u0113l\u0113t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Instances
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: "Modifik\u0101cijas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: "Izrakst\u012Bties"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: "Vajag pal\u012Bdz\u012Bbu? Bezprobl\u0113mas!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: "Pievienojies m\u016Bsu Discord serverim."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: "Ats\u016Bti aug\u0161\u0113jo saiti m\u016Bsu atbalstu komandai!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: "Agr\u0101k\u0101 \u017Eurn\u0101lu saite:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: "L\u0101d\u0113jas..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: "Izstr\u0101d\u0101t\u0101ja modifik\u0101cijas | IESL\u0112GT TIKAI
+      JA TU ZINI KO DARI!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: "Piel\u0101got RAM limitu | Noklus\u0113jums - 1800"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "Vai esi dro\u0161s ka v\u0113lies izrakst\u012Bties?\nTev vajadz\u0113s
+      atkal savienot savu Microsoft kontu!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "Turpinot \u0161\u012B instance tiks izdz\u0113sta uz m\u016B\u017Eu!
+      J\u016Bs esat dro\u0161s ka v\u0113laties turpin\u0101t?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Atcelt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "Laipni l\u016Bdzam QuestCraft!\nLai j\u016Bs var\u0113tu s\u0101kt
+      galveno pieredzi, mums ir vispirms j\u0101p\u0101riet p\u0101ri inform\u0101cijai,
+      tostarp m\u016Bsu EULA un konfidencialit\u0101tes politikai.\n\nVispirms mums
+      ir j\u0101nor\u0101da, ka QuestCraft, QCXR, Digital Genesis un jebkura no QuestCraft
+      iek\u013Cautaj\u0101m modifik\u0101cij\u0101m NAV ofici\u0101ls Minecraft produkts
+      vai pakalpojums. M\u016Bs nav apstiprin\u0101ju\u0161i Mojang vai Microsoft
+      un neesam saist\u012Bti ar vi\u0146iem, un par vis\u0101m probl\u0113m\u0101m,
+      kas saist\u012Btas ar QuestCraft, ir j\u0101zi\u0146o TIKAI QuestCraft person\u0101lam
+      un atbalsta dienestam, tostarp par probl\u0113m\u0101m, kas saist\u012Btas
+      ar modifik\u0101cij\u0101m, serveriem un tre\u0161o pu\u0161u bibliot\u0113k\u0101m."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "Autorties\u012Bbu pazi\u0146ojums\nQuestCraft izmanto daudzas tre\u0161\u0101s
+      puses Minecraft modifik\u0101cijas, k\u0101 ar\u012B atv\u0113rt\u0101 pirmkoda
+      bibliot\u0113kas, lai m\u016Bsu sp\u0113l\u0113t\u0101jiem nodro\u0161in\u0101tu
+      funkcion\u0101lu un gludu pieredzi. Tos var apskat\u012Bt m\u016Bsu GitHub
+      (https://github.com/QuestCraftPlusPlus/) vai QuestCraft vietn\u0113 https://questcraft.org/open-source/."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Turpinot j\u016Bs piekr\u012Btat ka esat izlas\u012Bjis, sapratis
+      un piekr\u012Btat noteikumiem un nosac\u012Bjumiem, k\u0101 ar\u012B iepriek\u0161
+      sniegtajai inform\u0101cijai par autorties\u012Bb\u0101m."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: "Turpin\u0101t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Modpaki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Resursu Pakas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: 'Lapas:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: "Modu p\u0101rvald\u012Bt\u0101js"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: "Mekl\u0113t modus k\u0101: LambDynamicLights"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: "Instal\u0113t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: "Instan\u010Du P\u0101rvaldnieks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Nosaukums:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: 'Apraksts:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Atjaunot Instanci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: "Dz\u0113st Instanci"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: 'Instances Nosaukums:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: Veidot Instanci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: "Noklus\u0113juma Modi"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

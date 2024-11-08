@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cbce3c0a43cb94993bae5d5d772f48, type: 3}
   m_Name: OpenXRFeatureSystemInfo Android
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Get System Info
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.example.getSystemInfo

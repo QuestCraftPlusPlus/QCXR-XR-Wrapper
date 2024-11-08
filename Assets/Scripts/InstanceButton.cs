@@ -12,22 +12,29 @@ public class InstanceButton : MonoBehaviour
     public string configPath;
 
     public CanvasGroup ScreenFade;
-    
-    public void SelectInstance()
+
+    public void Update()
     {
         if (Application.platform != RuntimePlatform.Android)
             return;
         currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+    }
+
+    public void SelectInstance()
+    {
+        if (Application.platform != RuntimePlatform.Android) return;
+        currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+        configPath = Application.persistentDataPath + "/launcher.conf";
         string configFile = File.ReadAllText(configPath);
         config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
-        config.lastInstance = JNIStorage.instance.instancesDropdown.value;
+        config.lastSelectedInstance = JNIStorage.instance.instancesDropdown.value;
         string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
         File.WriteAllText(configPath, JSON);
     }
 
     private static void CreateDefaultInstance(string name)
     {
-        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, name, true, name, null);
+        JNIStorage.apiClass.CallStatic<AndroidJavaObject>("createNewInstance", JNIStorage.activity, JNIStorage.instancesObj, name, true, name, "Fabric", null);
         JNIStorage.instance.uiHandler.SetAndShowError(currInstName + " is now installing.");
         JNIStorage.instance.UpdateInstances();
     }

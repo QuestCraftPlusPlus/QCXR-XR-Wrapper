@@ -17,7 +17,159 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: "Iniciar Sess\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: Precisa de ajuda?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: Jogar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: "Inst\xE2ncias"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: "Sair da Sess\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: Precisa de ajuda? Sem problema!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: Venha juntar-se ao nosso servidor Discord.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: Envie o link acima para a nossa equipa de apoio!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: "\xDAltimo link de registro:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: A carregar...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: "Dev Mods | N\xC3O ATIVE A MENOS QUE SAIBA O QUE EST\xC1 A FAZER!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: "Limite de RAM Personalizado | Padr\xE3o - 1800"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "Tem a certeza de que gostaria de sair?  \nVai ter de vincular novamente
+      a sua conta Microsoft!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "Pressionar continuar ir\xE1 apagar esta inst\xE2ncia para sempre! 
+      \nTem a certeza de que quer fazer isso?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "Bem-vindo ao QuestCraft!  \nAntes de poder saltar para a experi\xEAncia
+      principal, temos de rever algumas informa\xE7\xF5es consigo, incluindo o nosso
+      EULA e a Pol\xEDtica de Privacidade.\n\nAntes de mais, devemos afirmar que
+      QuestCraft, QCXR, Digital Genesis e quaisquer mods inclu\xEDdos no QuestCraft
+      N\xC3O s\xE3o produtos ou servi\xE7os oficiais do Minecraft. N\xE3o estamos
+      aprovados nem associados \xE0 Mojang ou \xE0 Microsoft, e quaisquer problemas
+      relacionados com o QuestCraft devem ser reportados SOMENTE \xE0 equipa e ao
+      suporte do QuestCraft, incluindo quest\xF5es relacionadas com mods, servidores
+      e bibliotecas de terceiros."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "Aviso de Direitos Autorais  \nO QuestCraft utiliza muitas modifica\xE7\xF5es
+      de terceiros do Minecraft, bem como bibliotecas de c\xF3digo aberto, para criar
+      uma experi\xEAncia funcional e fluida para os nossos jogadores. Estas podem
+      ser consultadas no nosso GitHub (https://github.com/QuestCraftPlusPlus/) ou
+      no site do QuestCraft em https://questcraft.org/open-source/."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Ao clicar em continuar, concorda que leu, compreendeu e aceita
+      os termos e condi\xE7\xF5es, bem como as informa\xE7\xF5es de direitos autorais
+      fornecidas acima."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Modpacks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Pacotes de Recursos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: "P\xE1ginas:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: Gestor de Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: 'Pesquisar por um mod como: LambDynamicLights'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Instalar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: "Gestor de Inst\xE2ncias"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Nome:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: "Descri\xE7\xE3o:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: "Atualizar Inst\xE2ncia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: "Excluir Inst\xE2ncia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: "Nome da Inst\xE2ncia:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: "Criar Inst\xE2ncia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: "Mods Padr\xE3o"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

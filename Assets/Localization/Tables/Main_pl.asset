@@ -17,7 +17,158 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: Zaloguj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: Potrzebujesz pomocy?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: Graj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Instancje
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: Mody
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: Wyloguj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: Potrzebujesz pomocy? Bez problemu!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: "Do\u0142\u0105cz do naszego Discord Serwera."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: "Wy\u015Blij link powy\u017Cej do naszego zespo\u0142u pomocnego!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: 'Najnowszy link do logu:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: Wczytywanie...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: "Mody dla Deweloper\xF3w | NIE DOTYKAJ, JE\u015ALI NIEWIESZ CO ROBISZ!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: "W\u0142asny Limit RAM | Domy\u015Blny - 1800"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "Czy jeste\u015B pewny, \u017Ce chcesz Wylogowa\u0107?\nB\u0119dziesz
+      musia\u0142 doda\u0107 kontro Microsoft od nowa!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "Dotkni\u0119cie \"Kontynuuj\" usunie t\u0105 instancj\u0119 na
+      zawsze!\nCzy jeste\u015B pewien?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Anuluj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "Zapraszamy do QuestCraft!\nzanim mo\u017Cesz wskoczy\u0107 do g\u0142\xF3wnej
+      gry, musimy rozwa\u017Cy\u0107 pewne informacje z tob\u0105, razem z nasz\u0105
+      EULA i Polityk\u0105 Prywatno\u015Bci.\n\nPrzede wszystkim, musimy przedstawi\u0107
+      \u017Ce QuestCraft, QCXR, Digital Genesis, i jakie kolwiek Mody kt\xF3re s\u0105
+      \u015Brodku QuestCraft NIE S\u0104 oficjalnym productem lub serwicem Minecraft'a.
+      Nie jeste\u015Bmy zatwierdzony lub powi\u0105zany z Mojang'em lub Microsoft'em,
+      i jakie kolwiek problemy w sprawie lub dotycz\u0105ce QuestCraft nale\u017Cy
+      zg\u0142asza\u0107 TYLKO do QuestCraft za\u0142ogi i zezpo\u0142u pomocy, dotycz\u0105ce
+      rowniesz do mod\xF3w, serwer\xF3w i zewn\u0119trznych dodatkow."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "Informacja Copyright\nQuestCraft u\u017Cywa wiele zewnencznych
+      mod\xF3w do Minecraft'a, razem z otwarto-\u017Crodowych dodatk\xF3w, \u017Ceby
+      stworzy\u0107 funkcjonaln\u0105 gr\u0119, t\u0119 licencj\u0119 mog\u0105 by\u0107
+      przeczytane na naszym GitHub'ie (https://github.com/QuestCraftPlusPlus/) lub
+      na naszej stronie internetowej QuestCraft: https://questcraft.org/open-source/"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Kiedy klikniesz kontynuuj, zgadzasz si\u0119, \u017Ce przeczyta\u0142e\u015B,
+      rozumiesz i zgadzasz do warunk\xF3w i informacji przedstawione powy\u017Cej."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: Kontynuuj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Modpacki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Resource packi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: 'Kartki:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: "Mened\u017Cer Mod\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: "Szukaj dla mod\xF3w, jak: LambDynamicLights"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Zainstaluj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: "Mened\u017Cer Instancji"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Nazwa:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: 'Opis:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Zaktualizuj Instancje
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: Zakasuj Instancje
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: 'Nazwa Instancji:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: "Stwosz Now\u0105 instancj\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: "Mody Domy\u015Blne"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

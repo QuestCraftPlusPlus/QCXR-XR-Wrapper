@@ -119,6 +119,66 @@ MonoBehaviour:
       provided above.
     m_Metadata:
       m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: Mod Manager
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: 'Pages:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Resource Packs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Modpacks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: 'Search for a mod like: LambDynamicLights'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Install
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: Instance Manager
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Name:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: 'Description:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Update Instance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: Delete Instance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: 'Instance Name:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: Create Instance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: Default Mods
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

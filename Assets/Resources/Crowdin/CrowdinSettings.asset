@@ -141,6 +141,10 @@ MonoBehaviour:
       collumPos: 31
       twoLettersCode: pt
       locale: pt-BR
+    - langType: lv
+      collumPos: 32
+      twoLettersCode: lv
+      locale: lv-LV
   stringTablesSelection:
     allSelected: 1
     selectedTables: []

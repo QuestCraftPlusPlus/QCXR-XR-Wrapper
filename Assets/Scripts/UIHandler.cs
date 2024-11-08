@@ -19,10 +19,14 @@ public class UIHandler : MonoBehaviour
     public Toggle modToggle;
     public Toggle modpacksToggle;
     public Toggle resourcePacksToggle;
+    public Button modsButton;
+    public Button instancesButton;
+    public Button playButton;
     public static int selectedInstance;
     static string pfpUrl;
     static string profileName;
 
+    public LoginHandler loginHandler;
     public ModManager modManager;
 
     void Start()
@@ -59,6 +63,24 @@ public class UIHandler : MonoBehaviour
     {
         string time = DateTime.Now.ToString("hh:mm tt");
         minuteHourText.text = time;
+    }
+
+    public void UILoginCheck(bool isDemoMode)
+    {
+        if ((loginHandler.selectedAccountUsername != null && loginHandler.selectedAccountUsername != "Add Account") || isDemoMode)
+        {
+            dropdownMain.interactable = true;
+            modsButton.interactable = true;
+            instancesButton.interactable = true;
+            playButton.interactable = true;
+        }
+        else
+        {
+            dropdownMain.interactable = false;
+            modsButton.interactable = false;
+            instancesButton.interactable = false;
+            playButton.interactable = false;
+        }
     }
 
     public static async Task GetName(TextMeshProUGUI profileNameHolder)

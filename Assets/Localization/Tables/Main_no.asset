@@ -17,7 +17,157 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: Logg inn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: Trenger hjelp?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: Spill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Instanser
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: Logg ut
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: Trenger hjelp? Ikke noe problem!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: "Bli med p\xE5 v\xE5r Discord-server."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: "Send lenken ovenfor til v\xE5rt supportteam!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: 'Siste log link:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: Laster...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: "Dev Mods | IKKE AKTIVER MED MINDRE DU VET HVA DU GJ\xD8R!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: Egendefinert RAM-grense | Standard - 1800
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "Er du sikker p\xE5 at du vil logge av?\nDu m\xE5 koble Microsoft-kontoen
+      din p\xE5 nytt!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "Hvis du trykker fortsett, slettes denne instanser for alltid!\nEr
+      du sikker p\xE5 at du vil gj\xF8re dette?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Kansellere
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "Velkommen til QuestCraft!\nF\xF8r du kan hoppe inn i hovedopplevelsen,
+      m\xE5 vi g\xE5 gjennom noe informasjon med deg, inkludert EULA og personvernerkl\xE6ring.\n\nF\xF8rst
+      og fremst m\xE5 vi sl\xE5 fast at QuestCraft, QCXR, Digital Genesis og noen
+      av modsene som er inkludert i QuestCraft IKKE er et offisielt Minecraft-produkt
+      eller -tjeneste. Vi er ikke godkjent av eller assosiert med Mojang eller Microsoft,
+      og eventuelle problemer knyttet til eller relatert til QuestCraft skal KUN
+      rapporteres til QuestCrafts ansatte og support, inkludert problemer knyttet
+      til mods, servere og tredjepartsbiblioteker."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "Merknad om opphavsrett\nQuestCraft bruker mange tredjeparts Minecraft-modifikasjoner,
+      samt \xE5pen kildekode-biblioteker for \xE5 skape en funksjonell og smidig
+      opplevelse for spillerne v\xE5re. Disse kan sees p\xE5 GitHub (https://github.com/QuestCraftPlusPlus/)
+      eller p\xE5 QuestCraft-nettstedet p\xE5 https://questcraft.org/open-source/."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Ved \xE5 klikke fortsett godtar du herved at du har lest, forst\xE5tt
+      og godtar vilk\xE5rene og betingelsene samt opphavsrettsinformasjonen gitt
+      ovenfor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: Fortsett
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Modpakker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Ressurspakker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: 'Sider:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: Mod-behandler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: "S\xF8k etter en mod som: LambDynamicLights"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Installer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: "Instansh\xE5ndterer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Navn:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: 'Beskrivelse:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Oppdater instans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: Slett instans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: 'Instansnavn:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: Opprett instans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: Standard Mods
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

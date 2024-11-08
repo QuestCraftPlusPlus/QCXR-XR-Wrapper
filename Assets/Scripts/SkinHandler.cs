@@ -23,10 +23,10 @@ public class SkinHandler : MonoBehaviour
     [ContextMenu("DEBUG FETCH")]
     public void DEBUGFETCH()
     {
-        LoadSkin(FETCHINGUSERNAME, profilePicture);
+        LoadSkin(FETCHINGUSERNAME);
     }
 
-    public void LoadSkin(string username, Material pfpObj)
+    public void LoadSkin(string username)
     {
         async Task LoadImage(string username)
         {
@@ -44,8 +44,8 @@ public class SkinHandler : MonoBehaviour
                 Debug.Log("Loading skin");
                 skin.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
                 skin.mainTexture.filterMode = FilterMode.Point;
-                pfpObj.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-                pfpObj.mainTexture.filterMode = FilterMode.Point;
+                profilePicture.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+                profilePicture.mainTexture.filterMode = FilterMode.Point;
             }
         }
 

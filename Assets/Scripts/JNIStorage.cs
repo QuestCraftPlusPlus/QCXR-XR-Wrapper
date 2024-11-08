@@ -75,5 +75,6 @@ public class JNIStorage : MonoBehaviour
         string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions");
         FillSupportedVersions(supportedVersions, supportedVersionsArray);
         uiHandler.UpdateDropdowns(true, supportedVersions);
+        instancesDropdown.value = configHandler.config.lastSelectedInstance;
     }
 }

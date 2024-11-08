@@ -17,7 +17,111 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: "\uB85C\uADF8\uC778"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: "\uB3C4\uC6C0\uC774 \uD544\uC694\uD558\uC2E0\uAC00\uC694?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: "\uB180\uB2E4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: "\uC778\uC2A4\uD134\uC2A4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: "\uBAA8\uB4DC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: "\uB85C\uADF8\uC544\uC6C3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: "\uB3C4\uC6C0\uC774 \uD544\uC694\uD558\uC2E0\uAC00\uC694? \uC800\uD76C\uAC00
+      \uB3C4\uC640\uB4DC\uB9B4\uAC8C\uC694!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: "Discord \uC11C\uBC84\uC5D0 \uCC38\uAC00\uD574 \uC8FC\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: "\uC704 \uB9C1\uD06C\uB97C \uC9C0\uC6D0\uD300\uC5D0 \uBCF4\uB0B4
+      \uC8FC\uC138\uC694!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: "\uCD5C\uADFC \uB85C\uADF8 \uB9C1\uD06C:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: "\uBD88\uB7EC\uC624\uB294 \uC911..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: "\uAC1C\uBC1C\uC790 \uBAA8\uB4DC | \uBB34\uC5C7\uC744 \uD558\uB294\uC9C0
+      \uC798 \uBAA8\uB978\uB2E4\uBA74 \uC0AC\uC6A9\uD558\uC9C0 \uB9C8\uC138\uC694!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: "\uC0AC\uC6A9\uC790 \uC9C0\uC815 RAM \uD55C\uB3C4 | \uAE30\uBCF8\uAC12
+      - 1800"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "\uC815\uB9D0\uB85C \uB85C\uADF8\uC544\uC6C3\uD560\uAE4C\uC694?
+      Microsoft \uACC4\uC815\uACFC \uB2E4\uC2DC \uC5F0\uACB0\uD574\uC57C \uD574\uC694!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "\uACC4\uC18D\uC744 \uB204\uB974\uBA74 \uC774 \uC778\uC2A4\uD134\uC2A4\uB97C
+      \uC601\uAD6C\uD788 \uC0AD\uC81C\uD574\uC694!\n\uC815\uB9D0\uB85C \uADF8\uB807\uAC8C
+      \uD560\uAE4C\uC694?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: "\uCDE8\uC18C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "Questcraft\uC5D0 \uC624\uC2E0 \uAC83\uC744 \uD658\uC601\uD574\uC694!\n\uBCF8\uACA9\uC801\uC778
+      \uCCB4\uD5D8\uC5D0 \uB4E4\uC5B4\uAC00\uAE30 \uC804\uC5D0, \uBA3C\uC800 EULA\uC640
+      \uAC1C\uC778\uC815\uBCF4 \uBCF4\uD638\uC815\uCC45\uC744 \uBE44\uB86F\uD55C
+      \uBA87 \uAC00\uC9C0 \uC815\uBCF4\uB97C \uC54C\uB824\uB4DC\uB9B4\uAC8C\uC694.\n\n\uBB34\uC5C7\uBCF4\uB2E4\uB3C4
+      \uBA3C\uC800 QuestCraft, QCXR, Digital Genesis, \uADF8\uB9AC\uACE0 QuestCraft\uC5D0
+      \uD3EC\uD568\uB41C \uBAA8\uB4E0 \uBAA8\uB4DC\uB294 \uACF5\uC2DD Minecraft \uC81C\uD488\uC774\uB098
+      \uC11C\uBE44\uC2A4\uAC00 \uC544\uB2D8\uC744 \uC54C\uB824\uB4DC\uB9BD\uB2C8\uB2E4.
+      \uB2F9\uC0AC\uB294 Mojang \uB610\uB294 Microsoft\uC758 \uC2B9\uC778\uC744 \uBC1B\uAC70\uB098
+      \uC774\uC640 \uAD00\uB828\uC774 \uC5C6\uC73C\uBA70, \uBAA8\uB4DC, \uC11C\uBC84,
+      \uD0C0\uC0AC \uB77C\uC774\uBE0C\uB7EC\uB9AC \uAD00\uB828 \uBB38\uC81C\uB97C
+      \uD3EC\uD568\uD558\uC5EC QuestCraft\uC640 \uAD00\uB828\uB41C \uBAA8\uB4E0 \uBB38\uC81C\uB294
+      QuestCraft \uC9C1\uC6D0 \uBC0F \uC9C0\uC6D0\uD300\uC5D0\uAC8C\uB9CC \uBCF4\uACE0\uD574\uC57C
+      \uD569\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "\uC800\uC791\uAD8C \uACE0\uC9C0\nQuestcraft\uB294 \uD50C\uB808\uC774\uC5B4\uC5D0\uAC8C
+      \uAE30\uB2A5\uACFC \uC6D0\uD65C\uD55C \uACBD\uD5D8\uC744 \uC81C\uACF5\uD558\uAE30
+      \uC704\uD574 \uB9CE\uC740 \uD0C0\uC0AC Minecraft \uC218\uC815\uBCF8\uACFC \uC624\uD508
+      \uC18C\uC2A4 \uB77C\uC774\uBE0C\uB7EC\uB9AC\uB97C \uD65C\uC6A9\uD558\uBA70,
+      \uC774\uB7EC\uD55C \uB77C\uC774\uBE0C\uB7EC\uB9AC\uB294 GitHub(https://github.com/QuestCraftPlusPlus/)
+      \uB610\uB294 QuestCraft \uC6F9\uC0AC\uC774\uD2B8(https://questcraft.org/open-source/)\uC5D0\uC11C
+      \uD655\uC778\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "\uACC4\uC18D\uC744 \uD074\uB9AD\uD568\uC73C\uB85C\uC368, \uC704\uC5D0
+      \uC81C\uACF5\uB41C \uC774\uC6A9 \uC57D\uAD00 \uBC0F \uC800\uC791\uAD8C \uC815\uBCF4\uB97C
+      \uC77D\uACE0 \uC774\uD574\uD588\uC73C\uBA70 \uC774\uC5D0 \uB3D9\uC758\uD558\uB294
+      \uAC83\uC73C\uB85C \uAC04\uC8FC\uB3FC\uC694."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

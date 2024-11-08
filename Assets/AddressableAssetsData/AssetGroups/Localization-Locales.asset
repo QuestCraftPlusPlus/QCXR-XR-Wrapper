@@ -269,6 +269,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd7b0106010c9f940b5d19e508e4bc2a
+    m_Address: Pirate Speak (The Seven Seas) (ps_tss)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8468388aad115544faab3d875a5e5f89
+    m_Address: LOLCAT (lol)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 202d18ff2356e3177b922c18e387d25e, type: 2}
   m_SchemaSet:

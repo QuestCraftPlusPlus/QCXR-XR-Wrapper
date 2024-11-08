@@ -17,7 +17,157 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: Logga in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: "Beh\xF6ver du hj\xE4lp?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: Spela
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Instans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: Logga ut
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: "Beh\xF6ver du hj\xE4lp? Inga problem!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: "Kom och g\xE5 med i v\xE5r Discord server."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: "Skicka l\xE4nken ovan till v\xE5rt support-team!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: "Senaste loggl\xE4nken"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: Laddar...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: "Utvecklar-L\xE4ge | AKTIVERA INTE OM DU INTE VET VAD DU G\xD6R!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: "Anpassad RAM gr\xE4ns  | Standard - 1800"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "\xC4r du s\xE4ker p\xE5 att du vill logga ut?\nDu kommer beh\xF6va
+      l\xE4nka om ditt Microsoft konto!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "Trycker du p\xE5 forts\xE4tt kommer instansen raderas f\xF6r evigt! "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Avbryt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "V\xE4lkommen till Questcraft!\nInnan du kan g\xE5 vidare till huvudupplevelsen,
+      beh\xF6ver vi g\xE5 igenom viss information med dig, inklusive v\xE5r EULA
+      och integritetspolicy.\n\nF\xF6rst och fr\xE4mst, vi m\xE5ste ta upp att QuestCraft,
+      QCXR, Digital Genesis och n\xE5gon av moddarna som ing\xE5r i QuestCraft INTE
+      \xE4r en officiell Minecraft-produkt eller tj\xE4nst. Vi \xE4r inte godk\xE4nda
+      av eller associerade med Mojang eller Microsoft, och eventuella problem g\xE4llande
+      eller \xE4r relaterade till QuestCraft ska ENDAST rapporteras till QuestCrafts
+      personal och support, inklusive problem relaterade till moddar, servrar och
+      tredjepartsbibliotek."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "QuestCraft anv\xE4nder m\xE5nga tredjepartsmodifikationer f\xF6r
+      Minecraft, samt ett bibliotek med \xF6ppen k\xE4llkod f\xF6r att skapa en funktionell
+      och smidig upplevelse f\xF6r v\xE5ra spelare. Dessa kan ses p\xE5 v\xE5r GitHub
+      (https://github.com/QuestCraftPlusPlus/) eller p\xE5 QuestCrafts hemsida https://questcraft.org/open-source/."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Genom att klicka p\xE5 forts\xE4tt samtycker du h\xE4rmed till
+      att du har l\xE4st, f\xF6rst\xE5tt och godk\xE4nner villkoren och upphovsr\xE4ttsinformationen
+      ovan."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: "Forts\xE4tt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Moddpaket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Resurspaket
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: 'Sidor:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: Moddningsverktyg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: "S\xF6k efter en mod s\xE5som: LambDynamicLights"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Installera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: Instans verktyget
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Namn:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: 'Beskrivning:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Uppdatera instans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: Radera instans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: 'Instans-namn:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: Skapa en instans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: Standardmoddar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -111,6 +111,66 @@ MonoBehaviour:
       anteriormente."
     m_Metadata:
       m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Modpacks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Paquetes de Recursos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: "P\xE1gina:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: Administrador de Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: 'Busca un mod como: LambDynamicLights'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Instalar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: "Administraci\xF3n de Mods"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Nombre:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: "Descripci\xF3n:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Actualizar Instancia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: Eliminar Instancia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: 'Nombre de Instancia:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: Crear Instancia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: Mods Predeterminados
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

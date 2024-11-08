@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-LOLCAT (lol)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-LOLCAT (lol)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 5117856857fa1ce4cbb740afc514b345
+  m_SerializeEntries:
+  - m_GUID: fb704849a39ba8140abd6e4352112806
+    m_Address: Main_lol-en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-lol-en
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 202d18ff2356e3177b922c18e387d25e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b489a674090bd2e48a3876c7e05a88be, type: 2}
+    - {fileID: 11400000, guid: 7e0578381219ab94d9ae95e877986fdf, type: 2}

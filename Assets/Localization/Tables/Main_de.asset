@@ -17,7 +17,159 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: Einloggen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: Brauchst du Hilfe?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: Spielen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Instanzen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: Ausloggen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: Du brauchst Hilfe? Kein Problem!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: Trete unserem Discord Server bei.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: Sende den obigen Link an das Support-Team!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: 'Link zum letzten Log:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: Laden...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: Dev Mods | NICHT AKTIVIEREN, ES SEI DENN DU WEISST WAS DU TUST!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: Eigenes RAM Limit | Standard - 1800
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: "Bist du dir sicher, dass du dich ausloggen willst?\nDu wirst deinen
+      Microsoft Account erneut verkn\xFCpfen m\xFCssen!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: "Fortfahren dr\xFCcken wird diese Instanz f\xFCr immer l\xF6schen!\nBist
+      du dir sicher, dass du das tun willst?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Abbrechen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "Willkommen bei QuestCraft!\nBevor du in das Haupterlebnis starten
+      kannst, m\xFCssen wir mit dir \xFCber einige Informationen gehen, unter anderem
+      unsere EULA und Datenschutzrichtlinie.\n\nZuallererst m\xFCssen wir darauf
+      hinweisen, dass QuestCraft, QCXR, Digital Genesis und alle in QuestCraft enthaltenen
+      Mods KEIN offizielles Minecraft-Produkt oder -Service sind. Wir sind weder
+      von Mojang noch von Microsoft anerkannt oder mit ihnen verbunden. Jegliche
+      Probleme, die QuestCraft betreffen oder damit in Verbindung stehen, sind NUR
+      den QuestCraft-Mitarbeitern und dem Support zu melden, einschlie\xDFlich Problemen
+      mit Mods, Servern und Bibliotheken von Dritten."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "Copyright-Hinweis\nQuestCraft nutzt viele Minecraft-Modifikationen
+      von Drittanbietern sowie Open-Source-Bibliotheken, um unseren Spielern eine
+      funktionale und reibungslose Erfahrung zu bieten. Diese k\xF6nnen auf GitHub
+      (https://github.com/QuestCraftPlusPlus/) oder auf der QuestCraft-Website unter
+      https://questcraft.org/open-source/ eingesehen werden."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Mit dem Dr\xFCcken von fortfahren best\xE4tigst du, dass du die
+      Nutzungsbedingungen und Copyright Informationen gelesen, verstanden und akzeptiert
+      hast."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: Fortfahren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Modpacks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Resourcenpakete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: 'Seiten:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: Mod Manager
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: 'Suche nach einer Mod wie: LambDynamicLights'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Installieren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: Instanzmanager
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Name:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: 'Beschreibung:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Instanz aktualisieren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: "Instanz l\xF6schen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: 'Instanzname:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: Instanz erstellen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: Standard Mods
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

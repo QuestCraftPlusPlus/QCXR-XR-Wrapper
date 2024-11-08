@@ -17,7 +17,156 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: bdf8ac680d79c2a8abb5d8f837b91ce5, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 3196004532224
+    m_Localized: Connetti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4709837897728
+    m_Localized: Servi aiuto?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4913781735424
+    m_Localized: Gioca
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5235044450304
+    m_Localized: Istanze
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5309552066560
+    m_Localized: Mods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5380284809216
+    m_Localized: Esci
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5430125723648
+    m_Localized: Servi aiuto? Nessun problema!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5964740100096
+    m_Localized: Unisciti al nostro Discord.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6156986023936
+    m_Localized: Manda il link al nostro supporto!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6288506814464
+    m_Localized: 'Link del log ultimo:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6536948023296
+    m_Localized: Caricamento...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6686902779904
+    m_Localized: Dev Mods | Non attivare se non sai cosa fai!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6978952167424
+    m_Localized: 'Limite RAM: 1800 - Predefinito'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7872364085248
+    m_Localized: Sei sicuro di voler uscire? Dovrai ricollegare il tuo account Microsoft!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8350682513408
+    m_Localized: Sei sicuro di voler eliminare questa istanza?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8806259425280
+    m_Localized: Annulla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427557482496
+    m_Localized: "Benvenuti a QuestCraft!\n\nPrima di poter iniziare la tua esperienza
+      principale, dobbiamo discutere alcune informazioni con te, comprese le nostre
+      condizioni di utilizzo EULA e politica sulla privacy.\n\nIn primo luogo, ci\xF2
+      che dobbiamo dichiarare \xE8 che QuestCraft, QCXR, Digital Genesis e qualsiasi
+      mod incluso all'interno di QuestCraft NON sono un prodotto o servizio ufficiale
+      Minecraft. Non siamo approvati da n\xE9 associati a Mojang o Microsoft, e ogni
+      problema relativo o collegato a QuestCraft deve essere segnalato ESCLUSIVAMENTE
+      ai nostri staff e supporto, compresi problemi relativi a moduli, server e librerie
+      di terze parti."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9491252183040
+    m_Localized: "Nota sui diritti d'autore\n\nQuestCraft utilizza molti modificazioni
+      Minecraft di terze parti, cos\xEC come librerie open-source al fine di creare
+      un'esperienza funzionale e fluida per i nostri giocatori. Queste possono essere
+      visualizzate sul nostro repositorio GitHub (https://github.com/QuestCraftPlusPlus/)
+      oppure sulla nostra pagina web dedicata alle risorse aperte al pubblico a https://questcraft.org/open-source/."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9721599164416
+    m_Localized: "Cliccando, confermi di aver letto e accettato i termini e condizioni
+      e la propriet\xE0 intellettuale."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26999379222528000
+    m_Localized: Continua
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Localized: Pacchetti di modifiche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Localized: Pack di risorse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Localized: 'Pagine:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Localized: Gestore moduli
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Localized: Cerca un modulo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Localized: Installare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Localized: Gestore istanze
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Localized: 'Nome:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Localized: 'Descrizione:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Localized: Monda l'istanza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Localized: Cancella istanza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Localized: 'Nome dell''istanza:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Localized: Creare istanza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Localized: Moduli di default
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

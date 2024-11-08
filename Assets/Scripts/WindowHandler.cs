@@ -5,12 +5,10 @@ using UnityEngine.UI;
 public class WindowHandler : MonoBehaviour
 {
     public GameObject devOptionsMenu;
-    public GameObject loginElements;
     public GameObject legalPanel;
     
     public GameObject mainPanel;
     public TextMeshProUGUI profileNameHolder;
-    public RawImage pfpHolder;
     
     public GameObject modSearchMenu;
     public GameObject modSearchPanel;
@@ -29,22 +27,27 @@ public class WindowHandler : MonoBehaviour
     public GameObject needHelpPanel;
     public SkinHandler skinHandler;
 
-    public async void LoadAv(string username, Material pfpObj)
+    public void LoadAv(string username)
     {
         Debug.Log("QCXR: Getting PFP and Username.");
-        if (username.Length == 0) await UIHandler.GetName(profileNameHolder);
-        skinHandler.LoadSkin(username, pfpObj);
+        UIHandler.GetName(profileNameHolder);
+        skinHandler.LoadSkin(username);
     }
 
+    public void MainPanelSwitch()
+    {
+        mainPanel.SetActive(true);
+        modSearchMenu.SetActive(false);
+        instanceMenu.SetActive(false);
+    }
+    
     public void DevMenuSetter()
     {
-        loginElements.SetActive(false);
 	    devOptionsMenu.SetActive(true);
     }
     
     public void DevMenuUnsetter()
     {
-        loginElements.SetActive(true);
         devOptionsMenu.SetActive(false);
     }
 
@@ -54,7 +57,7 @@ public class WindowHandler : MonoBehaviour
         mainPanel.SetActive(false);
         modInfoMenu.SetActive(false);
     }
-
+    
     public void ModSearchButton()
     {
         instanceMenu.SetActive(false);

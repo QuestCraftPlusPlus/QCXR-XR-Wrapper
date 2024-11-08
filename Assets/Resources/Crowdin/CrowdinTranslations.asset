@@ -12,5 +12,166 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6d0cf29e662434d81aa77b771b11e6, type: 3}
   m_Name: CrowdinTranslations
   m_EditorClassIdentifier: 
-  translationStrings: []
+  translationStrings:
+  - key: Login Button
+    exportedFromTable: Main
+    sourceString: Sign In
+    translations: []
+  - key: Need Help Button
+    exportedFromTable: Main
+    sourceString: Need help?
+    translations: []
+  - key: Play Button
+    exportedFromTable: Main
+    sourceString: Play
+    translations: []
+  - key: Instances Button
+    exportedFromTable: Main
+    sourceString: Instances
+    translations: []
+  - key: Mods Button
+    exportedFromTable: Main
+    sourceString: Mods
+    translations: []
+  - key: Sign Out Button
+    exportedFromTable: Main
+    sourceString: Sign Out
+    translations: []
+  - key: Need Help Header
+    exportedFromTable: Main
+    sourceString: Need help? No problem!
+    translations: []
+  - key: Need Help Subtitle
+    exportedFromTable: Main
+    sourceString: Come join our Discord server.
+    translations: []
+  - key: Need Help Footer
+    exportedFromTable: Main
+    sourceString: Send the link above to our support team!
+    translations: []
+  - key: Latest Log Link Text
+    exportedFromTable: Main
+    sourceString: 'Latest log link:'
+    translations: []
+  - key: Loading
+    exportedFromTable: Main
+    sourceString: Loading...
+    translations: []
+  - key: Dev Mods Button
+    exportedFromTable: Main
+    sourceString: Dev Mods | DO NOT ENABLE UNLESS YOU KNOW WHAT YOU'RE DOING!
+    translations: []
+  - key: Custom Ram Limit Button
+    exportedFromTable: Main
+    sourceString: Custom RAM Limit | Default - 1800
+    translations: []
+  - key: Logout Text
+    exportedFromTable: Main
+    sourceString: 'Are you sure you would like to sign out?
+
+      You will have
+      to re-link your Microsoft account!'
+    translations: []
+  - key: Instance Delete Text
+    exportedFromTable: Main
+    sourceString: 'Pressing continue will delete this instance forever!
+
+      Are
+      you sure you want to do this?'
+    translations: []
+  - key: Cancel
+    exportedFromTable: Main
+    sourceString: Cancel
+    translations: []
+  - key: Legal Header
+    exportedFromTable: Main
+    sourceString: 'Welcome to QuestCraft!
+
+      Before you can jump into the main
+      experiance, we must go over some information with you, including our EULA and
+      Privacy Policy.
+
+
+      First and foremost, we must state that QuestCraft,
+      QCXR, Digital Genesis, and any of the mods included within QuestCraft are NOT
+      an official Minecraft product or service. We are not approved by or associated
+      with Mojang or Microsoft, and any issues reguarding or related to QuestCraft
+      are to be reported ONLY to QuestCraft staff and support, including issues related
+      to mods, servers, and third-party libraries.'
+    translations: []
+  - key: Copyright Notice
+    exportedFromTable: Main
+    sourceString: 'Copyright Notice
+
+      QuestCraft utilizes many third-party Minecraft
+      modifications, as well as open-source libraries in order to create a functional
+      and smooth experiance for our players, these can be viewed on our GitHub (https://github.com/QuestCraftPlusPlus/)
+      or on the QuestCraft website at https://questcraft.org/open-source/.'
+    translations: []
+  - key: Agree Statement
+    exportedFromTable: Main
+    sourceString: By clicking continue, you hereby agree that you have read, understand,
+      and agree to the terms and conditions as well as the copyright information
+      provided above.
+    translations: []
+  - key: Continue
+    exportedFromTable: Main
+    sourceString: Continue
+    translations: []
+  - key: Modpacks
+    exportedFromTable: Main
+    sourceString: Modpacks
+    translations: []
+  - key: Resource Packs
+    exportedFromTable: Main
+    sourceString: Resource Packs
+    translations: []
+  - key: 'Pages:'
+    exportedFromTable: Main
+    sourceString: 'Pages:'
+    translations: []
+  - key: Mod Managment
+    exportedFromTable: Main
+    sourceString: Mod Manager
+    translations: []
+  - key: Placeholder
+    exportedFromTable: Main
+    sourceString: 'Search for a mod like: LambDynamicLights'
+    translations: []
+  - key: Install
+    exportedFromTable: Main
+    sourceString: Install
+    translations: []
+  - key: Instance Managment
+    exportedFromTable: Main
+    sourceString: Instance Manager
+    translations: []
+  - key: Instance Name
+    exportedFromTable: Main
+    sourceString: 'Name:'
+    translations: []
+  - key: Instance Description Text
+    exportedFromTable: Main
+    sourceString: 'Description:'
+    translations: []
+  - key: Update Instance Button
+    exportedFromTable: Main
+    sourceString: Update Instance
+    translations: []
+  - key: Delete Instance Button
+    exportedFromTable: Main
+    sourceString: Delete Instance
+    translations: []
+  - key: Instance Name Setter Text
+    exportedFromTable: Main
+    sourceString: 'Instance Name:'
+    translations: []
+  - key: Create Instance Button
+    exportedFromTable: Main
+    sourceString: Create Instance
+    translations: []
+  - key: Default Mods Toggle
+    exportedFromTable: Main
+    sourceString: Default Mods
+    translations: []
   translationAssets: []

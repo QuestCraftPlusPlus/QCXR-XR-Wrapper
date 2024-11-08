@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using TMPro;
 using UnityEngine;
 
 public class ConfigHandler : MonoBehaviour
 {
+    public TMP_Dropdown accountsDropdown;
     public WindowHandler windowHandler;
     public DevHandler devHandler;
     public Config config;
@@ -27,7 +29,7 @@ public class ConfigHandler : MonoBehaviour
                 devHandler._ramSetterField.text = config.customRAMValue;
                 JNIStorage.apiClass.SetStatic("memoryValue", config.customRAMValue);
             }
-            JNIStorage.instance.instancesDropdown.value = config.lastInstance;
+            JNIStorage.instance.instancesDropdown.value = config.lastSelectedInstance;
         }
         else
         {
@@ -37,7 +39,8 @@ public class ConfigHandler : MonoBehaviour
                 setDevMods = false,
                 setCustomRAM = false,
                 customRAMValue = "2048",
-                lastInstance = 0,
+                lastSelectedInstance = 0,
+                lastSelectedAccount = 0,
                 accounts = new List<Accounts>()
             };
 
@@ -79,7 +82,8 @@ public class ConfigHandler : MonoBehaviour
         public bool setDevMods;
         public bool setCustomRAM;
         public string customRAMValue;
-        public int lastInstance;
+        public int lastSelectedInstance;
+        public int lastSelectedAccount;
         public List<Accounts> accounts;
     }
     

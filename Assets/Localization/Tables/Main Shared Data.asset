@@ -91,6 +91,66 @@ MonoBehaviour:
     m_Key: Agree Statement
     m_Metadata:
       m_Items: []
+  - m_Id: 26999379222528000
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008110677131264
+    m_Key: Modpacks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008222438555648
+    m_Key: Resource Packs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008277950169088
+    m_Key: 'Pages:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27008958438244352
+    m_Key: Mod Managment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27012730992394240
+    m_Key: Placeholder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27013730792833024
+    m_Key: Install
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27014336743931904
+    m_Key: Instance Managment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015318668247040
+    m_Key: Instance Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27015455079596032
+    m_Key: Instance Description Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016080341270528
+    m_Key: Update Instance Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27016478720458752
+    m_Key: Delete Instance Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27017161733505024
+    m_Key: Instance Name Setter Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27020450982199296
+    m_Key: Create Instance Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27021389164118016
+    m_Key: Default Mods Toggle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

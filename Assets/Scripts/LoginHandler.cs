@@ -5,22 +5,26 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.Serialization;
 
 public class LoginHandler : MonoBehaviour
 {
     bool isLoggedIn;
-    private bool hasAttemptedLogin;
     
     [SerializeField] private TMP_Dropdown accountDropdown;
     public List<ConfigHandler.Accounts> accounts = new();
+    private Dictionary<string, string> accountUUIDMap = new();
     private string configPath;
     private string configFile;
     public GameObject loginText;
-    public Material profilePicture;
     public TextMeshProUGUI profileNameHolder;
     public WindowHandler handler;
-    private bool isAnimating;
-
+    public UIHandler UIHandler;
+    public bool isDemoMode;
+    
+    public string selectedAccountUsername;
+    private string selectedAccountUUID;
     private ConfigHandler.Config config;
 
     public void Start()
@@ -35,51 +39,56 @@ public class LoginHandler : MonoBehaviour
 
     public void Login()
     {
-	    if (Application.platform != RuntimePlatform.Android || hasAttemptedLogin) return;
-
-	    string selectedAccount = accountDropdown.options[accountDropdown.value].text;
-	    JNIStorage.apiClass.CallStatic("login", JNIStorage.activity, selectedAccount == "Add Account" ? null : selectedAccount);
+	    if (Application.platform != RuntimePlatform.Android) return;
+		isLoggedIn = false;
+	    selectedAccountUsername = accountDropdown.options[accountDropdown.value].text;
+	    selectedAccountUUID = accountUUIDMap[selectedAccountUsername];
+	    loginText.SetActive(true);
+	    JNIStorage.apiClass.CallStatic("login", JNIStorage.activity, selectedAccountUsername == "Add Account" ? null : selectedAccountUUID);
 	    CheckVerification();
-	    hasAttemptedLogin = true;
+	    isDemoMode = JNIStorage.apiClass.GetStatic<bool>("isDemoMode");
+	    UIHandler.UILoginCheck(isDemoMode);
     }
 
     public void ParseAccounts()
     {
 	    accounts.Clear();
+	    accountUUIDMap.Clear();
+
 	    int i = 0;
-	    foreach (ConfigHandler.Accounts account in config.accounts)
+	    foreach (var account in config.accounts.Where(account => account != null))
 	    {
-		    if (account != null)
-		    {
-			    Debug.Log("Account " + i++);
-			    accounts.Add(account);
-			    Debug.Log("Account " + i++ + " added.");
-		    }
-		    
+		    Debug.Log("Account " + i++);
+		    accounts.Add(account);
+		    accountUUIDMap[account.username] = account.uuid;
+		    Debug.Log("Account " + i++ + " added.");
 	    }
 
 	    Debug.Log("Accounts parsed.");
-	    ConfigHandler.Accounts addAccount = new ConfigHandler.Accounts { username = "Add Account", uuid = "" };
+	    ConfigHandler.Accounts addAccount = new ConfigHandler.Accounts { username = "Add Account", uuid = "null" };
 
 	    if (accounts.Count == 0)
 	    {
 		    Debug.Log("No accounts, using account sign in.");
 		    accounts.Add(addAccount);
+		    accountUUIDMap[addAccount.username] = addAccount.uuid;
 		    accountDropdown.ClearOptions();
 		    accountDropdown.AddOptions(accounts.Select(account => account.username).ToList());
 		    Login();
-		    return;
 	    }
-
-	    accounts.Add(addAccount);
-	    accountDropdown.ClearOptions();
-	    accountDropdown.AddOptions(accounts.Select(account => account.username).ToList());
+	    else
+	    {
+		    accounts.Add(addAccount);
+		    accountUUIDMap[addAccount.username] = addAccount.uuid;
+		    accountDropdown.ClearOptions();
+		    accountDropdown.AddOptions(accounts.Select(account => account.username).ToList());
+	    }
     }
+
 
     
     private async void CheckVerification() {
-	    if (Application.platform != RuntimePlatform.Android)
-		    return;
+	    if (Application.platform != RuntimePlatform.Android) return;
 	    while (isLoggedIn == false)
 	    {
 		    await Task.Delay(1500);
@@ -88,35 +97,49 @@ public class LoginHandler : MonoBehaviour
 		    Debug.Log("Check Login State");
 		    if (JNIStorage.accountObj != null) 
 		    {
-			    handler.LoadAv(profileNameHolder.text, profilePicture);
-			    isLoggedIn = true;
 			    string configFile = File.ReadAllText(configPath);
 			    string accName = JNIStorage.apiClass.GetStatic<string>("profileName");
 			    string accUUID = JNIStorage.apiClass.GetStatic<string>("profileUUID");
+			    Debug.Log("Logged Into " + accName + " | " + accUUID);
+			    loginText.SetActive(false);
+			    isLoggedIn = true;
+			    profileNameHolder.text = accName;
+			    handler.LoadAv(profileNameHolder.text);
 			    config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
-			    config.accounts.Add(new ConfigHandler.Accounts {username = accName, uuid = accUUID});
+			    if (config.accounts.All(account => account.uuid != accUUID))
+			    {
+				    config.accounts.Add(new ConfigHandler.Accounts {username = accName, uuid = accUUID});
+			    }
+			    config.lastSelectedAccount = accountDropdown.value;
 			    string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
 			    File.WriteAllText(configPath, JSON);
 			    ParseAccounts();
-			    loginText.SetActive(false);
 		    }
 	    } 
     }
     
     public void LogoutButton()
     {
-      handler.LogoutWindowSetter();
-      handler.logoutWindow.GetComponent<TextMeshProUGUI>().text = "Are you sure you would like to sign out?";
-    }
-
-    public void Logout()
-    {
-	  isLoggedIn = false;
-	  JNIStorage.accountObj = null;
+		handler.LogoutWindowSetter();
     }
 
     public void RemoveAccount()
     {
-	    // Not implemented
+	    JNIStorage.accountObj = null;
+	    JNIStorage.apiClass.CallStatic<bool>("removeAccount", JNIStorage.activity, selectedAccountUUID);
+	    
+	    configFile = File.ReadAllText(configPath);
+	    config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
+	    
+	    config.accounts.RemoveAll(account => account.username == selectedAccountUsername);
+	    config.lastSelectedAccount = 0;
+	    string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
+	    File.WriteAllText(configPath, JSON);
+	    
+	    accountDropdown.ClearOptions();
+	    accountDropdown.AddOptions(accounts.Select(account => account.username).ToList());
+
+	    handler.LogoutWindowUnsetter();
+	    ParseAccounts();
     }
 }
