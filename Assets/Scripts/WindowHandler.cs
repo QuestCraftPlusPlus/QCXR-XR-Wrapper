@@ -8,8 +8,6 @@ public class WindowHandler : MonoBehaviour
     public GameObject legalPanel;
     
     public GameObject mainPanel;
-    public TextMeshProUGUI profileNameHolder;
-    
     public GameObject modSearchMenu;
     public GameObject modSearchPanel;
     public GameObject modInfoMenu;
@@ -30,7 +28,6 @@ public class WindowHandler : MonoBehaviour
     public void LoadAv(string username)
     {
         Debug.Log("QCXR: Getting PFP and Username.");
-        UIHandler.GetName(profileNameHolder);
         skinHandler.LoadSkin(username);
     }
 

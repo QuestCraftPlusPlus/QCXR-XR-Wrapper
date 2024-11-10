@@ -67,31 +67,29 @@ public class UIHandler : MonoBehaviour
 
     public void UILoginCheck(bool isDemoMode)
     {
-        if ((loginHandler.selectedAccountUsername != null && loginHandler.selectedAccountUsername != "Add Account") || isDemoMode)
+        if (loginHandler.selectedAccountUsername != null && loginHandler.selectedAccountUsername != "Add Account" && !isDemoMode)
         {
             dropdownMain.interactable = true;
             modsButton.interactable = true;
             instancesButton.interactable = true;
             playButton.interactable = true;
         }
-        else
+        else if (loginHandler.selectedAccountUsername == "Add Account")
         {
             dropdownMain.interactable = false;
             modsButton.interactable = false;
             instancesButton.interactable = false;
             playButton.interactable = false;
         }
-    }
-
-    public static async Task GetName(TextMeshProUGUI profileNameHolder)
-    {
-        if (JNIStorage.accountObj != null)
+        else if (loginHandler.selectedAccountUsername != null && isDemoMode)
         {
-            profileName ??= JNIStorage.apiClass.GetStatic<string>("profileName");
-            profileNameHolder.text = profileName;
+            dropdownMain.interactable = false;
+            modsButton.interactable = false;
+            instancesButton.interactable = false;
+            playButton.interactable = true;
         }
     }
-
+    
     void OnToggleClicked(bool value, Toggle clickedToggle)
     {
         if (modManager.isSearching)

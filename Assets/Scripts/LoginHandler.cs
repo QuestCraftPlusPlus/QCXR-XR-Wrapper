@@ -18,7 +18,6 @@ public class LoginHandler : MonoBehaviour
     private string configPath;
     private string configFile;
     public GameObject loginText;
-    public TextMeshProUGUI profileNameHolder;
     public WindowHandler handler;
     public UIHandler UIHandler;
     public bool isDemoMode;
@@ -36,18 +35,17 @@ public class LoginHandler : MonoBehaviour
 	    ParseAccounts();
 	    Login();
     }
-
+	
     public void Login()
     {
 	    if (Application.platform != RuntimePlatform.Android) return;
 		isLoggedIn = false;
 	    selectedAccountUsername = accountDropdown.options[accountDropdown.value].text;
 	    selectedAccountUUID = accountUUIDMap[selectedAccountUsername];
+	    Debug.Log(selectedAccountUUID);
 	    loginText.SetActive(true);
 	    JNIStorage.apiClass.CallStatic("login", JNIStorage.activity, selectedAccountUsername == "Add Account" ? null : selectedAccountUUID);
 	    CheckVerification();
-	    isDemoMode = JNIStorage.apiClass.GetStatic<bool>("isDemoMode");
-	    UIHandler.UILoginCheck(isDemoMode);
     }
 
     public void ParseAccounts()
@@ -84,38 +82,41 @@ public class LoginHandler : MonoBehaviour
 		    accountDropdown.AddOptions(accounts.Select(account => account.username).ToList());
 	    }
     }
-
-
     
     private async void CheckVerification() {
 	    if (Application.platform != RuntimePlatform.Android) return;
-	    while (isLoggedIn == false)
+	    while (!isLoggedIn)
 	    {
 		    await Task.Delay(1500);
-		    
+
 		    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
 		    Debug.Log("Check Login State");
-		    if (JNIStorage.accountObj != null) 
+		    if (JNIStorage.accountObj != JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc"))
 		    {
-			    string configFile = File.ReadAllText(configPath);
-			    string accName = JNIStorage.apiClass.GetStatic<string>("profileName");
-			    string accUUID = JNIStorage.apiClass.GetStatic<string>("profileUUID");
-			    Debug.Log("Logged Into " + accName + " | " + accUUID);
-			    loginText.SetActive(false);
-			    isLoggedIn = true;
-			    profileNameHolder.text = accName;
-			    handler.LoadAv(profileNameHolder.text);
-			    config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
-			    if (config.accounts.All(account => account.uuid != accUUID))
+			    if (JNIStorage.accountObj != null)
 			    {
-				    config.accounts.Add(new ConfigHandler.Accounts {username = accName, uuid = accUUID});
+				    string configFile = File.ReadAllText(configPath);
+				    string accName = JNIStorage.apiClass.GetStatic<string>("profileName");
+				    string accUUID = JNIStorage.apiClass.GetStatic<string>("profileUUID");
+				    Debug.Log("Logged Into " + accName + " | " + accUUID);
+				    loginText.SetActive(false);
+				    isLoggedIn = true;
+				    handler.LoadAv(accName);
+				    config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
+				    if (config.accounts.All(account => account.uuid != accUUID))
+				    {
+					    config.accounts.Add(new ConfigHandler.Accounts { username = accName, uuid = accUUID });
+				    }
+
+				    config.lastSelectedAccount = accountDropdown.value;
+				    string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
+				    File.WriteAllText(configPath, JSON);
+				    isDemoMode = JNIStorage.apiClass.GetStatic<bool>("isDemoMode");
+				    UIHandler.UILoginCheck(isDemoMode);
+				    ParseAccounts();
 			    }
-			    config.lastSelectedAccount = accountDropdown.value;
-			    string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
-			    File.WriteAllText(configPath, JSON);
-			    ParseAccounts();
 		    }
-	    } 
+	    }
     }
     
     public void LogoutButton()
