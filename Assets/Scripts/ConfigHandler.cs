@@ -30,7 +30,7 @@ public class ConfigHandler : MonoBehaviour
                 JNIStorage.apiClass.SetStatic("memoryValue", config.customRAMValue);
             }
             
-            // JNIStorage.instance.instancesDropdown.value = config.lastSelectedInstance;
+            JNIStorage.instance.instancesDropdown.value = config.lastSelectedInstance;
         }
         else
         {

@@ -12,8 +12,8 @@ using UnityEngine.UI;
 
 public class InstanceManager : MonoBehaviour
 {
-    [SerializeField] private GameObject instanceArrayIM;
-    [SerializeField] private GameObject instancePrefabIM;
+    [SerializeField] private GameObject instanceArray;
+    [SerializeField] private GameObject instancePrefab;
     [SerializeField] private TextMeshProUGUI instanceVersion;
     [SerializeField] private TextMeshProUGUI instanceTitle;
     [SerializeField] private RawImage instanceImage;
@@ -41,7 +41,6 @@ public class InstanceManager : MonoBehaviour
         };
         
         loaderDropdown.AddOptions(modLoaders);
-        CreateInstanceArray();
     }
     
     public void UpdateMenu()
@@ -94,9 +93,9 @@ public class InstanceManager : MonoBehaviour
             async Task SetInstanceData()
             {
                 PojlibInstance instance = PojlibInstance.Parse(instanceObj);
-                GameObject instanceGameObject = Instantiate(instancePrefabIM, new Vector3(-10, -10, -10), Quaternion.identity);
+                GameObject instanceGameObject = Instantiate(instancePrefab, new Vector3(-10, -10, -10), Quaternion.identity);
                 instanceGameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = instance.instanceName; instanceGameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = instance.versionName + " - Fabric";
-                instanceGameObject.transform.SetParent(instanceArrayIM.transform, false);
+                instanceGameObject.transform.SetParent(instanceArray.transform, false);
                 instanceGameObject.name = instance.instanceName;
 
                 instanceGameObject.GetComponent<Button>().onClick.AddListener(delegate
@@ -114,14 +113,14 @@ public class InstanceManager : MonoBehaviour
             SetInstanceData();
         }
 
-        if (instanceArrayIM.transform.childCount == 0)
+        if (instanceArray.transform.childCount == 0)
         {
-            GameObject instanceGameObject = Instantiate(instancePrefabIM, new Vector3(-10, -10, -10), Quaternion.identity);
+            GameObject instanceGameObject = Instantiate(instancePrefab, new Vector3(-10, -10, -10), Quaternion.identity);
             instanceGameObject.GetComponentInChildren<RawImage>().texture = errorTexture;
             instanceGameObject.GetComponentInChildren<RawImage>().color = Color.yellow;
             instanceGameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "No instances could be found!";
             instanceGameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Make sure you have an instance downloaded.";
-            instanceGameObject.transform.SetParent(instanceArrayIM.transform, false);
+            instanceGameObject.transform.SetParent(instanceArray.transform, false);
             instanceGameObject.name = "ERROR";
         }
     }
@@ -245,9 +244,9 @@ public class InstanceManager : MonoBehaviour
 
     private void ResetArray()
     {
-        for (int i = instanceArrayIM.transform.childCount - 1; i >= 0; i--)
+        for (int i = instanceArray.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(instanceArrayIM.transform.GetChild(i).gameObject);
+            Destroy(instanceArray.transform.GetChild(i).gameObject);
         }
     }
 }

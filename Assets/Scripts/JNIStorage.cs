@@ -51,10 +51,11 @@ public class JNIStorage : MonoBehaviour
             
             if (!supportedVersions.Contains(name))
             {
-                GameObject instanceGameObject = Instantiate(instancePrefab, new Vector3(-10, -10, -10), Quaternion.identity);
+                supportedVersions.Add(name);
+
+                /*GameObject instanceGameObject = Instantiate(instancePrefab, new Vector3(-10, -10, -10), Quaternion.identity);
                 instanceGameObject.transform.SetParent(instanceArray.transform, false);
                 Debug.Log(name);
-                supportedVersions.Add(name);
                 instanceGameObject.transform.GetComponentInChildren<TextMeshProUGUI>().text = name;
                 instanceGameObject.GetComponent<Toggle>().group = instanceArray.GetComponent<ToggleGroup>();
                 instanceGameObject.name = name;
@@ -72,7 +73,7 @@ public class JNIStorage : MonoBehaviour
                 if (image != null)
                 {
                     apiHandler.DownloadImage(image, instanceGameObject.GetComponentInChildren<RawImage>());
-                }
+                }*/
             }
         }
     }

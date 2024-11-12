@@ -12,17 +12,24 @@ public class InstanceButton : MonoBehaviour
     public string configPath;
 
     public CanvasGroup ScreenFade;
+    
+    public void Update()
+    {
+        if (Application.platform != RuntimePlatform.Android)
+            return;
+        currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+    }
 
-    public static void SelectInstance(string instanceName)
+    public void SelectInstance()
     {
         if (Application.platform != RuntimePlatform.Android) return;
-        currInstName = instanceName;
-        /*configPath = Application.persistentDataPath + "/launcher.conf";
+        currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+        configPath = Application.persistentDataPath + "/launcher.conf";
         string configFile = File.ReadAllText(configPath);
         config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
         config.lastSelectedInstance = JNIStorage.instance.instancesDropdown.value;
         string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
-        File.WriteAllText(configPath, JSON);*/
+        File.WriteAllText(configPath, JSON);
     }
 
     private static void CreateDefaultInstance(string name)
