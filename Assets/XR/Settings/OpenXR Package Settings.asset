@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6bfdbcb316ed242b30a8798c9eb853, type: 3}
   m_Name: KHRSimpleControllerProfile Android
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: Khronos Simple Controller Profile
   version: 0.0.1
   featureIdInternal: com.unity.openxr.feature.input.khrsimpleprofile
@@ -547,6 +547,27 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-1997031300117053994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e42b3b00c18334e89352c69c0add21, type: 3}
+  m_Name: GenericFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 1
+  nameUi: Generic Android Loader
+  version: 1.0.0
+  featureIdInternal: com.zappar.openxr.generic.loader
+  openxrExtensionStrings: 
+  company: Zappar
+  priority: 0
+  required: 0
+  EnableTracker: 0
 --- !u!114 &-1974306435957340132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1192,6 +1213,7 @@ MonoBehaviour:
   - {fileID: 4716802777638266311}
   - {fileID: -2866839366817237755}
   - {fileID: 1122359301451368871}
+  - {fileID: -1997031300117053994}
   - {fileID: -3276684023927252855}
   - {fileID: -6584685598647757048}
   - {fileID: -4735109778570369378}

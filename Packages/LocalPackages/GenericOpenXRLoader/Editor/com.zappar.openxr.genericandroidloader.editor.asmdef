@@ -1,0 +1,20 @@
+{
+    "name": "com.zappar.openxr.genericandroidloader.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:262f913ccd7417c46a908591bd2bb03e",
+        "GUID:4847341ff46394e83bb78fbd0652937e",
+        "GUID:96aa6ba065960476598f8f643e7252b6"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

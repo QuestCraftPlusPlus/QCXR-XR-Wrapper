@@ -16,6 +16,7 @@ MonoBehaviour:
   Values:
   - featureSets:
     - com.meta.openxr.featureset.metaxr
+    - com.zappar.openxr.generic.featureset.loader
   - featureSets:
     - com.meta.openxr.featureset.metaxr
   m_vulkanAdditionalGraphicsQueue: 0
