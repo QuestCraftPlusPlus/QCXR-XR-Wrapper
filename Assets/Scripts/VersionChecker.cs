@@ -6,11 +6,18 @@ public class VersionChecker : MonoBehaviour
 {
     public string currentPublicVersion;
     public TextMeshProUGUI updateText;
+    public TextMeshProUGUI version;
+    string currentVersion;
 
     [ContextMenu("Check Version")]
+    public void Start()
+    {
+        currentVersion = Application.version;
+        version.text = currentVersion;
+    }
+
     public void CheckVersion()
     {
-        string currentVersion = Application.version;
         Debug.Log($"Comparing Current version: {currentVersion} with Latest:{currentPublicVersion}");
         if (Version.Parse(currentVersion) >= Version.Parse(currentPublicVersion))
         {
