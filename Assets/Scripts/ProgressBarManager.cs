@@ -11,8 +11,8 @@ public class ProgressBarManager : MonoBehaviour
     {
         if (Application.platform != RuntimePlatform.Android) return;
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
-
-        if (!string.IsNullOrWhiteSpace(currentFile))
+        
+        if (!JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
         {
             downloadText.gameObject.SetActive(true);
             progressBar.gameObject.SetActive(true);

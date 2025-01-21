@@ -52,28 +52,6 @@ public class JNIStorage : MonoBehaviour
             if (!supportedVersions.Contains(name))
             {
                 supportedVersions.Add(name);
-
-                /*GameObject instanceGameObject = Instantiate(instancePrefab, new Vector3(-10, -10, -10), Quaternion.identity);
-                instanceGameObject.transform.SetParent(instanceArray.transform, false);
-                Debug.Log(name);
-                instanceGameObject.transform.GetComponentInChildren<TextMeshProUGUI>().text = name;
-                instanceGameObject.GetComponent<Toggle>().group = instanceArray.GetComponent<ToggleGroup>();
-                instanceGameObject.name = name;
-
-                instanceGameObject.GetComponent<Toggle>().onValueChanged.AddListener(delegate
-                {
-                    EventSystem.current.SetSelectedGameObject(instanceGameObject);
-                    GameObject instanceObject = GameObject.Find(EventSystem.current.currentSelectedGameObject.transform.name);
-                    if (instanceObject.GetComponent<Toggle>().isOn)
-                    {
-                        InstanceButton.SelectInstance(instanceObject.name);
-                    }
-                });
-                
-                if (image != null)
-                {
-                    apiHandler.DownloadImage(image, instanceGameObject.GetComponentInChildren<RawImage>());
-                }*/
             }
         }
     }

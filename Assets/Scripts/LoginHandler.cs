@@ -112,8 +112,8 @@ public class LoginHandler : MonoBehaviour
 				    string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
 				    File.WriteAllText(configPath, JSON);
 				    isDemoMode = JNIStorage.apiClass.GetStatic<bool>("isDemoMode");
-				    UIHandler.UILoginCheck(isDemoMode);
 				    ParseAccounts();
+				    UIHandler.UILoginCheck(isDemoMode);
 			    }
 		    }
 	    }
