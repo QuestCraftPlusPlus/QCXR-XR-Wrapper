@@ -11,7 +11,7 @@ public class InstanceButton : MonoBehaviour
     private bool hasDefaulted;
     public ConfigHandler.Config config;
     public string configPath;
-
+    public UIHandler uiHandler;
     public CanvasGroup ScreenFade;
     
     public void Update()
@@ -48,6 +48,7 @@ public class InstanceButton : MonoBehaviour
 
             if (!JNIStorage.CheckConnectionAndThrow())
             {
+                uiHandler.SetAndShowError("Unable to contact Microsoft servers, unable to create this instance!");
                 return;
             }
             

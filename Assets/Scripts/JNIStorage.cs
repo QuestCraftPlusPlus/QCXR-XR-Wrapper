@@ -15,7 +15,7 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaObject accountObj;
     public static AndroidJavaObject activity;
     public static AndroidJavaObject instancesObj;
-    public static ConnectionStatus connectionStatus = ConnectionStatus.Checking;
+    public static ConnectionStatus connectionStatus;
     public APIHandler apiHandler;
     public static JNIStorage instance;
     public List<string> supportedVersions;
@@ -27,7 +27,6 @@ public class JNIStorage : MonoBehaviour
 
     public enum ConnectionStatus
     {
-        Checking,
         Connected,
         Disconnected
     }
@@ -36,11 +35,7 @@ public class JNIStorage : MonoBehaviour
     {
         switch (connectionStatus)
         {
-            case ConnectionStatus.Checking:
-                instance.uiHandler.SetAndShowError("Have not finished checked Microsoft connection, please wait a moment.");
-                return false;
             case ConnectionStatus.Disconnected:
-                instance.uiHandler.SetAndShowError("No internet connection. Can't complete operation.");
                 return false;
             case ConnectionStatus.Connected:
             default:

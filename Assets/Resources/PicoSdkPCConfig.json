@@ -1,1 +1,13 @@
-{"general":{"region":"cn"},"account":{"access_token":""},"package":{"package_name":"com.qcxr.qcxr","package_version_code":14,"package_version_name":"5.0.0"}}
+{
+  "general": {
+    "region": "cn"
+  },
+  "account": {
+    "access_token": ""
+  },
+  "package": {
+    "package_name": "com.qcxr.qcxr",
+    "package_version_code": 14,
+    "package_version_name": "5.0.0"
+  }
+}

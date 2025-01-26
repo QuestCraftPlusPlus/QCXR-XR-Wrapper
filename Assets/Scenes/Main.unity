@@ -32100,6 +32100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   configPath: 
+  uiHandler: {fileID: 1460469782}
   ScreenFade: {fileID: 2025190937}
 --- !u!114 &1460469789
 MonoBehaviour:

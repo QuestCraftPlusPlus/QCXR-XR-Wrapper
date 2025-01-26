@@ -29,17 +29,16 @@ public class ModManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI downloadText;
     [SerializeField] private GameObject errorMenu;
     [SerializeField] private GameObject downloadButton;
-    public Texture2D errorTexture;
+    [SerializeField] private Texture2D errorTexture;
     [SerializeField] private TMP_Dropdown instanceDropdown;
     [SerializeField] private TMP_Dropdown mainMenuModDropdown;
     [SerializeField] private TextMeshProUGUI instanceLabel;
+    [SerializeField] private GameObject modButton;
+    [SerializeField] private GameObject modPacksButton;
+    [SerializeField] private GameObject resourcePacksButton;
+    [SerializeField] private TextMeshProUGUI statusText;
+    [SerializeField] private UIHandler uiHandler;
     
-    public GameObject modButton;
-    public GameObject modPacksButton;
-    public GameObject resourcePacksButton;
-
-    public TextMeshProUGUI statusText;
-
     public int page;
     private string currModSlug;
     private string[] currModVersions;
@@ -128,6 +127,7 @@ public class ModManager : MonoBehaviour
             if (queryDownload.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log(queryDownload.error);
+                uiHandler.SetAndShowError("Failed to retrieve mods from Modrinth! Are you offline?");
                 statusText.text = "<color=red>An error occured";
                 return;
             }
