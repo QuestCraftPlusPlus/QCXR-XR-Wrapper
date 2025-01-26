@@ -1,10 +1,13 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.CrashReportHandler;
 using UnityEngine.EventSystems;
+using UnityEngine.Networking;
+using UnityEngine.XR.Management;
 
 public class JNIStorage : MonoBehaviour
 {
@@ -12,6 +15,7 @@ public class JNIStorage : MonoBehaviour
     public static AndroidJavaObject accountObj;
     public static AndroidJavaObject activity;
     public static AndroidJavaObject instancesObj;
+    public static ConnectionStatus connectionStatus = ConnectionStatus.Checking;
     public APIHandler apiHandler;
     public static JNIStorage instance;
     public List<string> supportedVersions;
@@ -20,6 +24,41 @@ public class JNIStorage : MonoBehaviour
     public ConfigHandler configHandler;
     public GameObject instancePrefab;
     public GameObject instanceArray;
+
+    public enum ConnectionStatus
+    {
+        Checking,
+        Connected,
+        Disconnected
+    }
+
+    public static bool CheckConnectionAndThrow()
+    {
+        switch (connectionStatus)
+        {
+            case ConnectionStatus.Checking:
+                instance.uiHandler.SetAndShowError("Have not finished checked Microsoft connection, please wait a moment.");
+                return false;
+            case ConnectionStatus.Disconnected:
+                instance.uiHandler.SetAndShowError("No internet connection. Can't complete operation.");
+                return false;
+            case ConnectionStatus.Connected:
+            default:
+                return true;
+        }
+    }
+
+    static void CloseXR()
+    {
+        XRGeneralSettings.Instance.Manager.activeLoader.Stop();
+        XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
+    }
+    
+    [RuntimeInitializeOnLoadMethod]
+    static void RunOnStart()
+    {
+        Application.unloading += CloseXR;
+    }
 
     private void Start()
     {
@@ -37,6 +76,8 @@ public class JNIStorage : MonoBehaviour
         configHandler.LoadConfig();
         UpdateInstances();
 	    apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
+        
+        CheckConnection();
     }
 
     private void FillSupportedVersions(string[] supportedVersionsArray)
@@ -80,5 +121,22 @@ public class JNIStorage : MonoBehaviour
         string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions");
         FillSupportedVersions(supportedVersionsArray);
         uiHandler.UpdateDropdowns(true, supportedVersions);
+    }
+    
+    public static async void CheckConnection()
+    {
+        UnityWebRequest request = UnityWebRequest.Get("https://piston-meta.mojang.com/mc/game/version_manifest_v2.json");
+        request.SendWebRequest();
+        
+        while (!request.isDone)
+            await Task.Delay(16);
+        
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Unable to contact Mojang servers" + request.error);
+            connectionStatus = ConnectionStatus.Disconnected;
+        }
+
+        connectionStatus = ConnectionStatus.Connected;
     }
 }
