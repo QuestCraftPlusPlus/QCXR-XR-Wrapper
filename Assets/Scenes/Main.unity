@@ -32068,6 +32068,7 @@ MonoBehaviour:
   modPacksButton: {fileID: 675128249}
   resourcePacksButton: {fileID: 290311422}
   statusText: {fileID: 2066776528}
+  uiHandler: {fileID: 1460469782}
   page: 0
   isSearching: 0
 --- !u!114 &1460469785
