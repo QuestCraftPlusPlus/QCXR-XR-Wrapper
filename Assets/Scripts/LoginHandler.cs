@@ -119,11 +119,6 @@ public class LoginHandler : MonoBehaviour
 	    }
     }
     
-    public void LogoutButton()
-    {
-		handler.LogoutWindowSetter();
-    }
-
     public void RemoveAccount()
     {
 	    JNIStorage.accountObj = null;

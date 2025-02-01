@@ -13,7 +13,7 @@ public class UIHandler : MonoBehaviour
     public TMP_Dropdown dropdownModSearch;
     public TMP_Dropdown dropdownModInfo;
     public TMP_Dropdown dropdownInstanceCreator;
-    public Scrollbar legalScrollbar;
+    public GameObject legalContent;
     public GameObject errorMenu;
     public Button legalContinue;
     public Toggle modToggle;
@@ -147,7 +147,7 @@ public class UIHandler : MonoBehaviour
 
     public void UpdateLegalButton()
     {
-        if (legalScrollbar.value == 0)
+        if (legalContent.transform.localPosition.y > 6800f)
         {
             legalContinue.interactable = true;
         }

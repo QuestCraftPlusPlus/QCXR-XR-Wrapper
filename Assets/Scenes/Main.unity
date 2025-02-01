@@ -434,7 +434,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.00024414062}
-  m_SizeDelta: {x: -40, y: 6760.4497}
+  m_SizeDelta: {x: -40, y: 6805.2397}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &21137409
 MonoBehaviour:
@@ -12532,7 +12532,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 872235381}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.0471583
+  m_Size: 0.046862464
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -17767,7 +17767,7 @@ RectTransform:
   m_Father: {fileID: 1878022783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.9528417}
+  m_AnchorMin: {x: 0, y: 0.9531375}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -18208,7 +18208,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -375.02}
-  m_SizeDelta: {x: 948.57, y: 6645.01}
+  m_SizeDelta: {x: 948.57, y: 6689.8}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &899875485
 MonoBehaviour:
@@ -32005,7 +32005,7 @@ MonoBehaviour:
   dropdownModSearch: {fileID: 1778431242}
   dropdownModInfo: {fileID: 1003380043}
   dropdownInstanceCreator: {fileID: 855064047}
-  legalScrollbar: {fileID: 687926829}
+  legalContent: {fileID: 21137407}
   errorMenu: {fileID: 1996973844}
   legalContinue: {fileID: 1588127161}
   modToggle: {fileID: 1789290221}
@@ -48301,7 +48301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -7050.03}
+  m_AnchoredPosition: {x: 0, y: -7094.82}
   m_SizeDelta: {x: 948.57, y: 45.01}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2079810820
