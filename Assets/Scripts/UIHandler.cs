@@ -57,7 +57,11 @@ public class UIHandler : MonoBehaviour
             selectedInstance = dropdownModSearch.value;
             UpdateDropdowns(false, null);
         });
-
+        
+        dropdownMain.interactable = false;
+        modsButton.interactable = false;
+        instancesButton.interactable = false;
+        playButton.interactable = false;
     }
     
     void Update()

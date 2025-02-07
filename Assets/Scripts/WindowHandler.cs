@@ -136,7 +136,7 @@ public class WindowHandler : MonoBehaviour
     }
 
     private bool githubLogAnimating;
-    public void GithugLogSetter()
+    public void GithubLogSetter()
     {
         Debug.Log(githubLogToggle.transform.localPosition);
         if (githubLogAnimating)
