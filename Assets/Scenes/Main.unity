@@ -3403,7 +3403,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 194192003}
+  m_TargetGraphic: {fileID: 2090878021}
   m_Template: {fileID: 303674149}
   m_CaptionText: {fileID: 1760060396}
   m_CaptionImage: {fileID: 0}

@@ -25,8 +25,6 @@ public class UIHandler : MonoBehaviour
     public static int selectedInstance;
     static string pfpUrl;
     static string profileName;
-
-    public LoginHandler loginHandler;
     public ModManager modManager;
 
     void Start()
@@ -69,24 +67,27 @@ public class UIHandler : MonoBehaviour
         minuteHourText.text = time;
     }
 
-    public void UILoginCheck(bool isDemoMode)
+    public void UILoginCheck(bool isDemoMode, string selectedAccountUsername)
     {
-        if (loginHandler.selectedAccountUsername != null && loginHandler.selectedAccountUsername != "Add Account" && !isDemoMode)
+        if (selectedAccountUsername != null && selectedAccountUsername != "Add Account" && !isDemoMode)
         {
+            Debug.Log("Account Handler: All options available.");
             dropdownMain.interactable = true;
             modsButton.interactable = true;
             instancesButton.interactable = true;
             playButton.interactable = true;
         }
-        else if (loginHandler.selectedAccountUsername == "Add Account")
+        else if (selectedAccountUsername == "Add Account")
         {
+            Debug.Log("Account Handler: Add Account selected, all options disabled.");
             dropdownMain.interactable = false;
             modsButton.interactable = false;
             instancesButton.interactable = false;
             playButton.interactable = false;
         }
-        else if (loginHandler.selectedAccountUsername != null && isDemoMode)
+        else if (selectedAccountUsername != null && isDemoMode)
         {
+            Debug.Log("Account Handler: Demo account loaded, only play enabled.");
             dropdownMain.interactable = false;
             modsButton.interactable = false;
             instancesButton.interactable = false;

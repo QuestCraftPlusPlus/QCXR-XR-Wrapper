@@ -111,9 +111,10 @@ public class LoginHandler : MonoBehaviour
 				    config.lastSelectedAccount = accountDropdown.value;
 				    string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
 				    File.WriteAllText(configPath, JSON);
-				    isDemoMode = JNIStorage.apiClass.GetStatic<bool>("isDemoMode");
 				    ParseAccounts();
-				    UIHandler.UILoginCheck(isDemoMode);
+				    isDemoMode = JNIStorage.apiClass.GetStatic<bool>("isDemoMode");
+				    selectedAccountUsername = accName;
+				    UIHandler.UILoginCheck(isDemoMode, selectedAccountUsername);
 			    }
 		    }
 	    }
