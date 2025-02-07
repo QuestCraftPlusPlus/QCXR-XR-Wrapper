@@ -25,7 +25,6 @@ public class UIHandler : MonoBehaviour
     public static int selectedInstance;
     static string pfpUrl;
     static string profileName;
-    private bool erroredConnection;
 
     public LoginHandler loginHandler;
     public ModManager modManager;

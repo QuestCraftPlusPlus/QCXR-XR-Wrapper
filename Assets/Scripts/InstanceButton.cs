@@ -45,12 +45,6 @@ public class InstanceButton : MonoBehaviour
         if (JNIStorage.GetInstance(currInstName) == null)
         {
             Debug.Log("Instance is null!");
-
-            if (!JNIStorage.CheckConnectionAndThrow())
-            {
-                uiHandler.SetAndShowError("Unable to contact Microsoft servers, unable to create this instance!");
-                return;
-            }
             
             CreateDefaultInstance(currInstName);
             return;
@@ -67,22 +61,16 @@ public class InstanceButton : MonoBehaviour
             return; 
         }
 
-        if (!OpenXRFeatureSystemInfo.GetHeadsetName().Contains("PICO"))
+        async Task FinishAnim()
         {
-            Task.Run(() =>
-            {
-                AndroidJNI.AttachCurrentThread();
-                JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj,
-                    instance.raw);
-            });
-        }
-        else
-        {
-            Application.Unload();
-            JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj,
-                instance.raw);
+            await Task.Delay(200);
+            XRGeneralSettings.Instance.Manager.activeLoader.Stop();
+            XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
+            
+            Application.Quit();
+            JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
         }
 
-        JNIStorage.instance.uiHandler.SetAndShowError("Instance is now launching, please wait... (Game will switch automatically when ready)");
+        LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(() => FinishAnim());
     }
 }
