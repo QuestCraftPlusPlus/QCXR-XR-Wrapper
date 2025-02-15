@@ -310,7 +310,7 @@ public class ModManager : MonoBehaviour
         AndroidJavaObject instance = LoadInstance();
         if (instance == null) return;
 
-        DownloadDependenciesAndAddMod(mp, metaInfo, file.url, currentInstanceVer);
+        DownloadDependenciesAndAddMod(mp, metaInfo, file.url, file.filename, currentInstanceVer);
     }    
     
     private void ProcessModpack(MetaParser mp, FileInfo file, string currentInstanceVer)
@@ -351,7 +351,7 @@ public class ModManager : MonoBehaviour
         return currInst.raw;
     }
 
-    private void DownloadDependenciesAndAddMod(MetaParser mp, MetaInfo metaInfo, string modUrl, string currentInstanceVer)
+    private void DownloadDependenciesAndAddMod(MetaParser mp, MetaInfo metaInfo, string modUrl, string fileName, string currentInstanceVer)
     {
         var dependencies = apiHandler.GetModDeps(mp.slug, metaInfo.id);
         if (dependencies != null)
@@ -366,7 +366,7 @@ public class ModManager : MonoBehaviour
                     foreach (var depFile in validDepFiles)
                     {
                         PojlibInstance currInst = JNIStorage.GetInstance(InstanceButton.currInstName);
-                        JNIStorage.apiClass.CallStatic("addExtraProject", JNIStorage.instancesObj, currInst.raw, slug, depInfo.version_number, depFile.url, mp.project_type);
+                        JNIStorage.apiClass.CallStatic("addExtraProject", JNIStorage.instancesObj, currInst.raw, slug, depFile.filename, depInfo.version_number, depFile.url, mp.project_type);
                         Debug.Log($"Downloading Dep with file url {depFile.url}");
                         break;
                     }
@@ -375,7 +375,7 @@ public class ModManager : MonoBehaviour
         }
 
         PojlibInstance inst = JNIStorage.GetInstance(InstanceButton.currInstName);
-        JNIStorage.apiClass.CallStatic("addExtraProject", JNIStorage.instancesObj, inst.raw, mp.slug, metaInfo.version_number, modUrl, mp.project_type);
+        JNIStorage.apiClass.CallStatic("addExtraProject", JNIStorage.instancesObj, inst.raw, mp.slug, fileName, metaInfo.version_number, modUrl, mp.project_type);
         UpdateUIAfterModAddition(mp.slug);
     }
 
@@ -403,14 +403,6 @@ public class ModManager : MonoBehaviour
     {
         errorMenu.GetComponentInChildren<TextMeshProUGUI>().text = message;
         errorMenu.SetActive(true);
-    }
-    
-    private void RemoveMod(string modName)
-    {
-        PojlibInstance currInstName = JNIStorage.GetInstance(InstanceButton.currInstName);
-        JNIStorage.apiClass.CallStatic<bool>("removeExtraProject", JNIStorage.instancesObj, currInstName.raw, modName);
-             downloadText.text = "Install";
-             SearchMods();
     }
 
     public void SearchMods()
