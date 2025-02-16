@@ -51,15 +51,7 @@ public class InstanceButton : MonoBehaviour
         }
 
         PojlibInstance instance = JNIStorage.GetInstance(currInstName);
-        bool finishedDownloading = JNIStorage.apiClass.GetStatic<bool>("finishedDownloading");
-
         instance.raw.Call("updateMods", JNIStorage.instancesObj);
-        
-        if (!finishedDownloading)
-        { 
-            JNIStorage.instance.uiHandler.SetAndShowError(currInstName + " is still installing, please wait until the install has finished.");
-            return; 
-        }
 
         async Task FinishAnim()
         {
