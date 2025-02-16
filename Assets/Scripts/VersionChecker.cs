@@ -18,7 +18,15 @@ public class VersionChecker : MonoBehaviour
 
     public void CheckVersion()
     {
-        Debug.Log($"Comparing Current version: {currentVersion} with Latest:{currentPublicVersion}");
+        Debug.Log($"Comparing Current version: {currentVersion} with Latest: {currentPublicVersion}");
+
+        if (!Version.TryParse(currentVersion, out var unused1) ||
+            !Version.TryParse(currentPublicVersion, out var unused2))
+        {
+            Debug.Log("Couldn't parse one or both versions, assuming latest.");
+            return;
+        }
+        
         if (Version.Parse(currentVersion) >= Version.Parse(currentPublicVersion))
         {
             Debug.Log("Up to date.");
