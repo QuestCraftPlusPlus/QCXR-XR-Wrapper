@@ -15,6 +15,7 @@ public class UIHandler : MonoBehaviour
     public TMP_Dropdown dropdownInstanceCreator;
     public GameObject legalContent;
     public GameObject errorMenu;
+    public GameObject logPanel;
     public Button legalContinue;
     public Toggle modToggle;
     public Toggle modpacksToggle;
@@ -22,10 +23,14 @@ public class UIHandler : MonoBehaviour
     public Button modsButton;
     public Button instancesButton;
     public Button playButton;
+    public Button killButton;
+    public Button logoutButton;
+    public Button needHelpButton;
     public static int selectedInstance;
     static string pfpUrl;
     static string profileName;
     public ModManager modManager;
+    public LoginHandler loginHandler;
 
     void Start()
     {
@@ -67,9 +72,9 @@ public class UIHandler : MonoBehaviour
         minuteHourText.text = time;
     }
 
-    public void UILoginCheck(bool isDemoMode, string selectedAccountUsername)
+    public void UILoginCheck()
     {
-        if (selectedAccountUsername != null && selectedAccountUsername != "Add Account" && !isDemoMode)
+        if (loginHandler.selectedAccountUsername != null && loginHandler.selectedAccountUsername != "Add Account" && !loginHandler.isDemoMode)
         {
             Debug.Log("Account Handler: All options available.");
             dropdownMain.interactable = true;
@@ -77,7 +82,7 @@ public class UIHandler : MonoBehaviour
             instancesButton.interactable = true;
             playButton.interactable = true;
         }
-        else if (selectedAccountUsername == "Add Account")
+        else if (loginHandler.selectedAccountUsername == "Add Account")
         {
             Debug.Log("Account Handler: Add Account selected, all options disabled.");
             dropdownMain.interactable = false;
@@ -85,7 +90,7 @@ public class UIHandler : MonoBehaviour
             instancesButton.interactable = false;
             playButton.interactable = false;
         }
-        else if (selectedAccountUsername != null && isDemoMode)
+        else if (loginHandler.selectedAccountUsername != null && loginHandler.isDemoMode)
         {
             Debug.Log("Account Handler: Demo account loaded, only play enabled.");
             dropdownMain.interactable = false;
@@ -155,5 +160,29 @@ public class UIHandler : MonoBehaviour
         {
             legalContinue.interactable = true;
         }
+    }
+
+    public void PlaySetter()
+    {
+        needHelpButton.interactable = false;
+        logoutButton.interactable = false;
+        dropdownMain.interactable = false;
+        modsButton.interactable = false;
+        instancesButton.interactable = false;
+        playButton.gameObject.SetActive(false);
+        killButton.gameObject.SetActive(true);
+        logPanel.SetActive(true);
+    }   
+    
+    public void KillSetter()
+    {
+        needHelpButton.interactable = true;
+        logoutButton.interactable = true;
+        dropdownMain.interactable = true;
+        modsButton.interactable = true;
+        instancesButton.interactable = true;
+        playButton.gameObject.SetActive(true);
+        killButton.gameObject.SetActive(false);
+        logPanel.SetActive(false);
     }
 }

@@ -114,7 +114,7 @@ public class LoginHandler : MonoBehaviour
 				    ParseAccounts();
 				    isDemoMode = JNIStorage.apiClass.GetStatic<bool>("isDemoMode");
 				    selectedAccountUsername = accName;
-				    UIHandler.UILoginCheck(isDemoMode, selectedAccountUsername);
+				    UIHandler.UILoginCheck();
 			    }
 		    }
 	    }

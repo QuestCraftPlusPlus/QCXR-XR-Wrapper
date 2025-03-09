@@ -9,9 +9,11 @@ public class ProgressBarManager : MonoBehaviour
     public Button playButton;
     public TMP_Dropdown accountDropdown;
     
+    public static bool started = false;
+    
     void Update()
     {
-        if (Application.platform != RuntimePlatform.Android) return;
+        if (Application.platform != RuntimePlatform.Android || started) return;
         string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
         
         if (!JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))

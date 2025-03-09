@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.CrashReportHandler;
@@ -18,6 +20,8 @@ public class JNIStorage : MonoBehaviour
     public ConfigHandler configHandler;
     public GameObject instancePrefab;
     public GameObject instanceArray;
+    
+    public bool connected;
     
     static void CloseXR()
     {
@@ -47,6 +51,7 @@ public class JNIStorage : MonoBehaviour
         configHandler.LoadConfig();
         UpdateInstances();
 	    apiClass.SetStatic("model", OpenXRFeatureSystemInfo.GetHeadsetName());
+        CheckConnection();
     }
 
     private void FillSupportedVersions(string[] supportedVersionsArray)
@@ -90,5 +95,14 @@ public class JNIStorage : MonoBehaviour
         string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions");
         FillSupportedVersions(supportedVersionsArray);
         uiHandler.UpdateDropdowns(true, supportedVersions);
+    }
+    
+    public void CheckConnection()
+    {
+        connected = apiClass.CallStatic<bool>("hasConnection", activity);
+        if (!connected)
+        {
+            uiHandler.SetAndShowError("Unable to connect to Microsoft servers, are you offline? Some features may not work properly!");
+        }
     }
 }

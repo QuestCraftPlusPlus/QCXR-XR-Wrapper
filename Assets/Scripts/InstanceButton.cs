@@ -13,12 +13,25 @@ public class InstanceButton : MonoBehaviour
     public string configPath;
     public UIHandler uiHandler;
     public CanvasGroup ScreenFade;
-    
+    bool gameReady = false;
+
     public void Update()
     {
         if (Application.platform != RuntimePlatform.Android)
             return;
         currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
+        
+        if (JNIStorage.apiClass.GetStatic<bool>("gameReady") && !gameReady) {
+            gameReady = true;
+            async Task FinishAnim()
+            {
+                await Task.Delay(200);
+                XRGeneralSettings.Instance.Manager.activeLoader.Stop();
+                XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
+            }
+            
+            LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(() => FinishAnim());
+        }
     }
 
     public void SelectInstance()
@@ -49,20 +62,22 @@ public class InstanceButton : MonoBehaviour
             CreateDefaultInstance(currInstName);
             return;
         }
-
+        
+        
         PojlibInstance instance = JNIStorage.GetInstance(currInstName);
         instance.raw.Call("updateMods", JNIStorage.instancesObj);
-
-        async Task FinishAnim()
+        uiHandler.PlaySetter();
+        ProgressBarManager.started = true;
+        new Thread(() =>
         {
-            await Task.Delay(200);
-            XRGeneralSettings.Instance.Manager.activeLoader.Stop();
-            XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
-            
-            Application.Quit();
+            AndroidJNI.AttachCurrentThread();
             JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
-        }
 
-        LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(() => FinishAnim());
+        }).Start();
+    }
+
+    public void KillInstance()
+    {
+        JNIStorage.apiClass.CallStatic("restartLauncher", JNIStorage.activity);
     }
 }
