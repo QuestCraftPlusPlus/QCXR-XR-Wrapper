@@ -33,17 +33,11 @@ public class LoadReleases : MonoBehaviour
     [ContextMenu("Generate Releases")] 
     public void LoadChangeLog()
     {
-        async Task AwaitCooldown()
-        {
-            await Task.Delay(10000);
-            cooldown = false;
-        }
-        
         async Task PopulateReleases()
         {
             if (cooldown)
             {
-                await AwaitCooldown();
+                return;
             }
             cooldown = true;
             
@@ -75,7 +69,11 @@ public class LoadReleases : MonoBehaviour
 
                 tags.text = changelogs;
             }
+            
+            await Task.Delay(10000);
+            cooldown = false;
         }
+        
         PopulateReleases();
     }
 
