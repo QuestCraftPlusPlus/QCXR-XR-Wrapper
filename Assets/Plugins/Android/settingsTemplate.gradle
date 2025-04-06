@@ -16,11 +16,11 @@ dependencyResolutionManagement {
         **ARTIFACTORYREPOSITORY**
         google()
         mavenCentral()
-        maven {
-            url = uri("https://jitpack.io")
-        }
         flatDir {
             dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+        maven {
+             url = uri("https://jitpack.io")
         }
     }
 }

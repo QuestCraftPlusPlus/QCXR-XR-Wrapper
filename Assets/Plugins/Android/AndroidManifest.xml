@@ -25,7 +25,6 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <meta-data android:name="com.oculus.supportedDevices" android:value="quest2|questpro|quest3|quest3s" />
     <meta-data android:name="pvr.app.type" android:value="vr"/>
     <meta-data android:name="pvr.display.orientation" android:value="180"/>
     <meta-data android:name="pvr.sdk.version" android:value="OpenXR" />

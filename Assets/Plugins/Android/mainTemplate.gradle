@@ -3,21 +3,24 @@ apply plugin: 'com.android.library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-	implementation("com.google.guava:guava:31.0.1-jre")
-	implementation("commons-io:commons-io:2.11.0")
-	implementation("commons-codec:commons-codec:1.15")
-	implementation("com.microsoft.azure:msal4j:1.17.0")
+    implementation(name: "Pojlib-release", ext: "aar")
+
+    implementation("com.google.guava:guava:31.0.1-jre")
+    implementation("commons-io:commons-io:2.11.0")
+    implementation("commons-codec:commons-codec:1.15")
+    implementation("com.microsoft.azure:msal4j:1.17.0")
+    implementation("com.github.Mathias-Boulay:android_gamepad_remapper:2.0.3")
 **DEPS**}
 
 android {
-	namespace "com.unity3d.player"
-	ndkPath "**NDKPATH**"
+    namespace "com.unity3d.player"
+    ndkPath "**NDKPATH**"
     compileSdkVersion **APIVERSION**
     buildToolsVersion '**BUILDTOOLS**'
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     defaultConfig {
@@ -35,15 +38,11 @@ android {
         abortOnError false
     }
 
-    packagingOptions {
-        pickFirst '**/*.so'
-    }
-    
     aaptOptions {
         noCompress = **BUILTIN_NOCOMPRESS** + unityStreamingAssets.tokenize(', ')
-        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~"
     }**PACKAGING_OPTIONS**
-}**REPOSITORIES**
+}
 **IL_CPP_BUILD_SETUP**
 **SOURCE_BUILD_SETUP**
 **EXTERNAL_SOURCES**

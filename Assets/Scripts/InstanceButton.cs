@@ -65,12 +65,12 @@ public class InstanceButton : MonoBehaviour
         
         
         PojlibInstance instance = JNIStorage.GetInstance(currInstName);
-        instance.raw.Call("updateMods", JNIStorage.instancesObj);
         uiHandler.PlaySetter();
         ProgressBarManager.started = true;
         new Thread(() =>
         {
             AndroidJNI.AttachCurrentThread();
+            JNIStorage.apiClass.CallStatic("prelaunch", JNIStorage.activity, JNIStorage.instancesObj, instance.raw);
             JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
 
         }).Start();
