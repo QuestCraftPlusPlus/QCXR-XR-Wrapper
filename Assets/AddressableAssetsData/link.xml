@@ -8,9 +8,9 @@
     <type fullname="UnityEngine.Localization.Tables.StringTable" preserve="all" />
     <type fullname="UnityEngine.Localization.LocaleIdentifier" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Metadata.MetadataCollection" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Tables.TableEntryData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Tables.DistributedUIDGenerator" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Tables.SharedTableData/SharedTableEntry" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Localization.Tables.TableEntryData" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />

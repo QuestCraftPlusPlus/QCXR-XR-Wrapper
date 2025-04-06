@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Faroese
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Faroese
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ec690df5f08528848b7a9e7da045929b
+  m_SerializeEntries:
+  - m_GUID: 5a5f36c1c9ad952e2af2a0cd66efffd9
+    m_Address: Main_fo
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fo
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 202d18ff2356e3177b922c18e387d25e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d0551fa0e6d815a498278e2718b5caee, type: 2}
+    - {fileID: 11400000, guid: 80398e806fa072c40a29d051613d71fc, type: 2}
