@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.XR;
 using UnityEngine.XR.Management;
 
 public class InstanceButton : MonoBehaviour
@@ -26,8 +28,7 @@ public class InstanceButton : MonoBehaviour
             async Task FinishAnim()
             {
                 await Task.Delay(200);
-                XRGeneralSettings.Instance.Manager.activeLoader.Stop();
-                XRGeneralSettings.Instance.Manager.activeLoader.Deinitialize();
+                XRGeneralSettings.Instance.Manager.DeinitializeLoader();
             }
             
             LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(() => FinishAnim());
