@@ -145,7 +145,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 6.0.0-RC4
+  bundleVersion: 6.0.0-RC4.1
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
@@ -183,9 +183,9 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 37
+  AndroidBundleVersionCode: 38
   AndroidMinSdkVersion: 29
-  AndroidTargetSdkVersion: 34
+  AndroidTargetSdkVersion: 32
   AndroidPreferredInstallLocation: 0
   aotOptions: 
   stripEngineCode: 1
@@ -304,7 +304,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 0a91c2b7810f4b84487460c3c3276866, type: 3}
+      m_Icon: {fileID: 2800000, guid: 839b852ee4fcea3409f7f8e239536537, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -905,7 +905,8 @@ PlayerSettings:
   scriptingBackend:
     Android: 1
   il2cppCompilerConfiguration: {}
-  il2cppCodeGeneration: {}
+  il2cppCodeGeneration:
+    Android: 1
   managedStrippingLevel:
     Android: 1
     EmbeddedLinux: 1
