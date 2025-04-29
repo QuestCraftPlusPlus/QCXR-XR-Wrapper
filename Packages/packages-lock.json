@@ -14,7 +14,9 @@
       "version": "file:LocalPackages/unity.webp",
       "depth": 0,
       "source": "local",
-      "dependencies": {}
+      "dependencies": {
+        "org.nuget.system.runtime.compilerservices.unsafe": "6.0.0"
+      }
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -305,6 +307,13 @@
         "com.unity.xr.core-utils": "2.2.0",
         "com.unity.xr.openxr": "1.8.2"
       }
+    },
+    "org.nuget.system.runtime.compilerservices.unsafe": {
+      "version": "6.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.openupm.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
