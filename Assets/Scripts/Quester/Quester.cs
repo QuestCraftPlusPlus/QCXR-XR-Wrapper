@@ -20,6 +20,7 @@ public class Quester : MonoBehaviour
     [FormerlySerializedAs("Score")] public TextMeshProUGUI ScoreBox;
     public GameObject Obsticle;
     public List<GameObject> Obstacles;
+    public AudioSource keyPop;
 
     private int _score;
     public int score
@@ -148,6 +149,7 @@ public class Quester : MonoBehaviour
         {
             if (Act.action.IsPressed())
                 quest.GetComponent<Rigidbody2D>().AddForce(32 * Time.deltaTime * Vector3.up, ForceMode2D.Impulse);
+            keyPop.Play();
         }
     }
 }
