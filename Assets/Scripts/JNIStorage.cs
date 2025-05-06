@@ -92,7 +92,7 @@ public class JNIStorage : MonoBehaviour
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         activity = jc.GetStatic<AndroidJavaObject>("currentActivity");
         uiHandler.ClearDropdowns();
-        string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions");
+        string[] supportedVersionsArray = apiClass.CallStatic<string[]>("getQCSupportedVersions", activity);
         FillSupportedVersions(supportedVersionsArray);
         uiHandler.UpdateDropdowns(true, supportedVersions);
     }
