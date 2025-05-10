@@ -207,9 +207,16 @@ public class InstanceManager : MonoBehaviour
                 new(675, modObject.GetComponent<RectTransform>().sizeDelta.y);
             modObject.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(delegate
             {
-                JNIStorage.apiClass.CallStatic<bool>("removeExtraProject", JNIStorage.instancesObj, instance.raw, mod.slug);
-                Destroy(modObject.gameObject);
-                CountMods(modArray.transform.childCount - 1);
+                bool deleted = JNIStorage.apiClass.CallStatic<bool>("removeExtraProject", JNIStorage.instancesObj, instance.raw, mod.slug);
+                if (deleted)
+                {
+                    Destroy(modObject.gameObject);
+                    CountMods(modArray.transform.childCount - 1);
+                }
+                else
+                {
+                    JNIStorage.instance.uiHandler.SetAndShowError("Failed to delete this mod, is it a core mod?");
+                }
             });
 
             modObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = mod.title;

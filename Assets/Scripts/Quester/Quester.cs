@@ -139,6 +139,8 @@ public class Quester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        quest.GetComponent<Rigidbody2D>().rotation = 0;
+        
         questerBox.SetActive(ToggleGame.action.IsPressed());
         if (!gameon)
         {
