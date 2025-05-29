@@ -14,16 +14,15 @@ public class ProgressBarManager : MonoBehaviour
     void Update()
     {
         if (Application.platform != RuntimePlatform.Android || started) return;
-        string currentFile = JNIStorage.apiClass.GetStatic<string>("currentDownload");
         
-        if (!JNIStorage.apiClass.GetStatic<bool>("finishedDownloading"))
+        if (!JNIStorage.apiClass.CallStatic<bool>("isDownloadsCompleted"))
         {
             downloadText.gameObject.SetActive(true);
             progressBar.gameObject.SetActive(true);
             playButton.interactable = false;
             accountDropdown.interactable = false;
-            downloadText.text = "Downloading: " + currentFile;
-            progressBar.value = (float)JNIStorage.apiClass.GetStatic<double>("downloadStatus");
+            downloadText.text = "Downloading files...";
+            progressBar.value = JNIStorage.apiClass.CallStatic<float>("getDownloadPercentage");
         }
         else
         {
