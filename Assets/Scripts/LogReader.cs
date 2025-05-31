@@ -16,6 +16,11 @@ public class LogReader : MonoBehaviour
     private void Start()
     {
         logFilePath = Application.persistentDataPath + "/latestlog.txt";
+
+        if (!File.Exists(logFilePath))
+        {
+            File.Create(logFilePath).Close();
+        }
         
         logContent = File.ReadAllText(logFilePath);
         UpdateLogText();

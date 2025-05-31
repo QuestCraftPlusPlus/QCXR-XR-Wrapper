@@ -22,14 +22,18 @@ public class LoginHandler : MonoBehaviour
     public UIHandler UIHandler;
     public bool isDemoMode;
     
-    public string selectedAccountUsername;
+    public string selectedAccountUsername = "Add Account";
     private string selectedAccountUUID;
+    public SkinHandler skinHandler;
     private ConfigHandler.Config config;
 
     public void Start()
     {
-	    Debug.Log(Application.persistentDataPath + "/launcher.conf");
 	    configPath = Application.persistentDataPath + "/launcher.conf";
+	    if (!File.Exists(configPath))
+	    {
+		    File.Create(configPath).Close();
+	    }
 	    configFile = File.ReadAllText(configPath);
 	    config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
 	    ParseAccounts();
@@ -88,11 +92,11 @@ public class LoginHandler : MonoBehaviour
 	    while (!isLoggedIn)
 	    {
 		    await Task.Delay(1500);
-
-		    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
+		    
 		    Debug.Log("Check Login State");
 		    if (JNIStorage.accountObj != JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc"))
 		    {
+			    JNIStorage.accountObj = JNIStorage.apiClass.GetStatic<AndroidJavaObject>("currentAcc");
 			    if (JNIStorage.accountObj != null)
 			    {
 				    string configFile = File.ReadAllText(configPath);
@@ -101,8 +105,8 @@ public class LoginHandler : MonoBehaviour
 				    Debug.Log("Logged Into " + accName + " | " + accUUID);
 				    loginText.SetActive(false);
 				    isLoggedIn = true;
-				    handler.LoadAv(accName);
 				    config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
+				    bool accExists = config.accounts.Any(account => account.username == accName);
 				    if (config.accounts.All(account => account.uuid != accUUID))
 				    {
 					    config.accounts.Add(new ConfigHandler.Accounts { username = accName, uuid = accUUID });
@@ -112,8 +116,21 @@ public class LoginHandler : MonoBehaviour
 				    string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
 				    File.WriteAllText(configPath, JSON);
 				    isDemoMode = JNIStorage.apiClass.GetStatic<bool>("isDemoMode");
+				    if (!accExists)
+				    {
+					    ParseAccounts();
+				    }
+
 				    selectedAccountUsername = accName;
-				    UIHandler.UILoginCheck();
+				    selectedAccountUUID = accUUID;
+				    if (accName != "Add Account")
+				    {
+					    handler.LoadAv(selectedAccountUsername);
+				    }
+				    else
+				    {
+					    handler.LoadAv(accName);
+				    }
 			    }
 		    }
 	    }
@@ -134,8 +151,10 @@ public class LoginHandler : MonoBehaviour
 	    
 	    accountDropdown.ClearOptions();
 	    accountDropdown.AddOptions(accounts.Select(account => account.username).ToList());
+	    selectedAccountUsername = accounts.First().username;
 
 	    handler.LogoutWindowUnsetter();
 	    ParseAccounts();
+	    handler.LoadAv(selectedAccountUsername);
     }
 }
