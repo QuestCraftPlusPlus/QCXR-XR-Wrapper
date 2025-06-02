@@ -15816,7 +15816,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ui Re-Docked To Left Hand
+  m_text: UI Docked to Left Hand
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f35adae8958437040b0fbd16e87d120a, type: 2}
   m_sharedMaterial: {fileID: -3046671735200912922, guid: f35adae8958437040b0fbd16e87d120a,
@@ -33472,6 +33472,7 @@ MonoBehaviour:
   killButton: {fileID: 1759074767}
   logoutButton: {fileID: 1050623001}
   needHelpButton: {fileID: 735380336}
+  pfpUrl: 
   modManager: {fileID: 1460469784}
   loginHandler: {fileID: 1460469796}
 --- !u!114 &1460469783
@@ -33736,6 +33737,7 @@ MonoBehaviour:
   UIHandler: {fileID: 1460469782}
   isDemoMode: 0
   selectedAccountUsername: 
+  skinHandler: {fileID: 0}
 --- !u!114 &1460469797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34894,6 +34896,7 @@ MonoBehaviour:
   UIHandler: {fileID: 0}
   isDemoMode: 0
   selectedAccountUsername: 
+  skinHandler: {fileID: 0}
 --- !u!114 &1588127161
 MonoBehaviour:
   m_ObjectHideFlags: 0
