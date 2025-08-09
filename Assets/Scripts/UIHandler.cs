@@ -75,7 +75,7 @@ public class UIHandler : MonoBehaviour
 
     public void UILoginCheck()
     {
-        if (loginHandler.selectedAccountUsername != null && loginHandler.selectedAccountUsername != "Add Account" && !loginHandler.isDemoMode)
+        if (loginHandler.selectedAccountUsername != "Add Account" && !loginHandler.isDemoMode)
         {
             dropdownMain.interactable = true;
             modsButton.interactable = true;
@@ -89,7 +89,7 @@ public class UIHandler : MonoBehaviour
             instancesButton.interactable = false;
             playButton.interactable = false;
         }
-        else if (loginHandler.selectedAccountUsername != null && loginHandler.isDemoMode)
+        else if (loginHandler.isDemoMode)
         {
             dropdownMain.interactable = false;
             modsButton.interactable = false;

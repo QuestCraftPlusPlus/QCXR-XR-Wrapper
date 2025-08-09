@@ -1,6 +1,7 @@
 using System.Collections;
 using System.IO;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,7 @@ public class LogReader : MonoBehaviour
         logContent = File.ReadAllText(logFilePath);
         UpdateLogText();
 
-        fileWatcher = new FileSystemWatcher(Path.GetDirectoryName(logFilePath))
+        fileWatcher = new FileSystemWatcher(Application.persistentDataPath)
         {
             Filter = Path.GetFileName(logFilePath),
             NotifyFilter = NotifyFilters.LastWrite
@@ -58,7 +59,7 @@ public class LogReader : MonoBehaviour
 
     private void UpdateLogText()
     {
-        if (logText != null)
+        if (logContent != null)
         {
             logText.text = logContent;
             Canvas.ForceUpdateCanvases();

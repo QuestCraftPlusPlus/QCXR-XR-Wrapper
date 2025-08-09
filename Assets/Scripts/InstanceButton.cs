@@ -22,7 +22,7 @@ public class InstanceButton : MonoBehaviour
         if (Application.platform != RuntimePlatform.Android)
             return;
         currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
-        
+
         if (JNIStorage.apiClass.GetStatic<bool>("gameReady") && !gameReady) {
             gameReady = true;
             async Task FinishAnim()
@@ -30,7 +30,7 @@ public class InstanceButton : MonoBehaviour
                 await Task.Delay(200);
                 XRGeneralSettings.Instance.Manager.DeinitializeLoader();
             }
-            
+
             LeanTween.value(ScreenFade.gameObject,0, 1, 1).setOnUpdate(alpha => ScreenFade.alpha = alpha).setOnComplete(() => FinishAnim());
         }
     }
@@ -71,9 +71,16 @@ public class InstanceButton : MonoBehaviour
         new Thread(() =>
         {
             AndroidJNI.AttachCurrentThread();
-            JNIStorage.apiClass.CallStatic("prelaunch", JNIStorage.activity, JNIStorage.instancesObj, instance.raw);
-            JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj, instance.raw);
-
+            if (!JNIStorage.apiClass.CallStatic<bool>("prelaunch", JNIStorage.activity, JNIStorage.instancesObj,
+                    instance.raw))
+            {
+                JNIStorage.instance.uiHandler.SetAndShowError("Prelaunch checks failed!");
+            }
+            else
+            {
+                JNIStorage.apiClass.CallStatic("launchInstance", JNIStorage.activity, JNIStorage.accountObj,
+                    instance.raw);
+            }
         }).Start();
     }
 
