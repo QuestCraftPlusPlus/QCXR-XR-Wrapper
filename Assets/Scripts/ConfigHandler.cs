@@ -52,6 +52,24 @@ public class ConfigHandler : MonoBehaviour
             windowHandler.LegalSetter();
         }
     }
+
+    public void SetLastSelectedInstance(int instance)
+    {
+        string configFile = File.ReadAllText(configPath);
+        config = JsonConvert.DeserializeObject<Config>(configFile);
+        config.lastSelectedInstance = instance;
+        string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
+        File.WriteAllText(configPath, JSON);
+    }
+
+    public void SetLastSelectedAccount(int account)
+    {
+        string configFile = File.ReadAllText(configPath);
+        config = JsonConvert.DeserializeObject<Config>(configFile);
+        config.lastSelectedAccount = account;
+        string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
+        File.WriteAllText(configPath, JSON);
+    }
     
     public void SetMemoryValue()
     {

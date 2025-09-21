@@ -11,8 +11,7 @@ public class InstanceButton : MonoBehaviour
 {
     public static string currInstName;
     private bool hasDefaulted;
-    public ConfigHandler.Config config;
-    public string configPath;
+    public ConfigHandler configHandler;
     public UIHandler uiHandler;
     public CanvasGroup ScreenFade;
     bool gameReady = false;
@@ -39,12 +38,7 @@ public class InstanceButton : MonoBehaviour
     {
         if (Application.platform != RuntimePlatform.Android) return;
         currInstName = JNIStorage.instance.instancesDropdown.options[JNIStorage.instance.instancesDropdown.value].text;
-        configPath = Application.persistentDataPath + "/launcher.conf";
-        string configFile = File.ReadAllText(configPath);
-        config = JsonConvert.DeserializeObject<ConfigHandler.Config>(configFile);
-        config.lastSelectedInstance = JNIStorage.instance.instancesDropdown.value;
-        string JSON = JsonConvert.SerializeObject(config, Formatting.Indented);
-        File.WriteAllText(configPath, JSON);
+        configHandler.SetLastSelectedInstance(JNIStorage.instance.instancesDropdown.value);
     }
 
     private static void CreateDefaultInstance(string name)

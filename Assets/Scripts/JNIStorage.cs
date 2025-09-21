@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.CrashReportHandler;
@@ -103,6 +104,19 @@ public class JNIStorage : MonoBehaviour
         if (!connected)
         {
             uiHandler.SetAndShowError("Unable to connect to Microsoft servers, are you offline? Some features may not work properly!");
+        }
+    }
+
+    public async void FixFilePermissions()
+    {
+        bool result = apiClass.CallStatic<bool>("fixDataPermissions");
+        if (!result)
+        {
+            uiHandler.SetAndShowError("Fixing data permissions failed. Please report this.");
+        }
+        else
+        {
+            uiHandler.SetAndShowError("Fixing data permissions succeeded!");
         }
     }
 }

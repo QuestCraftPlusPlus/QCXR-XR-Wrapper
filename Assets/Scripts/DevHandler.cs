@@ -15,6 +15,7 @@ public class DevHandler : MonoBehaviour
     public Toggle _ramSetterToggle;
     [SerializeField, FormerlySerializedAs("RAMSetterField")]
     public TMP_InputField _ramSetterField;
+    public Button fixFilePerms;
 
     public ConfigHandler configHandler;
     public string configPath;

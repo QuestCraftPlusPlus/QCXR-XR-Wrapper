@@ -82,13 +82,6 @@ public class UIHandler : MonoBehaviour
             instancesButton.interactable = true;
             playButton.interactable = true;
         }
-        else if (loginHandler.selectedAccountUsername == "Add Account")
-        {
-            dropdownMain.interactable = false;
-            modsButton.interactable = false;
-            instancesButton.interactable = false;
-            playButton.interactable = false;
-        }
         else if (loginHandler.isDemoMode)
         {
             dropdownMain.interactable = false;
