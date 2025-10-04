@@ -2,7 +2,7 @@
 [![GPLv3 License](https://img.shields.io/badge/License-GPLv3-green.svg)](https://choosealicense.com/licenses/gpl-3.0/)
 
 A wrapper/launcher made with Unity and Pojlib meant for use in QCXR projects.
-<br>Use Unity Version [2022.3.60f1](https://unity.com/releases/editor/whats-new/2022.3.60) With Android plugin.
+<br>Use Unity Version [2022.3.62f2](https://unity.com/releases/editor/whats-new/2022.3.62f2) With Android plugin.
 
 
 ## Contributing

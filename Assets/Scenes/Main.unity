@@ -33411,6 +33411,7 @@ MonoBehaviour:
   _adbToggle: {fileID: 0}
   _ramSetterToggle: {fileID: 659075708}
   _ramSetterField: {fileID: 1068650133}
+  fixFilePerms: {fileID: 0}
   configHandler: {fileID: 766335867}
   configPath: 
 --- !u!114 &1460469781
@@ -33559,7 +33560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14db1e422cbd8414395decd760288b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configPath: 
+  configHandler: {fileID: 0}
   uiHandler: {fileID: 1460469782}
   ScreenFade: {fileID: 2025190937}
 --- !u!114 &1460469789
