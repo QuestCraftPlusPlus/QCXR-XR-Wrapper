@@ -82,4 +82,10 @@ public class InstanceButton : MonoBehaviour
     {
         JNIStorage.apiClass.CallStatic("restartLauncher", JNIStorage.activity);
     }
+
+    public async void MirrorNativesForInstance()
+    {
+        PojlibInstance instance = JNIStorage.GetInstance(currInstName);
+        JNIStorage.apiClass.CallStatic("mirrorNativesInFolder", JNIStorage.activity, JNIStorage.instancesObj, instance.raw, "/sdcard/Android/data/com.qcxr.qcxr/files/natives");
+    }
 }

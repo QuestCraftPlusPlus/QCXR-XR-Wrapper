@@ -74,6 +74,7 @@ public class PojlibInstance
     public string assetIndex;
     public string assetsDir;
     public string mainClass;
+    public string extraNatives;
     public bool defaultMods;
     public AndroidJavaObject raw;
 
@@ -90,6 +91,7 @@ public class PojlibInstance
         instance.assetIndex = raw.Get<string>("assetIndex");
         instance.assetsDir = raw.Get<string>("assetsDir");
         instance.mainClass = raw.Get<string>("mainClass");
+        instance.extraNatives = raw.Get<string>("extraNatives");
         instance.defaultMods = raw.Get<bool>("defaultMods");
         return instance;
     }
